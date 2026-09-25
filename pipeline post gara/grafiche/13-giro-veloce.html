@@ -1,0 +1,78 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — GIRO VELOCE</title>
+<!-- 13 GIRO VELOCE — il tempo grosso, sul viola.
+     ?storico_id=NNN
+     ⚠⚠ NON si guarda `giro_veloce` da solo. In `session/manager.py` il
+       confronto era `r["discord_id"] == fd.discord_id` e per chi non e' nel
+       roster vale None: `None == None` e' vero, e il giro veloce si accendeva
+       su TUTTI (11 sessioni su 12 con 22 piloti su 22). Corretto nel motore,
+       ma qui si incrocia comunque con `best_di_sessione`, che la vista
+       calcola sul tempo vero: se i due non concordano la grafica LO DICE.
+     A-07, 23/09/2026 — RIFATTA, scelta di Cava (la «A»): il TEMPO gigante in
+       metallo-viola su tutta la larghezza, DAVANTI al busto (un tempo coperto
+       dal casco non si legge: la POLE puo' stare dietro perche' e' una
+       parola); il NOME grande come la 02 con «GIRO VELOCE» in etichetta
+       viola. Il viola vince sul colore della scuderia: e' l'informazione.
+       Vestito: `dhn-qualifica.css` + `dhn-campionato.css` + `dhn-originali.css`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<link rel="stylesheet" href="dhn-originali.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26 ori26 g13" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var segnati = s.righe.filter(function (r) { return r.giro_veloce; });
+    var vero = s.righe.find(function (r) { return r.best_di_sessione; });
+    var p = vero || segnati[0];
+    if (!p) throw new Error("nessun giro cronometrato in questa sessione");
+    if (!p.best_str) throw new Error("il giro veloce di " + (p.nome_da_stampare || "?") + " non ha il tempo (best_str vuoto)");
+    if (segnati.length > 1)
+      DHN.avviso("ATTENZIONE: il giro veloce risulta acceso su " + segnati.length
+               + " piloti. E' il difetto del `None == None` (motore corretto il 02/09): "
+               + "questa sessione e' vecchia. Stampo il tempo VERO piu' basso.");
+    var cosa = "IL GIRO PIU' BASSO " + (s.info.tipo === "gara" ? "DELLA GARA" : "DELLA SESSIONE");
+    document.getElementById("dentro").innerHTML = P.solo(
+      p, "GIRO VELOCE", DHN.occhiello(s.info) + "  ·  " + DHN.titoloTipo(s.info.tipo), null, { nomeGrande: true });
+    var solo = tela.querySelector(".solo");
+    solo.querySelector(".alone").insertAdjacentHTML("afterend", '<div class="fascio"><i></i></div>');
+    solo.querySelector(".velo").insertAdjacentHTML("afterend",
+      '<div class="vignetta"></div><div class="filo-piede"></div>' +
+      '<div class="tempo13"><span>' + esc(p.best_str) + '</span><em>' + cosa + '</em></div>');
+    solo.querySelector(".nomone span").classList.add("metallo");
+    PEZZI.vesti(s.info);
+    document.getElementById("marchio").src = DHN.BRAND;
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.incastraTutte(tela);   /* busto e nome grande */
+    await P.fontPronti(tela);
+
+    /* il tempo: tutta la larghezza (fino a 300 px), subito SOPRA l'etichetta
+       viola, qualunque altezza abbia preso il nome */
+    var tf = solo.querySelector(".tempo13"), sp = tf.firstElementChild;
+    tf.style.fontSize = "100px";
+    if (!sp.offsetWidth) throw new Error("TEMPO: misura a zero (carattere non caricato?)");
+    tf.style.fontSize = Math.min(300, 100 * 1000 / sp.offsetWidth) + "px";
+    var et = solo.querySelector(".etichetta");
+    tf.style.top = (et.offsetTop - tf.offsetHeight - 26) + "px";
+
+    DHN.bottoneScarico(tela, "DHN-giro-veloce-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

@@ -1,0 +1,163 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — PASSO GARA</title>
+<!-- 18 PASSO GARA — 12/09/2026.  ?storico_id=NNN  ?formato=post|storia  ?banco=901
+
+     COSA MOSTRA, E PERCHE' NON C'ERA
+       Chi era davvero veloce, indipendentemente da dove e' arrivato. Le altre
+       diciassette raccontano il RISULTATO; questa racconta il PASSO, che e'
+       un'altra cosa: nel replay del 12/09 avdKatana ha il giro piu' veloce
+       (1:19.098) ma Xawior ha il passo migliore, e a separarli e' la costanza
+       — 0,741 contro 1,722 di scarto fra mediana e miglior giro.
+
+     ⚠ LA MISURA E' LA MEDIANA, NON LA MEDIA. Una sosta o un testacoda
+       spostano la media di secondi e la mediana di niente. Giro 1 escluso
+       (partenza) e giri non validi esclusi: sta nella vista, non qui.
+
+     ⚠ I GIRI VENGONO DALLO SNAPSHOT DEL MOTORE, non dalla tabella `giro`.
+       Quella arriva dagli export RLT, ha un `session_uid` UUID contro il
+       numero UDP di `live_storico` — ZERO righe in comune — e dalla S2 resta
+       vuota per sempre. Il commento e' in `live_publisher._giri_per_auto`. 
+     A-08, 23/09/2026 — RIFATTA, scelta di Cava (la «B»): il PIU' VELOCE in
+       grande in alto (busto nella luce della scuderia, nome e passo giganti in
+       metallo, loghi in file dritte), sotto la lista dal 2° con la barra del
+       distacco e il passo. I loghi della scuderia anche dentro le fasce.
+       Vestito: `dhn-classifica-pelle.css` (pelle cls26 della 03) +
+       `dhn-qualifica.css` + `dhn-numeri.css` (sotto `.tela.num26`).
+     ⚠ La barra si misura sempre dal PRIMO, anche se lui non sta in lista:
+       stesso fondo scala per tutte le righe, se no il grafico mente. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-fondo.css">
+<link rel="stylesheet" href="dhn-classifica-pelle.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-numeri.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela cls26 qual26 num26 g18 pagina-oltre" id="tela">
+  <header class="testata">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <section class="righe" id="righe"></section>
+  <footer class="piede">
+    <div class="nota" id="nota">—</div><div class="filo"></div><img id="marchio2" alt="">
+  </footer>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  function ms(v) {
+    var s = Math.floor(v / 1000), m = Math.floor(s / 60);
+    return (m ? m + ":" : "") + String(s % 60).padStart(m ? 2 : 1, "0") + "." + String(v % 1000).padStart(3, "0");
+  }
+  /* le classi del vestito della riga, come la 03: `su-chiaro` = livrea chiara
+     (lo dice `testo_chiaro` delle squadre), `buio` = livrea quasi nera */
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) { return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : ""); }
+  /* i loghi della scuderia dentro la fascia, in file dritte */
+  function tappeto(r, file, perFila) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var f = ""; for (var c = 0; c < perFila; c++) f += '<img src="' + esc(l) + '" alt="" onload="PEZZI.logoTappeto(this)" onerror="this.style.visibility=\'hidden\'">';
+    var t = ""; for (var k = 0; k < file; k++) t += '<div class="rl">' + f + '</div>';
+    return '<div class="tappeto">' + t + '</div>';
+  }
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) {
+      var u = await DHN.ultimaBuona("gara");
+      if (!u) throw new Error("nessuna gara con piloti riconosciuti");
+      id = u.storico_id;
+    }
+    var s = await DHN.sessione(id);
+    var passo = await DHN.passo(id);
+    if (!passo.length)
+      throw new Error("questa sessione non ha i giri nello snapshot: il motore li allega solo a sessione CHIUSA, e solo dall'11/09");
+
+    /* il passo si appaia alla riga del pilota per car_idx — mai per nome */
+    var perIdx = {};
+    s.righe.forEach(function (r) { if (r.car_idx != null) perIdx[r.car_idx] = r; });
+    var righe = passo.map(function (p) {
+      var r = perIdx[p.car_idx];
+      return r ? Object.assign({}, r, p) : null;
+    }).filter(Boolean);
+    if (!righe.length) throw new Error("nessun pilota agganciato: car_idx del passo non trovato in sessione");
+    /* ⚠ L'ordine sta QUI, non nella fonte: sul banco la vista e' un file
+       JSON che un ordine non ce l'ha (difetto gia' pagato). */
+    righe.sort(function (a, b) { return a.mediana_ms - b.mediana_ms; });
+
+    var quante = storia ? 14 : 11;
+    var vis = righe.slice(0, quante);
+    var mig = vis[0].mediana_ms;
+    /* fondo scala sul peggiore IN PAGINA, minimo 1 s (distacchi da centesimi
+       farebbero barre di rumore) */
+    var scala = Math.max(1000, vis[vis.length - 1].mediana_ms - mig);
+    var c = vis[0], occ = DHN.occhiello(s.info);
+
+    /* ── il piu' veloce, in grande ── */
+    var img = DHN.ritratto(c, "busto"), l = DHN.logo(c.logo_da_stampare), lg = "";
+    if (l) {
+      var rr = ""; for (var k = 0; k < 7; k++) rr += '<img src="' + esc(l) + '" alt="" onerror="this.style.visibility=\'hidden\'">';
+      for (var k2 = 0; k2 < 9; k2++) lg += '<div class="rl">' + rr + '</div>';
+      lg = '<div class="loghi17">' + lg + '</div>';
+    }
+    tela.insertAdjacentHTML("afterbegin",
+      '<div class="e18" style="' + P.tinte(c) + '"><div class="alone"></div>' + lg + '<div class="fascio"><i></i></div>' +
+      '<div class="vano"><span class="senza" style="display:' + (img ? "none" : "grid") + '">' + P.segno(c) + '</span>' +
+        (img ? '<img class="fig" src="' + esc(img) + '" alt="" crossorigin="anonymous" data-ripiego=".senza">' : '') + '</div>' +
+      '<div class="velo"></div>' +
+      '<div class="testo"><div class="tag">PASSO GARA</div><div class="occ">' + esc(occ) + '</div>' +
+        '<div class="n07"><span class="metallo">' + P.nome(c) + '</span></div>' +
+        '<div class="crono"><span class="metallo">' + ms(c.mediana_ms) + '</span></div>' +
+        '<div class="cosa">MEDIANA DEI GIRI VALIDI · GIRO 1 ESCLUSO</div>' +
+        '<div class="extra">MIGLIOR GIRO <b>' + (c.best_ms ? ms(c.best_ms) : "—") + '</b>   ·   ' + esc(c.giri_buoni) + ' GIRI VALIDI</div>' +
+      '</div></div>');
+
+    /* ── la lista dal 2° ── */
+    document.getElementById("righe").innerHTML = vis.slice(1).map(function (r, i) {
+      var dal = r.mediana_ms - mig, q = Math.max(4, 100 - Math.round(dal / scala * 86));
+      return '<div class="riga cls cx' + vestito(r) + '" style="' + P.tinte(r) + '">' +
+        '<div class="pos">' + (i + 2) + '</div>' +
+        '<div class="piastra">' + tappeto(r, 2, 12) +
+          '<span class="stemma">' + P.immagineLogo(r) + '</span>' +
+          '<span class="volto">' + P.faccina(r, "ritrattino") + '</span>' +
+          '<div class="chi"><span class="nome">' + P.nome(r) + '</span></div></div>' +
+        '<div class="misura"><div class="bp"><i style="width:' + q + '%"></i></div>' +
+          '<div class="mis-t"><span>+' + (dal / 1000).toFixed(3) + '</span></div></div>' +
+        '<div class="valore tempo">' + ms(r.mediana_ms) + '</div><div class="mov"></div></div>';
+    }).join("");
+
+    P.vesti(s.info, "");
+    document.getElementById("marchio").src = DHN.BRAND;
+    if (s.info.riconosciuti === 0)
+      DHN.avviso("ZERO piloti riconosciuti dal roster DHN: non pubblicare.");
+
+    P.fondoDhn(tela, { capo: c, secondo: vis[1], contenuto: ".righe" });
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.rifinisci(tela);
+    await P.fontPronti(tela);
+    var e = tela.querySelector(".e18");
+    entra(e.querySelector(".n07"), 600, 130, 34);
+    var f = e.querySelector("img.fig");
+    if (f) {
+      if (!f.complete) await new Promise(function (ok) { f.addEventListener("load", ok); f.addEventListener("error", ok); });
+      if (f.naturalWidth) await P.incastra(f, { quota: 1.25, largoMax: 1.2, giu: -120 });
+    }
+    DHN.bottoneScarico(tela, "DHN-passo-gara-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

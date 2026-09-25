@@ -1,0 +1,13 @@
+{
+  "name": "dhn-posta",
+  "private": true,
+  "type": "module",
+  "description": "POSTA — le 17 grafiche post-gara diventano 17 PNG. Gira sul PC dell'admin (SCARICA_PNG.bat) o su un runner. 12/09/2026.",
+  "scripts": {
+    "banco": "node banco/banco_posta.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.63.0",
+    "sharp": "0.35.4"
+  }
+}

@@ -1,0 +1,138 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — STRATEGIA</title>
+<!-- 14 STRATEGIA — le mescole usate da ogni pilota, in fila.
+     ?storico_id=NNN
+     ⚠ Le mescole sono i codici VISIVI dell'UDP: 16 soft, 17 medium, 18 hard,
+       7 inter, 8 wet (udp/packets.py:587). Non sono il codice "vero" della
+       gomma, e va bene: in DHN la regola e' il cambio mescola obbligatorio,
+       quindi conta cosa si vedeva sulla fiancata.
+     ⚠ `soste` viene da `num_pit_stops`, e puo' NON coincidere col numero di
+       tratte meno uno (un pilota che parte dai box, una bandiera rossa). Si
+       stampano entrambi e non si "corregge" nessuno dei due.
+     ⚠ 23/09/2026 — nel banco 208 (Spa) la seconda gomma di TUTTI arriva col
+       codice 19, che non e' fra i codici visivi: la gomma esce GRIGIA col «?»
+       e la legenda dice «NON RICONOSCIUTA». Non si indovina: e' una domanda a
+       Fede (vedi la NOTE della consegna A-07).
+     A-07, 23/09/2026 — RIFATTA, scelta di Cava (la «A»): una riga per pilota
+       col filo della scuderia, e le GOMME DISEGNATE (gomma nera, fascia della
+       mescola sulla spalla, cerchio con la lettera) al posto delle barre.
+       Cava ha chiesto «quelle Pirelli ufficiali»: il marchio Pirelli non si
+       mette (e' di terzi), la gomma realistica si'. Le tratte non hanno i
+       giri (il dato non c'e'), quindi le gomme sono in fila, non in scala.
+       Tolta dalla riga sotto il titolo la scritta «CAMBIO MESCOLA
+       OBBLIGATORIO» (Cava, 23/09).
+       Vestito: `dhn-qualifica.css` + `dhn-campionato.css` + `dhn-originali.css`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<link rel="stylesheet" href="dhn-originali.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26 ori26 g14" id="tela">
+  <div class="fondo26"></div>
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  /* I colori delle mescole: gli stessi token del design system (--tyre-*),
+     letti dal CSS, non riscritti qui. */
+  var cs = getComputedStyle(document.documentElement);
+  function tinta(v) { var m = /var\((--[\w-]+)\)/.exec(v || ""); return m ? cs.getPropertyValue(m[1]).trim() : ""; }
+
+  /* La gomma, disegnata: battistrada nero con la luce in alto, la spalla con
+     la FASCIA colorata della mescola, il cerchio e il copricerchio con la
+     lettera. Niente marchi. Mescola sconosciuta = fascia grigia a tratti e «?». */
+  var nGomma = 0;
+  function gomma(x) {
+    var k = "g" + (++nGomma), ign = x.sigla === "?";
+    var c = ign ? "#77777f" : (tinta(x.colore) || "#9c9ca0");
+    return '<span class="gomma' + (ign ? " ignota" : "") + '"><svg viewBox="0 0 100 100" aria-label="' + esc(x.sigla) + '">' +
+      '<defs>' +
+        /* la spalla: gomma nera opaca, piu' chiara verso il cerchio */
+        '<radialGradient id="' + k + 'r" cx="50%" cy="46%" r="54%"><stop offset=".58" stop-color="#2a2a30"/><stop offset=".8" stop-color="#18181c"/><stop offset=".96" stop-color="#0b0b0d"/><stop offset="1" stop-color="#030304"/></radialGradient>' +
+        /* il bordo del cerchio: metallo, luce in alto */
+        '<linearGradient id="' + k + 'c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9c9d1"/><stop offset=".45" stop-color="#6e6e78"/><stop offset="1" stop-color="#2c2c33"/></linearGradient>' +
+        /* il copricerchio */
+        '<radialGradient id="' + k + 'd" cx="42%" cy="34%" r="72%"><stop offset="0" stop-color="#34343c"/><stop offset=".7" stop-color="#16161a"/><stop offset="1" stop-color="#0c0c0f"/></radialGradient>' +
+      '</defs>' +
+      '<circle cx="50" cy="50" r="49.5" fill="url(#' + k + 'r)"/>' +
+      '<circle cx="50" cy="50" r="48" fill="none" stroke="#050506" stroke-width="3"/>' +
+      /* i rilievi stampati sulla spalla */
+      '<circle cx="50" cy="50" r="44.5" fill="none" stroke="#34343b" stroke-width=".7"/>' +
+      '<circle cx="50" cy="50" r="33.8" fill="none" stroke="#34343b" stroke-width=".7"/>' +
+      /* la FASCIA della mescola: due archi, come sulla spalla vera */
+      '<circle cx="50" cy="50" r="39" fill="none" stroke="' + c + '" stroke-width="3.6"' +
+        (ign ? ' stroke-dasharray="6 4"' : ' stroke-dasharray="104 18.5" transform="rotate(-62 50 50)"') + '/>' +
+      /* il cerchio e il copricerchio */
+      '<circle cx="50" cy="50" r="31.5" fill="url(#' + k + 'c)"/>' +
+      '<circle cx="50" cy="50" r="28.6" fill="url(#' + k + 'd)"/>' +
+      '<circle cx="50" cy="50" r="20" fill="none" stroke="#2b2b32" stroke-width=".8"/>' +
+      '<text x="50" y="51.5" text-anchor="middle" dominant-baseline="central" font-family="Saira Condensed, sans-serif" font-weight="900" font-size="27" fill="' + c + '">' + esc(x.sigla) + '</text>' +
+      /* la luce sulla gomma, in alto a sinistra */
+      '<path d="M 12 38 A 39 39 0 0 1 52 11.5" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="4" stroke-linecap="round"/>' +
+      '</svg></span>';
+  }
+  function catena(m) {
+    return '<div class="catena">' + m.map(gomma).join('<span class="fr" style="width:30px"></span>') + '</div>';
+  }
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var righe = s.righe.filter(function (r) { return r.pos != null; })
+                       .slice(0, storia ? 14 : 10);
+    if (!righe.length) throw new Error("nessun pilota classificato");
+
+    var usate = {}, ignote = 0;
+    var html = righe.map(function (r) {
+      var m = DHN.mescole(r.mescole);
+      m.forEach(function (x) { usate[x.sigla] = x; if (x.sigla === "?") ignote++; });
+      var gomme = m.length ? catena(m)
+        : '<div class="catena" style="font-family:var(--dhn-testo);font-size:14px;letter-spacing:.24em;color:var(--dhn-dim)">MESCOLE NON REGISTRATE</div>';
+      return '<div class="cr" style="' + P.tinte(r) + '"><div class="p">' + esc(r.pos) + '</div>' +
+        '<div class="n07"><span>' + P.nome(r) + '</span></div>' + gomme +
+        '<div class="soste">' + (r.soste != null ? esc(r.soste) : "—") + '<small>' + (r.soste === 1 ? "SOSTA" : "SOSTE") + '</small></div></div>';
+    }).join("");
+    var nomi = { S: "SOFT", M: "MEDIUM", H: "HARD", I: "INTER", W: "WET", "?": "NON RICONOSCIUTA" };
+    var legenda = ["S", "M", "H", "I", "W", "?"].filter(function (k) { return usate[k]; }).map(function (k) {
+      return '<span>' + gomma(usate[k]) + nomi[k] + '</span>'; }).join("");
+    var sotto = esc(DHN.occhiello(s.info)) + "  ·  " + esc(DHN.titoloTipo(s.info.tipo)) +
+      (s.info.giri_totali ? "  ·  " + s.info.giri_totali + " GIRI" : "");
+
+    document.getElementById("dentro").innerHTML =
+      '<div class="t07"><div class="tag arancio">STRATEGIA</div><div class="sotto26"><span>' + sotto + '</span></div></div>' +
+      '<div class="st14">' + html + '</div>' +
+      '<div class="leg14">' + legenda + '</div>' +
+      '<div class="filo-piede"></div><img class="marchione" src="' + esc(DHN.BRAND) + '" alt="">';
+
+    var conMescole = righe.filter(function (r) { return Array.isArray(r.mescole) && r.mescole.length; }).length;
+    if (!conMescole) DHN.avviso("Nessun pilota ha le mescole nello snapshot: questa grafica resta vuota.");
+    if (ignote) DHN.avviso("ATTENZIONE: " + ignote + " gomme con un codice mescola non riconosciuto (escono grigie col «?»). Va chiesto a Fede.");
+    PEZZI.vesti({ gp_nome: "", round: null });
+    document.getElementById("marchio").src = DHN.BRAND;
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.fontPronti(tela);
+    [].forEach.call(tela.querySelectorAll(".st14 .n07"), function (el) { entra(el, 340, 44, 18); });
+    entra(tela.querySelector(".t07 .sotto26"), 984, 19, 12);
+    DHN.bottoneScarico(tela, "DHN-strategia-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

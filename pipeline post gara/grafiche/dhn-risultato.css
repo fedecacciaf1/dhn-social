@@ -1,0 +1,244 @@
+/* ═══════════ A-03 — IL RISULTATO ALLA F1, VESTITO DHN        23/09/2026 ═══════
+   Lo leggono 01 RISULTATO e 10 SPRINT. Reference `ig_04_podio_round` e
+   `ig_11_sprint`: i primi tre con la figura, il 1° al centro e piu' alto;
+   sotto, la lista nelle righe di A-02 (`.tela.cls26 .riga`, in
+   `dhn-classifica-pelle.css`, che va caricato PRIMA di questo file).
+   Scelte di Cava:
+   · «B, carbone + luce»: la lastra del podio e' CARBONE con la luce della
+     scuderia dietro al pilota e i suoi loghi in file dritte dentro la luce;
+     la cifra gigante e' solo contorno, nel colore della squadra;
+   · «podio 1, nome dentro»: il nome sta in basso DENTRO la lastra, su una
+     sfumatura scura, e la scuderia e' un filo di colore sul bordo basso;
+   · la lista e' carbone, col colore della squadra nel filo a sinistra;
+   · il CARATTERE in stile F1 (largo, pieno, maiuscole e minuscole come e'
+     scritto il nome): la Saira LARGA, cioe' la stessa famiglia della Saira
+     Condensed DHN all'asse di larghezza 118%.
+   ⚠⚠ LA SAIRA LARGA NON E' ANCORA NEL DESIGN SYSTEM: serve il si' di Fede
+     (richiesta nella NOTE.md di A-03). E' servita da qui (`saira-larga-*.woff2`,
+     licenza SIL OFL 1.1, «Copyright 2020 The Saira Project Authors,
+     https://github.com/Omnibus-Type/Saira», come le altre Google Fonts), non da Google, cosi' la
+     vedono uguale il browser e l'esportazione (`posta.mjs` serve i file
+     locali e intercetta Google Fonts). Se Fede dice no: si tolgono le due
+     @font-face qui sotto e tutto ripiega da solo su Titillium Web.
+   ⚠ Tutto sotto `.tela.ris26`: nessun'altra grafica lo vede.
+   ⚠ `.tela.ris26.chiara` = la 10 SPRINT, su fondo chiaro come la F1: in feed
+     la sprint non si confonde con la gara.
+   ============================================================================ */
+
+@font-face { font-family: 'Saira Larga'; font-style: normal; font-weight: 100 900; font-stretch: 50% 125%;
+  font-display: block; src: url(saira-larga-latin.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Saira Larga'; font-style: normal; font-weight: 100 900; font-stretch: 50% 125%;
+  font-display: block; src: url(saira-larga-latin-ext.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+.tela.ris26 { --ris-font: 'Saira Larga', 'Titillium Web', sans-serif; --ris-largo: 118%; }
+
+.tela.ris26 .titolone { padding-top: 20px; }
+.tela.ris26 .titolone .parola-titolo { font-size: 128px; }
+.tela.ris26 .titolone .sotto { margin-top: 10px; font-size: 18px; }
+
+/* ── il corpo: podio + lista. `fondoDhn` lo misura per le bande della ECG ── */
+.tela.ris26 .corpo { position: relative; z-index: 3; flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+.tela.ris26 .podio26 {
+  position: relative; flex: 0 0 auto;
+  display: grid; grid-template-columns: 1fr 1.12fr 1fr; gap: 16px; align-items: end;
+  padding: 26px 44px 0; height: 560px;
+}
+.tela.ris26.storia .podio26 { height: 760px; padding-top: 60px; }
+
+/* ── il gradino: lastra carbone + targa nel colore della scuderia ── */
+.tela.ris26 .gr { position: relative; display: flex; flex-direction: column; min-width: 0; height: 100%; }
+.tela.ris26 .gr.p2 { height: 90%; }
+.tela.ris26 .gr.p3 { height: 84%; }
+.tela.ris26 .gr .lastra {
+  position: relative; flex: 1 1 auto; overflow: hidden; min-height: 0;
+  border-radius: 6px 6px 0 0; background: #121319;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.07);
+}
+/* la luce della scuderia dietro al pilota */
+.tela.ris26 .gr .lastra::before {
+  content: ""; position: absolute; z-index: 0; left: -30%; right: -30%; top: 6%; height: 110%;
+  background: radial-gradient(closest-side, var(--squadra) 0%,
+              color-mix(in srgb, var(--squadra) 40%, transparent) 55%, transparent 100%);
+  opacity: .85;
+}
+/* livrea quasi nera (Cadillac #101014): la luce la fa il SECONDO colore */
+.tela.ris26 .gr.buio .lastra::before {
+  background: radial-gradient(closest-side, var(--squadra2) 0%, transparent 80%); opacity: .35;
+}
+/* il metallo di A-02: filo di luce in alto, luce che scende */
+.tela.ris26 .gr .lastra::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 6;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.62) 0, rgba(255,255,255,.62) 2px, rgba(255,255,255,.2) 5px,
+    rgba(255,255,255,.06) 22%, rgba(0,0,0,0) 50%);
+}
+/* i loghi della scuderia in file dritte, solo dentro la luce (gusto di Cava sulla 02) */
+.tela.ris26 .gr .loghi {
+  position: absolute; inset: -10px; z-index: 1; opacity: .16;
+  display: flex; flex-direction: column; gap: 26px; padding-top: 14px;
+  -webkit-mask: radial-gradient(closest-side at 50% 58%, #000 30%, transparent 80%);
+          mask: radial-gradient(closest-side at 50% 58%, #000 30%, transparent 80%);
+}
+.tela.ris26 .gr .loghi .rl { display: flex; gap: 28px; justify-content: center; }
+.tela.ris26 .gr .loghi .rl:nth-child(even) { transform: translateX(46px); }
+.tela.ris26 .gr .loghi img { width: 58px; height: 42px; object-fit: contain; }
+
+/* la cifra gigante: solo contorno, nel colore della scuderia */
+.tela.ris26 .gr .cifra {
+  position: absolute; z-index: 2; left: 14px; top: -14px;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 250px; line-height: 1;
+  letter-spacing: -.04em; color: transparent;
+  -webkit-text-stroke: 3px color-mix(in srgb, var(--squadra) 80%, #fff 20%);
+}
+.tela.ris26 .gr.p1 .cifra { font-size: 290px; }
+.tela.ris26 .gr.buio .cifra { -webkit-text-stroke-color: var(--squadra2); }
+
+/* il busto: lo piazza la pagina misurando il contorno; senza misura resta in basso */
+.tela.ris26 .gr .vetrina { position: absolute; inset: 0; z-index: 3; overflow: hidden; }
+.tela.ris26 .gr .vetrina .busto26 {
+  position: absolute; left: 50%; bottom: 0; height: 88%; width: auto; max-width: none;
+  transform: translateX(-50%); filter: drop-shadow(0 8px 18px rgba(0,0,0,.45));
+}
+/* senza avatar: numero di gara o iniziale, grande — mai un riquadro vuoto */
+.tela.ris26 .gr .vetrina .senza {
+  position: absolute; inset: 0; display: grid; place-items: center; padding-top: 70px;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 170px; line-height: 1;
+  color: rgba(255,255,255,.9); text-shadow: 0 4px 18px rgba(0,0,0,.35);
+}
+
+/* i punti: arancio DHN, in alto a destra */
+.tela.ris26 .gr .punti {
+  position: absolute; z-index: 7; right: 12px; top: 14px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 76px; padding: 8px 10px 6px; border-radius: 4px;
+  background: var(--dhn-acc); color: #0b0b0f;
+  background-image: linear-gradient(180deg, rgba(255,255,255,.55) 0, rgba(255,255,255,.18) 4px,
+                    rgba(255,255,255,0) 40%, rgba(0,0,0,.12) 100%);
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+}
+.tela.ris26 .gr .punti b { font-family: var(--dhn-num); font-weight: 700; font-size: 40px; line-height: 1; }
+.tela.ris26 .gr .punti i { font-family: var(--dhn-font); font-style: normal; font-weight: 800; font-size: 14px; letter-spacing: .2em; margin-top: 2px; }
+.tela.ris26 .gr.p1 .punti b { font-size: 50px; }
+
+/* la targa DENTRO la lastra (scelta di Cava, «podio 1»): niente striscia a
+   parte, il nome grande in basso su una sfumatura scura, il colore della
+   scuderia in un filo sul bordo basso della lastra */
+.tela.ris26 .gr .lastra {
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.07), inset 0 -6px 0 var(--squadra), 0 12px 28px rgba(0,0,0,.45);
+}
+.tela.ris26 .gr.buio .lastra {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.07), inset 0 -6px 0 var(--squadra2), 0 12px 28px rgba(0,0,0,.45);
+}
+.tela.ris26 .gr .lastra::before { opacity: 1; }
+.tela.ris26 .gr.buio .lastra::before { opacity: .35; }
+.tela.ris26 .gr .vetrina::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 42%; z-index: 5;
+  background: linear-gradient(0deg, rgba(8,9,12,.97) 0%, rgba(8,9,12,.85) 38%, rgba(8,9,12,0) 100%);
+}
+.tela.ris26 .gr .targa {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 8;
+  padding: 0 12px 18px; border-radius: 0 0 6px 6px;
+}
+.tela.ris26 .gr .targa .chi { position: relative; z-index: 1; font-size: 34px; display: flex; justify-content: center; }
+.tela.ris26 .gr.p1 .targa .chi { font-size: 42px; }
+.tela.ris26 .gr .targa .nome {
+  font-family: var(--ris-font); font-weight: 700; font-stretch: var(--ris-largo); font-size: 1em; line-height: 1;
+  text-transform: uppercase; white-space: nowrap; letter-spacing: 0; color: #fff;
+}
+.tela.ris26 .gr .targa .squadra {
+  position: relative; z-index: 1;
+  margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--ris-font); font-weight: 700; font-stretch: var(--ris-largo); font-size: 18px;
+  color: var(--dhn-dim); white-space: nowrap;
+}
+.tela.ris26 .gr .targa .squadra img { height: 22px; width: 30px; object-fit: contain; }
+.tela.ris26 .gr .targa .fl {
+  font-family: var(--dhn-num); font-size: 12px; letter-spacing: .1em;
+  padding: 2px 6px; border-radius: 3px; background: var(--dhn-fl); color: #fff;
+}
+
+/* ── la lista: le righe di A-02, carbone col filo della scuderia ── */
+.tela.ris26 .righe { padding: 22px 44px 70px; gap: 6px; }
+.tela.ris26 .righe .riga { grid-template-columns: 64px 1fr 132px; max-height: 64px; }
+.tela.ris26.storia .righe .riga { max-height: 80px; }
+.tela.ris26 .riga .piastra {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--squadra) 28%, #15161c) 0%, #15161c 45%, #121318 100%);
+  box-shadow: inset 6px 0 0 var(--squadra);
+}
+.tela.ris26 .riga.buio .piastra { box-shadow: inset 6px 0 0 var(--squadra2); }
+.tela.ris26 .riga .chi { font-size: 32px; }
+.tela.ris26 .riga .chi .nome, .tela.ris26 .riga.su-chiaro .chi .nome { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.35); }
+.tela.ris26 .riga .volto .testa-vuota, .tela.ris26 .riga.su-chiaro .volto .testa-vuota { color: rgba(255,255,255,.9); }
+/* sul carbone i loghi restano nei loro colori */
+.tela.ris26 .riga .stemma img, .tela.ris26 .riga.su-chiaro .stemma img,
+.tela.ris26 .riga.stemma-mono .stemma img { filter: none; opacity: 1; }
+.tela.ris26 .riga .chi .gv {
+  font-family: var(--dhn-num); font-weight: 700; font-size: .4em; padding: 2px 6px; border-radius: 3px;
+  background: var(--dhn-fl); color: #fff; letter-spacing: .08em;
+}
+/* il nome della scuderia a destra nella riga, come la reference */
+/* ⚠ margin, NON padding: `PEZZI.sborda()` toglie il padding in px di CSS da
+   una larghezza misurata in px di SCHERMO; con la tela rimpicciolita da
+   `adatta()` (storia, o finestra piccola) il nome della scuderia risultava
+   sempre «largo» e scendeva a 10 px. */
+.tela.ris26 .riga .nomesq {
+  position: relative; z-index: 3; flex: 0 0 auto; margin-right: 16px;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 16px; letter-spacing: .16em;
+  text-transform: uppercase; white-space: nowrap; color: var(--dhn-dim);
+}
+.tela.ris26 .riga .valore { font-size: 32px; }
+.tela.ris26 .riga .valore small {
+  font-family: var(--dhn-font); font-size: 13px; letter-spacing: .16em; margin-left: 5px; color: var(--dhn-dim);
+}
+.tela.ris26 .riga .valore .gap { font-size: 22px; }
+.tela.ris26 .riga .valore .gap.dnf { color: var(--dhn-loss); }
+.tela.ris26 .riga.fuori .piastra { filter: saturate(.35) brightness(.8); }
+
+/* ═══ 10 SPRINT — la stessa grafica su fondo CHIARO (come la F1) ═══
+   Il podio e le righe restano carbone: sul chiaro sono ancora piu' in
+   evidenza. Cambiano il fondo, il titolo e la trama. */
+.tela.ris26.chiara {
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--capo, #ff7000) 16%, #f4f1ea) 0%,
+    #efece4 30%, #ebe7de 72%,
+    color-mix(in srgb, var(--capo, #ff7000) 10%, #e6e2d8) 100%);
+  color: #14141b;
+}
+.tela.ris26.chiara::before {
+  background-size: 14px 14px;
+  background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px);
+}
+.tela.ris26.chiara .titolone .parola-titolo { color: #14141b; }
+.tela.ris26.chiara .titolone .sotto { color: #5d5c58; }
+.tela.ris26.chiara .titolone .sotto b { color: #14141b; }
+.tela.ris26.chiara .testata .campionato { color: #5d5c58; }
+.tela.ris26.chiara .testata .marchio, .tela.ris26.chiara .piede img { filter: invert(1); }
+.tela.ris26.chiara .riga .pos { color: #14141b; }
+.tela.ris26.chiara .piede { background: linear-gradient(0deg, rgba(239,236,228,.95), transparent); }
+.tela.ris26.chiara .dhn-fondo .alone { opacity: .16; }
+.tela.ris26.chiara .dhn-fondo .alone2 { opacity: .08; }
+.tela.ris26.chiara .gr .targa, .tela.ris26.chiara .riga { box-shadow: 0 8px 20px rgba(20,20,27,.22); }
+.tela.ris26.chiara .riga { border-radius: 4px; }
+
+/* ═══ IL CARATTERE IN STILE F1 — Saira larga (vedi la testata) ═══ */
+.tela.ris26 .titolone .parola-titolo,
+.tela.ris26 .titolone .etichetta,
+.tela.ris26 .riga .chi .nome,
+.tela.ris26 .riga .nomesq,
+.tela.ris26 .gr .punti b,
+.tela.ris26 .riga .valore,
+.tela.ris26 .riga .pos,
+.tela.ris26 .gr .cifra,
+.tela.ris26 .gr .vetrina .senza {
+  font-family: var(--ris-font); font-weight: 700; font-stretch: var(--ris-largo); letter-spacing: 0;
+}
+.tela.ris26 .titolone .parola-titolo { font-weight: 800; font-size: 112px; line-height: .95; }
+.tela.ris26 .titolone .etichetta { font-size: 28px; letter-spacing: .06em; }
+.tela.ris26 .gr .cifra { font-weight: 800; }
+/* come la reference: nella lista maiuscole e minuscole, com'e' scritto il nome */
+.tela.ris26 .riga .chi { font-size: 27px; }
+.tela.ris26 .riga .chi .nome { text-transform: none; }
+.tela.ris26 .riga .nomesq { text-transform: none; font-size: 19px; color: rgba(242,240,233,.78); }
+.tela.ris26.chiara .riga .pos { color: #14141b; }

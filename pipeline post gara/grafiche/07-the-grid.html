@@ -1,0 +1,154 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — LA GRIGLIA</title>
+<!-- 07 LA GRIGLIA — l'ordine di partenza.  ?storico_id=NNN (qualifica)  ?da=1|11  ?banco=207
+     ⚠ La griglia NON e' l'ordine d'arrivo della qualifica quando c'e' la
+       sprint a griglia invertita: in quel caso l'ordine vero e' `griglia`
+       della GARA, non `pos` della qualifica. Con ?fonte=griglia questa
+       grafica legge `griglia` di una gara; senza, legge `pos` di una
+       qualifica. Deciderlo qui, non a occhio davanti al risultato.
+     A-05, 23/09/2026 — RIFATTA, scelta di Cava (la «B»): la GRIGLIA VERA.
+       I piloti sulle piazzole, due file sfalsate come sull'asfalto: il 1°
+       DAVANTI A DESTRA (sua regola dalla 06), il 2° a sinistra mezza fila
+       dietro, e cosi' via. GRIGLIA DI PARTENZA in metallo in alto.
+     ⚠ Le piazzole restano figli di `.griglia` e i volti `img.ritrattino`:
+       li cercano i controlli del banco (`controlla_capienza.mjs`).
+     Pagine: 10 per pagina (storia 14); l'ULTIMA pagina ne prende fino a 12
+       (storia 16), cosi' 22 piloti stanno in DUE pagine: ?da=1 e ?da=11.
+     Il vestito sta in `dhn-griglia.css` (sotto `.tela.gri26`). -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-griglia.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela gri26" id="tela">
+  <div class="vignetta"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div id="dentro"></div>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+  var da = Math.max(1, parseInt(DHN.param("da", "1"), 10) || 1);
+  var fonte = DHN.param("fonte", "pos");
+
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) {
+    return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : "");
+  }
+  /* il testo entra nella larghezza: si rimpicciolisce, non si taglia */
+  function entra(el, larga, max, alto) {
+    var sp = el.firstChild; el.style.fontSize = "100px";
+    var w = alto ? sp.offsetHeight : sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.min(max, 100 * larga / w); el.style.fontSize = f + "px"; return f;
+  }
+  /* logo dello stesso colore della livrea (Audi rosso su rosso): monocromo, misurandolo */
+  async function stemmiMono(radice, sel, riga) {
+    var imgs = [].slice.call(radice.querySelectorAll(sel));
+    await Promise.all(imgs.map(function (im) {
+      return im.complete ? null : new Promise(function (ok) { im.addEventListener("load", ok); im.addEventListener("error", ok); });
+    }));
+    imgs.forEach(function (im) {
+      if (!im.naturalWidth) return;
+      var cv = document.createElement("canvas"); cv.width = cv.height = 32;
+      var cx = cv.getContext("2d"); cx.drawImage(im, 0, 0, 32, 32);
+      var d;
+      try { d = cx.getImageData(0, 0, 32, 32).data; }
+      catch (e) { console.warn("stemma non misurabile (" + im.src + "): " + e.message + " — resta a colori"); return; }
+      var t = [0, 0, 0], n = 0;
+      for (var i = 0; i < d.length; i += 4) if (d[i + 3] > 128) { t[0] += d[i]; t[1] += d[i + 1]; t[2] += d[i + 2]; n++; }
+      if (!n) return;
+      var rg = im.closest(riga), c = getComputedStyle(rg).getPropertyValue("--squadra").trim().replace("#", "");
+      var sq = [0, 2, 4].map(function (k) { return parseInt(c.slice(k, k + 2), 16) || 0; });
+      var dist = Math.sqrt(Math.pow(t[0] / n - sq[0], 2) + Math.pow(t[1] / n - sq[1], 2) + Math.pow(t[2] / n - sq[2], 2));
+      if (dist < 90) rg.classList.add("stemma-mono");
+    });
+  }
+
+  /* ── B: la piazzola sulla griglia ── */
+  function postoB(r, posto) {
+    return '<div class="posto riga' + vestito(r) + (posto === 1 ? " primo" : "") + '" style="' + P.tinte(r) + '" data-posto="' + posto + '">' +
+      '<div class="carta"></div>' +
+      '<div class="n7"><span class="metallo">' + posto + '</span></div>' +
+      '<span class="volto">' + P.faccina(r, "ritrattino") + '</span>' +
+      '<div class="dati"><div class="chi"><span class="nome">' + P.nome(r) + '</span></div>' +
+        '<div class="riga2">' + P.immagineLogo(r) + '<span class="valore">' + esc(r.best_str || "—") + '</span></div></div>' +
+    '</div>';
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("qualifica"); if (!u) throw new Error("nessuna qualifica valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var chiave = (fonte === "griglia") ? "griglia" : "pos";
+    var lista = s.righe.filter(function (r) { return r[chiave] != null && r[chiave] > 0; })
+                       .sort(function (x, y) { return x[chiave] - y[chiave]; });
+    if (!lista.length) throw new Error("sessione " + s.info.storico_id + ": nessun pilota con «" + chiave + "»");
+    var quante = storia ? 14 : 10, tetto = storia ? 16 : 12;
+    var restano = lista.filter(function (r) { return r[chiave] >= da; }).length;
+    if (!restano) throw new Error("dalla posizione " + da + " non c'e' nessuno (al via " + lista.length + ")");
+    if (restano <= tetto) quante = restano;              // l'ultima pagina si prende il resto
+    var fetta = lista.filter(function (r) { return r[chiave] >= da && r[chiave] < da + quante; });
+    var ultimo = fetta[fetta.length - 1][chiave];
+    var pagine = (lista.length <= tetto) ? 1 : 2;
+    var pagN = pagine > 1 ? '<span class="pagina-n">' + (da === 1 ? 1 : 2) + '/' + pagine + '</span>' : '';
+    var occ = esc(DHN.occhiello(s.info)) + "  ·  " + (fonte === "griglia" ? "ORDINE DI PARTENZA" : DHN.titoloTipo(s.info.tipo));
+    var seguito = (ultimo < lista.length)
+      ? '<div class="seguito">' + (ultimo + 1) + 'º-' + lista.length + 'º <i></i><i></i><i></i></div>' : '';
+    var capo = lista[0];
+    tela.style.setProperty("--capo", P.col(capo));
+
+    {
+      tela.classList.add("g7b");
+      document.getElementById("dentro").innerHTML =
+        '<div class="asfalto"></div>' +
+        '<div class="parola"><span class="metallo">GRIGLIA DI PARTENZA</span></div>' +
+        '<div class="testa7"><span class="occ">' + occ + '</span>' + pagN + '</div>' +
+        '<section class="griglia piazzole" id="griglia">' +
+          fetta.map(function (r) { return postoB(r, r[chiave]); }).join("") + '</section>' +
+        '<div class="filo-piede"></div><img class="marchione" src="' + esc(DHN.BRAND) + '" alt="">' + seguito;
+    }
+    P.vesti(s.info);
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.fontPronti(tela);
+
+    var W = tela.offsetWidth, H = tela.offsetHeight;
+    {
+      var parola = tela.querySelector(".g7b .parola");
+      var cima = storia ? 150 : 118;
+      parola.style.top = cima + "px";
+      var fp = entra(parola, 984, storia ? 150 : 128);
+      var t7 = tela.querySelector(".g7b .testa7");
+      t7.style.top = (cima + fp * 0.8 + 18) + "px";
+      var y0 = cima + fp * 0.8 + 18 + 34 + (storia ? 70 : 44);   // prima piazzola
+      var y1 = H - 112;                                            // fondo dell'ultima (sopra il piede)
+      var file = Math.ceil(fetta.length / 2);
+      var passo = (y1 - y0) / (file + 0.5);                          // mezza fila di sfalsamento
+      var alto = Math.min(passo * 0.74, storia ? 170 : 150);
+      tela.querySelector(".g7b .asfalto").style.top = (y0 - 60) + "px";
+      [].forEach.call(tela.querySelectorAll(".g7b .posto"), function (el, i) {
+        var destra = (i % 2 === 0);                 // 1°, 3°, 5°... a DESTRA, davanti
+        var fila = Math.floor(i / 2);
+        var y = y0 + fila * passo + (destra ? 0 : passo / 2);
+        el.style.top = y + "px"; el.style.height = alto + "px";
+        el.style.left = destra ? (W - 40 - 490) + "px" : "40px";
+      });
+      tela.querySelectorAll(".g7b .n7").forEach(function (n) { n.style.fontSize = (alto * 0.78) + "px"; });
+      tela.querySelectorAll(".g7b .chi").forEach(function (n) { n.style.fontSize = Math.min(40, alto * 0.27) + "px"; });
+      await stemmiMono(tela, ".g7b .riga2 img", ".posto");
+    }
+    await P.rifinisci(tela);   /* il testo entra, poi le figure si incastrano a gruppo */
+    DHN.bottoneScarico(tela, "DHN-griglia-" + s.info.storico_id + "-da" + da + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

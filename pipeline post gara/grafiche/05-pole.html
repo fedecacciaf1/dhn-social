@@ -1,0 +1,68 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — POLE</title>
+<!-- 05 POLE — il piu' veloce in qualifica.  ?storico_id=NNN (qualifica)  ?banco=207
+     ⚠ IN QUALIFICA `total_race_time_s` MENTE: e' tempo in pista, non un giro
+       (pole 1:17.300 con tot 322). Il metro e' `best_str`, che e' quello che
+       stampa questa grafica.
+     ⚠ E `result_status_name` vale 'not_classified' per quasi tutti: se si
+       guardasse il DNF prima del tipo di sessione, la pole uscirebbe "DNF".
+       La vista lo fa nell'ordine giusto, qui non serve ricontrollarlo.
+     A-04, 23/09/2026 — scelta di Cava (la «C»): come la 02, il NOME a tutta
+       larghezza e «POLE POSITION» in etichetta arancio; in piu' la parola
+       POLE ENORME DIETRO al busto, piena della luce della scuderia. Il
+       vestito della qualifica (grana, fascio di luce, metallo, lastra del
+       tempo) sta in `dhn-qualifica.css`, sotto `.tela.qual26`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post");
+  if (formato === "storia") tela.classList.add("storia");
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("qualifica"); if (!u) throw new Error("nessuna qualifica valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var p = s.righe.find(function (r) { return r.pos === 1; });
+    if (!p) throw new Error("qualifica " + id + ": nessun primo");
+    if (s.info.tipo !== "qualifica")
+      DHN.avviso("ATTENZIONE: la sessione " + (id || s.info.storico_id) + " e' di tipo '" + s.info.tipo + "', non una qualifica.");
+    document.getElementById("dentro").innerHTML = PEZZI.solo(
+      p, "POLE POSITION", DHN.occhiello(s.info),
+      { valore: p.best_str || "—", etichetta: "GIRO SECCO" },
+      { nomeGrande: true });
+    /* i pezzi della qualifica, dentro il pilota solo: POLE dietro, il fascio
+       di luce, la vignetta, il filo del piede; il nome e la lastra del tempo */
+    var solo = tela.querySelector(".solo");
+    var alone = solo.querySelector(".alone");
+    alone.insertAdjacentHTML("afterend",
+      '<div class="fascio"><i></i></div><div class="pole-fondo"><span>POLE</span></div>');
+    solo.querySelector(".velo").insertAdjacentHTML("afterend", '<div class="vignetta"></div><div class="filo-piede"></div>');
+    solo.querySelector(".nomone span").classList.add("metallo");
+    solo.querySelector(".dato").classList.add("lastra");
+    PEZZI.vesti(s.info);
+    DHN.ripiegoImmagini(tela); PEZZI.adatta(tela);
+    await PEZZI.incastraTutte(tela);   /* busto e nome grande */
+    /* POLE: a tutta tela, anche piu' larga di un filo (esce dai bordi come
+       nel post F1). Si misura col carattere vero caricato. */
+    await PEZZI.fontPronti(tela);
+    var pf = solo.querySelector(".pole-fondo"), sp = pf.firstChild;
+    pf.style.fontSize = "100px";
+    if (!sp.offsetWidth) throw new Error("POLE: misura a zero (carattere non caricato?)");
+    pf.style.fontSize = Math.min(700, 100 * 1100 / sp.offsetWidth) + "px";
+    DHN.bottoneScarico(tela, "DHN-pole-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

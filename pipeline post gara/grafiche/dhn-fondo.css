@@ -1,0 +1,88 @@
+/* ===========================================================================
+   DHN — IL FONDO, con la firma del marchio            12/09/2026
+   ---------------------------------------------------------------------------
+   PERCHE' ESISTE
+     Il fondo delle grafiche era lo stesso per tutte e diciassette: puntini e
+     un taglio obliquo. Verdetto di Fede: «lo sfondo e' troppo semplice e
+     ricorda poco la DHN», «quelle linee diagonali non mi fanno impazzire»,
+     «toglierei anche quella diagonalina accanto a classifica, non mi dice
+     nulla». Aveva ragione: un fondo che va bene su tutto non appartiene a
+     niente.
+
+   ⚠⚠ LA LINEA NON E' DISEGNATA, E' RITAGLIATA DAL MARCHIO
+     `dhn-ecg.png` (791x152, 1734 byte) e' la linea ECG che sta DENTRO il logo
+     DHN, estratta dai pixel di `design-system-dhn/loghi/dhn_mark.png` per
+     apertura morfologica: si erode la maschera alpha con un disco di raggio
+     5 — spariscono i tratti sottili, cioe' la linea, restano i blocchi delle
+     lettere — e si tiene la differenza, poi solo le componenti da almeno
+     150 px. E' la regola di casa: le forme si ritagliano dal materiale, non
+     si ridisegnano. Quando la linea esce dal marchio deve PROSEGUIRE quella
+     vera, e questo e' l'unico modo di esserne sicuri.
+   ⚠ La misura del marchio si fa con `alpha > 25`, MAI con `getbbox()`: il
+     residuo Photoroom dava 1042x694 (ratio 1,50), l'inchiostro vero e'
+     972x401 (ratio 2,42). Trappola gia' pagata una volta in questo progetto.
+     Qui la linea serve da MASCHERA: la forma e' del marchio, il colore e'
+     quello di chi comanda la classifica. Cosi' il fondo appartiene a QUESTA
+     grafica e non e' una texture buona per tutte.
+
+   ⚠⚠ LA FIRMA NON VA SOPRA I DATI — vincolo di Fede, 12/09
+     Le due bande (sopra e sotto il blocco di contenuto) NON sono due numeri
+     scritti a mano: le misura `PEZZI.fondoDhn()` dal DOM, dopo che le righe
+     sono state disegnate, e le scrive in `--banda-alta` / `--banda-bassa`.
+     Il battito e' ritagliato dentro quelle bande con `overflow: hidden`,
+     quindi non PUO' finire sopra una riga nemmeno se un giorno le righe
+     diventano dodici. Un vincolo tenuto dalla geometria, non dalla taratura.
+   =========================================================================== */
+
+.tela.con-fondo .dhn-fondo {
+  position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none;
+}
+/* testata, titolo e piede stanno SOPRA il fondo */
+.tela.con-fondo > .testata,
+.tela.con-fondo > .titolo,
+.tela.con-fondo > .piede { position: relative; z-index: 4; }
+
+/* l'alone nel colore di chi comanda: da' la tinta alla pagina senza coprire
+   niente, ed e' l'unico posto in cui il colore di squadra esce dalle righe */
+.tela.con-fondo .dhn-fondo .alone {
+  position: absolute; width: 1250px; height: 1250px; right: -430px; top: -470px;
+  border-radius: 50%; opacity: .26;
+  background: radial-gradient(closest-side, var(--capo, #ff7000) 0%, transparent 72%);
+}
+.tela.con-fondo .dhn-fondo .alone2 {
+  position: absolute; width: 880px; height: 880px; left: -330px; bottom: -300px;
+  border-radius: 50%; opacity: .14;
+  background: radial-gradient(closest-side, var(--capo2, #2b6cff) 0%, transparent 70%);
+}
+
+/* ── le bande: lo spazio libero sopra e sotto il contenuto, misurato ────── */
+.tela.con-fondo .dhn-fondo .banda { position: absolute; left: 0; right: 0; overflow: hidden; }
+.tela.con-fondo .dhn-fondo .banda.alta  { top: 0; height: var(--banda-alta, 300px); }
+.tela.con-fondo .dhn-fondo .banda.bassa { top: var(--banda-bassa, 1200px); bottom: 0; }
+
+.tela.con-fondo .dhn-fondo .battito {
+  position: absolute; display: block;
+  background: linear-gradient(90deg,
+      color-mix(in srgb, var(--capo, #ff7000) 72%, #ffffff) 0%,
+      var(--capo, #ff7000) 46%,
+      color-mix(in srgb, var(--capo, #ff7000) 58%, #ffffff) 100%);
+  /* A-01, 23/09: la linea LISCIA (stessi vertici di dhn-ecg.png, un tratto
+     solo con gli angoli tondi). Il PNG restava a pezzi: «spezzettata cosi'
+     non mi piace» (Cava). dhn-ecg.png resta nella cartella, non si usa piu'. */
+  -webkit-mask: url(dhn-ecg-liscia.svg) no-repeat center / 100% 100%;
+          mask: url(dhn-ecg-liscia.svg) no-repeat center / 100% 100%;
+}
+/* ⚠ Le proporzioni vere della linea sono 5,204 : 1 (791x152). Le misure qui
+   sotto le rispettano: stirarla la fa smettere di essere la linea del logo.
+   ⚠ E il PIAZZAMENTO conta: i picchi — cioe' la parte che fa la firma —
+   stanno fra il 24% e il 34% della linea. Al primo giro il battito stava
+   dietro le righe e di tutta la linea si vedeva solo la CODA PIATTA: una
+   firma nascosta non e' una firma. */
+.tela.con-fondo .dhn-fondo .banda.alta .battito {
+  left: 250px; width: 1180px; height: 227px; bottom: -66px; opacity: .13;
+}
+.tela.con-fondo .dhn-fondo .banda.bassa .battito {
+  left: -120px; width: 980px; height: 188px; top: -34px; opacity: .11;
+}
+
+/* i puntini di serie restano: e' la versione del fondo che a Fede va bene */

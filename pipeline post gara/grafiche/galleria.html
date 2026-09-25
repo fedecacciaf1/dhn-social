@@ -1,0 +1,275 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — GALLERIA GRAFICHE POST-GARA</title>
+<!-- ===========================================================================
+     GALLERIA — da qui si scaricano i PNG. Una pagina, una sessione, dieci
+     grafiche piene.
+     ---------------------------------------------------------------------------
+     PERCHE' COSI' E NON PNG SU SUPABASE
+       Verdetto del 02/09: niente immagini salvate su Supabase. La quota di
+       banda e' gia' stata sforata una volta (31/08: 20 PNG `no-cache` da
+       806 KB, 16 MB a ogni apertura). Qui i PNG nascono nel browser
+       dell'admin e finiscono nella sua cartella Download: zero banda, zero
+       spazio, zero pulizia da fare dopo.
+
+     ⚠ SERVE IL SERVER, NON IL DOPPIO CLIC
+       Aperta da `file://` la galleria si vede ma i riquadri restano NERI:
+       Chrome vieta a una pagina file:// di aprire altre pagine file:// negli
+       iframe. E' lo stesso motivo scritto in GALLERIA_OVERLAY.bat. Si apre
+       con GRAFICHE_POST_GARA.bat.
+
+     ⚠ LE SESSIONI NON BUONE SI VEDONO, MARCATE
+       Una sessione con zero piloti riconosciuti e' una lobby di prova o un
+       roster non caricato. Non la nascondo: la mostro in rosso e con il
+       motivo, se no il giorno che tutte diventano rosse nessuno se ne accorge.
+     =========================================================================== -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<style>
+  /* ⚠ serve `body.dhn-palco`, non `body`: la classe del foglio condiviso
+     mette display:flex e una regola di elemento non la batte. */
+  body.dhn-palco { display: block; padding: 0; background: #0c0c10; }
+  .barra {
+    position: sticky; top: 0; z-index: 20; display: flex; align-items: center;
+    gap: 18px; flex-wrap: wrap; padding: 16px 22px;
+    background: #101017; border-bottom: 1px solid #ffffff14;
+  }
+  .barra h1 {
+    font-family: var(--dhn-font); font-weight: 900; font-size: 26px;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+  .barra h1 span { color: var(--dhn-acc); }
+  select, .bott {
+    font-family: var(--dhn-testo); font-size: 14px; font-weight: 600;
+    background: #1b1b24; color: var(--dhn-txt); border: 1px solid #ffffff1f;
+    border-radius: 3px; padding: 9px 12px; cursor: pointer;
+  }
+  .bott.forte { background: var(--dhn-acc); color: #08080b; border-color: transparent; font-weight: 800; }
+  /* la fascia del banco non deve coprire la barra dei comandi */
+  .dhn-avviso { position: static; }
+  .avvisone {
+    margin: 0; padding: 12px 22px; font-family: var(--dhn-testo); font-size: 14px;
+    background: #3a1010; color: #ffd9d6; border-bottom: 1px solid #ffffff14;
+  }
+  .schede { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; padding: 22px; }
+  .scheda { background: #14141b; border: 1px solid #ffffff12; border-radius: 5px; overflow: hidden; }
+  .scheda header {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 11px 14px; background: #191922;
+  }
+  .scheda header b {
+    font-family: var(--dhn-font); font-weight: 800; font-size: 17px; letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+  .scheda header .cosa { font-family: var(--dhn-testo); font-size: 12px; color: var(--dhn-dim); }
+  .telaio { position: relative; width: 100%; aspect-ratio: 1080 / 1350; background: #08080b; }
+  .telaio.storia { aspect-ratio: 1080 / 1920; }
+  .telaio iframe {
+    position: absolute; top: 0; left: 0; width: 1080px; border: 0;
+    transform-origin: top left; pointer-events: none;
+  }
+  .scheda footer { display: flex; gap: 8px; padding: 10px 14px 14px; }
+  .scheda footer a, .scheda footer button {
+    font-family: var(--dhn-testo); font-size: 12.5px; font-weight: 700;
+    letter-spacing: .06em; text-decoration: none; border-radius: 3px; padding: 8px 11px;
+    background: #22222c; color: var(--dhn-txt); border: 0; cursor: pointer;
+  }
+  .scheda footer button.png { background: var(--dhn-acc); color: #08080b; }
+  .stato { padding: 0 22px 26px; font-family: var(--dhn-testo); font-size: 13px; color: var(--dhn-dim); }
+  .rossa { color: #ff8a80; }
+</style>
+<body class="dhn-palco">
+<div class="barra">
+  <h1>GALLERIA <span>POST-GARA</span></h1>
+  <a class="bott" href="colori-scuderie.html" target="_blank">◧ controlla i colori</a>
+  <select id="sessioni"></select>
+  <select id="formato">
+    <option value="post">post 1080×1350</option>
+    <option value="storia">storia 1080×1920</option>
+  </select>
+  <button class="bott" id="ricarica">↻ ricarica</button>
+  <button class="bott forte" id="tutte">⤓ scarica tutte</button>
+  <span class="stato" id="conta" style="padding:0"></span>
+</div>
+<div id="avvisone"></div>
+<div class="schede" id="schede"></div>
+<div class="stato" id="piede"></div>
+
+<script src="dhn-dati.js"></script>
+<script>
+/* I dieci template, con il tipo di sessione a cui servono. `chiede` dice a
+   quale sessione va agganciata la grafica: `gara` prende l'ultima gara,
+   `qualifica` l'ultima qualifica. Cosi' scegliendo il GP dall'elenco si
+   riempiono tutte e dieci da sole, senza incollare dieci indirizzi. */
+var TEMPLATE = [
+  { f: "01-race-result.html",       t: "Race result",   c: "podio + P4-P10",        chiede: "gara" },
+  { f: "02-winner.html",            t: "Vincitore",     c: "il primo, a tutta pagina", chiede: "gara" },
+  { f: "03-driver-standings.html",  t: "Classifica piloti", c: "campionato dopo la gara", chiede: "gara" },
+  { f: "04-team-standings.html",    t: "Classifica scuderie", c: "squadre dal gioco", chiede: "gara" },
+  { f: "05-pole.html",              t: "Pole",          c: "il giro secco",         chiede: "qualifica" },
+  { f: "06-front-row.html",         t: "Prima fila",    c: "i due davanti",         chiede: "qualifica" },
+  { f: "07-the-grid.html",          t: "La griglia",    c: "ordine di partenza",     chiede: "qualifica" },
+  { f: "08-starting-line-up.html",  t: "Schieramento",  c: "i primi 5, figura intera", chiede: "qualifica" },
+  { f: "09-points.html",            t: "A punti",       c: "un pilota a punti",      chiede: "gara" },
+  { f: "10-sprint-result.html",     t: "Sprint",        c: "fondo chiaro",           chiede: "sprint" },
+  { f: "11-testa-a-testa.html",     t: "Testa a testa", c: "due piloti a confronto", chiede: "gara" },
+  { f: "12-miglior-recupero.html",  t: "Posizioni guadagnate", c: "chi ne ha guadagnate di piu'", chiede: "gara" },
+  { f: "13-giro-veloce.html",       t: "Giro veloce",   c: "il tempo grosso, sul viola", chiede: "gara" },
+  { f: "14-strategia.html",         t: "Strategia",     c: "le mescole di tutti",    chiede: "gara" },
+  { f: "15-leader-campionato.html", t: "Leader",        c: "chi guida il campionato", chiede: "gara" },
+  { f: "16-testa-classifica.html",  t: "I primi tre",   c: "distacchi dal leader", chiede: "gara" },
+  { f: "17-albo-gp.html",           t: "Riepilogo GP",  c: "vincitore, pole, giro veloce", chiede: "gara" },
+  /* A-09: mancavano le quattro coi numeri (fatte al passo A-08) */
+  { f: "18-passo-gara.html",        t: "Passo gara",    c: "il piu' veloce sul passo", chiede: "gara" },
+  { f: "19-tenuta.html",            t: "Tenuta",        c: "lo stint piu' lungo",   chiede: "gara" },
+  { f: "20-costanza.html",          t: "Costanza",      c: "giro migliore contro passo", chiede: "gara" },
+  { f: "21-duello-interno.html",    t: "Duello interno", c: "chi ha battuto il compagno", chiede: "gara" }
+];
+
+var sessioni = [];
+
+function etichetta(s) {
+  var d = new Date(s.created_at);
+  var quando = d.toLocaleDateString("it-IT", { day: "2-digit", month: "2-digit" }) + " " +
+               d.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
+  return "#" + s.storico_id + "  " + (s.gp_nome || "?") + "  ·  " + s.tipo +
+         "  ·  " + s.riconosciuti + "/" + s.piloti + " riconosciuti  ·  " + quando +
+         (s.vale_per_classifica ? "" : "   ⚠ NON BUONA");
+}
+
+/* Per una sessione scelta trovo la compagna: se ho scelto la gara di Monza,
+   la pole e la griglia devono essere la QUALIFICA di Monza, non l'ultima
+   qualifica dell'archivio. Aggancio per GP + stagione, la piu' vicina prima. */
+function compagna(scelta, tipo) {
+  if (scelta.tipo === tipo) return scelta;
+  /* ⚠ La compagna deve essere BUONA, non solo dello stesso GP. A Messico la
+     qualifica esiste (180) ma ha zero piloti riconosciuti: agganciandola, la
+     pole e la griglia uscivano con quattro sconosciuti. Prima si cerca la
+     sessione dello stesso GP che vale, poi quella dello stesso GP comunque
+     (marcata), poi l'ultima buona di quel tipo. */
+  var stessoGP = sessioni.filter(function (s) {
+    return s.tipo === tipo && s.gp_nome === scelta.gp_nome &&
+           s.stagione_id === scelta.stagione_id && s.storico_id <= scelta.storico_id;
+  });
+  var buona = stessoGP.filter(function (s) { return s.vale_per_classifica; });
+  if (buona.length) return buona[0];                       // l'elenco e' ordinato desc
+  var altrove = sessioni.filter(function (s) { return s.tipo === tipo && s.vale_per_classifica; });
+  if (altrove.length) return altrove[0];
+  return stessoGP.length ? stessoGP[0] : null;
+}
+
+function indirizzo(tp, scelta, formato) {
+  var s = compagna(scelta, tp.chiede);
+  if (!s) return null;
+  /* ⚠ Il banco va PASSATO agli iframe. Senza, la galleria in banco mostrava
+     dieci schede con «Failed to fetch»: le grafiche dentro cercavano la rete
+     mentre la pagina fuori leggeva dai file. Difetto visto il 06/09 sul reso:
+     una galleria che sembra rotta quando invece e' solo scollegata. */
+  var u = tp.f + "?storico_id=" + s.storico_id + "&formato=" + formato;
+  if (DHN.BANCO) u += "&banco=" + encodeURIComponent(s.storico_id);
+  return u;
+}
+
+function disegna() {
+  var scelta = sessioni.find(function (s) { return String(s.storico_id) === document.getElementById("sessioni").value; });
+  var formato = document.getElementById("formato").value;
+  var schede = document.getElementById("schede");
+  schede.innerHTML = "";
+  document.getElementById("avvisone").innerHTML = scelta && !scelta.vale_per_classifica
+    ? '<p class="avvisone">Questa sessione ha ZERO piloti riconosciuti dal roster DHN: e\' una lobby '
+      + 'di prova, o il roster non si e\' caricato quando il motore e\' partito. Le grafiche si '
+      + 'disegnano comunque, ma non vanno pubblicate.</p>' : "";
+
+  TEMPLATE.forEach(function (tp) {
+    var url = indirizzo(tp, scelta, formato);
+    var d = document.createElement("div");
+    d.className = "scheda";
+    if (!url) {
+      d.innerHTML = '<header><b>' + tp.t + '</b><span class="cosa rossa">manca una sessione '
+                  + tp.chiede + '</span></header>'
+                  + '<div class="telaio" style="display:grid;place-items:center">'
+                  + '<span class="stato">in archivio non c\'e\' nessuna sessione di tipo '
+                  + tp.chiede + '</span></div>';
+      schede.appendChild(d); return;
+    }
+    d.innerHTML = '<header><b>' + tp.t + '</b><span class="cosa">' + tp.c + '</span></header>'
+      + '<div class="telaio ' + (formato === "storia" ? "storia" : "") + '">'
+      + '<iframe src="' + url + '" scrolling="no"></iframe></div>'
+      + '<footer><button class="png">⤓ PNG</button>'
+      + '<a href="' + url + '" target="_blank">apri a parte</a></footer>';
+    schede.appendChild(d);
+
+    var telaio = d.querySelector(".telaio"), fr = d.querySelector("iframe");
+    fr.style.height = (formato === "storia" ? 1920 : 1350) + "px";
+    function scala() {
+      var z = telaio.clientWidth / 1080;
+      fr.style.transform = "scale(" + z + ")";
+    }
+    fr.addEventListener("load", scala);
+    window.addEventListener("resize", scala);
+    scala();
+
+    d.querySelector("button.png").onclick = function () { scarica(fr, this); };
+  });
+
+  document.getElementById("piede").textContent = scelta
+    ? ("Sessione #" + scelta.storico_id + " — " + scelta.piloti + " piloti, "
+       + scelta.riconosciuti + " riconosciuti dal roster, " + scelta.con_ritratto
+       + " con ritratto 3D, " + scelta.con_team + " con la squadra rilevata dal gioco.")
+    : "";
+}
+
+/* Lo scarico: si chiede all'iframe di disegnarsi, non si ridisegna qui. Stesso
+   dominio, quindi si arriva al suo `DHN`. Se la grafica dentro e' andata in
+   errore, il bottone lo dice invece di scaricare un PNG vuoto. */
+async function scarica(fr, bott) {
+  var w = fr.contentWindow;
+  var tela = w.document.getElementById("tela");
+  if (!tela || !w.DHN) { bott.textContent = "non pronta"; return; }
+  var etichetta = bott.textContent;
+  bott.textContent = "...";
+  try {
+    var nome = (fr.src.split("/").pop().split("?")[0].replace(".html", "")) + ".png";
+    await w.DHN.scaricaPNG(tela, "DHN-" + nome);
+    bott.textContent = "✓ scaricata";
+  } catch (e) {
+    bott.textContent = "errore";
+    console.error(e);
+  }
+  setTimeout(function () { bott.textContent = etichetta; }, 2500);
+}
+
+async function tutte() {
+  var b = document.getElementById("tutte");
+  var bottoni = Array.prototype.slice.call(document.querySelectorAll("button.png"));
+  for (var i = 0; i < bottoni.length; i++) {
+    b.textContent = "⤓ " + (i + 1) + "/" + bottoni.length;
+    bottoni[i].click();
+    await new Promise(function (r) { setTimeout(r, 1400); });   /* il browser non regge dieci download in fila */
+  }
+  b.textContent = "⤓ scarica tutte";
+}
+
+(async function () {
+  try {
+    sessioni = await DHN.sessioniValide(40);
+    var sel = document.getElementById("sessioni");
+    sel.innerHTML = sessioni.map(function (s) {
+      return '<option value="' + s.storico_id + '">' + etichetta(s) + '</option>';
+    }).join("");
+    var prima = sessioni.find(function (s) { return s.vale_per_classifica && s.tipo === "gara"; }) || sessioni[0];
+    if (prima) sel.value = prima.storico_id;
+    document.getElementById("conta").textContent =
+      sessioni.length + " sessioni in archivio, " +
+      sessioni.filter(function (s) { return s.vale_per_classifica; }).length + " buone";
+    sel.onchange = disegna;
+    document.getElementById("formato").onchange = disegna;
+    document.getElementById("ricarica").onclick = disegna;
+    document.getElementById("tutte").onclick = tutte;
+    disegna();
+  } catch (e) {
+    document.getElementById("avvisone").innerHTML =
+      '<p class="avvisone">Non riesco a leggere l\'elenco delle sessioni: ' + e.message + '</p>';
+    console.error(e);
+  }
+})();
+</script>

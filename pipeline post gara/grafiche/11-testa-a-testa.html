@@ -1,0 +1,132 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — TESTA A TESTA</title>
+<!-- 11 TESTA A TESTA — due piloti confrontati riga per riga.
+     ?storico_id=NNN  ?a=<pos>  ?b=<pos>   (senza a/b: i primi due)
+     ⚠ Il confronto si vince o si perde: il valore migliore si ACCENDE. Una
+       tabella con due colonne uguali non dice niente a chi la guarda in feed.
+     ⚠ Il gap non si confronta fra i due: `gap_testo` e' il distacco dal
+       PRIMO, non fra loro. Il distacco vero fra a e b si calcola qui da
+       `tempo_s`, che nella vista comprende gia' le penalita' (il gap grezzo
+       UDP le esclude: a Barcellona usciva un gap all'indietro).
+     A-07, 23/09/2026 — RIFATTA, scelta di Cava (la «A»): i due AFFIANCATI,
+       il meglio piazzato a DESTRA (regola di Cava per i piloti affiancati),
+       ognuno nella luce della sua scuderia; il DISTACCO gigante in metallo
+       in mezzo (e' l'elemento firma, prima era l'ultima riga); sotto il
+       confronto riga per riga. Vestito: `dhn-qualifica.css` +
+       `dhn-campionato.css` + `dhn-originali.css` (tela `qual26 cam26 ori26`). -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<link rel="stylesheet" href="dhn-originali.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26 ori26 g11" id="tela">
+  <div class="fondo26"></div>
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  /* i nomi si rimpiccioliscono, non si tagliano (fino a 22 caratteri) */
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+  function figura(r) {
+    var img = DHN.ritratto(r, "busto");
+    return '<span class="senza" style="display:' + (img ? "none" : "grid") + '">' + P.segno(r) + '</span>' +
+      (img ? '<img class="fig" src="' + esc(img) + '" alt="" crossorigin="anonymous" data-ripiego=".senza">' : '');
+  }
+  function sq(r) { return '<div class="sq26">' + P.immagineLogo(r) + '<span>' + esc(r.scuderia_da_stampare || "—") + '</span></div>'; }
+  function piu(n) { return n == null ? "—" : (n > 0 ? "+" + n : String(n)); }
+  /* chi vince una riga: `verso` -1 il valore piu' basso (posizione, tempo),
+     +1 il piu' alto (punti, guadagnate), 0 nessuno (pareggio o non si
+     confronta). Torna "a", "b" o "". */
+  function vince(va, vb, verso) {
+    if (!verso || va === "—" || vb === "—") return "";
+    var na = Number(String(va).replace(/[^\d.\-]/g, "")), nb = Number(String(vb).replace(/[^\d.\-]/g, ""));
+    if (!isFinite(na) || !isFinite(nb) || na === nb) return "";
+    return ((verso < 0) ? na < nb : na > nb) ? "a" : "b";
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var pa = DHN.param("a", null), pb = DHN.param("b", null);
+    var righe = s.righe.filter(function (r) { return r.pos != null; });
+    var a = pa ? righe.find(function (r) { return r.pos === Number(pa); }) : righe[0];
+    var b = pb ? righe.find(function (r) { return r.pos === Number(pb); }) : righe[1];
+    if (!a || !b) throw new Error("servono due piloti: controlla ?a= e ?b=");
+    if (a === b) throw new Error("?a= e ?b= indicano lo stesso pilota");
+    if (a.pos > b.pos) { var t = a; a = b; b = t; }        // a = il meglio piazzato: va a DESTRA
+
+    /* il distacco VERO fra i due, non quello dal primo */
+    var dist = "—";
+    if (a.tempo_s != null && b.tempo_s != null && !a.ritiro && !b.ritiro) {
+      var d = Math.abs(Number(a.tempo_s) - Number(b.tempo_s));
+      dist = d >= 60 ? Math.floor(d / 60) + ":" + (d % 60).toFixed(3).padStart(6, "0") : d.toFixed(3);
+    }
+    var cosaDist = dist === "—" ? "DISTACCO NON CALCOLABILE (RITIRO)" : "DISTACCO AL TRAGUARDO";
+
+    var C = [
+      ["POSIZIONE",   "P" + a.pos, "P" + b.pos, -1],
+      ["PARTENZA",    a.griglia != null ? "P" + a.griglia : "—", b.griglia != null ? "P" + b.griglia : "—", -1],
+      ["GUADAGNATE",  piu(a.posizioni_guadagnate), piu(b.posizioni_guadagnate), +1],
+      ["GIRO VELOCE", a.best_str || "—", b.best_str || "—", -1],
+      ["SOSTE",       a.soste != null ? String(a.soste) : "—", b.soste != null ? String(b.soste) : "—", 0],
+      ["PUNTI",       DHN.punti(a.punti), DHN.punti(b.punti), +1]
+    ];
+    tela.style.setProperty("--c-sx", P.col(b)); tela.style.setProperty("--c-dx", P.col(a));
+    var sotto = esc(DHN.occhiello(s.info)) + "  ·  " + esc(DHN.titoloTipo(s.info.tipo));
+
+    document.getElementById("dentro").innerHTML = '<div class="h11">' +
+      '<div class="luce sx" style="' + P.tinte(b) + '"></div><div class="luce dx" style="' + P.tinte(a) + '"></div>' +
+      '<div class="fascio sx" style="' + P.tinte(b) + '"><i></i></div><div class="fascio dx" style="' + P.tinte(a) + '"><i></i></div>' +
+      '<div class="vano sx" style="' + P.tinte(b) + '">' + figura(b) + '</div>' +
+      '<div class="vano dx" style="' + P.tinte(a) + '">' + figura(a) + '</div>' +
+      '<div class="velo11"></div>' +
+      '<div class="t07"><div class="tag arancio">TESTA A TESTA</div><div class="sotto26"><span>' + sotto + '</span></div></div>' +
+      '<div class="gap11"><div class="num"><span class="metallo">' + esc(dist) + (dist !== "—" ? '<small>s</small>' : '') + '</span></div>' +
+        '<div class="cosa">' + cosaDist + '</div></div>' +
+      '<div class="chi sx"><div class="pos">P' + esc(b.pos) + '</div><div class="n07"><span class="metallo">' + P.nome(b) + '</span></div>' + sq(b) + '</div>' +
+      '<div class="chi dx"><div class="pos primo">P' + esc(a.pos) + '</div><div class="n07"><span class="metallo">' + P.nome(a) + '</span></div>' + sq(a) + '</div>' +
+      '<div class="conf">' + C.map(function (c) {
+        var w = vince(c[1], c[2], c[3]);
+        return '<div class="rc"><div class="v sx' + (w === "b" ? " vince" : "") + '"><b>' + esc(c[2]) + '</b></div>' +
+          '<div class="che">' + c[0] + '</div>' +
+          '<div class="v dx' + (w === "a" ? " vince" : "") + '"><b>' + esc(c[1]) + '</b></div></div>';
+      }).join("") + '</div>' +
+      '</div>' +
+      '<div class="filo-piede"></div><img class="marchione" src="' + esc(DHN.BRAND) + '" alt="">';
+
+    PEZZI.vesti({ gp_nome: "", round: null });
+    document.getElementById("marchio").src = DHN.BRAND;
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.fontPronti(tela);
+    [].forEach.call(tela.querySelectorAll(".h11 .chi .n07"), function (el) { entra(el, 440, 88, 30); });
+
+    /* i busti: stessa quota per tutti e due, dentro il loro vano */
+    var imgs = [].slice.call(tela.querySelectorAll(".h11 img.fig"));
+    await Promise.all(imgs.map(function (im) {
+      return im.complete ? null : new Promise(function (ok) { im.addEventListener("load", ok); im.addEventListener("error", ok); });
+    }));
+    for (var i = 0; i < imgs.length; i++)
+      if (imgs[i].naturalWidth) await P.incastra(imgs[i], { quota: 1.0, largoMax: 1.0, giu: -60 });
+
+    DHN.bottoneScarico(tela, "DHN-testa-a-testa-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

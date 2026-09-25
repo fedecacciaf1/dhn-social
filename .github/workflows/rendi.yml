@@ -1,0 +1,157 @@
+# =============================================================================
+# RENDI GRAFICHE — dalla gara pubblicata alle JPEG su GitHub Pages
+# 25/09/2026 · piano social, FASE 1 (RJDHN/pipeline post gara/PIANO_SOCIAL_2026-09-25.md)
+# -----------------------------------------------------------------------------
+# ⚠ QUESTO FILE NON SI MODIFICA QUI. La fonte e' sul PC di Fede:
+#   RJDHN\pipeline post gara\social\repo\.github\workflows\rendi.yml
+# e arriva qui con PUBBLICA_GRAFICHE.bat. Una direzione sola.
+#
+# Si sveglia in DUE modi, e in nessun altro:
+#   1. repository_dispatch «rendi» con {"gara": 210} — lo mandera' il database
+#      quando Direzione Gara pubblica (FASE 2, token separato da quello dei
+#      ritratti). Aspetta 3 minuti: se nel frattempo arriva un'altra sveglia
+#      per la stessa gara (provvisorio → penalita' → ufficiale) questa viene
+#      CANCELLATA e resta solo l'ultima. Una resa sola.
+#   2. a mano, da Actions → «Rendi grafiche» → Run workflow (arretrato, prove).
+#
+# ⚠ NIENTE `schedule:`. Nessun orario fisso, mai: e' la lezione del 16/09
+#   (ritratti e clip che giravano ogni notte per trovare zero lavoro).
+# ⚠ Il repo e' PUBBLICO: su un repo pubblico i minuti di Actions non si
+#   contano. La quota da 2000 min del repo del sito (privato) non si tocca.
+#
+# Segreti (Settings → Secrets and variables → Actions), tutti FACOLTATIVI:
+#   DISCORD_WEBHOOK_SOCIAL   se c'e', un errore arriva su Discord col motivo
+# Non serve nessuna chiave Supabase: si legge con la pubblicabile, come il sito.
+# =============================================================================
+
+name: Rendi grafiche
+
+on:
+  repository_dispatch:
+    types: [rendi]
+  workflow_dispatch:
+    inputs:
+      gare:
+        description: "storico_id delle GARE, separati da virgola (es. 210 · arretrato S2: 200,204,208,210)"
+        required: true
+      attesa_min:
+        description: "minuti di attesa prima di rendere"
+        default: "0"
+      tetto_mb:
+        description: "tetto dei MB scaricati da Supabase, PER GARA (oltre, la resa si ferma)"
+        default: "20"
+
+permissions:
+  contents: write
+
+# una resa per gara alla volta; la sveglia nuova CANCELLA quella in attesa
+concurrency:
+  group: rendi-${{ github.event.client_payload.gara || github.event.inputs.gare }}
+  cancel-in-progress: true
+
+jobs:
+  resa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GARE: ${{ github.event.client_payload.gara || github.event.inputs.gare }}
+      ATTESA_MIN: ${{ github.event_name == 'repository_dispatch' && (github.event.client_payload.attesa_min || '3') || github.event.inputs.attesa_min || '0' }}
+      TETTO_MB: ${{ github.event.inputs.tetto_mb || '20' }}
+      BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+
+    steps:
+      - name: Controlla la richiesta
+        run: |
+          echo "gare: $GARE · attesa: $ATTESA_MIN min · tetto: $TETTO_MB MB · $BASE_URL"
+          echo "$GARE" | grep -Eq '^[0-9]+(,[0-9]+)*$' || { echo "::error::gare non valide: «$GARE»"; exit 1; }
+          echo "$ATTESA_MIN" | grep -Eq '^[0-9]+$' || { echo "::error::attesa non valida"; exit 1; }
+
+      - name: Attesa — le pubblicazioni ripetute si fondono in una resa
+        if: env.ATTESA_MIN != '0'
+        run: sleep $(( ATTESA_MIN * 60 ))
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # come ritratti.yml: niente `--with-deps` (il 19/08 apt-get e' rimasto
+      # appeso 20 minuti); le librerie di Chromium sono gia' nell'immagine.
+      - name: Cache del browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('pipeline post gara/package-lock.json') }}
+
+      - name: Installa gli strumenti
+        working-directory: pipeline post gara
+        run: |
+          npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+          npx playwright install chromium
+
+      - name: Rendi le gare
+        working-directory: pipeline post gara
+        run: |
+          FALLITE=""
+          for g in ${GARE//,/ }; do
+            echo "::group::gara $g"
+            node social/resa_gara.mjs --gara "$g" --staging "$RUNNER_TEMP/resa" \
+                 --tetto-mb "$TETTO_MB" --base-url "$BASE_URL" || FALLITE="$FALLITE $g"
+            echo "::endgroup::"
+          done
+          # le gare riuscite si consegnano comunque; quelle fallite fanno
+          # fallire il lavoro DOPO la consegna (e partire l'avviso)
+          echo "FALLITE=$FALLITE" >> "$GITHUB_ENV"
+          ls "$RUNNER_TEMP/resa/gare" 2>/dev/null || { echo "::error::nessuna gara resa:$FALLITE"; exit 1; }
+
+      # ⚠ Il ramo `uscite` ha UN SOLO commit, sempre: ogni consegna riparte
+      # dal ramo com'e' adesso, ci copia le gare nuove, e lo SOSTITUISCE con un
+      # commit orfano. Cosi' il repo non cresce di 2 MB a resa per sempre.
+      # `--force-with-lease` sul commit appena letto: se nel frattempo un'altra
+      # resa (l'altra categoria, o il .bat dal PC) ha scritto, il push viene
+      # rifiutato e si riparte da capo — la gara dell'altro non si perde.
+      - name: Consegna sul ramo uscite (GitHub Pages)
+        run: |
+          git config --global user.name  "dhn-social[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          U="$RUNNER_TEMP/uscite"
+          for tentativo in 1 2 3 4 5; do
+            rm -rf "$U"; git worktree prune
+            SHA=""
+            if git ls-remote --exit-code --heads origin uscite >/dev/null 2>&1; then
+              git fetch -q --depth 1 origin uscite
+              SHA=$(git rev-parse FETCH_HEAD)
+              git worktree add -q --detach "$U" "$SHA"
+            else
+              git worktree add -q --detach "$U"
+              git -C "$U" rm -rq --cached . ; find "$U" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+            fi
+            node "pipeline post gara/social/consegna.mjs" --da "$RUNNER_TEMP/resa" --in "$U"
+            # commit ORFANO fatto a mano (write-tree + commit-tree): niente
+            # rami d'appoggio, che i worktree condividono e che al secondo
+            # giro facevano ripartire la storia (visto al banco del 25/09).
+            if git -C "$U" add -A \
+               && T=$(git -C "$U" write-tree) \
+               && C=$(git -C "$U" commit-tree "$T" -m "Grafiche: gare $GARE · resa $GITHUB_RUN_ID") \
+               && git -C "$U" push --force-with-lease="refs/heads/uscite:$SHA" origin "$C:refs/heads/uscite"; then
+              break
+            fi
+            echo "push rifiutato (tentativo $tentativo): qualcun altro ha scritto, riparto"
+            git worktree remove --force "$U" || true
+            sleep $(( tentativo * 7 ))
+            [ "$tentativo" = 5 ] && { echo "::error::consegna fallita 5 volte"; exit 1; }
+          done
+          echo "Pagina: $BASE_URL/"
+          [ -z "$FALLITE" ] || { echo "::error::gare NON rese:$FALLITE (le altre sono online)"; exit 1; }
+
+      - name: Avviso su Discord
+        if: failure()
+        env:
+          HOOK: ${{ secrets.DISCORD_WEBHOOK_SOCIAL }}
+        run: |
+          [ -n "$HOOK" ] || { echo "nessun DISCORD_WEBHOOK_SOCIAL: avviso solo via mail di GitHub"; exit 0; }
+          LINK="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          node -e 'const [g,f,l]=process.argv.slice(1);console.log(JSON.stringify({content:`⚠️ **Grafiche social NON rese** — gare ${g}${f?` (fallite:${f})`:""}\nMotivo e log: ${l}`}))' \
+               "$GARE" "${FALLITE:-}" "$LINK" > /tmp/avviso.json
+          curl -sS -f -H "Content-Type: application/json" -d @/tmp/avviso.json "$HOOK"

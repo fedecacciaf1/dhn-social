@@ -1,0 +1,153 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — COSTANZA</title>
+<!-- 20 COSTANZA — 12/09/2026.  ?storico_id=NNN  ?formato=post|storia  ?banco=901
+
+     COSA MOSTRA
+       Chi ha tenuto il passo piu' regolare della gara: scarto fra la MEDIANA
+       dei suoi giri validi e il suo miglior giro. Piu' e' basso, piu' ha
+       ripetuto lo stesso giro per tutta la gara.
+
+     PERCHE' ESISTE
+       E' l'unico premio che non guarda il risultato ne' la velocita' pura, e
+       nel replay 191 racconta una cosa che nessun'altra grafica vede: il giro
+       veloce e il passo migliore appartengono a due piloti diversi, e a
+       separarli e' proprio questo numero (0,741 contro 1,722).
+
+     ⚠⚠ NON E' UN PREMIO ALLA VELOCITA', ED E' SCRITTO SULLA GRAFICA.
+       Un pilota lento ma monotono puo' vincerlo. Per questo accanto allo
+       scarto si stampa SEMPRE il suo passo: senza, il numero da solo direbbe
+       «il migliore» e non e' vero.
+
+     ⚠ SOGLIE, non gusti: servono almeno 8 giri validi (con 3 giri la mediana
+       e' il giro di mezzo e lo scarto e' rumore) e almeno 5 piloti in gara
+       che li abbiano fatti, se no non c'e' un confronto da premiare.
+
+     ⚠ I giri vengono dallo SNAPSHOT del motore, non dalla tabella `giro`. 
+     A-08, 23/09/2026 — RIFATTA, scelta di Cava (la «B»): come la 15, lo
+       SCARTO gigante in metallo davanti a sinistra e il pilota spostato a
+       destra nella luce della scuderia; sotto il numero il RIGHELLO su lastra
+       di vetro (miglior giro da una parte, passo dall'altra: la distanza fra i
+       due E' il premio) e il 2° e il 3° in due fasce coi loghi della scuderia.
+       Nome grande e «COSTANZA» in etichetta come la 02.
+       Vestito: `dhn-qualifica.css` + `dhn-campionato.css` +
+       `dhn-originali.css` + `dhn-numeri.css` (tela `qual26 cam26 ori26 num26`).
+     ⚠ Il PASSO resta sempre stampato accanto allo scarto (nel righello): lo
+       scarto da solo si leggerebbe come «il piu' veloce». -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<link rel="stylesheet" href="dhn-originali.css">
+<link rel="stylesheet" href="dhn-numeri.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26 ori26 num26 g20" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  var GIRI_MINIMI = 8, PILOTI_MINIMI = 5;
+
+  function ms(v) {
+    var s = Math.floor(v / 1000), m = Math.floor(s / 60);
+    return (m ? m + ":" : "") + String(s % 60).padStart(m ? 2 : 1, "0") + "." + String(v % 1000).padStart(3, "0");
+  }
+  function sc(v) { return (v / 1000).toFixed(2); }
+  function tappeto(r, file, perFila) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var f = ""; for (var c = 0; c < perFila; c++) f += '<img src="' + esc(l) + '" alt="" onload="PEZZI.logoTappeto(this)" onerror="this.style.visibility=\'hidden\'">';
+    var t = ""; for (var k = 0; k < file; k++) t += '<div class="rl">' + f + '</div>';
+    return '<div class="tappeto">' + t + '</div>';
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) {
+      var u = await DHN.ultimaBuona("gara");
+      if (!u) throw new Error("nessuna gara con piloti riconosciuti");
+      id = u.storico_id;
+    }
+    var s = await DHN.sessione(id);
+    var passo = await DHN.passo(id);
+    if (!passo.length)
+      throw new Error("questa sessione non ha i giri nello snapshot: il motore li allega solo a sessione CHIUSA, e solo dall'11/09");
+
+    var buoni = passo.filter(function (p) { return (p.giri_buoni || 0) >= GIRI_MINIMI; });
+    if (buoni.length < PILOTI_MINIMI)
+      throw new Error("solo " + buoni.length + " piloti con almeno " + GIRI_MINIMI
+        + " giri validi: senza un confronto vero questo premio non vuol dire niente");
+    /* ⚠ L'ordine sta QUI, non nella fonte (sul banco la vista e' un JSON) */
+    buoni.sort(function (a, b) { return a.scarto_ms - b.scarto_ms; });
+
+    var perIdx = {};
+    s.righe.forEach(function (r) { if (r.car_idx != null) perIdx[r.car_idx] = r; });
+    var podio = buoni.map(function (p) {
+      var r = perIdx[p.car_idx];
+      return r ? Object.assign({}, r, p) : null;
+    }).filter(Boolean);
+    if (!podio.length) throw new Error("nessun pilota agganciato per car_idx");
+    var p = podio[0];
+    if (p.best_ms == null || p.mediana_ms == null)
+      throw new Error("a " + (p.nome_da_stampare || "?") + " mancano miglior giro o passo nella vista: il righello non si puo' disegnare");
+
+    document.getElementById("dentro").innerHTML = P.solo(p, "COSTANZA",
+      DHN.occhiello(s.info) + "  ·  " + DHN.titoloTipo(s.info.tipo), null, { nomeGrande: true });
+    var solo = tela.querySelector(".solo");
+    solo.querySelector(".alone").insertAdjacentHTML("afterend", '<div class="fascio"><i></i></div>');
+    solo.querySelector(".nomone span").classList.add("metallo");
+    solo.querySelector(".velo").insertAdjacentHTML("afterend",
+      '<div class="vignetta"></div><div class="filo-piede"></div>' +
+      '<div class="s20"><span class="metallo">' + sc(p.scarto_ms) + '<small>s</small></span></div>' +
+      '<div class="r20 lastra"><div class="cap">IL SUO GIRO MIGLIORE E IL SUO PASSO</div><div class="asse">' +
+        '<span class="lin"></span><span class="ponte" style="left:14%;width:72%"></span>' +
+        '<span class="tr" style="left:14%"></span><span class="tr m" style="left:86%"></span>' +
+        '<span class="lbs" style="left:50%">' + sc(p.scarto_ms) + 's</span>' +
+        '<span class="lb" style="left:14%">' + ms(p.best_ms) + '<em>MIGLIOR GIRO</em></span>' +
+        '<span class="lb" style="left:86%">' + ms(p.mediana_ms) + '<em>PASSO</em></span></div>' +
+        '<div class="nota20">Piu\' e\' piccolo, piu\' ha ripetuto lo stesso giro. ' + esc(p.giri_buoni) + ' giri validi, giro 1 escluso.</div></div>' +
+      '<div class="ins20">' + podio.slice(1, 3).map(function (r, i) {
+        return '<div class="ri" style="' + P.tinte(r) + '">' + tappeto(r, 2, 12) + '<span class="p">' + (i + 2) + '</span>' +
+          '<span class="n">' + P.nome(r) + '</span><span class="s">' + sc(r.scarto_ms) + 's</span></div>';
+      }).join("") + '</div>');
+
+    P.vesti(s.info);
+    document.getElementById("marchio").src = DHN.BRAND;
+    if (s.info.riconosciuti === 0)
+      DHN.avviso("ZERO piloti riconosciuti dal roster DHN: non pubblicare.");
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.incastraTutte(tela);
+    await P.fontPronti(tela);
+
+    /* lo scarto: largo 540 px al massimo, a sinistra; sotto il righello e le
+       due fasce; il pilota si sposta a destra (come la 15) */
+    var tf = solo.querySelector(".s20"), sp = tf.firstElementChild;
+    tf.style.fontSize = "100px";
+    if (!sp.offsetWidth) throw new Error("SCARTO: misura a zero (carattere non caricato?)");
+    tf.style.fontSize = Math.min(300, 100 * 540 / sp.offsetWidth) + "px";
+    tf.style.textAlign = "left"; tf.style.left = "40px"; tf.style.right = "auto";
+    tf.style.top = (storia ? 290 : 150) + "px";
+    var R = solo.querySelector(".r20"), I = solo.querySelector(".ins20");
+    R.style.top = (tf.offsetTop + tf.offsetHeight + 16) + "px";
+    I.style.left = "48px"; I.style.width = "520px"; I.style.top = (R.offsetTop + R.offsetHeight + 16) + "px";
+    var bi = solo.querySelector("img.busto"), sf = solo.querySelector(".senzafigura");
+    if (bi && bi.style.left) bi.style.left = (parseFloat(bi.style.left) + 250) + "px";
+    solo.querySelector(".fascio").style.marginLeft = "150px";
+    if (sf) sf.style.left = "560px";
+    solo.querySelector(".ecg-riga").style.top = (tf.offsetTop + tf.offsetHeight - 30) + "px";
+    /* i nomi lunghi delle fasce si rimpiccioliscono, non si tagliano */
+    [].forEach.call(solo.querySelectorAll(".ins20 .n"), function (n) {
+      var f = 24; while (n.scrollWidth > n.clientWidth && f > 13) { f -= 1; n.style.fontSize = f + "px"; } });
+    DHN.bottoneScarico(tela, "DHN-costanza-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

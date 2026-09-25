@@ -1,0 +1,142 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — CLASSIFICA PILOTI</title>
+<!-- 03 CLASSIFICA PILOTI — legge v_grafica_classifica_piloti.
+     ?storico_id=NNN = la classifica DOPO quella gara.  ?banco=182
+     ⚠ QUESTA NON LEGGE v_grafica_sessione, e non e' una svista: una sessione
+       sola non contiene una classifica di campionato. La somma sta in vista,
+       col cross join piloti x tappe, se no chi salta una gara sparisce (col
+       turnover DHN sarebbe la maggioranza).
+     ⚠ Il perimetro della vista tiene fuori le lobby IA e i nomi placeholder,
+       con due filtri MISURATI: e' un ripiego finche' non esiste un flag
+       `ufficiale` su live_storico. Vedi PROSSIMA-CHAT.md.
+     A-02, 23/09/2026 — RIFATTA ALLA F1 (reference ig_03_driver_standings),
+       scelta di Cava: righe nel colore pieno della scuderia, podio grande,
+       titolo «CLASSIFICA / PILOTI» come la 02. La pelle e' in fondo a
+       `dhn-classifica-pelle.css`, sotto `.tela.cls26`. Stessi dati di prima,
+       stessa vista, stesse 11 righe per pagina. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-fondo.css">
+<link rel="stylesheet" href="dhn-classifica-pelle.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela cls26 fasce26" id="tela">
+  <header class="testata">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="titolone">
+    <div class="etichetta">CLASSIFICA</div>
+    <div class="parola-titolo">PILOTI</div>
+    <div class="sotto" id="sotto">—</div>
+  </div>
+  <section class="righe" id="righe"></section>
+  <footer class="piede">
+    <div class="nota" id="nota">—</div><div class="filo"></div><img id="marchio2" alt="">
+  </footer>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post");
+  if (formato === "storia") tela.classList.add("storia");
+
+  /* le classi che decidono il vestito della riga:
+     `su-chiaro` = livrea chiara, testo scuro (lo dice `testo_chiaro` delle squadre);
+     `buio`      = livrea quasi nera (Cadillac): sul carbone sparirebbe, la schiarisce il secondo colore */
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) {
+    return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : "");
+  }
+
+  /* A-09 (scelta di Cava «C»): i loghi della scuderia dentro la fascia, in
+     file dritte, come 18-21. Il logo e' quello di `logo_da_stampare`; se non
+     c'e', la fascia resta piena (niente buco). */
+  function tappeto(r, file, perFila) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var f = ""; for (var c = 0; c < perFila; c++) f += '<img src="' + P.esc(l) + '" alt="" onload="PEZZI.logoTappeto(this)" onerror="this.style.visibility=\'hidden\'">';
+    var t = ""; for (var k = 0; k < file; k++) t += '<div class="rl">' + f + '</div>';
+    return '<div class="tappeto">' + t + '</div>';
+  }
+  function riga(r) {
+    return '<div class="riga cls' + vestito(r) + '" style="' + P.tinte(r) + '">' +
+      '<div class="pos">' + P.esc(r.pos) + '</div>' +
+      '<div class="piastra">' + tappeto(r, 2, 14) +
+        '<span class="stemma">' + P.immagineLogo(r) + '</span>' +
+        '<span class="volto">' + P.faccina(r, "ritrattino") + '</span>' +
+        '<div class="chi"><span class="nome">' + P.nome(r) + '</span>' +
+          (Number(r.punti_tappa) > 0 ? '<span class="delta">+' + DHN.punti(r.punti_tappa) + '</span>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="valore">' + DHN.punti(r.punti_tot) + '</div>' +
+      P.movimento(r.movimento) +
+    '</div>';
+  }
+  /* ⚠ Un logo dello STESSO colore della livrea sparisce (Audi: anelli rossi su
+     rosso). Non si tiene un elenco di nomi: si misura il colore medio del logo
+     e, se e' vicino al colore della riga, lo si fa monocromo. */
+  async function stemmiMono(radice) {
+    var imgs = [].slice.call(radice.querySelectorAll(".riga .stemma img"));
+    await Promise.all(imgs.map(function (im) {
+      return im.complete ? null : new Promise(function (ok) { im.addEventListener("load", ok); im.addEventListener("error", ok); });
+    }));
+    imgs.forEach(function (im) {
+      if (!im.naturalWidth) return;
+      var cv = document.createElement("canvas"); cv.width = cv.height = 32;
+      var cx = cv.getContext("2d"); cx.drawImage(im, 0, 0, 32, 32);
+      var d;
+      try { d = cx.getImageData(0, 0, 32, 32).data; }
+      catch (e) { console.warn("stemma non misurabile (" + im.src + "): " + e.message + " — resta a colori"); return; }
+      var t = [0, 0, 0], n = 0;
+      for (var i = 0; i < d.length; i += 4) if (d[i + 3] > 128) { t[0] += d[i]; t[1] += d[i + 1]; t[2] += d[i + 2]; n++; }
+      if (!n) return;
+      var rg = im.closest(".riga"), c = getComputedStyle(rg).getPropertyValue("--squadra").trim().replace("#", "");
+      var sq = [0, 2, 4].map(function (k) { return parseInt(c.slice(k, k + 2), 16) || 0; });
+      var dist = Math.sqrt(Math.pow(t[0] / n - sq[0], 2) + Math.pow(t[1] / n - sq[1], 2) + Math.pow(t[2] / n - sq[2], 2));
+      if (dist < 90) rg.classList.add("stemma-mono");
+    });
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var cls = await DHN.classificaPiloti(id);
+    if (!cls.length) throw new Error("classifica vuota: nessuna gara valida in questa stagione");
+    /* la vista ordina gia' per pos; qui si riordina lo stesso, perche' un
+       file del banco (208 scuderie) e' arrivato fuori ordine */
+    cls = cls.slice().sort(function (a, b) { return (a.pos - b.pos) || (b.punti_tot - a.punti_tot); });
+    var p = cls[0];
+    document.getElementById("sotto").innerHTML =
+      "DOPO <b>" + P.esc(p.tappa) + "</b> " + (p.tappa === 1 ? "TAPPA" : "TAPPE") +
+      (p.gp_nome ? ("  ·  ULTIMA <b>" + P.esc(String(p.gp_nome).toUpperCase()) + "</b>") : "");
+    /* ⚠ 12/09/2026 — UNDICI PER PAGINA, non dieci. Verdetto di Fede: «per i
+       piloti almeno i primi 11, così con due pagine arriviamo al 22esimo»,
+       che e' il numero della griglia ELITE. `?pagina=2` stampa 12°-22°. */
+    var perPagina = (formato === "storia") ? 22 : 11;
+    var pagina = Math.max(1, parseInt(DHN.param("pagina", "1"), 10) || 1);
+    var da = (pagina - 1) * perPagina;
+    var fetta = cls.slice(da, da + perPagina);
+    if (!fetta.length) throw new Error("pagina " + pagina + ": in classifica ci sono solo " + cls.length + " piloti");
+    /* ⚠⚠ IL PODIO SI DIPINGE PER POSIZIONE NELLA PAGINA, non nel campionato:
+       le regole della pelle sono `:nth-child(-n+3)`. Senza questa classe, in
+       pagina 2 il dodicesimo si prenderebbe l'oro e la riga alta. */
+    tela.classList.add(pagina === 1 ? "pagina-prima" : "pagina-oltre");
+    document.getElementById("righe").innerHTML = fetta.map(riga).join("");
+    var ospiti = cls.filter(function (r) { return !r.riconosciuto; }).length;
+    P.vesti({ gp_nome: "", round: null },
+      cls.length + " PILOTI IN CLASSIFICA" + (ospiti ? ("  ·  " + ospiti + " OSPITI") : ""));
+    document.getElementById("marchio").src = DHN.BRAND;
+    /* il fondo DHN: alone nel colore di chi comanda + la linea del marchio,
+       ritagliata nelle bande libere sopra e sotto le righe (misurate dal DOM) */
+    P.fondoDhn(tela, { capo: cls[0], secondo: cls[1], contenuto: ".righe" });
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await stemmiMono(tela);
+    await P.rifinisci(tela);   /* il testo entra, poi i volti si incastrano a gruppo */
+    DHN.bottoneScarico(tela, "DHN-classifica-piloti-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

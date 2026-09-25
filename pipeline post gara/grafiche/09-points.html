@@ -1,0 +1,63 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — A PUNTI</title>
+<!-- 09 A PUNTI — il singolo pilota che ha portato a casa punti.
+     ?storico_id=NNN  ?pos=N (chi; se manca, il miglior piazzato fuori dal podio)
+     ⚠ Se nessuno fuori dal podio ha fatto punti, questa grafica non ha
+       soggetto: lo dice e si ferma, invece di stampare "0 PUNTI" a qualcuno.
+     A-03, 23/09/2026 — COME LA 02 (scelta di Cava ad A-01: «il nome del pilota
+       conta piu' della parola»): nome gigante a tutta larghezza, «A PUNTI» in
+       etichetta arancio, posizione e punti accanto (`nomeGrande`).
+     ⚠ Livrea quasi nera (Cadillac #101014): l'alone e i loghi nel colore della
+       scuderia sparivano nel carbone, e la grafica restava nera. Qui l'alone lo
+       fa il SECONDO colore (`colore2` delle squadre), come nelle righe di A-02. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<style>
+  /* livrea quasi nera: l'alone e i loghi li schiarisce il secondo colore */
+  .tela.buio .solo .alone {
+    background: radial-gradient(closest-side,
+      color-mix(in srgb, var(--squadra2) 55%, var(--squadra)) 0%,
+      color-mix(in srgb, var(--squadra2) 28%, transparent) 38%, transparent 76%);
+    opacity: .55;
+  }
+</style>
+<body class="dhn-palco">
+<div class="tela" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:5;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+</div>
+<script>
+(async function () {
+  var tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post");
+  if (formato === "storia") tela.classList.add("storia");
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var pos = DHN.param("pos", null);
+    var p = pos ? s.righe.find(function (r) { return r.pos === Number(pos); })
+                : s.righe.find(function (r) { return r.pos > 3 && Number(r.punti) > 0; });
+    if (!p) throw new Error("nessun pilota fuori dal podio ha fatto punti in questa gara: "
+                          + "questa grafica non ha soggetto");
+    /* il tappeto di parole dietro al pilota adesso lo fa PEZZI.solo per
+       tutta la famiglia: era il pezzo che a Fede e' piaciuto qui */
+    var c = String(p.colore_da_stampare || "#5b6e84").replace("#", "");
+    var luce = 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+    if (luce < 40) tela.classList.add("buio");
+    document.getElementById("dentro").innerHTML =
+      PEZZI.solo(p, "A PUNTI", DHN.occhiello(s.info),
+        { valore: "P" + p.pos, etichetta: DHN.punti(p.punti) + (Number(p.punti) === 1 ? " PUNTO" : " PUNTI") },
+        { nomeGrande: true });
+    PEZZI.vesti(s.info);
+    DHN.ripiegoImmagini(tela); PEZZI.adatta(tela);
+    await PEZZI.incastraTutte(tela);   /* le figure si misurano sul contorno */
+    DHN.bottoneScarico(tela, "DHN-a-punti-" + s.info.storico_id + "-P" + p.pos + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

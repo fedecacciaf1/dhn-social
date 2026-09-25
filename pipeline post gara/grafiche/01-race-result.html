@@ -1,0 +1,163 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — RISULTATO</title>
+<!-- 01 RISULTATO — podio + P4-P10.   ?storico_id=NNN  ?formato=post|storia  ?banco=174
+     Legge SOLO v_grafica_sessione.
+     ⚠ Il DNF non e' un gap: `gap_testo` vale 'DNF' e la vista lo decide DOPO
+       aver guardato il tipo di sessione (in qualifica `result_status_name` e'
+       'not_classified' per quasi tutti: la pole si stamperebbe "DNF").
+     ⚠ Gli ospiti non riconosciuti entrano comunque, col colore del team dal
+       gioco: non si nasconde un pilota perche' non e' in anagrafica.
+     A-03, 23/09/2026 — RIFATTA ALLA F1 (reference ig_04_podio_round), scelte
+       di Cava: «B, carbone + luce» (i primi tre col busto grande su carbone e la
+       luce della scuderia), «podio 1» (il nome in basso DENTRO la lastra, la
+       scuderia in un filo di colore), lista 4°-10° nelle righe di A-02 col filo
+       della scuderia, carattere in stile F1 (Saira larga: vedi
+       `dhn-risultato.css`). Titolo come la 03: etichetta «RISULTATO» + il
+       circuito gigante. Pelle sotto `.tela.ris26`. Stessi dati di prima. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-fondo.css">
+<link rel="stylesheet" href="dhn-classifica-pelle.css">
+<link rel="stylesheet" href="dhn-risultato.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela cls26 ris26" id="tela">
+  <header class="testata">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="titolone">
+    <div class="etichetta">RISULTATO</div>
+    <div class="parola-titolo" id="parola">—</div>
+    <div class="sotto" id="sotto">—</div>
+  </div>
+  <div class="corpo" id="corpo">
+    <section class="podio26" id="podio"></section>
+    <section class="righe" id="righe"></section>
+  </div>
+  <footer class="piede">
+    <div class="nota" id="nota">—</div><div class="filo"></div><img id="marchio2" alt="">
+  </footer>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post");
+  if (formato === "storia") tela.classList.add("storia");
+
+  /* le classi che decidono il vestito (come 03/04):
+     `su-chiaro` = livrea chiara, testo scuro (lo dice `testo_chiaro` delle squadre);
+     `buio`      = livrea quasi nera (Cadillac): la luce e il bordo li fa il secondo colore */
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) {
+    return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : "");
+  }
+  function loghiFondo(r) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var fila = ""; for (var c = 0; c < 6; c++) fila += '<img src="' + P.esc(l) + '" alt="" onerror="this.style.visibility=\'hidden\'">';
+    var s = ""; for (var k = 0; k < 9; k++) s += '<div class="rl">' + fila + '</div>';
+    return '<div class="loghi">' + s + '</div>';
+  }
+  function gradino(r) {
+    var img = DHN.ritratto(r, "busto");
+    return '<div class="gr p' + r.pos + vestito(r) + '" style="' + P.tinte(r) + '">' +
+      '<div class="lastra">' + loghiFondo(r) +
+        '<span class="cifra">' + r.pos + '</span>' +
+        '<div class="vetrina">' +
+          '<span class="senza" style="display:' + (img ? "none" : "grid") + '">' + P.segno(r) + '</span>' +
+          (img ? '<img class="busto26" src="' + P.esc(img) + '" alt="" crossorigin="anonymous" data-ripiego=".senza">' : '') +
+        '</div>' +
+        '<div class="punti"><b>' + DHN.punti(r.punti) + '</b><i>PUNTI</i></div>' +
+      '</div>' +
+      '<div class="targa">' +
+        '<div class="chi"><span class="nome">' + P.nome(r) + '</span></div>' +
+        '<div class="squadra">' + P.immagineLogo(r) + '<span>' + P.esc(r.scuderia_da_stampare || "—") + '</span>' +
+          (r.giro_veloce ? '<span class="fl">GIRO VELOCE</span>' : '') + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  function riga(r) {
+    var fuori = (r.gap_testo === "DNF" || r.gap_testo === "DSQ");
+    var valore = Number(r.punti) > 0
+      ? DHN.punti(r.punti) + '<small>PT' + (Number(r.punti) === 1 ? '' : 'S') + '</small>'
+      : '<span class="gap' + (fuori ? ' dnf' : '') + '">' + P.esc(r.gap_testo || "—") + '</span>';
+    return '<div class="riga cls' + vestito(r) + (fuori ? ' fuori' : '') + '" style="' + P.tinte(r) + '">' +
+      '<div class="pos">' + P.esc(r.pos) + '</div>' +
+      '<div class="piastra">' +
+        '<span class="stemma">' + P.immagineLogo(r) + '</span>' +
+        '<span class="volto">' + P.faccina(r, "ritrattino") + '</span>' +
+        '<div class="chi"><span class="nome">' + P.nome(r) + '</span>' +
+          (r.giro_veloce ? '<span class="gv">GV</span>' : '') + '</div>' +
+        '<span class="nomesq">' + P.esc(r.scuderia_da_stampare || "") + '</span>' +
+      '</div>' +
+      '<div class="valore">' + valore + '</div>' +
+    '</div>';
+  }
+  /* il busto grande: la testa sotto la cifra, il petto tagliato dalla targa,
+     spostato un po' a destra perche' la cifra si legga. Si misura sul
+     contorno vero (i busti hanno margini diversi); se non si puo', resta il
+     CSS e la console lo dice. */
+  async function piazzaBusti(radice) {
+    var imgs = [].slice.call(radice.querySelectorAll("img.busto26"));
+    await Promise.all(imgs.map(async function (im) {
+      await (im.complete ? null : new Promise(function (ok) { im.addEventListener("load", ok); im.addEventListener("error", ok); }));
+      if (!im.naturalWidth) return;                       // c'e' il ripiego
+      var box = im.parentElement, b = await P.contorno(im.currentSrc || im.src);
+      var W = box.clientWidth, H = box.clientHeight;
+      if (!b || !W || !H) { console.warn("busto non misurabile, resta il CSS: " + im.src); return; }
+      var hImg = (H * 0.8) / b.altoF, wImg = hImg * b.W / b.H;
+      var largo = wImg * b.largoF;
+      if (largo > W * 1.55) { var k = W * 1.55 / largo; hImg *= k; wImg *= k; }
+      var cx = (b.sxF + 1 - b.dxF) / 2;
+      im.style.transform = "none"; im.style.width = wImg + "px"; im.style.height = hImg + "px";
+      im.style.left = (W * 0.58 - cx * wImg) + "px"; im.style.bottom = "auto";
+      im.style.top = (H - (1 - b.sottoF) * hImg) + "px";
+    }));
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) {
+      var u = await DHN.ultimaBuona("gara");
+      if (!u) throw new Error("nessuna gara con piloti riconosciuti: niente da disegnare");
+      id = u.storico_id;
+    }
+    var s = await DHN.sessione(id), righe = s.righe.filter(function (r) { return r.pos != null; });
+    righe.sort(function (a, b) { return a.pos - b.pos; });
+    document.getElementById("parola").textContent = String(s.info.gp_nome || DHN.titoloTipo(s.info.tipo)).toUpperCase();
+    var pezzi = [];
+    if (s.info.round) pezzi.push("ROUND <b>" + P.esc(s.info.round) + "</b>");
+    pezzi.push(P.esc(DHN.titoloTipo(s.info.tipo)));
+    if (s.info.giri_totali) pezzi.push("<b>" + P.esc(s.info.giri_totali) + "</b> GIRI");
+    if (s.info.bandiera_rossa) pezzi.push("BANDIERA ROSSA");
+    if (s.info.regolamento) pezzi.push(P.esc(s.info.regolamento));
+    document.getElementById("sotto").innerHTML = pezzi.join("  ·  ");
+
+    document.getElementById("podio").innerHTML = [2, 1, 3]
+      .map(function (p) { return righe.find(function (r) { return r.pos === p; }); })
+      .filter(Boolean).map(gradino).join("");
+    var quante = (formato === "storia") ? 12 : 7;
+    document.getElementById("righe").innerHTML = righe
+      .filter(function (r) { return r.pos >= 4 && r.pos <= 3 + quante; }).map(riga).join("");
+
+    P.vesti(s.info);
+    /* il fondo DHN (lastra nel colore del vincitore + ECG nelle bande libere) */
+    P.fondoDhn(tela, { capo: righe[0], secondo: righe[1], contenuto: "#corpo" });
+    if (s.info.riconosciuti === 0)
+      DHN.avviso("ZERO piloti riconosciuti dal roster DHN: lobby di prova o roster non caricato. Non pubblicare.");
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    /* i minimi di famiglia + il titolo: «CITTA DEL MESSICO» si rimpicciolisce, non si taglia */
+    var larghi = await P.testoCheEntra(tela, { ".chi": 16, ".nome": 18, ".squadra": 10, ".valore": 15,
+      ".nomesq": 10, ".parola-titolo": 56, ".titolone .sotto": 12 });
+    if (larghi.ancoraLarghi.length)
+      console.warn("testo che non entra nemmeno al minimo: " + JSON.stringify(larghi.ancoraLarghi));
+    await P.incastraTutte(tela);   /* i volti delle righe, a gruppo */
+    await piazzaBusti(tela);
+    DHN.bottoneScarico(tela, "DHN-race-result-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

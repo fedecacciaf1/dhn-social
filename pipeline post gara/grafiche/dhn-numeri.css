@@ -1,0 +1,223 @@
+/* ===========================================================================
+   DHN — IL VESTITO DEGLI ORIGINALI COI NUMERI:
+   18 PASSO GARA · 19 TENUTA · 20 COSTANZA · 21 DUELLO INTERNO
+   ---------------------------------------------------------------------------
+   A-08, 23/09/2026 — scelte di Cava:
+     18 = la «B»: il PIU' VELOCE in grande in alto (busto nella luce della
+          scuderia, nome e passo giganti in metallo, loghi in file dritte),
+          sotto la lista dal 2° con la barra del distacco e il passo.
+     19 = la «B», rifatta: una colonna per cosa (GOMMA · INIZIO STINT ·
+          FINE STINT · DIFFERENZA), intestate una volta sola in alto; niente
+          linea di pendenza (Cava: «rende disorganizzata la tabella»).
+     20 = la «B»: lo scarto gigante in metallo a sinistra, il pilota a
+          destra (come la 15), sotto il RIGHELLO miglior giro / passo.
+     21 = la «A»: una fascia per scuderia, il compagno battuto a sinistra
+          spento, chi vince a DESTRA acceso (regola di Cava sui piloti
+          affiancati), il distacco al centro su carbone.
+     In tutte: i LOGHI della scuderia dentro le fasce colorate, in file
+     dritte e sfumati (Cava: «per non renderli troppo piatti»).
+   18/19/21 stanno sopra la pelle `cls26` della 03 (`dhn-classifica-pelle.css`)
+   + `dhn-qualifica.css` (grana, fascio, metallo): tela `cls26 qual26 num26`.
+   La 20 sta sopra `qual26 cam26 ori26`: tela `qual26 cam26 ori26 num26 g20`.
+   ⚠ Tutto sotto `.tela.num26`: nessun'altra grafica cambia.
+   =========================================================================== */
+
+
+/* ── comuni alle liste (sopra la pelle cls26 della 03) ── */
+.tela.num26.cls26 .titolone .sotto { letter-spacing: .26em; font-size: 18px; }
+.tela.num26.cls26 .titolone .avv {
+  margin-top: 8px; white-space: nowrap; font-family: var(--dhn-testo); font-weight: 700;
+  font-size: 14px; letter-spacing: .2em; color: var(--dhn-acc2); text-transform: uppercase; }
+.tela.num26.cls26 .grana { position: absolute; inset: 0; z-index: 7; pointer-events: none;
+  background-image: var(--grana); opacity: .07; mix-blend-mode: overlay; }
+
+/* la colonna in piu' fra la piastra e il valore: carbone, come il blocco punti */
+.tela.num26 .righe .riga.cx { grid-template-columns: 64px 1fr 250px 186px 12px; }
+.tela.num26 .riga .misura {
+  position: relative; display: grid; align-content: center; gap: 8px; padding: 0 18px;
+  background: linear-gradient(180deg, #1b1c24, #121219); min-width: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), inset 0 -1px 0 rgba(0,0,0,.5); }
+.tela.num26 .riga .valore { border-radius: 0 4px 4px 0; }
+.tela.num26 .riga .valore small { display: block; font-size: 11px; letter-spacing: .2em; font-family: var(--dhn-testo); color: var(--dhn-dim); margin-top: 4px; }
+
+/* la barra del passo: binario scuro, riempimento in metallo bianco-caldo */
+.tela.num26 .bp { position: relative; height: 12px; border-radius: 6px; background: rgba(255,255,255,.07);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.6); overflow: hidden; }
+.tela.num26 .bp i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px;
+  background: linear-gradient(180deg, #fff 0%, #e9e6dc 45%, #a9a69d 55%, #dcd9d0 100%); }
+.tela.num26 .mis-t { display: flex; justify-content: space-between; white-space: nowrap;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 20px; color: var(--dhn-txt); }
+.tela.num26 .mis-t em { font-style: normal; font-family: var(--dhn-testo); font-size: 12px; letter-spacing: .2em; color: var(--dhn-dim); align-self: center; }
+.tela.num26 .mis-t .miglio { color: var(--dhn-acc2); font-family: var(--dhn-testo); font-size: 14px; letter-spacing: .24em; }
+.tela.num26.pagina-prima .riga:nth-child(-n+3) .mis-t { font-size: 26px; }
+.tela.num26.pagina-prima .riga:nth-child(-n+3) .bp { height: 16px; }
+.tela.num26 .riga .valore.tempo { font-size: 32px; }
+.tela.num26.pagina-prima .riga:nth-child(-n+3) .valore.tempo { font-size: 40px; }
+
+/* ═══════════ 18 B — il piu' veloce in grande, poi la lista dal 2° ═══ */
+.e18 { position: absolute; left: 0; right: 0; top: 0; height: 640px; z-index: 1; overflow: hidden; }
+.tela.storia .e18 { height: 900px; }
+.e18 .alone { position: absolute; inset: 0;
+  background: radial-gradient(60% 70% at 72% 40%, color-mix(in srgb, var(--squadra) 70%, transparent), transparent 72%); }
+.e18 .loghi17 { position: absolute; right: -60px; top: 60px; width: 700px; opacity: .14; transform: none;
+  -webkit-mask-image: radial-gradient(60% 60% at 50% 45%, #000 30%, transparent 75%); mask-image: radial-gradient(60% 60% at 50% 45%, #000 30%, transparent 75%); }
+.e18 .loghi17 .rl { display: flex; gap: 40px; margin-bottom: 34px; }
+.e18 .loghi17 img { height: 46px; filter: brightness(0) invert(1); }
+.e18 .fascio { left: 520px; top: -40px; width: 520px; height: 700px; }
+.e18 .vano { position: absolute; right: -40px; top: 96px; width: 600px; bottom: 0; overflow: hidden; }
+.e18 .vano .fig { height: 100%; }
+.e18 .velo { position: absolute; left: 0; right: 0; bottom: 0; height: 200px;
+  background: linear-gradient(0deg, #0b0b0f 10%, transparent); }
+.e18 .testo { position: absolute; z-index: 3; left: 48px; top: 122px; width: 640px; }
+.tela.storia .e18 .testo { top: 250px; }
+.e18 .testo .tag { padding: 8px 24px 6px 16px; font-size: 30px; display: inline-flex; color: #0b0b0f;
+  font-family: var(--dhn-font); font-weight: 900; letter-spacing: .14em; line-height: 1;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  background: linear-gradient(180deg, #ffa24d 0%, var(--dhn-acc) 38%, #e45f00 100%); box-shadow: inset 0 2px 0 rgba(255,255,255,.45); }
+.e18 .testo .occ { margin-top: 12px; font-family: var(--dhn-num); font-weight: 600; font-size: 18px; letter-spacing: .3em; color: var(--dhn-dim); white-space: nowrap; }
+.e18 .testo .n07 { margin-top: 26px; white-space: nowrap; font-family: var(--dhn-font); font-weight: 900; text-transform: uppercase; line-height: .86; }
+.e18 .testo .n07 span, .e18 .testo .crono span { display: inline-block; padding-bottom: .16em; margin-bottom: -.16em; filter: drop-shadow(0 12px 26px rgba(0,0,0,.75)); }
+.e18 .testo .crono { margin-top: 20px; white-space: nowrap; font-family: var(--dhn-num); font-weight: 700; line-height: .9; font-size: 128px; letter-spacing: -.02em; }
+.e18 .testo .cosa { margin-top: 12px; display: inline-block; padding: 6px 14px 4px; font-family: var(--dhn-testo); font-weight: 700;
+  font-size: 15px; letter-spacing: .26em; color: var(--dhn-acc2); background: rgba(11,11,15,.6); border-left: 4px solid var(--dhn-acc); }
+.e18 .testo .extra { margin-top: 14px; font-family: var(--dhn-num); font-weight: 700; font-size: 20px; letter-spacing: .1em; color: rgba(242,240,233,.7); white-space: nowrap; }
+.e18 .testo .extra b { color: #fff; }
+.e18 .sq26 { margin-top: 14px; font-size: 14px; }
+.e18 .sq26 img { height: 22px; }
+.tela.num26.g18 .righe { position: absolute; left: 0; right: 0; top: 628px; bottom: 90px; z-index: 3; padding-top: 0; padding-bottom: 6px; }
+.tela.storia.num26.g18 .righe { top: 900px; bottom: 150px; }
+.tela.num26.g18 .righe .riga { max-height: 64px; }
+
+/* ═══════════ 21 A — una riga per scuderia, il vincitore a DESTRA ═══ */
+.tela.num26 .righe .riga.duo { grid-template-columns: 1fr 170px 1fr; max-height: 128px; }
+.tela.num26.cls26 .righe .riga.duo { position: relative; border-radius: 4px; overflow: hidden;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--squadra) 55%, #06070a) 0%, var(--squadra) 55%, var(--squadra) 100%); }
+.tela.num26 .riga.duo::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 5;
+  background: linear-gradient(180deg, rgba(255,255,255,.62) 0, rgba(255,255,255,.62) 2px, rgba(255,255,255,.2) 4px,
+    rgba(255,255,255,.06) 30%, rgba(0,0,0,.12) 62%, rgba(0,0,0,.32) calc(100% - 3px), rgba(255,255,255,.22) calc(100% - 2px)); }
+.tela.num26.cls26 .righe .riga.duo.buio { background: linear-gradient(90deg, #07070a 0%, color-mix(in srgb, var(--squadra2) 22%, var(--squadra)) 60%, color-mix(in srgb, var(--squadra2) 30%, var(--squadra)) 100%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--squadra2) 40%, transparent); }
+.tela.num26 .duo .lato { position: relative; display: flex; align-items: center; gap: 0; min-width: 0; z-index: 2; }
+.tela.num26 .duo .lato.perde { padding-left: 0; }
+.tela.num26 .duo .lato.vince { justify-content: flex-end; }
+.tela.num26 .duo .volto { position: relative; flex: 0 0 auto; width: 110px; align-self: stretch; }
+.tela.num26 .duo .volto .ritrattino { position: absolute; left: 0; bottom: 0; height: 100%; width: auto; max-width: none; object-fit: contain; object-position: bottom;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,.45)); }
+.tela.num26 .duo .lato.vince .volto .ritrattino { left: auto; right: 0; }
+.tela.num26 .duo .volto .testa-vuota { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--dhn-font); font-weight: 900;
+  font-size: 44px; color: rgba(255,255,255,.9); }
+.tela.num26 .duo .perde .volto { opacity: .55; filter: grayscale(.7); }
+.tela.num26 .duo .ch21 { min-width: 0; flex: 1 1 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; padding: 0 14px; font-size: 38px; overflow: hidden; }
+.tela.num26 .duo .vince .ch21 { align-items: flex-end; }
+.tela.num26 .duo .vince .ch21 { text-align: right; font-size: 40px; }
+.tela.num26 .duo .ch21 .nome { font-family: var(--dhn-font); font-weight: 800; font-size: 1em; line-height: 1; text-transform: uppercase; white-space: nowrap;
+  color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.35); }
+.tela.num26 .duo .perde .ch21 .nome { color: rgba(255,255,255,.72); font-weight: 700; }
+.tela.num26 .duo .ch21 .dove { font-family: var(--dhn-num); font-weight: 700; font-size: 16px; line-height: 1.1; letter-spacing: .1em; color: rgba(255,255,255,.72); white-space: nowrap; }
+.tela.num26 .duo .perde .ch21 .dove { color: rgba(255,255,255,.45); }
+.tela.num26 .duo .vince .ch21 .dove b { display: inline-block; padding: 2px 8px 1px; margin-left: 8px; background: #0b0b0f; color: var(--dhn-acc); letter-spacing: .2em; font-size: 13px; padding: 2px 8px 1px; }
+.tela.num26 .duo.su-chiaro .ch21 .nome { color: #0b0b0f; text-shadow: none; }
+.tela.num26 .duo.su-chiaro .perde .ch21 .nome { color: rgba(11,11,15,.5); }
+.tela.num26 .duo.su-chiaro .ch21 .dove { color: rgba(11,11,15,.7); }
+.tela.num26 .duo.su-chiaro .perde .ch21 .dove { color: rgba(11,11,15,.45); }
+/* la cerniera: carbone, il logo e il distacco */
+.tela.num26 .duo .cern { position: relative; z-index: 3; display: grid; place-items: center; align-content: center; gap: 2px;
+  background: linear-gradient(180deg, #1d1e27, #111118); box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 0 22px rgba(0,0,0,.55); }
+.tela.num26 .duo .cern img { height: 24px; width: 80px; object-fit: contain; }
+.tela.num26 .duo .cern b { font-family: var(--dhn-num); font-weight: 700; font-size: 30px; line-height: 1; color: #fff; white-space: nowrap; }
+.tela.num26 .duo .cern b::after { content: " ▶"; font-size: .5em; color: var(--dhn-acc); vertical-align: .25em; }
+.tela.num26 .duo .cern i { font-style: normal; font-family: var(--dhn-testo); font-weight: 700; font-size: 10px; letter-spacing: .22em; color: var(--dhn-dim); }
+.tela.num26 .duo.rit .cern b { color: var(--dhn-acc2); font-size: 28px; }
+
+/* ═══════════ 20 COSTANZA (pilota solo) ═══ */
+.tela.ori26.g20 .s20 { position: absolute; z-index: 4; left: 0; right: 0; text-align: center; white-space: nowrap;
+  font-family: var(--dhn-num); font-weight: 700; line-height: .8; letter-spacing: -.02em; filter: drop-shadow(0 20px 40px rgba(0,0,0,.75)); }
+.tela.ori26.g20 .s20 span { display: inline-block; padding-bottom: .1em; }
+.tela.ori26.g20 .s20 span small { font-size: .32em; margin-left: .08em; color: var(--dhn-acc); -webkit-text-fill-color: var(--dhn-acc); letter-spacing: 0; }
+.tela.ori26.g20 .s20 em { display: block; font-style: normal; font-family: var(--dhn-testo); font-weight: 700; font-size: 18px; letter-spacing: .3em; color: var(--dhn-acc2); margin-top: 6px; }
+/* il righello: miglior giro e mediana, la distanza fra i due e' il premio */
+.r20 { position: absolute; z-index: 5; left: 48px; width: 520px; padding: 18px 22px 16px; }
+.r20 .cap { font-family: var(--dhn-testo); font-weight: 700; font-size: 13px; letter-spacing: .26em; color: var(--dhn-dim); }
+.r20 .asse { position: relative; height: 64px; margin: 14px 0 6px; }
+.r20 .asse .lin { position: absolute; left: 0; right: 0; top: 30px; height: 2px; background: rgba(255,255,255,.18); }
+.r20 .asse .tr { position: absolute; top: 18px; width: 3px; height: 26px; background: #fff; }
+.r20 .asse .tr.m { background: var(--dhn-acc); }
+.r20 .asse .ponte { position: absolute; top: 25px; height: 12px; background: linear-gradient(90deg, rgba(255,255,255,.4), rgba(255,112,0,.7)); border-radius: 2px; }
+.r20 .asse .lb { position: absolute; top: 48px; transform: translateX(-50%); font-family: var(--dhn-num); font-weight: 700; font-size: 16px; white-space: nowrap; color: #fff; }
+.r20 .asse .lb em { display: block; font-style: normal; font-family: var(--dhn-testo); font-size: 10px; letter-spacing: .2em; color: var(--dhn-dim); text-align: center; }
+.r20 .asse .lbs { position: absolute; top: -4px; transform: translateX(-50%); font-family: var(--dhn-num); font-weight: 700; font-size: 18px; color: var(--dhn-acc2); white-space: nowrap; }
+.r20 .nota20 { margin-top: 26px; font-family: var(--dhn-testo); font-weight: 600; font-size: 13px; letter-spacing: .14em; color: rgba(242,240,233,.55); text-transform: uppercase; line-height: 1.4; }
+.ins20 { position: absolute; z-index: 5; display: grid; gap: 6px; }
+.ins20 .ri { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; height: 44px; padding: 0 14px 0 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--squadra) 50%, #121219) 0%, #15151c 70%); border-left: 4px solid var(--squadra);
+  border-top: 1px solid rgba(255,255,255,.14); }
+.ins20 .ri .p { text-align: center; font-family: var(--dhn-num); font-weight: 700; font-size: 18px; color: var(--dhn-dim); }
+.ins20 .ri .n { font-family: var(--dhn-font); font-weight: 800; font-size: 24px; text-transform: uppercase; white-space: nowrap; color: #fff; min-width: 0; }
+.ins20 .ri .s { font-family: var(--dhn-num); font-weight: 700; font-size: 20px; color: var(--dhn-txt); white-space: nowrap; }
+
+.tela.num26 .duo .perde .volto { opacity: .7; filter: grayscale(.6); }
+.tela.num26.cls26 .righe .riga.duo.su-chiaro { background: linear-gradient(90deg, color-mix(in srgb, var(--squadra) 78%, #06070a) 0%, var(--squadra) 45%, var(--squadra) 100%); }
+
+/* ═══════════ I LOGHI DENTRO LE FASCE (tutte) ═══
+   Un tappeto di loghi della scuderia, in file dritte (niente diagonali: gusto
+   di Cava), bianchi e trasparenti, che sfuma verso il nome. Lo mette la
+   pagina (`tappeto()`); il logo e' quello di `logo_da_stampare`. */
+.tela.num26 .tappeto { position: absolute; inset: -6px 0; z-index: 1; pointer-events: none; overflow: hidden;
+  display: grid; align-content: space-around;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.2) 0%, #000 22%, #000 55%, rgba(0,0,0,.25) 100%);
+          mask-image: linear-gradient(90deg, rgba(0,0,0,.2) 0%, #000 22%, #000 55%, rgba(0,0,0,.25) 100%); }
+.tela.num26 .tappeto .rl { display: flex; gap: 26px; white-space: nowrap; }
+.tela.num26 .tappeto .rl:nth-child(even) { transform: translateX(-38px); }
+/* A-09 (24/09): la pagina misura ogni logo (`PEZZI.logoTappeto`). Un colore
+   solo = sagoma piena; col disegno dentro (Ferrari, Mercedes, Red Bull) =
+   `.dettaglio`, il logo vero in grigio: la sagoma faceva lo scudo Ferrari vuoto. */
+.tela.num26 .tappeto img { flex: 0 0 auto; width: 52px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); opacity: .32; }
+.tela.num26 .tappeto img.dettaglio { filter: grayscale(1) contrast(1.2) brightness(2.2); opacity: .36; }
+.tela.num26 .buio .tappeto img { opacity: .42; }
+.tela.num26 .su-chiaro .tappeto img { filter: brightness(0); opacity: .22; }
+.tela.num26 .su-chiaro .tappeto img.dettaglio { filter: grayscale(1) contrast(1.4) brightness(.35); opacity: .42; }
+.tela.num26.pagina-prima .riga:nth-child(-n+3) .tappeto img { width: 66px; height: 34px; }
+/* la piastra ha gia' il riflesso in ::after (z sopra): il tappeto sta sotto
+   stemma, volto e nome (z 2-3), sopra il colore */
+.tela.num26 .riga.duo .tappeto { z-index: 1; }
+
+/* ═══════════ 19 — le colonne: gomma · inizio · fine ═══ */
+.tela.num26 .righe .riga.cx19 { grid-template-columns: 64px 1fr 360px 150px 12px; }
+.tela.num26 .riga .c19 { display: grid; grid-template-columns: 76px 1fr 22px 1fr; column-gap: 6px; align-items: center; padding: 0 14px 0 8px; }
+.tela.num26 .riga .c19 .gm { display: grid; justify-items: center; gap: 2px; }
+.tela.num26 .riga .c19 .gm small { font-family: var(--dhn-num); font-weight: 700; font-size: 11px; letter-spacing: .06em; color: var(--dhn-dim); white-space: nowrap; }
+.tela.num26 .riga .c19 .gomma { width: 38px; height: 38px; }
+.tela.num26.pagina-prima .riga:nth-child(-n+3) .c19 .gomma { width: 62px; height: 62px; }
+.tela.num26.pagina-prima .riga:nth-child(-n+3) .c19 .gm small { font-size: 13px; }
+.tela.num26 .c19 .t { display: grid; justify-items: center; gap: 3px; white-space: nowrap;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 23px; line-height: 1; color: rgba(242,240,233,.66); }
+.tela.num26 .c19 .t.fine { color: #fff; }
+.tela.num26.pagina-prima .riga:nth-child(-n+3) .c19 .t { font-size: 28px; }
+.tela.num26 .c19 .t small { font-family: var(--dhn-testo); font-weight: 700; font-size: 11px; letter-spacing: .14em; color: var(--dhn-dim); }
+.tela.num26 .c19 .fr { justify-self: center; width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 10px solid rgba(255,255,255,.4); }
+.tela.num26 .riga .valore.meglio { color: #3be26f; }
+.tela.num26 .riga .valore.peggio { color: #ff6a5f; }
+.tela.num26.pagina-prima .righe .riga:nth-child(-n+3) .valore.meglio,
+.tela.num26.pagina-prima .righe .riga:nth-child(-n+3) .valore.peggio { color: #0b0b0f; }
+/* le intestazioni: una volta sola sopra le colonne, non in ogni riga */
+.tela.num26 .intesta { position: relative; z-index: 4; display: grid; grid-template-columns: 64px 1fr 360px 150px 12px; margin: 18px 44px -16px; }
+.tela.num26 .intesta .c19 { grid-column: 3; display: grid; grid-template-columns: 76px 1fr 22px 1fr; column-gap: 6px; padding: 0 14px 0 8px; }
+.tela.num26 .intesta span { text-align: center; white-space: nowrap; font-family: var(--dhn-testo); font-weight: 700; font-size: 12px; letter-spacing: .16em; color: var(--dhn-dim); }
+.tela.num26 .intesta .dif { grid-column: 4; }
+.ins20 .ri { position: relative; overflow: hidden; }
+.ins20 .ri > span { position: relative; z-index: 2; }
+.ins20 .ri .tappeto img { width: 40px; height: 20px; opacity: .2; }
+.ins20 .ri .tappeto img.dettaglio { opacity: .24; }
+
+/* 18: la lista e' in assoluto sotto il piu' veloce, il piede torna in fondo */
+.tela.num26.g18 > .piede { margin-top: auto; }
+/* 19: la colonna in piu' ruba spazio al podio, che ha stemma e volto piu'
+   stretti della 03 (se no i nomi del podio scendevano a 20 px) */
+.tela.num26.pagina-prima .riga.cx19:nth-child(-n+3) .stemma { width: 86px; }
+.tela.num26.pagina-prima .riga.cx19:nth-child(-n+3) .stemma img { left: 12px; width: calc(100% - 24px); }
+.tela.num26.pagina-prima .riga.cx19:nth-child(-n+3) .volto { width: 112px; }
+.tela.num26.pagina-prima .riga.cx19:nth-child(-n+3) .chi { font-size: 46px; }
+/* 21 in storia: 8-11 scuderie in 1920 px, le fasce crescono invece di
+   lasciare un buco in fondo */
+.tela.storia.num26 .righe .riga.duo { max-height: 180px; }
+.tela.storia.num26 .duo .volto { width: 150px; }

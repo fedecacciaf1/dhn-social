@@ -1,0 +1,5 @@
+node_modules/
+uscita/
+*.bak
+.env
+*.env

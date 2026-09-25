@@ -1,0 +1,166 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — DUELLO INTERNO</title>
+<!-- 21 DUELLO INTERNO — 12/09/2026.  ?storico_id=NNN  ?formato=post|storia  ?banco=901
+
+     COSA MOSTRA
+       Chi ha battuto il proprio compagno di squadra. E' l'unico confronto
+       della gara che non dipende dalla macchina: stessa vettura, stessa
+       strategia di reparto, due piloti.
+
+     ⚠⚠ NON E' LA GRAFICA DELLA COPPIA (11 TESTA A TESTA). Quella cerca due
+       piloti VICINI in pista con `pickPair`, e in lobby DHN non trova niente
+       (0 su 365, vedi memoria «coppia-inquadrata-pickpair»). Qui le coppie si
+       fanno con `team_id`, che c'e' sempre.
+
+     ⚠ SI CONFRONTA CHI HA CORSO. Una scuderia con un pilota solo in lobby non
+       ha un duello: si salta, e la grafica dice quante coppie ha trovato. Con
+       meno di tre coppie non si disegna: sarebbe un elenco, non un confronto.
+
+     ⚠ CHI SI RITIRA PERDE IL DUELLO, ma non «di N posizioni»: il distacco
+       resta vuoto. Un ritiro al giro 2 e uno all'ultimo non sono la stessa
+       cosa e la grafica non finge di saperlo. 
+     A-08, 23/09/2026 — RIFATTA, scelta di Cava (la «A»): una FASCIA per
+       scuderia nel colore pieno, coi loghi della scuderia dentro. Il compagno
+       battuto a SINISTRA, spento; chi vince a DESTRA, acceso, con «VINCE»
+       (regola di Cava: coi piloti affiancati il primo sta a destra). In mezzo,
+       su carbone, il logo e il distacco in posizioni (o «RIT»).
+       Vestito: `dhn-classifica-pelle.css` + `dhn-qualifica.css` +
+       `dhn-numeri.css` (sotto `.tela.num26`).
+     ⚠ I nomi NON stanno in `.chi` ma in `.ch21`: `.chi` e' della pelle delle
+       classifiche e il rimpicciolimento comune lo schiacciava a 16 px. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-fondo.css">
+<link rel="stylesheet" href="dhn-classifica-pelle.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-numeri.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela cls26 qual26 num26 g21" id="tela">
+  <header class="testata">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="titolone">
+    <div class="etichetta">DUELLO INTERNO</div>
+    <div class="parola-titolo" id="parola"><span>COMPAGNI</span></div>
+    <div class="sotto" id="sotto">—</div>
+  </div>
+  <section class="righe" id="righe"></section>
+  <footer class="piede">
+    <div class="nota" id="nota">—</div><div class="filo"></div><img id="marchio2" alt="">
+  </footer>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  var COPPIE_MINIME = 3;
+  /* le classi del vestito della riga, come la 03: `su-chiaro` = livrea chiara
+     (lo dice `testo_chiaro` delle squadre), `buio` = livrea quasi nera */
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) { return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : ""); }
+  /* i loghi della scuderia dentro la fascia, in file dritte */
+  function tappeto(r, file, perFila) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var f = ""; for (var c = 0; c < perFila; c++) f += '<img src="' + esc(l) + '" alt="" onload="PEZZI.logoTappeto(this)" onerror="this.style.visibility=\'hidden\'">';
+    var t = ""; for (var k = 0; k < file; k++) t += '<div class="rl">' + f + '</div>';
+    return '<div class="tappeto">' + t + '</div>';
+  }
+
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+
+  /* ⚠ L'ordine di arrivo NON e' `pos` e basta: chi si ritira ha comunque un
+     `pos`, e in due grafiche su tre e' quello del momento del ritiro. Chi non
+     vede la bandiera sta DIETRO a chi la vede, sempre. */
+  function arrivato(r) { return !r.ritiro && r.stato_arrivo !== "retired" && r.stato_arrivo !== "dnf"; }
+  function rango(r) { return (arrivato(r) ? 0 : 1000) + (r.pos != null ? r.pos : 99); }
+  function dove(r) { return arrivato(r) ? "P" + (r.pos != null ? r.pos : "?") : "RITIRATO"; }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) {
+      var u = await DHN.ultimaBuona("gara");
+      if (!u) throw new Error("nessuna gara con piloti riconosciuti");
+      id = u.storico_id;
+    }
+    var s = await DHN.sessione(id);
+
+    /* le coppie si fanno con team_id, che c'e' sempre; il nome scuderia no */
+    var per = {};
+    s.righe.forEach(function (r) {
+      var k = r.team_id != null ? "t" + r.team_id : (r.scuderia_da_stampare || "");
+      if (!k) return;
+      (per[k] = per[k] || []).push(r);
+    });
+    var coppie = [];
+    Object.keys(per).forEach(function (k) {
+      var g = per[k].slice().sort(function (a, b) { return rango(a) - rango(b); });
+      if (g.length < 2) return;             // un pilota solo non e' un duello
+      coppie.push({ vince: g[0], perde: g[1] });
+    });
+    if (coppie.length < COPPIE_MINIME)
+      throw new Error("solo " + coppie.length + " scuderie con due piloti in questa lobby: "
+        + "un confronto fra compagni qui non c'e'");
+    coppie.sort(function (a, b) { return rango(a.vince) - rango(b.vince); });
+
+    var quante = storia ? 14 : 11;
+    document.getElementById("righe").innerHTML = coppie.slice(0, quante).map(function (c) {
+      var v = c.vince, p = c.perde;
+      /* ⚠ il distacco si stampa SOLO se sono arrivati tutti e due: fra un
+         arrivato e un ritirato «+7 posizioni» sarebbe un numero inventato */
+      var d = (arrivato(v) && arrivato(p) && v.pos != null && p.pos != null)
+        ? { b: "+" + (p.pos - v.pos), i: "POSIZIONI", rit: false } : { b: "RIT", i: "L'ALTRO", rit: true };
+      return '<div class="riga duo' + vestito(v) + (d.rit ? " rit" : "") + '" style="' + P.tinte(v) + '">' +
+        tappeto(v, 3, 20) +
+        '<div class="lato perde"><span class="volto">' + P.faccina(p, "ritrattino") + '</span>' +
+          '<div class="ch21"><span class="nome">' + P.nome(p) + '</span><span class="dove">' + dove(p) + '</span></div></div>' +
+        '<div class="cern">' + P.immagineLogo(v) + '<b>' + d.b + '</b><i>' + d.i + '</i></div>' +
+        '<div class="lato vince"><div class="ch21"><span class="nome">' + P.nome(v) + '</span>' +
+          '<span class="dove">' + dove(v) + '<b>VINCE</b></span></div>' +
+          '<span class="volto">' + P.faccina(v, "ritrattino") + '</span></div></div>';
+    }).join("");
+
+    document.getElementById("sotto").textContent = DHN.occhiello(s.info)
+      + "  ·  CHI HA BATTUTO IL COMPAGNO  ·  " + coppie.length + " SCUDERIE CON DUE PILOTI";
+    P.vesti(s.info, "");
+    document.getElementById("marchio").src = DHN.BRAND;
+    if (s.info.riconosciuti === 0)
+      DHN.avviso("ZERO piloti riconosciuti dal roster DHN: non pubblicare.");
+
+    P.fondoDhn(tela, { capo: coppie[0].vince, secondo: coppie[1].vince, contenuto: ".righe" });
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.rifinisci(tela);
+    await P.fontPronti(tela);
+    entra(document.getElementById("parola"), 984, 150, 60);
+    /* il sottotitolo e l'avvertenza sono `nowrap`: se sono lunghi (Citta' del
+       Messico, 11 scuderie) si rimpiccioliscono, non escono dalla tela */
+    [].forEach.call(tela.querySelectorAll(".titolone .sotto, .titolone .avv"), function (el) {
+      var f = parseFloat(getComputedStyle(el).fontSize), W = tela.clientWidth - 96;
+      while (el.scrollWidth > W && f > 10) { f -= 0.5; el.style.fontSize = f + "px"; }
+      if (el.scrollWidth > W) DHN.avviso("SOTTOTITOLO troppo lungo anche a 10 px: " + el.textContent);
+    });
+    /* i nomi lunghi si rimpiccioliscono, non si tagliano: la misura e' la
+       larghezza vera del nome contro il suo lato */
+    [].forEach.call(tela.querySelectorAll(".duo .ch21"), function (el) {
+      var nm = el.querySelector(".nome"), W = el.clientWidth - 28;
+      var f = parseFloat(getComputedStyle(nm).fontSize);
+      while (nm.offsetWidth > W && f > 16) { f -= 1; nm.style.fontSize = f + "px"; }
+      if (nm.offsetWidth > W) DHN.avviso("NOME TROPPO LUNGO anche a 16 px: " + nm.textContent);
+    });
+    DHN.bottoneScarico(tela, "DHN-duello-interno-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

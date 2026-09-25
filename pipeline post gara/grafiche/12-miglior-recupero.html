@@ -1,0 +1,123 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — POSIZIONI GUADAGNATE</title>
+<!-- 12 POSIZIONI GUADAGNATE — chi ne ha guadagnate piu' di tutti.
+     ⚠ Il titolo era "RECUPERO": bocciato da Fede il 06/09 («mi fa schifo come
+       parola»). I titoli restano generici e descrittivi, in stile F1: niente
+       parole inventate. L'eroe della grafica e' il NUMERO, non l'aggettivo.
+     ?storico_id=NNN   Nello stile del pilota solo (quello approvato).
+     ⚠ Chi si ritira NON entra: con `pos_arrivo` da regolamento un ritirato
+       puo' risultare "salito" di posizioni pur non avendo finito. Il recupero
+       si conta solo fra chi e' arrivato.
+     A-07, 23/09/2026 — RIFATTA, scelta di Cava (la «B»): la SCALA delle
+       posizioni a sinistra, da P<partenza> in basso a P<arrivo> in alto, con
+       una linea DRITTA e un punto per ogni posizione guadagnata (Cava: «la
+       linea sia piu' precisa e fai capire meglio il cambio di posizione»);
+       il «+N» gigante in metallo accanto; il NOME grande come la 02 con
+       «POSIZIONI GUADAGNATE» in etichetta. Vestito: `dhn-qualifica.css` +
+       `dhn-campionato.css` + `dhn-originali.css`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<link rel="stylesheet" href="dhn-originali.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26 ori26 g12" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  /* La scala: un gradino per posizione, P<partenza> in basso e P<arrivo> in
+     alto. Linea DRITTA (grigia in basso, arancio in alto: si legge che sale),
+     un punto per ogni posizione passata, la freccia in cima. Con tanti
+     gradini (oltre 12) le etichette in mezzo si alternano, i punti restano
+     tutti: il conto si vede sempre. */
+  function scala(p, n, alto, basso) {
+    var passo = (basso - alto) / n;
+    var fz = Math.max(18, Math.min(32, passo * 0.46));
+    var X = 16, h = "", pallini = "";
+    for (var k = 0; k <= n; k++) {
+      var y = basso - k * passo, posK = p.griglia - k;
+      if (k === 0) {
+        h += '<div class="gr par" style="top:' + y + 'px;font-size:' + (fz * 1.35) + 'px"><b>P' + posK + '</b><em>PARTENZA</em></div>';
+      } else if (k === n) {
+        h += '<div class="gr arr" style="top:' + y + 'px;font-size:' + (fz * 1.7) + 'px"><b>P' + posK + '</b><em>ARRIVO</em></div>';
+      } else {
+        var vicino = passo < 44 && (k === 1 || k === n - 1);   /* non addosso alle due targhe */
+        if (!(n > 12 && k % 2) && !vicino) h += '<div class="gr" style="top:' + y + 'px;font-size:' + fz + 'px"><b>P' + posK + '</b></div>';
+        pallini += '<circle cx="' + X + '" cy="' + y + '" r="7" fill="#0b0b0f" stroke="#ff9233" stroke-width="3"/>';
+      }
+    }
+    var cima = alto + 26;
+    return h + '<svg width="40" height="' + (basso + 20) + '" viewBox="0 0 40 ' + (basso + 20) + '">' +
+      '<defs><linearGradient id="sale" x1="0" y1="' + basso + '" x2="0" y2="' + alto + '" gradientUnits="userSpaceOnUse">' +
+        '<stop offset="0" stop-color="#6b6b73"/><stop offset=".35" stop-color="#ff7000"/><stop offset="1" stop-color="#ffa24d"/></linearGradient>' +
+        '<filter id="luce" x="-2" y="-1" width="5" height="3"><feGaussianBlur stdDeviation="5"/></filter></defs>' +
+      '<line x1="' + X + '" y1="' + basso + '" x2="' + X + '" y2="' + cima + '" stroke="#ff7000" stroke-width="10" opacity=".45" filter="url(#luce)"/>' +
+      '<line x1="' + X + '" y1="' + basso + '" x2="' + X + '" y2="' + cima + '" stroke="url(#sale)" stroke-width="6" stroke-linecap="round"/>' +
+      '<path d="M ' + (X - 13) + ' ' + (cima + 6) + ' L ' + X + ' ' + (cima - 12) + ' L ' + (X + 13) + ' ' + (cima + 6) + ' Z" fill="#ffa24d"/>' +
+      pallini +
+      '<circle cx="' + X + '" cy="' + basso + '" r="9" fill="#9c9ca0"/>' +
+      '</svg>';
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var arrivati = s.righe.filter(function (r) {
+      return r.pos != null && !r.ritiro && r.posizioni_guadagnate != null;
+    });
+    if (!arrivati.length) throw new Error("nessun pilota arrivato: niente recupero da premiare");
+    arrivati.sort(function (x, y) { return y.posizioni_guadagnate - x.posizioni_guadagnate; });
+    var p = arrivati[0];
+    if (p.posizioni_guadagnate <= 0)
+      throw new Error("nessuno ha guadagnato posizioni in questa gara: la grafica non ha soggetto");
+    if (p.griglia == null) throw new Error("posizione di partenza mancante per " + (p.nome_da_stampare || "?"));
+    var n = p.posizioni_guadagnate, occ = DHN.occhiello(s.info);
+
+    document.getElementById("dentro").innerHTML = P.solo(
+      p, "POSIZIONI GUADAGNATE", occ + "   ·   DA P" + p.griglia + " A P" + p.pos, null, { nomeGrande: true });
+    var solo = tela.querySelector(".solo");
+    solo.querySelector(".alone").insertAdjacentHTML("afterend", '<div class="fascio"><i></i></div>');
+    solo.querySelector(".velo").insertAdjacentHTML("afterend", '<div class="vignetta"></div><div class="filo-piede"></div>');
+    solo.querySelector(".nomone span").classList.add("metallo");
+    solo.querySelector(".ecg-riga").style.display = "none";      /* la linea qui e' la scala */
+    var alto = storia ? 330 : 190, basso = storia ? 1280 : 770;
+    solo.insertAdjacentHTML("beforeend", '<div class="p12"><div class="s12">' + scala(p, n, alto, basso) + '</div>' +
+      '<div class="piu"><span class="metallo">+' + esc(n) + '</span><em>POSIZIONI</em></div></div>');
+
+    PEZZI.vesti(s.info);
+    document.getElementById("marchio").src = DHN.BRAND;
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.incastraTutte(tela);   /* busto e nome grande */
+    await P.fontPronti(tela);
+
+    /* il «+N» accanto all'arrivo; il pilota spostato a destra per fargli posto */
+    var pz = solo.querySelector(".piu");
+    pz.style.fontSize = (storia ? 330 : 300) + "px";
+    pz.style.left = "250px"; pz.style.top = (alto - 30) + "px";
+    var bi = solo.querySelector("img.busto");
+    if (bi && bi.style.left) bi.style.left = (parseFloat(bi.style.left) + 250) + "px";
+    solo.querySelector(".fascio").style.marginLeft = "-130px";
+    /* senza avatar: la lettera di riserva a destra, dove sarebbe stato il busto */
+    var sf = solo.querySelector(".senzafigura");
+    if (sf) { sf.style.left = "560px"; sf.style.top = (alto + 40) + "px"; sf.style.fontSize = "420px"; }
+    /* il «+N» a due cifre non deve finire sul busto: se esce dalla meta' si rimpicciolisce */
+    var sp = pz.firstElementChild;
+    if (sp.offsetWidth > 560) pz.style.fontSize = (parseFloat(pz.style.fontSize) * 560 / sp.offsetWidth) + "px";
+
+    DHN.bottoneScarico(tela, "DHN-posizioni-guadagnate-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

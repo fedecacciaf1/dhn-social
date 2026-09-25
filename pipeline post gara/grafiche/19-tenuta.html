@@ -1,0 +1,186 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — TENUTA</title>
+<!-- 19 TENUTA — 12/09/2026.  ?storico_id=NNN  ?formato=post|storia  ?banco=901
+
+     COSA MOSTRA
+       Come e' cambiato il passo di ognuno DENTRO il suo stint piu' lungo:
+       mediana dell'ultimo terzo meno mediana del primo terzo. Chi resta piatto
+       ha gestito, chi scivola a destra ha consumato.
+
+     ⚠⚠ NON SI CHIAMA «DEGRADO GOMME», E IL MOTIVO E' MISURATO.
+       Nel replay 191 xX_HappoGame_Xx risulta piu' VELOCE di 2,032 s a fine
+       stint. Non e' una gomma che migliora: dentro questo numero c'e' anche il
+       carburante che cala, che vale per tutti e spinge tutti verso il verde, e
+       c'e' chi semplicemente parte piano. Chiamarlo degrado sarebbe un numero
+       che finge di essere una misura della gomma.
+       Ha senso come CONFRONTO fra piloti della STESSA gara — il carburante lo
+       bruciano tutti — e la grafica lo scrive in chiaro nel sottotitolo.
+
+     ⚠ Terzi e mediane, non primo e ultimo giro: un singolo giro lento
+       (traffico, bandiera gialla) sposta un estremo di secondi. E minimo 6
+       giri validi nello stint, se no i terzi sono due giri e il numero e'
+       rumore: il filtro sta nella vista.
+
+     ⚠ I giri vengono dallo SNAPSHOT del motore, non dalla tabella `giro`
+       (zero righe in comune, e dalla S2 quella resta vuota). 
+     A-08, 23/09/2026 — RIFATTA, scelta di Cava (la «B», corretta): classifica
+       come la 03 (righe nel colore della scuderia coi loghi dentro, podio
+       grande) e a destra UNA COLONNA PER COSA — gomma dello stint (disegnata
+       come nella 14), tempo all'INIZIO dello stint, tempo alla FINE, e la
+       DIFFERENZA verde (piu' veloce a fine stint) o rossa. Le intestazioni
+       stanno una volta sola in alto. La linea di pendenza del primo
+       prototipo e' stata tolta: per Cava «rende disorganizzata la tabella».
+       Vestito: `dhn-classifica-pelle.css` + `dhn-qualifica.css` +
+       `dhn-numeri.css` (sotto `.tela.num26`). -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-fondo.css">
+<link rel="stylesheet" href="dhn-classifica-pelle.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-numeri.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela cls26 qual26 num26 pagina-prima" id="tela">
+  <header class="testata">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="titolone">
+    <div class="etichetta">TENUTA DEL PASSO</div>
+    <div class="parola-titolo" id="parola"><span>STINT LUNGO</span></div>
+    <div class="sotto" id="sotto">—</div>
+    <div class="avv" id="avvertenza">—</div>
+  </div>
+  <div class="intesta"><div class="c19"><span>STINT</span><span>INIZIO STINT</span><span></span><span>FINE STINT</span></div><span class="dif">DIFFERENZA</span></div>
+  <section class="righe" id="righe"></section>
+  <footer class="piede">
+    <div class="nota" id="nota">—</div><div class="filo"></div><img id="marchio2" alt="">
+  </footer>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  function ms(v) {
+    var s = Math.floor(v / 1000), m = Math.floor(s / 60);
+    return (m ? m + ":" : "") + String(s % 60).padStart(m ? 2 : 1, "0") + "." + String(v % 1000).padStart(3, "0");
+  }
+  /* le classi del vestito della riga, come la 03: `su-chiaro` = livrea chiara
+     (lo dice `testo_chiaro` delle squadre), `buio` = livrea quasi nera */
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) { return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : ""); }
+  /* i loghi della scuderia dentro la fascia, in file dritte */
+  function tappeto(r, file, perFila) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var f = ""; for (var c = 0; c < perFila; c++) f += '<img src="' + esc(l) + '" alt="" onload="PEZZI.logoTappeto(this)" onerror="this.style.visibility=\'hidden\'">';
+    var t = ""; for (var k = 0; k < file; k++) t += '<div class="rl">' + f + '</div>';
+    return '<div class="tappeto">' + t + '</div>';
+  }
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+
+  /* La gomma, disegnata come nella 14 (stessa funzione): battistrada nero,
+     fascia colorata della mescola, cerchio con la lettera. Niente marchi.
+     Mescola sconosciuta = fascia grigia a tratti e «?». I colori sono i
+     token del design system (--tyre-*), letti dal CSS. */
+  var cs = getComputedStyle(document.documentElement);
+  function tinta(v) { var m = /var\((--[\w-]+)\)/.exec(v || ""); return m ? cs.getPropertyValue(m[1]).trim() : v; }
+  var nGomma = 0;
+  function gomma(x) {
+    var k = "g" + (++nGomma), ign = x.sigla === "?";
+    var c = ign ? "#77777f" : (tinta(x.colore) || "#9c9ca0");
+    return '<span class="gomma' + (ign ? " ignota" : "") + '"><svg viewBox="0 0 100 100" aria-label="' + esc(x.sigla) + '">' +
+      '<defs><radialGradient id="' + k + 'r" cx="50%" cy="46%" r="54%"><stop offset=".58" stop-color="#2a2a30"/><stop offset=".8" stop-color="#18181c"/><stop offset=".96" stop-color="#0b0b0d"/><stop offset="1" stop-color="#030304"/></radialGradient>' +
+      '<linearGradient id="' + k + 'c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9c9d1"/><stop offset=".45" stop-color="#6e6e78"/><stop offset="1" stop-color="#2c2c33"/></linearGradient>' +
+      '<radialGradient id="' + k + 'd" cx="42%" cy="34%" r="72%"><stop offset="0" stop-color="#34343c"/><stop offset=".7" stop-color="#16161a"/><stop offset="1" stop-color="#0c0c0f"/></radialGradient></defs>' +
+      '<circle cx="50" cy="50" r="49.5" fill="url(#' + k + 'r)"/><circle cx="50" cy="50" r="48" fill="none" stroke="#050506" stroke-width="3"/>' +
+      '<circle cx="50" cy="50" r="44.5" fill="none" stroke="#34343b" stroke-width=".7"/><circle cx="50" cy="50" r="33.8" fill="none" stroke="#34343b" stroke-width=".7"/>' +
+      '<circle cx="50" cy="50" r="39" fill="none" stroke="' + c + '" stroke-width="3.6"' + (ign ? ' stroke-dasharray="6 4"' : ' stroke-dasharray="104 18.5" transform="rotate(-62 50 50)"') + '/>' +
+      '<circle cx="50" cy="50" r="31.5" fill="url(#' + k + 'c)"/><circle cx="50" cy="50" r="28.6" fill="url(#' + k + 'd)"/>' +
+      '<circle cx="50" cy="50" r="20" fill="none" stroke="#2b2b32" stroke-width=".8"/>' +
+      '<text x="50" y="51.5" text-anchor="middle" dominant-baseline="central" font-family="Saira Condensed, sans-serif" font-weight="900" font-size="27" fill="' + c + '">' + esc(x.sigla) + '</text>' +
+      '<path d="M 12 38 A 39 39 0 0 1 52 11.5" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="4" stroke-linecap="round"/></svg></span>';
+  }
+  /* la mescola dello stint arriva come sigla del gioco (C1..C6) o lettera:
+     il colore lo decide solo se e' una delle nostre, se no resta «?» grigia —
+     meglio grigio che un colore inventato */
+  var SIG = { C1: "H", C2: "H", C3: "M", C4: "S", C5: "S", C6: "S", S: "S", M: "M", H: "H", I: "I", W: "W" };
+  var SCOL = { S: "var(--tyre-s)", M: "var(--tyre-m)", H: "var(--tyre-h)", I: "var(--tyre-i)", W: "var(--tyre-w)" };
+  function mescola(m) { var s = SIG[String(m || "").toUpperCase()] || "?"; return { sigla: s, colore: SCOL[s] || "#77777f" }; }
+  function segnoS(d) { return (d > 0 ? "+" : "−") + (Math.abs(d) / 1000).toFixed(2); }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) {
+      var u = await DHN.ultimaBuona("gara");
+      if (!u) throw new Error("nessuna gara con piloti riconosciuti");
+      id = u.storico_id;
+    }
+    var s = await DHN.sessione(id);
+    var ten = await DHN.tenuta(id);
+    if (!ten.length)
+      throw new Error("nessuno stint abbastanza lungo da misurare (servono 6 giri validi), oppure questa sessione non ha i giri nello snapshot");
+    var perIdx = {};
+    s.righe.forEach(function (r) { if (r.car_idx != null) perIdx[r.car_idx] = r; });
+    var righe = ten.map(function (t) {
+      var r = perIdx[t.car_idx];
+      return r ? Object.assign({}, r, t) : null;
+    }).filter(Boolean);
+    if (!righe.length) throw new Error("nessun pilota agganciato per car_idx");
+    /* ⚠ L'ordine sta QUI, non nella fonte (sul banco la vista e' un JSON) */
+    righe.sort(function (a, b) { return a.degrado_ms - b.degrado_ms; });
+
+    var quante = storia ? 14 : 11;
+    document.getElementById("righe").innerHTML = righe.slice(0, quante).map(function (r, i) {
+      var d = r.degrado_ms;
+      return '<div class="riga cls cx19' + vestito(r) + '" style="' + P.tinte(r) + '">' +
+        '<div class="pos">' + (i + 1) + '</div>' +
+        '<div class="piastra">' + tappeto(r, i < 3 ? 3 : 2, 12) +
+          '<span class="stemma">' + P.immagineLogo(r) + '</span>' +
+          '<span class="volto">' + P.faccina(r, "ritrattino") + '</span>' +
+          '<div class="chi"><span class="nome">' + P.nome(r) + '</span></div></div>' +
+        '<div class="misura c19"><span class="gm">' + gomma(mescola(r.mescola)) + '<small>GIRI ' + esc(r.dal_giro) + '–' + esc(r.al_giro) + '</small></span>' +
+          '<span class="t">' + (r.inizio_ms ? ms(r.inizio_ms) : "—") + '</span>' +
+          '<i class="fr"></i>' +
+          '<span class="t fine">' + (r.fine_ms ? ms(r.fine_ms) : "—") + '</span></div>' +
+        '<div class="valore tempo ' + (d <= 0 ? "meglio" : "peggio") + '">' + segnoS(d) + '</div><div class="mov"></div></div>';
+    }).join("");
+
+    /* ⚠ Il sottotitolo dice COSA SI MISURA; l'avvertenza e' la ragione per
+       cui questa grafica non si chiama «degrado gomme»: resta scritta. */
+    document.getElementById("sotto").textContent =
+      DHN.occhiello(s.info) + "  ·  ULTIMO TERZO DELLO STINT PIU' LUNGO CONTRO IL PRIMO";
+    document.getElementById("avvertenza").textContent =
+      "VALE COME CONFRONTO FRA I PILOTI DI QUESTA GARA: NEL NUMERO C'E' ANCHE LA BENZINA CHE CALA";
+    P.vesti(s.info, "");
+    document.getElementById("marchio").src = DHN.BRAND;
+    if (s.info.riconosciuti === 0)
+      DHN.avviso("ZERO piloti riconosciuti dal roster DHN: non pubblicare.");
+
+    P.fondoDhn(tela, { capo: righe[0], secondo: righe[1], contenuto: ".righe" });
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.rifinisci(tela);
+    await P.fontPronti(tela);
+    entra(document.getElementById("parola"), 984, 150, 60);
+    /* il sottotitolo e l'avvertenza sono `nowrap`: se sono lunghi (Citta' del
+       Messico, 11 scuderie) si rimpiccioliscono, non escono dalla tela */
+    [].forEach.call(tela.querySelectorAll(".titolone .sotto, .titolone .avv"), function (el) {
+      var f = parseFloat(getComputedStyle(el).fontSize), W = tela.clientWidth - 96;
+      while (el.scrollWidth > W && f > 10) { f -= 0.5; el.style.fontSize = f + "px"; }
+      if (el.scrollWidth > W) DHN.avviso("SOTTOTITOLO troppo lungo anche a 10 px: " + el.textContent);
+    });
+    DHN.bottoneScarico(tela, "DHN-tenuta-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

@@ -1,0 +1,127 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — CLASSIFICA SCUDERIE</title>
+<!-- 04 CLASSIFICA SCUDERIE — legge v_grafica_classifica_scuderie.  ?banco=182
+     ⚠ Le squadre sono quelle del GIOCO (team_id dal blocco `classifica` dello
+       snapshot), non quelle dell'anagrafica DHN: su 56 iscritti alla S2 le
+       scuderie assegnate sono ZERO. Quando l'asta sara' chiusa e le scuderie
+       DHN esisteranno, si confrontano con queste — non si riscrive la vista.
+     A-02, 23/09/2026 — RIFATTA ALLA F1 (reference ig_02_team_standings),
+       scelta di Cava: righe nel colore pieno, stemma grande, podio grande,
+       titolo «CLASSIFICA / SCUDERIE» come la 02. Cadillac (#101014) non
+       sparisce piu': la schiarisce il secondo colore (`colore2`). La pelle e'
+       in fondo a `dhn-classifica-pelle.css`, sotto `.tela.cls26`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-fondo.css">
+<link rel="stylesheet" href="dhn-classifica-pelle.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela cls26 fasce26" id="tela">
+  <header class="testata">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="titolone">
+    <div class="etichetta">CLASSIFICA</div>
+    <div class="parola-titolo">SCUDERIE</div>
+    <div class="sotto" id="sotto">—</div>
+  </div>
+  <section class="righe" id="righe"></section>
+  <footer class="piede">
+    <div class="nota" id="nota">—</div><div class="filo"></div><img id="marchio2" alt="">
+  </footer>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post");
+  if (formato === "storia") tela.classList.add("storia");
+
+  /* le classi che decidono il vestito della riga:
+     `su-chiaro` = livrea chiara, testo scuro (lo dice `testo_chiaro` delle squadre);
+     `buio`      = livrea quasi nera (Cadillac): sul carbone sparirebbe, la schiarisce il secondo colore */
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) {
+    return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : "");
+  }
+
+  /* A-09 (scelta di Cava «C»): i loghi della scuderia dentro la fascia, in
+     file dritte, come 18-21. Il logo e' quello di `logo_da_stampare`; se non
+     c'e', la fascia resta piena (niente buco). */
+  function tappeto(r, file, perFila) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var f = ""; for (var c = 0; c < perFila; c++) f += '<img src="' + P.esc(l) + '" alt="" onload="PEZZI.logoTappeto(this)" onerror="this.style.visibility=\'hidden\'">';
+    var t = ""; for (var k = 0; k < file; k++) t += '<div class="rl">' + f + '</div>';
+    return '<div class="tappeto">' + t + '</div>';
+  }
+  function riga(r) {
+    return '<div class="riga cls squadre' + vestito(r) + '" style="' + P.tinte(r) + '">' +
+      '<div class="pos">' + P.esc(r.pos) + '</div>' +
+      '<div class="piastra">' + tappeto(r, 2, 14) +
+        '<span class="stemma">' + P.immagineLogo(r) + '</span>' +
+        '<div class="chi"><span class="nome">' + P.esc(r.scuderia_da_stampare || "—") + '</span>' +
+          (Number(r.punti_tappa) > 0 ? '<span class="delta">+' + DHN.punti(r.punti_tappa) + '</span>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="valore">' + DHN.punti(r.punti_tot) + '</div>' +
+      P.movimento(r.movimento) +
+    '</div>';
+  }
+  /* ⚠ Un logo dello STESSO colore della livrea sparisce (Audi: anelli rossi su
+     rosso). Non si tiene un elenco di nomi: si misura il colore medio del logo
+     e, se e' vicino al colore della riga, lo si fa monocromo. */
+  async function stemmiMono(radice) {
+    var imgs = [].slice.call(radice.querySelectorAll(".riga .stemma img"));
+    await Promise.all(imgs.map(function (im) {
+      return im.complete ? null : new Promise(function (ok) { im.addEventListener("load", ok); im.addEventListener("error", ok); });
+    }));
+    imgs.forEach(function (im) {
+      if (!im.naturalWidth) return;
+      var cv = document.createElement("canvas"); cv.width = cv.height = 32;
+      var cx = cv.getContext("2d"); cx.drawImage(im, 0, 0, 32, 32);
+      var d;
+      try { d = cx.getImageData(0, 0, 32, 32).data; }
+      catch (e) { console.warn("stemma non misurabile (" + im.src + "): " + e.message + " — resta a colori"); return; }
+      var t = [0, 0, 0], n = 0;
+      for (var i = 0; i < d.length; i += 4) if (d[i + 3] > 128) { t[0] += d[i]; t[1] += d[i + 1]; t[2] += d[i + 2]; n++; }
+      if (!n) return;
+      var rg = im.closest(".riga"), c = getComputedStyle(rg).getPropertyValue("--squadra").trim().replace("#", "");
+      var sq = [0, 2, 4].map(function (k) { return parseInt(c.slice(k, k + 2), 16) || 0; });
+      var dist = Math.sqrt(Math.pow(t[0] / n - sq[0], 2) + Math.pow(t[1] / n - sq[1], 2) + Math.pow(t[2] / n - sq[2], 2));
+      if (dist < 90) rg.classList.add("stemma-mono");
+    });
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var cls = await DHN.classificaScuderie(id);
+    if (!cls.length) throw new Error("classifica scuderie vuota: nessun team_id nelle sessioni valide");
+    /* la vista ordina gia' per pos; qui si riordina lo stesso, perche' il file
+       del banco 208 e' arrivato fuori ordine (4°, 11°, 9° in cima) */
+    cls = cls.slice().sort(function (a, b) { return (a.pos - b.pos) || (b.punti_tot - a.punti_tot); });
+    document.getElementById("sotto").innerHTML =
+      "DOPO <b>" + P.esc(cls[0].tappa) + "</b> " + (cls[0].tappa === 1 ? "TAPPA" : "TAPPE") +
+      (cls[0].gp_nome ? ("  ·  ULTIMA <b>" + P.esc(String(cls[0].gp_nome).toUpperCase()) + "</b>") : "");
+    /* ⚠ Tutte e 11 le scuderie del regolamento S2, non dieci: verdetto di
+       Fede del 12/09. Il numero non si taglia per farcele stare — e' la
+       pelle che si adatta. */
+    tela.classList.add("pagina-prima");
+    document.getElementById("righe").innerHTML =
+      cls.slice(0, formato === "storia" ? 12 : 11).map(riga).join("");
+    P.vesti({ gp_nome: "", round: null }, "SQUADRE RILEVATE IN GIOCO");
+    document.getElementById("marchio").src = DHN.BRAND;
+    /* il fondo DHN: alone nel colore di chi comanda + la linea del marchio,
+       ritagliata nelle bande libere sopra e sotto le righe (misurate dal DOM) */
+    P.fondoDhn(tela, { capo: cls[0], secondo: cls[1], contenuto: ".righe" });
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await stemmiMono(tela);
+    await P.rifinisci(tela);   /* il testo entra */
+    DHN.bottoneScarico(tela, "DHN-classifica-scuderie-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

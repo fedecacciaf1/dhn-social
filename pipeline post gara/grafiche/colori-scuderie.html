@@ -1,0 +1,73 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — CONTROLLA I COLORI SCUDERIA</title>
+<!-- Pagina di controllo, non una grafica. Serve a Fede per guardare in una
+     schermata i due toni di ogni scuderia e dire quali sono sbagliati: la
+     livrea la conosce lui, io no, e un colore sbagliato si vede solo
+     guardandolo accanto agli altri.
+     I valori si correggono in un posto solo, la tabella `scuderia_gioco`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<script src="dhn-dati.js"></script>
+<style>
+  /* ⚠ serve `body.dhn-palco`, non `body`: la classe del foglio condiviso
+     mette display:flex e una regola di elemento non la batte. */
+  body.dhn-palco { display: block; padding: 0; background: #0c0c10; }
+  .testa2 { padding: 22px 26px 8px; }
+  .testa2 h1 { font-family: var(--dhn-font); font-weight: 900; font-size: 30px; letter-spacing: .06em; }
+  .testa2 h1 span { color: var(--dhn-acc); }
+  .testa2 p { color: var(--dhn-dim); font-size: 14px; margin-top: 8px; max-width: 760px; line-height: 1.5; }
+  .griglia2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; padding: 18px 26px 40px; }
+  .carta { border-radius: 5px; overflow: hidden; background: #15151e; }
+  .carta .campo2 { height: 130px; position: relative; display: grid; place-items: center; }
+  .carta .campo2 .lg { height: 48px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,.5)); }
+  .carta .campo2::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12px; }
+  .carta .sotto2 { padding: 12px 14px 14px; }
+  .carta .sotto2 b { font-family: var(--dhn-font); font-weight: 900; font-size: 24px; text-transform: uppercase; }
+  .carta .sotto2 .cod { margin-top: 7px; display: flex; gap: 14px; font-family: var(--dhn-num); font-size: 13px; color: var(--dhn-dim); }
+  .carta .sotto2 .cod span { display: flex; align-items: center; gap: 6px; }
+  .carta .sotto2 .cod i { width: 13px; height: 13px; border-radius: 3px; border: 1px solid #ffffff2b; }
+  .carta .prova { padding: 0 14px 14px; font-family: var(--dhn-font); font-weight: 900; font-size: 19px; }
+  .carta .prova span { padding: 5px 10px; border-radius: 3px; }
+</style>
+<body class="dhn-palco">
+<div class="testa2">
+  <h1>CONTROLLA I <span>COLORI SCUDERIA</span></h1>
+  <p>Ogni livrea ha due toni: il campo dominante e l'accento. Il rettangolo grande è il
+     dominante, la fascia sotto è l'accento, e la scritta in basso mostra come si legge
+     il nome sopra il dominante. Dimmi quali sono sbagliati e li correggo in
+     <code>scuderia_gioco</code>, che è l'unico posto dove vivono.</p>
+</div>
+<div class="griglia2" id="carte"></div>
+<script>
+(async function () {
+  try {
+    var mappa = await DHN.squadre();
+    var righe = Object.keys(mappa).map(function (k) { return mappa[k]; })
+      .filter(function (s) { return s.team_id >= 476; })
+      .sort(function (a, b) { return a.nome.localeCompare(b.nome); });
+    document.getElementById("carte").innerHTML = righe.map(function (s) {
+      var lg = DHN.logo(s.logo);
+      return '<div class="carta">' +
+        '<div class="campo2" style="background:' + s.colore + '">' +
+          (lg ? '<img class="lg" src="' + lg + '" alt="" onerror="this.remove()">' : '') +
+          '<style></style>' +
+        '</div>' +
+        '<div class="sotto2"><b>' + s.nome + '</b>' +
+          '<div class="cod"><span><i style="background:' + s.colore + '"></i>' + s.colore + '</span>' +
+          '<span><i style="background:' + s.colore2 + '"></i>' + s.colore2 + '</span>' +
+          '<span>id ' + s.team_id + '</span></div></div>' +
+        '<div class="prova"><span style="background:' + s.colore + ';color:' +
+          (s.testo_chiaro ? "#f7f6f2" : "#08080b") + '">' + s.nome.toUpperCase() + '</span></div>' +
+      '</div>';
+    }).join("");
+    /* la fascia dell'accento: si mette dopo, per non ripetere lo stile */
+    righe.forEach(function (s, k) {
+      document.querySelectorAll(".carta .campo2")[k]
+        .style.setProperty("box-shadow", "inset 0 -12px 0 " + s.colore2);
+    });
+  } catch (e) {
+    document.body.insertAdjacentHTML("beforeend",
+      '<p style="padding:20px;color:#ff8a80">Non riesco a leggere le scuderie: ' + e.message + '</p>');
+  }
+})();
+</script>

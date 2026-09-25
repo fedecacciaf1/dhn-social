@@ -1,0 +1,84 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — LEADER</title>
+<!-- 15 LEADER DEL CAMPIONATO — chi guida, a tutta pagina.
+     ?storico_id=NNN (la classifica DOPO quella gara)
+     ⚠ Legge v_grafica_classifica_piloti, non la sessione: il leader del
+       campionato non e' il vincitore della gara.
+     A-06, 23/09/2026 — RIFATTA, scelta di Cava (la «B»): come la 02 il NOME
+       a tutta larghezza e «LEADER DEL CAMPIONATO» in etichetta; i PUNTI
+       GIGANTI in metallo davanti, a sinistra, col pilota spostato a destra
+       (dietro al busto si perdevano); sulla lastra il vantaggio sul 2º. La
+       linea ECG sta SOTTO la scritta PUNTI (Cava: «a non coprire la scritta
+       punti»). Vestito: `dhn-qualifica.css` + `dhn-campionato.css`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var cls = await DHN.classificaPiloti(id);
+    if (cls.length < 2) throw new Error("classifica con meno di due piloti");
+    var p = cls[0], secondo = cls[1];
+    var marg = Number(p.punti_tot) - Number(secondo.punti_tot);
+    var nome2 = String(secondo.nome_da_stampare || "?").toUpperCase();
+    var tappe = "DOPO " + p.tappa + (p.tappa === 1 ? " TAPPA" : " TAPPE");
+    document.getElementById("dentro").innerHTML = P.solo(
+      p, "LEADER DEL CAMPIONATO",
+      tappe + "  ·  " + (marg > 0 ? "+" + DHN.punti(marg) + " SU " + nome2 : "A PARI PUNTI CON " + nome2),
+      { valore: marg > 0 ? "+" + DHN.punti(marg) : "PARI", etichetta: "SUL 2º" },
+      { nomeGrande: true });
+    var solo = tela.querySelector(".solo");
+    solo.querySelector(".alone").insertAdjacentHTML("afterend",
+      '<div class="fascio"><i></i></div>' +
+      '<div class="pole-fondo davanti"><span>' + P.esc(DHN.punti(p.punti_tot)) + '</span><em class="pt15">PUNTI</em></div>');
+    solo.querySelector(".velo").insertAdjacentHTML("afterend", '<div class="vignetta"></div><div class="filo-piede"></div>');
+    solo.querySelector(".nomone span").classList.add("metallo");
+    solo.querySelector(".dato").classList.add("lastra");
+    PEZZI.vesti({ gp_nome: "", round: null });
+    document.getElementById("marchio").src = DHN.BRAND;
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.incastraTutte(tela);   /* busto e nome grande */
+
+    /* i punti: grandi (fino a 560 px), a sinistra; il pilota a destra.
+       Con 3 cifre il numero si allarga e si rimpicciolisce per restare
+       nella meta' sinistra piu' un filo. */
+    await P.fontPronti(tela);
+    var pf = solo.querySelector(".pole-fondo"), sp = pf.firstChild;
+    pf.style.fontSize = "100px";
+    if (!sp.offsetWidth) throw new Error("PUNTI: misura a zero (carattere non caricato?)");
+    var fPunti = Math.min(560, 100 * 620 / sp.offsetWidth);
+    pf.style.fontSize = fPunti + "px";
+    var cima = storia ? 300 : 150;
+    pf.style.top = cima + "px";
+    var bi = solo.querySelector("img.busto");
+    if (bi && bi.style.left) bi.style.left = (parseFloat(bi.style.left) + 230) + "px";
+    solo.querySelector(".fascio").style.marginLeft = "-150px";
+    /* il ripiego senza avatar va a destra, dove sarebbe stato il busto */
+    var sf = solo.querySelector(".senzafigura");
+    if (sf) { sf.style.left = "430px"; sf.style.top = (cima + 40) + "px"; sf.style.fontSize = "420px"; }
+    /* l'ECG subito SOTTO la scritta PUNTI, misurata: non la copre mai */
+    var pt = pf.querySelector(".pt15");
+    var sottoPunti = pf.offsetTop + pt.offsetTop + pt.offsetHeight;
+    solo.querySelector(".ecg-riga").style.top = (sottoPunti - 40) + "px";
+
+    DHN.bottoneScarico(tela, "DHN-leader-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

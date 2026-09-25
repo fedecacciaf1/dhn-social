@@ -1,0 +1,195 @@
+/* ===========================================================================
+   DHN — IL VESTITO DELLA QUALIFICA: 05 POLE · 06 PRIMA FILA
+   ---------------------------------------------------------------------------
+   A-04, 23/09/2026 — scelte di Cava: la «C» per tutte e due.
+     05 = il NOME grande come la 02, «POLE POSITION» in etichetta arancio, e
+          la parola POLE enorme DIETRO al busto (piena di luce della scuderia,
+          col contorno).
+     06 = la GRIGLIA: il primo DAVANTI e A DESTRA, sulla sua piazzola; il
+          secondo dietro e a sinistra, piu' piccolo. PRIMA FILA in alto.
+   Verdetto di Cava sulla prima prova: «tutto piatto, va rimodernizzato»,
+   con le reference F1 ma la pelle DHN. Quindi qui c'e' la PROFONDITA':
+     - la GRANA fine su tutta la tela (niente fondo liscio da computer);
+     - il FASCIO di luce dall'alto sul pilota, nel colore della scuderia;
+     - la LUCE DI CONTORNO sul busto (bordo chiaro + alone del colore);
+     - le parole grandi in METALLO (bianco con la riga di luce in mezzo),
+       come il riflesso delle righe delle classifiche (A-02);
+     - il tempo su una LASTRA di vetro fumé col filo arancio.
+   Tutto sta sotto `.tela.qual26`: la 02 e la 09 (stessa `PEZZI.solo`) non
+   cambiano.
+   ⚠ Le immagini finali le fa `posta.mjs` con Chromium (screenshot vero):
+     maschere, `background-clip: text` e `backdrop-filter` escono nel PNG.
+     Il bottone «SCARICA PNG» del browser (html2canvas) invece NON le
+     disegna tutte: per le grafiche vere si usa `posta.mjs`.
+   =========================================================================== */
+
+/* ── i pezzi comuni ──────────────────────────────────────────────────── */
+.tela.qual26 { --grana: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+.tela.qual26 .grana {
+  position: absolute; inset: 0; z-index: 7; pointer-events: none;
+  background-image: var(--grana); opacity: .07; mix-blend-mode: overlay;
+}
+.tela.qual26 .vignetta {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 38%, transparent 55%, rgba(0,0,0,.55) 100%);
+}
+/* il fascio: il contenitore sfuma, dentro il trapezio. Filtro e ritaglio
+   su due elementi diversi, se no il ritaglio taglia anche la sfumatura. */
+.tela.qual26 .fascio { position: absolute; z-index: 1; pointer-events: none; filter: blur(10px); mix-blend-mode: screen; }
+.tela.qual26 .fascio i {
+  position: absolute; inset: 0; display: block;
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--squadra) 45%, #fff) 0%,
+    color-mix(in srgb, var(--squadra) 40%, transparent) 45%, transparent 92%);
+  opacity: .34;
+}
+/* METALLO: bianco caldo DHN con la riga di luce a meta', l'ombra sotto */
+.tela.qual26 .metallo {
+  background: linear-gradient(180deg, #ffffff 0%, #f6f4ee 40%, #c7c4bb 53%, #ecEAE3 62%, #ffffff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.tela.qual26 .ombra-su { filter: drop-shadow(0 14px 30px rgba(0,0,0,.65)); }
+
+/* l'etichetta arancio col riflesso: filo di luce sopra, ombra sotto */
+.tela.qual26 .etichetta,
+.tela.qual26 .targhetta {
+  background: linear-gradient(180deg, #ffa24d 0%, var(--dhn-acc) 38%, #e45f00 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.45), 0 12px 26px rgba(255,112,0,.28);
+}
+/* la lastra di vetro fumé col filo arancio a sinistra */
+.tela.qual26 .lastra {
+  background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.13); border-top-color: rgba(255,255,255,.3);
+  border-left: 4px solid var(--dhn-acc); border-radius: 3px;
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  box-shadow: 0 22px 44px rgba(0,0,0,.5);
+}
+
+/* ═══════════════════════════════════════════════════ 05 POLE ═══ */
+.tela.qual26 .solo .alone { opacity: 1; }
+.tela.qual26 .solo .busto {
+  filter: drop-shadow(0 0 1.5px rgba(255,255,255,.55))
+          drop-shadow(0 0 26px color-mix(in srgb, var(--squadra) 75%, transparent))
+          drop-shadow(0 34px 60px rgba(0,0,0,.6));
+}
+/* POLE dietro al pilota: pieno di luce della scuderia in alto, vuoto in
+   basso, col contorno chiaro. La grandezza la da' la pagina (tutta la tela). */
+.tela.qual26 .pole-fondo {
+  position: absolute; z-index: 1; left: 0; right: 0; top: 112px; text-align: center;
+  white-space: nowrap; font-family: var(--dhn-font); font-weight: 900; line-height: .8;
+  letter-spacing: -.02em;
+  filter: drop-shadow(0 0 34px color-mix(in srgb, var(--squadra) 70%, transparent));
+}
+.tela.qual26 .pole-fondo span {
+  display: inline-block;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--squadra) 50%, #fff) 0%,
+    color-mix(in srgb, var(--squadra) 70%, transparent) 42%, transparent 88%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,.55);
+}
+.tela.storia.qual26 .pole-fondo { top: 250px; }
+.tela.qual26 .solo .fascio { left: 50%; top: -40px; width: 760px; height: 1000px; margin-left: -380px; }
+.tela.storia.qual26 .solo .fascio { height: 1300px; }
+.tela.qual26 .solo .velo {
+  background: linear-gradient(0deg, #0b0b0f 28%, rgba(11,11,15,.9) 55%, rgba(11,11,15,.42) 78%, transparent);
+}
+.tela.qual26 .solo .nomone span { filter: drop-shadow(0 16px 30px rgba(0,0,0,.7)); }
+.tela.qual26 .solo .dato { padding: 12px 22px 10px 18px; text-shadow: none; }
+.tela.qual26 .solo .dato b { font-size: 58px; }
+.tela.qual26 .solo .dato i { color: var(--dhn-acc2); }
+/* Senza avatar: la lettera (o il numero) di riserva stava dietro la «O» di
+   POLE e si confondevano. Va SOTTO la parola, davanti al velo, a meta' fra
+   POLE e il nome: fuori dal velo per la regola R7c, lontana dai dati (R7b). */
+.tela.qual26 .solo .senzafigura { top: 548px; font-size: 330px; z-index: 4; color: rgba(242,240,233,.24); }
+.tela.storia.qual26 .solo .senzafigura { top: 790px; font-size: 400px; }
+/* il piede: un filo sottile che separa i dati dal marchio */
+.tela.qual26 .solo .filo-piede {
+  position: absolute; z-index: 4; left: 48px; right: 48px; bottom: 90px; height: 1px;
+  background: linear-gradient(90deg, var(--dhn-acc), rgba(255,255,255,.18) 40%, transparent);
+}
+.tela.qual26 .solo .sottoparola { bottom: 106px; }
+
+/* ═══════════════════════════════════════════════ 06 PRIMA FILA ═══ */
+.pf { position: absolute; inset: 0; overflow: hidden; }
+.pf .fondo { position: absolute; inset: 0; background: #0b0b0f; }
+.pf .fondo::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+/* i due colori che si incontrano: P2 a sinistra, P1 a destra */
+.pf .ponte {
+  position: absolute; inset: 0; opacity: .7;
+  background: linear-gradient(90deg, var(--c2) 0%, color-mix(in srgb, var(--c2) 55%, transparent) 30%,
+                                      color-mix(in srgb, var(--c1) 55%, transparent) 70%, var(--c1) 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 2%, #000 22%, #000 46%, transparent 70%);
+          mask-image: linear-gradient(180deg, transparent 2%, #000 22%, #000 46%, transparent 70%);
+}
+.pf .ecg {
+  position: absolute; z-index: 1; left: -90px; width: 1260px; height: 242px;
+  filter: drop-shadow(0 0 10px rgba(255,112,0,.55)); opacity: .9;
+}
+.pf .ecg i {
+  position: absolute; inset: 0; display: block;
+  background: linear-gradient(90deg, var(--dhn-acc) 0%, var(--dhn-acc2) 50%, var(--dhn-acc) 100%);
+  -webkit-mask: url(dhn-ecg-liscia.svg) no-repeat center / 100% 100%;
+          mask: url(dhn-ecg-liscia.svg) no-repeat center / 100% 100%;
+}
+/* l'asfalto e le piazzole: le disegna la pagina in SVG, in prospettiva */
+.pf .pista { position: absolute; left: 0; top: 0; z-index: 1; }
+.pf .posto { position: absolute; z-index: 2; overflow: visible;
+  -webkit-mask-image: linear-gradient(0deg, transparent 0, #000 22%);
+          mask-image: linear-gradient(0deg, transparent 0, #000 22%); }
+.pf .posto.p1 { z-index: 3; }
+.pf .posto img { position: absolute; max-width: none;
+  filter: drop-shadow(0 0 1.5px rgba(255,255,255,.55))
+          drop-shadow(0 0 24px color-mix(in srgb, var(--squadra) 75%, transparent))
+          drop-shadow(0 30px 50px rgba(0,0,0,.6)); }
+.pf .posto.p2 img { filter: drop-shadow(0 0 1.5px rgba(255,255,255,.4))
+          drop-shadow(0 0 20px color-mix(in srgb, var(--squadra) 65%, transparent))
+          brightness(.86); }
+.pf .posto .segno {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 320px; line-height: 1;
+  color: rgba(242,240,233,.18);
+}
+.pf .velo { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(0deg, #0b0b0f 30%, rgba(11,11,15,.82) 62%, transparent); }
+.pf .parola {
+  position: absolute; z-index: 5; left: 0; right: 0; text-align: center; white-space: nowrap;
+  font-family: var(--dhn-font); font-weight: 900; line-height: .8; letter-spacing: -.015em;
+  text-transform: uppercase;
+}
+.pf .parola span { display: inline-block; }
+.pf .occ {
+  position: absolute; z-index: 5; left: 0; right: 0; text-align: center;
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 22px; letter-spacing: .42em;
+  padding-left: .42em; text-transform: uppercase; color: var(--dhn-txt); opacity: .88;
+}
+.pf .occ::before, .pf .occ::after {
+  content: ""; display: inline-block; vertical-align: middle; width: 60px; height: 2px;
+  margin: 0 22px; background: var(--dhn-acc);
+}
+.pf .chi { position: absolute; z-index: 5; width: 480px; bottom: 96px; }
+.pf .chi.p2 { left: 48px; text-align: left; }
+.pf .chi.p1 { right: 48px; text-align: right; }
+.pf .chi .targhetta {
+  display: inline-flex; gap: 12px; align-items: baseline; padding: 7px 18px 5px 14px; margin-bottom: 12px;
+  color: #0b0b0f; font-family: var(--dhn-font); font-weight: 900; font-size: 30px; letter-spacing: .1em; line-height: 1;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+}
+.pf .chi.p1 .targhetta { clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%); padding: 7px 14px 5px 18px; }
+.pf .chi.p2 .targhetta { background: linear-gradient(180deg, #3a3a46, #22222c); color: var(--dhn-txt);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.22), 0 12px 26px rgba(0,0,0,.35); }
+.pf .chi .n { white-space: nowrap; font-family: var(--dhn-font); font-weight: 900;
+  text-transform: uppercase; line-height: .86; }
+.pf .chi .n span { display: inline-block; filter: drop-shadow(0 12px 24px rgba(0,0,0,.7)); }
+.pf .chi .t { margin-top: 10px; display: flex; gap: 14px; align-items: center; white-space: nowrap;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 28px; color: var(--dhn-txt); }
+.pf .chi.p1 .t { justify-content: flex-end; }
+.pf .chi .t img { height: 26px; width: auto; }
+.pf .chi .t .sq { font-family: var(--dhn-testo); font-size: 16px; letter-spacing: .2em; color: var(--dhn-dim); text-transform: uppercase; }
+.pf .marchione { position: absolute; left: 50%; transform: translateX(-50%); bottom: 34px; z-index: 6; height: 38px; }
+.pf .fascio { width: 560px; }

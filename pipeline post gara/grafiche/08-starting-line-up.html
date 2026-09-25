@@ -1,0 +1,143 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — SCHIERAMENTO</title>
+<!-- 08 SCHIERAMENTO — cinque piloti in colonna.  ?da=1|6  ?banco=207
+     ⚠ Vuole `figura_url`. Chi ha solo il busto ci sta comunque (il pezzo
+       ripiega), ma sono 5 immagini su una pagina: se ne mancano tre la
+       grafica non ha piu' senso e conviene usare 07. Lo dice un avviso.
+     A-05, 23/09/2026 — RIFATTA, scelta di Cava (la «A»): FIGURA INTERA come
+       STARTING LINE-UP F1. SCHIERAMENTO in metallo, cinque colonne nel colore
+       della scuderia col riflesso metallo, la figura puo' uscire di lato
+       (`.vano` piu' largo della colonna), sotto posto, logo e nome.
+     ⚠ `.colonne` > `.colonna`, `img.figurina`, `.senzaritratto`, `.chi2`:
+       li cercano i controlli del banco.
+     Il vestito sta in `dhn-griglia.css` (sotto `.tela.gri26`). -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-griglia.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela gri26 g8" id="tela">
+  <div class="vignetta"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div id="dentro"></div>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+  var taglio = "figura";
+  var da = Math.max(1, parseInt(DHN.param("da", "1"), 10) || 1);
+  var fonte = DHN.param("fonte", "pos");
+
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function entra(el, larga, max) {
+    var sp = el.firstChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.min(max, 100 * larga / w); el.style.fontSize = f + "px"; return f;
+  }
+  async function stemmiMono(radice) {
+    var imgs = [].slice.call(radice.querySelectorAll(".stemma8"));
+    await Promise.all(imgs.map(function (im) {
+      return im.complete ? null : new Promise(function (ok) { im.addEventListener("load", ok); im.addEventListener("error", ok); });
+    }));
+    imgs.forEach(function (im) {
+      if (!im.naturalWidth) return;
+      var cv = document.createElement("canvas"); cv.width = cv.height = 32;
+      var cx = cv.getContext("2d"); cx.drawImage(im, 0, 0, 32, 32);
+      var d;
+      try { d = cx.getImageData(0, 0, 32, 32).data; }
+      catch (e) { console.warn("stemma non misurabile (" + im.src + "): " + e.message + " — resta a colori"); return; }
+      var t = [0, 0, 0], n = 0;
+      for (var i = 0; i < d.length; i += 4) if (d[i + 3] > 128) { t[0] += d[i]; t[1] += d[i + 1]; t[2] += d[i + 2]; n++; }
+      if (!n) return;
+      /* sul fondo della colonna (quasi nero) il logo scuro sparisce: bianco */
+      if ((0.2126 * t[0] + 0.7152 * t[1] + 0.0722 * t[2]) / n < 60) im.closest(".colonna").classList.add("stemma-mono");
+    });
+  }
+  function colonna(r, posto) {
+    var img = DHN.ritratto(r, taglio);
+    var ord = "º";
+    var logo = DHN.logo(r.logo_da_stampare);
+    return '<div class="colonna' + (luce(r.colore_da_stampare) < 40 ? " buio" : "") + (posto === 1 ? " primo" : "") +
+        '" style="' + P.tinte(r) + '">' +
+      '<div class="lastra8"></div>' +
+      '<div class="vano">' +
+        '<span class="senzaritratto" style="display:' + (img ? "none" : "grid") + '">' + P.segno(r) + '</span>' +
+        (img ? '<img class="figurina" src="' + esc(img) + '" alt="" crossorigin="anonymous" data-ripiego=".senzaritratto">' : '') +
+      '</div>' +
+      '<div class="piedi"></div>' +
+      '<div class="ord"><span class="metallo">' + posto + '<sup>' + ord + '</sup></span></div>' +
+      (logo ? '<img class="stemma8" src="' + esc(logo) + '" alt="" onerror="this.remove()">' : '') +
+      '<div class="chi2">' + P.nome(r) + '</div>' +
+    '</div>';
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("qualifica"); if (!u) throw new Error("nessuna qualifica valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var chiave = (fonte === "griglia") ? "griglia" : "pos";
+    var lista = s.righe.filter(function (r) { return r[chiave] >= da && r[chiave] < da + 5; })
+                       .sort(function (x, y) { return x[chiave] - y[chiave]; });
+    if (!lista.length) throw new Error("dalla posizione " + da + " non c'e' nessuno");
+    tela.style.setProperty("--capo", P.col(lista[0]));
+    document.getElementById("dentro").innerHTML =
+      '<div class="parola"><span class="metallo">SCHIERAMENTO</span></div>' +
+      '<div class="testa8"><span class="occ">' + esc(DHN.occhiello(s.info)) + "  ·  " +
+        esc(DHN.titoloTipo(s.info.tipo)) + "  ·  " + da + "º-" + (da + lista.length - 1) + "º" + '</span></div>' +
+      '<div class="pavimento"></div>' +
+      '<section class="colonne c8" id="colonne">' +
+        lista.map(function (r) { return colonna(r, r[chiave]); }).join("") + '</section>' +
+      '<div class="filo-piede"></div><img class="marchione" src="' + esc(DHN.BRAND) + '" alt="">';
+    var senza = lista.filter(function (r) { return !DHN.ritratto(r, "figura"); }).length;
+    if (senza >= 3) DHN.avviso("Su 5 piloti " + senza + " non hanno la figura intera: conviene usare 07 LA GRIGLIA.");
+    P.vesti(s.info);
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.fontPronti(tela);
+
+    var H = tela.offsetHeight;
+    var parola = tela.querySelector(".g8 .parola"), cima = 118;
+    var fp = entra(parola, 984, storia ? 190 : 170);
+    var y1 = H - 112;
+    var y0 = cima + fp * 0.8 + 18 + 34 + 70;
+    /* storia: le colonne non oltre 940 px (le figure le riempiono in larghezza,
+       non in altezza); il titolo scende con loro e sopra, dall'alto, scendono
+       i fasci di luce nel colore di ogni scuderia */
+    if (storia && y1 - y0 > 940) {
+      y0 = y1 - 940;
+      cima = y0 - 90 - (fp * 0.8 + 18 + 34);    // il titolo resta attaccato alle colonne
+    }
+    parola.style.top = cima + "px";
+    var t8 = tela.querySelector(".g8 .testa8");
+    t8.style.top = (cima + fp * 0.8 + 18) + "px";
+    var cc = tela.querySelector(".c8");
+    cc.style.top = y0 + "px"; cc.style.height = (y1 - y0) + "px";
+    /* meno di cinque (l'ultima pagina): stesse colonne, centrate */
+    if (lista.length < 5) {
+      cc.style.gridTemplateColumns = "repeat(" + lista.length + ", 192px)"; cc.style.justifyContent = "center";
+    }
+    var pav = tela.querySelector(".g8 .pavimento"); pav.style.top = (y1 - 26) + "px";
+    /* i fasci di luce dall'alto, uno per colonna, nel colore della sua scuderia */
+    var fasci = "";
+    [].forEach.call(cc.querySelectorAll(".colonna"), function (c) {
+      var cx = cc.offsetLeft + c.offsetLeft + c.offsetWidth / 2, lg = storia ? 420 : 340;
+      fasci += '<div class="fascio" style="' + c.getAttribute("style") + ';left:' + (cx - lg / 2) + 'px;width:' + lg +
+        'px;top:-40px;height:' + (y0 + (storia ? 260 : 160)) + 'px"><i></i></div>';
+    });
+    tela.querySelector("#dentro").insertAdjacentHTML("afterbegin", fasci);
+    await stemmiMono(tela);
+    await P.rifinisci(tela);   /* il testo entra, poi le figure si incastrano a gruppo */
+    DHN.bottoneScarico(tela, "DHN-schieramento-" + s.info.storico_id + "-da" + da + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

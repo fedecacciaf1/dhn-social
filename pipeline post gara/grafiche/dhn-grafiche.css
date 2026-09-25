@@ -1,0 +1,741 @@
+/* ===========================================================================
+   DHN — GRAFICHE POST-GARA: la pelle, una sola per i dieci template
+   ---------------------------------------------------------------------------
+   I token sono quelli del design system DHN (`design-system-dhn/css/
+   overlay_kit.css`): stesso arancio, stesso bianco caldo, stessi colori
+   mescola. Cosi' una grafica social e un overlay in diretta si leggono come
+   lo stesso programma, che e' esattamente il problema che dhn-pelle.css era
+   nato per risolvere in onda.
+
+   ⚠ NON E' UN RICALCO DELLE REFERENCE F1. Le reference dicono COSA far vedere
+     (podio + P4-P10, la classifica con la freccia, il vincitore a tutta
+     pagina); il vestito e' DHN: fondo carbone, filo arancio con l'angolo
+     tagliato, trama a punti, e il colore squadra come campo pieno. Chi
+     pubblica una copia del post ufficiale F1 si prende una segnalazione, e
+     comunque non costruisce un marchio.
+
+   MISURE (decise il 02/09, non ridiscusse)
+     post   1080 x 1350
+     storia 1080 x 1920
+   Si sceglie con ?formato=post | storia. La tela e' SEMPRE a misura vera in
+   pixel: il PNG che esce e' quello. Per vederla a schermo si rimpicciolisce
+   con una trasformazione, che non tocca il disegno.
+   =========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Titillium+Web:wght@400;600;700;900&family=Chakra+Petch:wght@600;700&display=swap');
+
+:root {
+  --dhn-title:   #0b0b0f;
+  --dhn-header:  #14141b;
+  --dhn-row:     #15151e;
+  --dhn-row-alt: #22222c;
+  --dhn-row-hi:  #2c2c39;
+  --dhn-line:    #ffffff14;
+  --dhn-txt:     #f2f0e9;
+  --dhn-dim:     #9c9ca0;
+  --dhn-val:     #e8e8e9;
+  --dhn-acc:     #ff7000;
+  --dhn-acc2:    #ff9233;
+  --dhn-gain:    #00bb02;
+  --dhn-loss:    #ff3b30;
+  --dhn-retired: #ff2a20;
+  --dhn-fl:      #b15cff;
+  --dhn-oro:     #f4c430;
+  --tyre-s: #ff3b30; --tyre-m: #f4c430; --tyre-h: #f2f4f8;
+  --tyre-i: #2ed16a; --tyre-w: #1e90ff;
+  --dhn-font: 'Saira Condensed','Titillium Web',-apple-system,'Segoe UI',sans-serif;
+  --dhn-testo: 'Titillium Web',-apple-system,'Segoe UI',sans-serif;
+  --dhn-num:  'Chakra Petch','Titillium Web',monospace;
+  /* il colore squadra: lo riscrive ogni template sul singolo elemento */
+  --squadra: #5b6e84;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.dhn-palco {
+  background: #08080b;
+  min-height: 100vh;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 24px 24px 96px;
+  font-family: var(--dhn-testo);
+  color: var(--dhn-txt);
+}
+
+/* ─────────────────────────────────────────────────────────── LA TELA ───── */
+.tela {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  width: 1080px; height: 1350px;          /* post */
+  background: var(--dhn-title);
+  color: var(--dhn-txt);
+  flex: 0 0 auto;
+  transform-origin: top center;
+}
+.tela.storia { height: 1920px; }
+
+/* Rimpicciolimento per guardarla a schermo. NON entra nel PNG: html2canvas
+   disegna l'elemento alla sua misura vera, non a quella che si vede. */
+body.dhn-palco[data-zoom] .tela { transform: scale(var(--zoom, 1)); }
+
+/* la trama: punti fitti + UN taglio obliquo. Non le tre righe della F1. */
+.tela::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.taglio {
+  position: absolute; pointer-events: none;
+  width: 150%; height: 420px; left: -25%;
+  background: linear-gradient(90deg, transparent, var(--squadra) 45%, transparent);
+  opacity: .13; transform: rotate(-13deg);
+}
+
+/* ──────────────────────────────────────────────────────────── TESTATA ──── */
+.testata {
+  position: relative; z-index: 3;
+  display: flex; align-items: center; gap: 22px;
+  padding: 34px 48px 0;
+}
+.testata .marchio { height: 54px; width: auto; opacity: .96; }
+.testata .filo {
+  flex: 1; height: 6px;
+  background: linear-gradient(90deg, var(--dhn-acc), var(--dhn-acc2) 55%, transparent);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+.testata .campionato {
+  font-family: var(--dhn-font); font-weight: 800; font-size: 20px;
+  letter-spacing: .34em; color: var(--dhn-dim); white-space: nowrap;
+}
+
+/* il titolo grande + l'occhiello dell'evento */
+.titolo {
+  position: relative; z-index: 3; padding: 22px 48px 0;
+}
+.titolo h1 {
+  font-family: var(--dhn-font); font-weight: 900;
+  font-size: 108px; line-height: .88; letter-spacing: -.015em;
+  text-transform: uppercase;
+}
+.titolo h1 .accento { color: var(--dhn-acc); }
+.titolo .evento {
+  margin-top: 10px;
+  font-family: var(--dhn-font); font-weight: 700; font-size: 27px;
+  letter-spacing: .3em; color: var(--dhn-txt); opacity: .82;
+  text-transform: uppercase;
+}
+/* ⚠⚠ IL SOTTOTITOLO NON VA MAI A CAPO: SI RIMPICCIOLISCE.
+   Misurato il 12/09 sulla 19: il sottotitolo lungo andava su due righe e la
+   seconda finiva addosso alla prima riga della classifica — e nessun
+   controllo se ne accorgeva, perche' un testo andato a capo e' largo poco e
+   R3 lo vedeva entrare. Con `nowrap` il difetto diventa una sbordatura in
+   larghezza, che `testoCheEntra()` cura da sola e che R3 vede. */
+.titolo .sotto {
+  margin-top: 4px; white-space: nowrap;
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 19px;
+  letter-spacing: .16em; color: var(--dhn-dim); text-transform: uppercase;
+}
+
+/* ────────────────────────────────────────────────────────────── PODIO ──── */
+.podio {
+  position: relative; z-index: 3;
+  display: grid; grid-template-columns: 1fr 1.14fr 1fr;
+  align-items: end; gap: 16px;
+  padding: 30px 48px 0;
+}
+.gradino { position: relative; }
+.gradino .vetrina {
+  position: relative; overflow: hidden;
+  border-radius: 4px;
+  background: linear-gradient(165deg, var(--squadra), color-mix(in srgb, var(--squadra) 55%, #0b0b0f));
+  height: 330px;
+}
+/* ⚠ Con Cadillac (#101014) il pannello sparisce nel fondo della pagina: senza
+   un bordo, un podio nero non legge come podio. Il filo e' il SECONDO tono
+   della livrea — bianco su Cadillac, rosso su Haas, quasi-nero su McLaren. */
+.gradino .vetrina::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: var(--squadra2, var(--squadra));
+}
+.gradino.primo .vetrina { height: 396px; }
+/* ⚠ La cifra del podio NON si fa in soft-light. Misurato il 05/09: su
+   Cadillac (#FFD700) e Haas (#B6BABD) il 2 spariva quasi del tutto, mentre su
+   McLaren si confondeva con l'arancio DHN. Ora e' un contorno scuro
+   semitrasparente: si legge sul giallo come sul blu, senza dipendere dal
+   colore che c'e' sotto. */
+.gradino .cifra {
+  position: absolute; left: 6px; top: -22px;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 250px; line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 5px rgba(8,8,11,.42);
+  paint-order: stroke fill;
+}
+.gradino .cifra::after {
+  content: attr(data-n); position: absolute; left: 0; top: 0;
+  color: rgba(255,255,255,.30); -webkit-text-stroke: 0;
+}
+.gradino.primo .cifra { font-size: 300px; }
+.gradino .ritratto {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  height: 100%; width: auto; object-fit: contain; object-position: bottom;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,.55));
+}
+/* Il ripiego quando il ritratto non c'e' (ospite senza casco) o non arriva
+   (rete, quota banda). ⚠ Non va al centro: la' ci sta la cifra del podio e i
+   due segni si sovrappongono — visto il 05/09, "1" e "x" incastrati. Sta in
+   basso, grande, dietro tutto: legge come un numero di gara sulla fiancata. */
+.gradino .senzaritratto {
+  position: absolute; left: 0; right: 0; bottom: -14px;
+  display: none; place-items: center;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 150px; line-height: .9;
+  color: rgba(8,8,11,.22); letter-spacing: -.02em;
+}
+
+.gradino .punti {
+  position: absolute; right: 8px; bottom: 8px; z-index: 2;
+  background: rgba(6,7,10,.86); border-radius: 3px;
+  padding: 5px 11px 3px; text-align: center;
+}
+.gradino .punti b { display: block; font-family: var(--dhn-num); font-weight: 700; font-size: 34px; line-height: 1; }
+.gradino .punti i { font-style: normal; font-size: 12px; letter-spacing: .18em; color: var(--dhn-dim); }
+.gradino .targa {
+  margin-top: 8px; display: flex; align-items: center; gap: 10px;
+  background: var(--squadra); border-radius: 3px; padding: 9px 12px;
+  color: #08080b;
+}
+.gradino .targa.chiaro { color: #08080b; }
+.gradino .targa.scuro  { color: #f7f6f2; }
+.gradino .targa .nome {
+  font-family: var(--dhn-font); font-weight: 900; font-size: 32px;
+  flex: 1;
+  letter-spacing: .01em; text-transform: uppercase; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.gradino .targa .bandiera { font-size: 26px; line-height: 1; }
+.gradino .targa .nome.lungo    { font-size: 26px; }
+.gradino .targa .nome.lunghiss { font-size: 21px; letter-spacing: -.01em; }
+.riga .chi .nome.lungo         { font-size: 27px; }
+.riga .chi .nome.lunghiss      { font-size: 23px; }
+
+.gradino .squadretta {
+  margin-top: 5px; display: flex; align-items: center; gap: 8px;
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 17px;
+  letter-spacing: .13em; color: var(--dhn-dim); text-transform: uppercase;
+}
+.gradino .squadretta img { height: 20px; width: auto; opacity: .9; }
+
+/* ─────────────────────────────────────────────────── RIGHE CLASSIFICA ──── */
+/* ⚠ Le righe si allargano per riempire la tela. Con 9 piloti su 1350px di
+   altezza, righe fisse da 62px lasciavano mezza pagina nera: visto il 05/09
+   su Monza (9 in qualifica) e sulla classifica (10 righe). Ora la tela e' una
+   colonna e questo blocco prende lo spazio che resta. */
+.righe {
+  position: relative; z-index: 3; padding: 26px 48px 100px;
+  flex: 1 1 auto; display: flex; flex-direction: column; gap: 7px;
+  justify-content: flex-start;
+}
+.righe .riga { flex: 1 1 0; min-height: 58px; max-height: 116px; margin-bottom: 0; }
+.riga {
+  display: grid; align-items: center;
+  grid-template-columns: 62px 1fr 250px 96px;
+  height: 62px; margin-bottom: 6px;
+  background: var(--dhn-row); border-radius: 3px;
+  position: relative; overflow: hidden;
+}
+.riga:nth-child(even) { background: var(--dhn-row-alt); }
+.riga .pos {
+  height: 100%; display: grid; place-items: center;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 27px;
+  background: var(--dhn-acc); color: #08080b;
+}
+.riga .barra {
+  position: absolute; left: 62px; top: 0; bottom: 0; width: 5px; z-index: 3;
+  background: var(--squadra2, var(--squadra));
+}
+.riga .chi { display: flex; align-items: center; gap: 14px; padding-left: 0; min-width: 0; }
+.riga .chi > *:not(.posto-testa) { position: relative; z-index: 2; }
+/* ⚠ La testa non sta in un riquadro: verdetto di Fede, «quando fa il
+   riquadro la sua stona». E' scontornata, appoggiata sul campo colore e piu'
+   alta della riga, cosi' si taglia da sola sul fondo: legge come un ritaglio,
+   non come una miniatura in una casella.
+
+   ⚠⚠ E il campo colore e la testa sono ancorati alla RIGA, non al contenuto.
+   Prima erano dentro `.chi` con `height: 100%`: misurato il 06/09, uscivano
+   ALTI ZERO PIXEL — dentro un flex senza altezza propria una percentuale non
+   risolve, e il colore squadra spariva da tutte le righe. La riga ha
+   un'altezza vera, quindi le percentuali qui si appoggiano a lei. */
+.riga .campo-squadra {
+  position: absolute; left: 67px; top: 0; bottom: 0; width: 142px; z-index: 1;
+  background: linear-gradient(90deg, var(--squadra) 0%, var(--squadra) 34%, rgba(0,0,0,0) 100%);
+  opacity: .92;
+}
+/* ⚠ Lo spazio del ritaglio finisce DOPO il campo colore: su Haas (#ECECEC)
+   il nome bianco cominciava sopra il bianco della livrea e non si leggeva. */
+.riga .posto-testa { position: relative; width: 132px; flex: 0 0 auto; }
+.riga .testa {
+  position: absolute; left: 74px; bottom: 0; z-index: 2;
+  height: 124%; width: auto; max-width: none;
+  object-fit: contain; object-position: bottom;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.5));
+}
+/* Il numero di gara sul campo colore: e' quello che si vede al posto della
+   faccia finche' non c'e' un ritaglio testa vero. Va grosso, non timido. */
+.riga .testa-vuota {
+  position: absolute; left: 67px; bottom: 0; top: 0; width: 142px; z-index: 2;
+  display: grid; place-items: center;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 40px;
+  color: rgba(255,255,255,.94); text-shadow: 0 2px 8px rgba(0,0,0,.55);
+}
+.riga.chiaro-su .testa-vuota { color: rgba(8,8,11,.86); text-shadow: none; }
+.riga .chi .nome {
+  font-family: var(--dhn-font); font-weight: 800; font-size: 32px;
+  text-shadow: 0 1px 6px rgba(6,7,10,.55);
+  text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.riga .chi .numero {
+  font-family: var(--dhn-num); font-weight: 700; font-size: 19px;
+  color: var(--dhn-dim); min-width: 34px;
+}
+.riga .squadra {
+  display: flex; align-items: center; gap: 10px; padding-right: 10px;
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 18px;
+  letter-spacing: .1em; color: var(--dhn-val); text-transform: uppercase;
+}
+.riga .squadra img { height: 26px; width: 34px; object-fit: contain; }
+.riga .valore {
+  text-align: right; padding-right: 14px;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 28px;
+}
+.riga .valore small { display: block; font-size: 11px; letter-spacing: .18em; color: var(--dhn-dim); font-weight: 600; }
+.riga.fuori .nome, .riga.fuori .valore { opacity: .62; }
+.riga .gap { font-family: var(--dhn-num); font-weight: 600; font-size: 22px; color: var(--dhn-val); }
+.riga .gap.dnf { color: var(--dhn-retired); font-size: 19px; letter-spacing: .1em; }
+
+/* la freccia del movimento in classifica */
+.mov { font-size: 20px; line-height: 1; width: 26px; text-align: center; }
+.mov.su  { color: var(--dhn-gain); }
+.mov.giu { color: var(--dhn-loss); }
+.mov.fermo { color: var(--dhn-dim); opacity: .55; }
+
+/* ─────────────────────────────────────────────────────────────── PIEDE ─── */
+.piede {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  display: flex; align-items: center; gap: 22px;
+  padding: 18px 48px 26px;
+  background: linear-gradient(0deg, rgba(6,7,10,.92), transparent);
+}
+.piede .filo { flex: 1; height: 4px; background: linear-gradient(90deg, transparent, var(--dhn-acc)); }
+.piede .nota {
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 16px;
+  letter-spacing: .17em; color: var(--dhn-dim); text-transform: uppercase; white-space: nowrap;
+}
+.piede img { height: 34px; width: auto; opacity: .9; }
+
+/* pillole: mescole, giro veloce, soste */
+.pillole { display: flex; gap: 5px; align-items: center; }
+.pillola {
+  font-family: var(--dhn-num); font-weight: 700; font-size: 14px;
+  width: 24px; height: 24px; border-radius: 50%;
+  display: grid; place-items: center; color: #08080b;
+}
+.tag-fl {
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 12px;
+  letter-spacing: .14em; color: #08080b; background: var(--dhn-fl);
+  padding: 3px 7px 2px; border-radius: 2px;
+}
+
+/* ───────────────────────────────────── attrezzi, fuori dalla grafica ──── */
+.dhn-scarica {
+  position: fixed; right: 20px; bottom: 20px; z-index: 99;
+  font-family: var(--dhn-font); font-weight: 800; font-size: 17px; letter-spacing: .13em;
+  background: var(--dhn-acc); color: #08080b; border: 0; border-radius: 3px;
+  padding: 13px 20px; cursor: pointer;
+}
+.dhn-scarica:hover { background: var(--dhn-acc2); }
+.dhn-avviso {
+  position: fixed; left: 0; right: 0; top: 0; z-index: 98;
+  background: var(--dhn-retired); color: #fff;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 15px;
+  letter-spacing: .06em; padding: 9px 16px; text-align: center;
+}
+.dhn-cambio {
+  position: fixed; left: 20px; bottom: 20px; z-index: 99;
+  display: flex; gap: 8px; align-items: center;
+  font-family: var(--dhn-testo); font-size: 13px; color: var(--dhn-dim);
+}
+.dhn-cambio a {
+  color: var(--dhn-txt); background: #1b1b24; border-radius: 3px;
+  padding: 7px 11px; text-decoration: none; letter-spacing: .08em;
+}
+.dhn-cambio a.attivo { background: var(--dhn-acc); color: #08080b; font-weight: 700; }
+
+/* ═══════════════════════════════════ 02 VINCITORE / 05 POLE / 09 PUNTI ═══
+   Il pilota solo, a tutta pagina, sul colore della sua squadra. La parola
+   grossa in basso e' il pezzo di identita' DHN: taglio netto, niente ombre
+   morbide. Il ritratto e' `figura` se c'e', se no `busto`: il ripiego non
+   lascia mai il campo vuoto perche' il fondo E' la grafica. */
+.solo { position: absolute; inset: 0; overflow: hidden; }
+
+/* ── IL VESTITO NUOVO — A-01, 23/09/2026, scelto da Cava sulla 02 ─────────
+   Carbone + alone della scuderia + loghi della scuderia in fila DENTRO
+   l'alone + linea ECG liscia arancio + busto grande. Niente diagonali.
+   ⚠ Il colore di squadra sta nell'ALONE, non nel campo: cosi' anche Haas
+     (#ECECEC) e Cadillac (#101014) reggono — il testo sta sempre sul nero. */
+.solo .campo {
+  position: absolute; inset: 0; z-index: 0; background: #0b0b0f;
+}
+.solo .campo::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.solo .alone {
+  position: absolute; z-index: 0; left: 50%; top: -120px;
+  width: 1500px; height: 1300px; transform: translateX(-50%); opacity: .9;
+  background: radial-gradient(closest-side,
+    color-mix(in srgb, var(--squadra) 85%, #fff 15%) 0%,
+    color-mix(in srgb, var(--squadra) 60%, transparent) 38%, transparent 76%);
+}
+/* i loghi della scuderia: stessa forma dell'alone come maschera, quindi
+   stanno SOLO dove c'e' il colore e spariscono nella vignettatura nera.
+   Righe dritte, a sfalsare di mezzo passo, centrate sull'alone. */
+.solo .zona-loghi {
+  position: absolute; z-index: 0; left: 50%; top: -120px;
+  width: 1500px; height: 1300px; transform: translateX(-50%); overflow: hidden;
+  -webkit-mask-image: radial-gradient(closest-side, #000 28%, rgba(0,0,0,.55) 52%, transparent 74%);
+          mask-image: radial-gradient(closest-side, #000 28%, rgba(0,0,0,.55) 52%, transparent 74%);
+}
+.solo .zona-loghi .loghi {
+  position: absolute; left: 0; right: 0; top: 90px;
+  display: flex; flex-direction: column; gap: 26px;
+}
+.solo .zona-loghi .rl { display: flex; gap: 44px; justify-content: center; }
+.solo .zona-loghi .rl:nth-child(even) { transform: translateX(82px); }
+.solo .zona-loghi img {
+  width: 120px; height: 92px; object-fit: contain; flex: 0 0 auto;
+  filter: grayscale(1) brightness(1.8); opacity: .26;
+}
+/* la linea ECG del marchio, LISCIA (dhn-ecg-liscia.svg), da bordo a bordo.
+   Proporzioni vere 791:152. Il bagliore sta sul contenitore: un filtro
+   sullo stesso elemento della maschera verrebbe ritagliato con lei. */
+.solo .ecg-riga {
+  position: absolute; z-index: 1; left: -90px; top: 470px; width: 1260px; height: 242px;
+  filter: drop-shadow(0 0 10px rgba(255,112,0,.55));
+}
+.tela.storia .solo .ecg-riga { top: 640px; }
+.solo .ecg-riga i {
+  position: absolute; inset: 0; display: block;
+  background: linear-gradient(90deg, var(--dhn-acc) 0%, var(--dhn-acc2) 50%, var(--dhn-acc) 100%);
+  -webkit-mask: url(dhn-ecg-liscia.svg) no-repeat center / 100% 100%;
+          mask: url(dhn-ecg-liscia.svg) no-repeat center / 100% 100%;
+}
+/* il busto: lo misura e lo piazza `PEZZI.piazzaBusti()`; questo e' il
+   ripiego se la misura non si puo' fare */
+.solo .busto {
+  position: absolute; z-index: 2; bottom: 0; left: 50%; transform: translateX(-50%);
+  height: 88%; width: auto; max-width: none;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.55));
+}
+/* ⚠⚠ 12/09/2026 — STAVA A `bottom: 210px`, CIOE' DENTRO IL VELO. Misurato
+   sul PNG vero (13 GIRO VELOCE su 191, il giro veloce di un ospite senza
+   ritratto): la' la luminanza del fondo e' fra 14 e 40 su 255, e un
+   inchiostro nero al 20% sopra non esiste. Adesso sta in alto, sull'alone.
+   ⚠ `display` lo scrive il markup (`block`) e lo riaccende `PEZZI.ripieghi()`:
+   qui NON si usa grid, se no l'inline lo spegne. Si centra col testo.
+   ⚠ A-01: il fondo e' carbone, quindi il segno e' CHIARO (prima era nero su
+   colore pieno): sull'alone si legge, fuori sfuma. */
+.solo .senzafigura {
+  position: absolute; left: 0; right: 0; top: 132px; bottom: auto; z-index: 2;
+  text-align: center;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 400px; line-height: .82;
+  color: rgba(242,240,233,.16); letter-spacing: -.03em;
+}
+.solo .velo { position: absolute; left: 0; right: 0; bottom: 0; height: 56%; z-index: 3;
+  background: linear-gradient(0deg, #0b0b0f 30%, rgba(11,11,15,.9) 58%, rgba(11,11,15,.45) 80%, transparent); }
+.solo .sottoparola { font-family: var(--dhn-num); font-weight: 600; letter-spacing: .4em; }
+
+/* ── 02 VINCITORE: il NOME grande, la parola in etichetta (scelta di Cava:
+   «bisogna far capire meglio chi ha vinto»). Le quote in verticale le
+   rifinisce `PEZZI.nomiGrandi()` sulla grandezza vera del nome. */
+.solo .nomone {
+  position: absolute; z-index: 4; left: 40px; right: 40px; bottom: 150px;
+  white-space: nowrap; font-family: var(--dhn-font); font-weight: 900; font-size: 200px;
+  line-height: .78; letter-spacing: -.01em; text-transform: uppercase; color: var(--dhn-txt);
+}
+.solo .nomone span { display: inline-block; }
+.solo .etichetta {
+  position: absolute; z-index: 4; left: 44px; bottom: 380px;
+  display: inline-flex; padding: 10px 26px 8px 20px; white-space: nowrap;
+  background: var(--dhn-acc); color: #0b0b0f;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 52px; letter-spacing: .12em; line-height: 1;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+}
+.solo.nome-grande .dato { bottom: 380px; }
+.solo.nome-grande .dato b { font-size: 64px; }
+/* ⚠ Il nome stava a 268px dal fondo con la parola grossa a 132: si
+   toccavano. Verdetto di Fede: «la scritta del nome del vincitore e' molto
+   vicina e rischia di stonare». Ora c'e' una riga di respiro vera, e il nome
+   ha un filo arancio davanti che lo stacca dal fondo colorato. */
+.nomino {
+  position: absolute; left: 48px; right: 340px; bottom: 336px; z-index: 4;
+  display: flex; align-items: center; gap: 16px;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 27px;
+  letter-spacing: .38em; text-transform: uppercase; color: var(--dhn-txt);
+  text-shadow: 0 2px 14px rgba(6,7,10,.75);
+}
+.nomino::before {
+  content: ""; flex: 0 0 auto; width: 46px; height: 5px; background: var(--dhn-acc);
+}
+.parolona {
+  position: absolute; left: 44px; right: 44px; bottom: 150px; z-index: 4;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 168px; line-height: .82;
+  letter-spacing: -.02em; text-transform: uppercase; color: var(--dhn-txt);
+}
+.parolona.corta { font-size: 214px; }
+.parolona.lunga { font-size: 122px; }
+.sottoparola {
+  position: absolute; left: 48px; right: 48px; bottom: 100px; z-index: 4;
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 24px;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--dhn-txt); opacity: .82;
+}
+.dato {
+  position: absolute; right: 48px; bottom: 322px; z-index: 4; text-align: right;
+  text-shadow: 0 2px 14px rgba(6,7,10,.7);
+}
+.dato b { display: block; font-family: var(--dhn-num); font-weight: 700; font-size: 62px; line-height: 1; }
+.dato i { font-style: normal; font-family: var(--dhn-testo); font-weight: 600;
+  font-size: 16px; letter-spacing: .22em; color: var(--dhn-dim); }
+.squadrina {
+  position: absolute; left: 48px; bottom: 44px; z-index: 4;
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 20px;
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.squadrina img { height: 30px; width: auto; }
+.marchione { position: absolute; right: 48px; bottom: 36px; z-index: 4; height: 40px; }
+
+/* ═══════════════════════════════════════════ 03 / 04 CLASSIFICA CAMPIONATO */
+.riga.cls { grid-template-columns: 62px 1fr 236px 132px 52px; }
+.riga.cls .valore { font-size: 32px; }
+.riga.cls .valore small { letter-spacing: .16em; }
+.riga.cls .delta {
+  font-family: var(--dhn-num); font-weight: 700; font-size: 15px;
+  color: var(--dhn-dim); margin-left: 8px;
+}
+.riga.cls .delta.piu { color: var(--dhn-oro); }
+.riga.squadre { grid-template-columns: 62px 1fr 132px 52px; }
+.riga.squadre .nomone {
+  display: flex; align-items: center; gap: 16px; padding-left: 24px;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 34px;
+  text-transform: uppercase; letter-spacing: .01em;
+}
+.riga.squadre .nomone img { height: 38px; width: 52px; object-fit: contain; }
+.riga.squadre .campo {
+  position: absolute; left: 62px; top: 0; bottom: 0; width: 340px;
+  background: linear-gradient(90deg, var(--squadra), transparent);
+  opacity: .5;
+}
+
+/* ═════════════════════════════════════════════════════ 07 THE GRID / 08 ══ */
+.grid-verticale {
+  position: absolute; left: -6px; top: 210px; z-index: 2;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 132px; line-height: .82;
+  letter-spacing: -.03em; color: rgba(255,255,255,.07);
+  writing-mode: vertical-rl; transform: rotate(180deg);
+}
+.griglia {
+  position: relative; z-index: 3; padding: 22px 48px 100px 128px;
+  flex: 1 1 auto; display: flex; flex-direction: column; gap: 8px;
+}
+.griglia .riga { flex: 1 1 0; min-height: 62px; max-height: 130px; margin-bottom: 0; }
+.griglia .riga { grid-template-columns: 62px 1fr 92px; height: 74px; }
+.griglia .riga .campo {
+  position: absolute; left: 62px; top: 0; bottom: 0; right: 0;
+  background: linear-gradient(90deg, var(--squadra) 0%, color-mix(in srgb, var(--squadra) 30%, #15151e) 62%, transparent);
+}
+.griglia .riga .chi { position: relative; z-index: 2; }
+.griglia .riga .valore { position: relative; z-index: 2; }
+
+.colonne {
+  position: relative; z-index: 3;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+  padding: 26px 40px 0;
+}
+.colonna { position: relative; height: 700px; border-radius: 4px; overflow: hidden;
+  background: linear-gradient(180deg, var(--squadra), color-mix(in srgb, var(--squadra) 22%, #08080b) 76%, #08080b); }
+.colonna .figurina {
+  position: absolute; bottom: 96px; left: 50%; transform: translateX(-50%);
+  height: 78%; width: auto; object-fit: contain; object-position: bottom;
+  filter: drop-shadow(0 12px 26px rgba(0,0,0,.5));
+}
+.colonna .ord {
+  position: absolute; left: 0; right: 0; bottom: 52px; text-align: center;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 44px; color: var(--dhn-txt);
+}
+.colonna .ord sup { font-size: 20px; }
+.colonna .chi2 {
+  position: absolute; left: 0; right: 0; bottom: 18px; text-align: center;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 18px;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--dhn-txt);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0 6px;
+}
+/* ⚠⚠ 12/09/2026 — QUESTA REGOLA NON C'ERA. `colonna()` scriveva
+   `class="senzaritratto"` ma in CSS esisteva solo `.gradino .senzaritratto`:
+   in una `.colonna` il ripiego era una lettera inline NON DIMENSIONATA, cioe'
+   testo da 16 px in fondo a una colonna da 700. Non si era mai visto perche'
+   sul banco 901 tutti e 22 i piloti hanno il ritratto.
+   *Una classe di ripiego va cercata in CSS dove il ripiego VIENE USATO, non
+   dove e' stata scritta la prima volta.* */
+.colonna .senzaritratto {
+  position: absolute; left: 0; right: 0; bottom: 88px;
+  display: none; place-items: center;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 190px; line-height: .9;
+  color: rgba(8,8,11,.24); letter-spacing: -.02em;
+}
+.colonna .stemma { position: absolute; left: 50%; transform: translateX(-50%); bottom: 96px; height: 26px; }
+
+/* ══════════════════════════════════════════════════════ 06 FRONT ROW ════ */
+.duello { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.duello .meta { position: relative; overflow: hidden;
+  background: linear-gradient(180deg, var(--squadra), color-mix(in srgb, var(--squadra) 30%, #08080b)); }
+.duello .meta img {
+  position: absolute; bottom: 0; height: 100%; width: 100%;
+  object-fit: cover; object-position: top center;
+}
+.duello .meta.destra img { transform: scaleX(-1); }
+.duello .centro {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 4;
+  background: radial-gradient(58% 46% at 50% 62%, rgba(6,7,10,.93) 38%, transparent 74%);
+}
+.duello .nomi {
+  position: absolute; left: 0; right: 0; bottom: 96px; z-index: 5;
+  display: flex; justify-content: space-between; padding: 0 48px;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 22px;
+  letter-spacing: .3em; text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════════════════ 09 PUNTI ════ */
+/* Il tappeto di parole dietro il pilota. Nato su A PUNTI, approvato da Fede
+   («molto bello, andrebbe replicato»), ora e' il fondo di tutta la famiglia
+   del pilota solo. Deve stare SOTTO il velo e sopra il campo: se sale sopra
+   la figura si perde il soggetto. */
+.solo .tappeto {
+  position: absolute; inset: -10%; z-index: 1; opacity: .16; overflow: hidden;
+  transform: rotate(-13deg);
+  font-family: var(--dhn-font); font-weight: 900; font-size: 132px; line-height: .9;
+  letter-spacing: .01em; color: #08080b; word-break: break-all;
+  pointer-events: none;
+}
+.tela.chiara .solo .tappeto { color: #ffffff; opacity: .22; }
+
+/* ════════════════════════════════ 10 SPRINT: fondo chiaro, non scuro ════ */
+.tela.chiara { background: #efece4; color: #14141b; }
+.tela.chiara .titolo h1, .tela.chiara .titolo .evento { color: #14141b; }
+.tela.chiara .titolo .sotto, .tela.chiara .piede .nota { color: #5d5c58; }
+.tela.chiara .riga { background: #e2ded4; }
+.tela.chiara .riga:nth-child(even) { background: #d9d4c8; }
+.tela.chiara .riga .chi .nome, .tela.chiara .riga .valore { color: #14141b; }
+.tela.chiara .riga .squadra { color: #3b3a36; }
+.tela.chiara::before { background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px); }
+.tela.chiara .piede { background: linear-gradient(0deg, rgba(239,236,228,.95), transparent); }
+
+/* ═══════════════════════════════════ 11 TESTA A TESTA / 16 IL DISTACCO ═══
+   Due (o tre) piloti confrontati riga per riga. Il valore migliore si
+   accende: chi guarda deve capire chi ha vinto il confronto senza leggere. */
+.sfida { position: relative; z-index: 3; padding: 24px 48px 100px; flex: 1 1 auto;
+  display: flex; flex-direction: column; }
+.sfida .teste { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.sfida .lato { position: relative; height: 340px; border-radius: 4px; overflow: hidden;
+  background: linear-gradient(170deg, var(--squadra), color-mix(in srgb, var(--squadra) 26%, #0b0b0f)); }
+.sfida .lato::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 7px; background: var(--squadra2, var(--squadra)); }
+.sfida .lato .etichetta { position: absolute; left: 0; right: 0; bottom: 14px; z-index: 3;
+  text-align: center; font-family: var(--dhn-font); font-weight: 900; font-size: 34px;
+  text-transform: uppercase; color: var(--dhn-txt); text-shadow: 0 2px 10px rgba(6,7,10,.7); }
+.sfida .lato .sq { position: absolute; left: 0; right: 0; top: 14px; z-index: 3; text-align: center;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 15px; letter-spacing: .2em;
+  text-transform: uppercase; opacity: .85; }
+.sfida .righe-sfida { margin-top: 18px; display: flex; flex-direction: column; gap: 7px; flex: 1 1 auto; }
+.confronto {
+  display: grid; grid-template-columns: 1fr 250px 1fr; align-items: center;
+  background: var(--dhn-row); border-radius: 3px; flex: 1 1 0; min-height: 56px;
+}
+.confronto:nth-child(even) { background: var(--dhn-row-alt); }
+.confronto .v {
+  font-family: var(--dhn-num); font-weight: 700; font-size: 34px; padding: 0 22px;
+  color: var(--dhn-dim);
+}
+.confronto .v.sx { text-align: left; }
+.confronto .v.dx { text-align: right; }
+.confronto .v.vince { color: var(--dhn-txt); }
+.confronto .v.vince::before { content: "▌ "; color: var(--dhn-acc); font-size: 26px; }
+.confronto .v.dx.vince::before { content: ""; }
+.confronto .v.dx.vince::after { content: " ▐"; color: var(--dhn-acc); font-size: 26px; }
+.confronto .che {
+  text-align: center; font-family: var(--dhn-testo); font-weight: 700; font-size: 15px;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--dhn-dim);
+}
+
+/* ══════════════════════════════════════════════ 14 STRATEGIA (le mescole) */
+.strategia { position: relative; z-index: 3; padding: 24px 48px 100px; flex: 1 1 auto;
+  display: flex; flex-direction: column; gap: 8px; }
+.corsia { display: grid; grid-template-columns: 300px 1fr 84px; align-items: center;
+  background: var(--dhn-row); border-radius: 3px; flex: 1 1 0; min-height: 58px;
+  position: relative; overflow: hidden; }
+.corsia:nth-child(even) { background: var(--dhn-row-alt); }
+.corsia .chi3 { display: flex; align-items: center; gap: 12px; padding-left: 18px; position: relative; z-index: 2; }
+.corsia .chi3 .filo { width: 6px; height: 60%; background: var(--squadra); flex: 0 0 auto; }
+.corsia .chi3 .nome {
+  font-family: var(--dhn-font); font-weight: 800; font-size: 27px; text-transform: uppercase;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.corsia .tratte { display: flex; height: 34px; gap: 3px; padding-right: 14px; }
+.corsia .tratta {
+  flex: 1 1 0; border-radius: 2px; display: grid; place-items: center;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 15px; color: #08080b;
+}
+.corsia .soste {
+  text-align: right; padding-right: 18px;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 26px;
+}
+.corsia .soste small { display: block; font-size: 10px; letter-spacing: .16em; color: var(--dhn-dim); }
+.legenda-mescole {
+  position: absolute; left: 48px; bottom: 34px; z-index: 4; display: flex; gap: 16px;
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 14px; letter-spacing: .1em;
+  color: var(--dhn-dim); text-transform: uppercase;
+}
+.legenda-mescole span { display: flex; align-items: center; gap: 6px; }
+.legenda-mescole i { width: 16px; height: 16px; border-radius: 50%; }
+
+/* ═════════════════════════════════════════════════════ 17 L'ALBO DEL GP ══ */
+.albo { position: relative; z-index: 3; padding: 26px 48px 100px; flex: 1 1 auto;
+  display: flex; flex-direction: column; gap: 14px; }
+.premio { position: relative; flex: 1 1 0; border-radius: 4px; overflow: hidden;
+  display: grid; grid-template-columns: 300px 1fr auto; align-items: center;
+  background: linear-gradient(90deg, var(--squadra) 0%, color-mix(in srgb, var(--squadra) 22%, #14141b) 46%, #14141b 100%); }
+.premio .faccia-grande { position: relative; height: 100%; }
+.premio .faccia-grande img {
+  position: absolute; bottom: 0; left: 8px; height: 118%; width: auto; object-fit: contain;
+  object-position: bottom; filter: drop-shadow(0 6px 16px rgba(0,0,0,.5));
+}
+.premio .titolino {
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 17px; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--dhn-txt); opacity: .8;
+}
+.premio .quale { padding-left: 6px; }
+.premio .quale .nome2 {
+  font-family: var(--dhn-font); font-weight: 900; font-size: 52px; line-height: 1;
+  text-transform: uppercase; margin-top: 4px;
+}
+.premio .quale .sq2 {
+  font-family: var(--dhn-testo); font-weight: 600; font-size: 16px; letter-spacing: .16em;
+  color: var(--dhn-val); text-transform: uppercase; margin-top: 4px;
+  display: flex; align-items: center; gap: 9px;
+}
+.premio .quale .sq2 img { height: 22px; width: auto; }
+.premio .misura {
+  padding-right: 30px; text-align: right;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 44px;
+}
+.premio .misura small { display: block; font-family: var(--dhn-testo); font-size: 12px;
+  letter-spacing: .2em; color: var(--dhn-dim); font-weight: 600; }
+.premio.viola { background: linear-gradient(90deg, var(--dhn-fl) 0%, #2a1440 46%, #14141b 100%); }

@@ -1,0 +1,143 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — RIEPILOGO GP</title>
+<!-- 17 RIEPILOGO GP —
+     ⚠ Si chiamava "L'ALBO": bocciato da Fede, titoli generici e in stile F1.
+      vincitore, pole e giro veloce in una grafica sola.
+     ?storico_id=NNN (la GARA)  ?quali=NNN (la qualifica, se non e' quella
+     dello stesso GP che il sistema trova da solo)
+     ⚠ La pole NON sta nella gara: sta nella qualifica. Se la qualifica dello
+       stesso GP non c'e' in archivio, la colonna della pole lo dice, invece
+       di stampare il primo in griglia come se fosse una pole.
+     A-06, 23/09/2026 — RIFATTA, scelta di Cava (la «B»): il nome del circuito
+       come parola gigante in metallo (come la 01), sotto TRE COLONNE a figura
+       intera nella luce della scuderia, ognuna col fascio dall'alto:
+       VINCITORE, POLE POSITION (etichette arancio), GIRO VELOCE (viola).
+       Sotto la figura nome, scuderia e il dato su lastra di vetro. Dietro al
+       pilota i LOGHI della scuderia in file dritte (Cava, dopo l'approvazione:
+       «cosi' sembrano delle barrette colorate»).
+       La lettura della qualifica non ha piu' il `catch` muto: se fallisce
+       la pagina lo dice. Vestito: `dhn-qualifica.css` + `dhn-campionato.css`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26" id="tela">
+  <div class="fondo26"></div>
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+  function premio(titolo, colore, r, valore, etichetta) {
+    if (!r) {
+      return '<div class="premio vuoto"><div class="tag spento">' + esc(titolo) + '</div>' +
+        '<div class="manca">DATO NON<br>IN ARCHIVIO</div></div>';
+    }
+    var img = DHN.ritratto(r, "figura");
+    /* i loghi della scuderia DIETRO al pilota, in file dritte dentro la luce
+       (Cava, 23/09: «per far vedere bene le scuderie», come la 02) */
+    var logo = DHN.logo(r.logo_da_stampare), loghi = "";
+    if (logo) {
+      var fila = "";
+      for (var c = 0; c < 4; c++) fila += '<img src="' + esc(logo) + '" alt="" onerror="this.style.visibility=\'hidden\'">';
+      for (var k = 0; k < 9; k++) loghi += '<div class="rl">' + fila + '</div>';
+      loghi = '<div class="loghi17">' + loghi + '</div>';
+    }
+    return '<div class="premio ' + colore + '" style="' + P.tinte(r) + '">' + loghi +
+      '<div class="vano">' +
+        '<span class="senza" style="display:' + (img ? "none" : "grid") + '">' + P.segno(r) + '</span>' +
+        (img ? '<img class="fig figura" src="' + esc(img) + '" alt="" crossorigin="anonymous" data-ripiego=".senza">' : '') +
+      '</div>' +
+      '<div class="tag ' + colore + '">' + esc(titolo) + '</div>' +
+      '<div class="info"><div class="n"><span class="metallo">' + P.nome(r) + '</span></div>' +
+        '<div class="sq26">' + P.immagineLogo(r) + '<span>' + esc(r.scuderia_da_stampare || "—") + '</span></div>' +
+        '<div class="val lastra"><b>' + esc(valore) + '</b><i>' + esc(etichetta) + '</i></div></div>' +
+    '</div>';
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var gara = await DHN.sessione(id);
+    var vinc = gara.righe.find(function (r) { return r.pos === 1; });
+    if (!vinc) throw new Error("gara " + id + ": nessun vincitore");
+    var gv = gara.righe.find(function (r) { return r.best_di_sessione; })
+          || gara.righe.find(function (r) { return r.giro_veloce; });
+
+    /* la pole: la qualifica dello STESSO GP, non l'ultima qualifica esistente */
+    var pole = null, qid = DHN.param("quali", null);
+    try {
+      if (!qid) {
+        var elenco = await DHN.sessioniValide(40);
+        var q = elenco.find(function (x) {
+          return x.tipo === "qualifica" && x.gp_nome === gara.info.gp_nome &&
+                 x.stagione_id === gara.info.stagione_id && x.storico_id <= gara.info.storico_id;
+        });
+        qid = q ? q.storico_id : null;
+      }
+      if (qid) {
+        var quali = await DHN.sessione(qid);
+        pole = quali.righe.find(function (r) { return r.pos === 1; }) || null;
+      }
+    } catch (e) {
+      pole = null;
+      DHN.avviso("POLE: lettura della qualifica " + (qid || "dello stesso GP") + " fallita (" + e.message + ")");
+      console.error(e);
+    }
+    tela.style.setProperty("--capo", P.col(vinc));
+
+    var sotto = "<b>" + esc(DHN.occhiello(gara.info)) + "</b>  ·  " + esc(DHN.titoloTipo(gara.info.tipo)) +
+      (gara.info.giri_totali ? "  ·  " + gara.info.giri_totali + " GIRI" : "");
+    document.getElementById("dentro").innerHTML =
+      '<div class="titolone t17"><div class="tag arancio">RIEPILOGO GP</div>' +
+        '<div class="parola-titolo"><span class="metallo">' + esc(String(gara.info.gp_nome || DHN.titoloTipo(gara.info.tipo)).toUpperCase()) + '</span></div>' +
+        '<div class="sotto26"><span>' + sotto + '</span></div></div>' +
+      '<section class="p17" id="premi">' +
+        premio("VINCITORE", "arancio", vinc, DHN.punti(vinc.punti), "PUNTI") +
+        premio("POLE POSITION", "arancio", pole, pole ? (pole.best_str || "—") : "", "GIRO SECCO") +
+        premio("GIRO VELOCE", "viola", gv, gv ? (gv.best_str || "—") : "", "IN GARA") +
+      '</section>' +
+      '<div class="filo-piede"></div><img class="marchione" src="' + esc(DHN.BRAND) + '" alt="">';
+    if (!pole) DHN.avviso("La qualifica di questo GP non e' in archivio: la colonna della pole lo dice.");
+
+    PEZZI.vesti(gara.info);
+    document.getElementById("marchio").src = DHN.BRAND;
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.fontPronti(tela);
+    /* «CITTA DEL MESSICO» e i nomi da 22 caratteri: si rimpiccioliscono */
+    entra(tela.querySelector(".parola-titolo"), 984, 150);
+    entra(tela.querySelector(".titolone .sotto26"), 984, 19, 12);
+    [].forEach.call(tela.querySelectorAll(".p17 .n"), function (el) {
+      entra(el, el.parentElement.clientWidth - 28, storia ? 64 : 54);
+    });
+    /* i fasci di luce dall'alto, uno per colonna, nel colore della sua scuderia */
+    var al = tela.querySelector(".p17"), fasci = "";
+    [].forEach.call(al.querySelectorAll(".premio:not(.vuoto)"), function (c) {
+      var cx = al.offsetLeft + c.offsetLeft + c.offsetWidth / 2, lg = 380;
+      fasci += '<div class="fascio" style="' + c.getAttribute("style") + ';left:' + (cx - lg / 2) + 'px;width:' + lg +
+        'px;top:-40px;height:' + (al.offsetTop + 300) + 'px"><i></i></div>';
+    });
+    document.getElementById("dentro").insertAdjacentHTML("afterbegin", fasci);
+    /* le figure: stessa quota per tutte e tre (incastro a gruppo) */
+    await P.incastraTutte(tela);
+    DHN.bottoneScarico(tela, "DHN-albo-" + gara.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

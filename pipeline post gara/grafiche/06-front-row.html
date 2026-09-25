@@ -1,0 +1,172 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — PRIMA FILA</title>
+<!-- 06 PRIMA FILA — i due davanti sulla griglia.  ?storico_id=NNN (qualifica)  ?banco=207
+     A-04, 23/09/2026 — scelta di Cava (la «C», la GRIGLIA), con la sua
+       correzione: «il primo gradino deve essere quello a DESTRA». Quindi:
+         P1 = a destra, DAVANTI, piu' grande, sulla piazzola piu' vicina;
+         P2 = a sinistra, DIETRO, piu' piccolo, sulla piazzola sfalsata.
+       PRIMA FILA in metallo in alto, i nomi in basso sotto il loro pilota.
+       L'asfalto e le piazzole sono un SVG in prospettiva disegnato qui
+       (punto di fuga al centro): le misure dipendono da dove finiscono il
+       titolo e i nomi, quindi si fanno dopo aver misurato quelli.
+     ⚠ Il busto e' `busto` (testa e petto, scelta di Cava ad A-00), non la
+       figura intera: il fondo del busto sparisce nell'asfalto con la maschera
+       di `.posto`, non con un taglio.
+     ⚠ Senza ritratto: al suo posto il NUMERO di gara o l'iniziale, grandi e
+       chiari sulla piazzola (`.segno`); la piazzola si disegna lo stesso.
+     Il vestito sta in `dhn-qualifica.css` (sotto `.tela.qual26`). -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post");
+  if (formato === "storia") tela.classList.add("storia");
+  var esc = PEZZI.esc;
+
+  /* il testo entra nella larghezza: si rimpicciolisce, non si taglia */
+  function entra(el, larga, max) {
+    var sp = el.firstChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.min(max, 100 * larga / w); el.style.fontSize = f + "px"; return f;
+  }
+  function posto(r, quale) {
+    var im = DHN.ritratto(r, "busto");
+    return '<div class="posto ' + quale + '" style="' + PEZZI.tinte(r) + '">' +
+      '<span class="segno" style="display:' + (im ? "none" : "grid") + '">' + PEZZI.segno(r) + '</span>' +
+      (im ? '<img class="bustino" src="' + esc(im) + '" alt="" crossorigin="anonymous" data-ripiego=".segno">' : '') +
+      '</div>';
+  }
+  function chi(r, quale) {
+    var logo = DHN.logo(r.logo_da_stampare);
+    return '<div class="chi ' + quale + '">' +
+      '<div class="targhetta">' + (r.pos === 1 ? "P1 · POLE" : "P" + esc(r.pos)) + '</div>' +
+      '<div class="n"><span class="metallo">' + PEZZI.nome(r) + '</span></div>' +
+      '<div class="t">' +
+        (logo ? '<img src="' + esc(logo) + '" alt="" onerror="this.remove()">' : '') +
+        '<span class="sq">' + esc(r.scuderia_da_stampare || "—") + '</span>' +
+        '<span>' + esc(r.best_str || "—") + '</span></div></div>';
+  }
+  function fascio(r) { return '<div class="fascio" style="' + PEZZI.tinte(r) + '"><i></i></div>'; }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("qualifica"); if (!u) throw new Error("nessuna qualifica valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var a = s.righe.find(function (r) { return r.pos === 1; });
+    var b = s.righe.find(function (r) { return r.pos === 2; });
+    if (!a || !b) throw new Error("qualifica " + id + ": servono almeno due piloti");
+    document.getElementById("dentro").innerHTML =
+      '<div class="pf" style="--c1:' + esc(PEZZI.col(a)) + ';--c2:' + esc(PEZZI.col(b)) + '">' +
+        '<div class="fondo"></div><div class="ponte"></div>' +
+        fascio(b) + fascio(a) +
+        '<div class="velo"></div>' +
+        '<svg class="pista" xmlns="http://www.w3.org/2000/svg"></svg>' +
+        '<div class="ecg"><i></i></div>' +
+        posto(b, "p2") + posto(a, "p1") +
+        '<div class="vignetta"></div>' +
+        '<div class="parola"><span class="metallo">PRIMA FILA</span></div>' +
+        '<div class="occ">' + esc(DHN.occhiello(s.info)) + '</div>' +
+        chi(b, "p2") + chi(a, "p1") +
+        '<img class="marchione" src="' + esc(DHN.BRAND) + '" alt="">' +
+      '</div>';
+    PEZZI.vesti(s.info);
+    DHN.ripiegoImmagini(tela); PEZZI.adatta(tela);
+    await PEZZI.fontPronti(tela);
+
+    /* ── le misure: titolo in alto, nomi in basso, la griglia in mezzo ── */
+    var W = tela.offsetWidth, H = tela.offsetHeight, storia = H > 1500;
+    var parola = tela.querySelector(".pf .parola"), occ = tela.querySelector(".pf .occ");
+    var cima = storia ? 250 : 136;
+    var fp = entra(parola, 990, storia ? 280 : 250);
+    parola.style.top = cima + "px";
+    occ.style.top = (cima + fp * 0.8 + 24) + "px";
+    var yTop = cima + fp * 0.8 + 24 + 34 + (storia ? 70 : 26);
+
+    /* i nomi: stessa grandezza per i due (il piu' lungo comanda) */
+    var nomi = [].slice.call(tela.querySelectorAll(".pf .chi .n"));
+    var fn = Math.min.apply(null, nomi.map(function (n) { return entra(n, 480, 84); }));
+    nomi.forEach(function (n) { n.style.fontSize = fn + "px"; });
+    var chiH = Math.max.apply(null, [].map.call(tela.querySelectorAll(".pf .chi"), function (c) { return c.offsetHeight; }));
+    var yNomi = H - 96 - chiH - 20;
+    tela.querySelector(".pf .velo").style.height = (H - yNomi + 140) + "px";
+
+    /* la griglia: P1 davanti a destra, P2 dietro a sinistra */
+    var A = yNomi - yTop;
+    var hy = yTop + A * 0.30, vx = W / 2;                 // orizzonte e punto di fuga
+    var slot1 = yNomi + 4, h1 = slot1 - yTop;
+    var h2 = h1 * 0.8, slot2 = slot1 - A * 0.17;
+    var c1 = 780, c2 = 290;                               // centri delle due colonne
+    function mettiPosto(el, cx, largo, alto, piede) {
+      el.style.left = (cx - largo / 2) + "px"; el.style.width = largo + "px";
+      el.style.top = (piede - alto) + "px"; el.style.height = (alto * 1.08) + "px";
+    }
+    var P1 = tela.querySelector(".posto.p1"), P2 = tela.querySelector(".posto.p2");
+    mettiPosto(P1, c1, 660, h1, slot1);
+    mettiPosto(P2, c2, 560, h2, slot2);
+    await Promise.all([[P1, h1], [P2, h2]].map(function (x) {
+      var im = x[0].querySelector("img");
+      return im ? PEZZI.incastra(im, { quota: 1, giu: x[1] * 0.08, largoMax: 1.12 }) : null;
+    }));
+    /* i fasci di luce: dall'alto, fino ai piedi di ognuno */
+    var fs = tela.querySelectorAll(".pf .fascio");
+    [[fs[0], c2, slot2, 460], [fs[1], c1, slot1, 580]].forEach(function (x) {
+      x[0].style.left = (x[1] - x[3] / 2) + "px"; x[0].style.width = x[3] + "px";
+      x[0].style.top = "-40px"; x[0].style.height = (x[2] + 40) + "px";
+    });
+    tela.querySelector(".pf .ecg").style.top = (hy - 242 * 0.62) + "px";
+
+    /* l'asfalto e le piazzole, in SVG */
+    function fuga(x, y0, y1) { return vx + (x - vx) * (y1 - hy) / (y0 - hy); }
+    function piazzola(cx, y, largo, col) {
+      var k = (y - hy) / (slot1 - hy), fondo = (y - hy) * 0.2;
+      var xa = cx - largo / 2, xb = cx + largo / 2, yb = y - fondo;
+      var sw = (8 * k).toFixed(1);
+      return '<ellipse cx="' + cx + '" cy="' + (y - fondo * 0.45) + '" rx="' + (largo * 0.72) + '" ry="' + (fondo * 0.95) + '" fill="url(#pozza' + col + ')"/>' +
+        '<g stroke="#f2f0e9" stroke-width="' + sw + '" stroke-linecap="square" fill="none" filter="url(#luce)">' +
+          '<line x1="' + xa + '" y1="' + y + '" x2="' + xb + '" y2="' + y + '"/>' +
+          '<line x1="' + xa + '" y1="' + y + '" x2="' + fuga(xa, y, yb) + '" y2="' + yb + '"/>' +
+          '<line x1="' + xb + '" y1="' + y + '" x2="' + fuga(xb, y, yb) + '" y2="' + yb + '"/>' +
+        '</g>';
+    }
+    var linee = "";
+    [-900, -260, 300, 780, 1340, 1980].forEach(function (x) {
+      linee += '<line x1="' + vx + '" y1="' + hy + '" x2="' + x + '" y2="' + H + '"/>';
+    });
+    var svg = tela.querySelector(".pf .pista");
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.innerHTML =
+      '<defs>' +
+        '<linearGradient id="asfalto" x1="0" y1="0" x2="0" y2="1">' +
+          '<stop offset="0" stop-color="#16161d" stop-opacity="0"/>' +
+          '<stop offset=".18" stop-color="#16161d" stop-opacity=".85"/>' +
+          '<stop offset="1" stop-color="#0b0b0f"/></linearGradient>' +
+        '<radialGradient id="pozza1"><stop offset="0" stop-color="' + esc(PEZZI.col(a)) + '" stop-opacity=".55"/><stop offset="1" stop-color="' + esc(PEZZI.col(a)) + '" stop-opacity="0"/></radialGradient>' +
+        '<radialGradient id="pozza2"><stop offset="0" stop-color="' + esc(PEZZI.col(b)) + '" stop-opacity=".45"/><stop offset="1" stop-color="' + esc(PEZZI.col(b)) + '" stop-opacity="0"/></radialGradient>' +
+        '<filter id="luce" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/>' +
+          '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+      '</defs>' +
+      '<rect x="0" y="' + hy + '" width="' + W + '" height="' + (H - hy) + '" fill="url(#asfalto)"/>' +
+      '<line x1="0" y1="' + hy + '" x2="' + W + '" y2="' + hy + '" stroke="rgba(255,255,255,.10)" stroke-width="1.5"/>' +
+      '<g stroke="rgba(255,255,255,.05)" stroke-width="2">' + linee + '</g>' +
+      piazzola(c2, slot2, 440 * (slot2 - hy) / (slot1 - hy), 2) +
+      piazzola(c1, slot1, 470, 1);
+
+    DHN.bottoneScarico(tela, "DHN-prima-fila-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

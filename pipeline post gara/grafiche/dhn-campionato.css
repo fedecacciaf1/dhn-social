@@ -1,0 +1,161 @@
+/* ===========================================================================
+   DHN — IL VESTITO DEL CAMPIONATO: 15 LEADER · 16 I PRIMI TRE · 17 RIEPILOGO
+   ---------------------------------------------------------------------------
+   A-06, 23/09/2026 — scelte di Cava:
+     15 = la «B»: il NOME grande come la 02, «LEADER DEL CAMPIONATO» in
+          etichetta, i PUNTI GIGANTI in metallo DAVANTI e a sinistra, il
+          pilota spostato a destra. La linea ECG PIU' IN BASSO, sotto la
+          scritta PUNTI («a non coprire la scritta punti»).
+     16 = la «B»: il LEADER grande in alto (un «1» gigante, nome, punti su
+          lastra) e sotto il 2º e il 3º in due bande col DISTACCO gigante.
+          Prima finiva a 838 px su 1350: adesso riempie la pagina.
+     17 = la «B»: tre COLONNE a figura intera (vincitore, pole, giro veloce),
+          il nome del circuito come parola gigante in alto.
+   Il livello «non piatto» e' quello della qualifica: questa pelle si usa
+   INSIEME a `dhn-qualifica.css` (grana, fascio di luce, metallo, lastra di
+   vetro, parola dietro), con la tela `qual26 cam26`.
+   ⚠ Tutto sotto `.tela.cam26`: nessun'altra grafica cambia.
+   =========================================================================== */
+
+.tela.cam26 { background: #0b0b0f; overflow: hidden; }
+.tela.cam26 .fondo26 { position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(90% 55% at 50% 0%, color-mix(in srgb, var(--capo, #ff7000) 34%, transparent), transparent 70%), #0b0b0f; }
+.tela.cam26 .fondo26::after { content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px); background-size: 14px 14px; }
+
+/* le etichette: arancio col riflesso; viola per il giro veloce */
+.tela.cam26 .tag { display: inline-flex; white-space: nowrap; color: #0b0b0f;
+  font-family: var(--dhn-font); font-weight: 900; line-height: 1; letter-spacing: .14em; text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+.tela.cam26 .tag.arancio { background: linear-gradient(180deg, #ffa24d 0%, var(--dhn-acc) 38%, #e45f00 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.45); }
+.tela.cam26 .tag.viola { background: linear-gradient(180deg, #d4a4ff 0%, var(--dhn-fl) 45%, #8a38d6 100%); color: #fff; }
+.tela.cam26 .tag.spento { background: #2a2a33; color: var(--dhn-dim); }
+
+/* titolo: etichetta + parola gigante in metallo + riga sotto */
+.tela.cam26 .titolone { position: absolute; z-index: 5; left: 48px; right: 48px; top: 118px; }
+.tela.storia.cam26 .titolone { top: 250px; }
+.tela.cam26 .titolone .tag { padding: 8px 24px 6px 16px; font-size: 30px; }
+.tela.cam26 .parola-titolo { margin-top: 8px; white-space: nowrap;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 150px; line-height: .84; letter-spacing: -.01em; text-transform: uppercase; }
+.tela.cam26 .parola-titolo span { display: inline-block; filter: drop-shadow(0 14px 28px rgba(0,0,0,.6)); }
+.tela.cam26 .sotto26 { margin-top: 14px; white-space: nowrap;
+  font-family: var(--dhn-num); font-weight: 600; font-size: 19px; letter-spacing: .3em; color: var(--dhn-dim); text-transform: uppercase; }
+.tela.cam26 .sotto26 span { display: inline-block; }
+.tela.cam26 .sotto26 b { color: var(--dhn-txt); }
+
+.tela.cam26 .filo-piede { position: absolute; z-index: 4; left: 48px; right: 48px; bottom: 90px; height: 1px;
+  background: linear-gradient(90deg, var(--dhn-acc), rgba(255,255,255,.18) 40%, transparent); }
+.tela.cam26 .marchione { position: absolute; z-index: 6; left: 50%; transform: translateX(-50%); bottom: 32px; height: 38px; }
+
+/* la figura (busto o intera) e il ripiego senza avatar */
+.tela.cam26 .senza { position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 240px; line-height: 1; color: rgba(242,240,233,.2); }
+.tela.cam26 .fig { position: absolute; max-width: none; bottom: 0; left: 50%; height: 92%; transform: translateX(-50%);
+  filter: drop-shadow(0 0 1.5px rgba(255,255,255,.55))
+          drop-shadow(0 0 24px color-mix(in srgb, var(--squadra) 75%, transparent))
+          drop-shadow(0 30px 50px rgba(0,0,0,.6)); }
+.tela.cam26 .gap { color: var(--dhn-acc2); }
+.tela.cam26 .sq26 { display: flex; gap: 10px; align-items: center; white-space: nowrap;
+  font-family: var(--dhn-testo); letter-spacing: .22em; text-transform: uppercase; color: var(--dhn-dim); }
+.tela.cam26 .sq26 img { width: auto; }
+
+/* ═══════════════════════════════════════════════ 15 LEADER ═══ */
+/* i punti giganti davanti, a sinistra (la pagina da' grandezza e posto) */
+.tela.cam26 .pole-fondo.davanti { z-index: 4; left: 22px; right: auto; text-align: left;
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75)); }
+.tela.cam26 .pole-fondo.davanti span { -webkit-text-stroke: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f4ee 40%, #c7c4bb 53%, #ecEAE3 62%, #ffffff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tela.cam26 .pole-fondo .pt15 { display: block; font-style: normal; font-family: var(--dhn-font); font-weight: 900;
+  font-size: 54px; letter-spacing: .3em; line-height: 1; margin: -10px 0 0 18px; color: var(--dhn-acc); }
+/* l'ECG sotto la scritta PUNTI (Cava, 23/09): la pagina la mette alla quota giusta */
+.tela.cam26 .solo .ecg-riga { z-index: 1; }
+
+/* ═══════════════════════════════════════════ 16 I PRIMI TRE ═══ */
+.tela.cam26 { --capo-alto: 830px; --capo-testo: 130px; --capo-dato: 690px; --capo-fig: 110px; }
+.tela.storia.cam26 { --capo-alto: 1220px; --capo-testo: 260px; --capo-dato: 1060px; --capo-fig: 250px; }
+.p16 { position: absolute; inset: 0; }
+.p16 .capo { position: absolute; z-index: 2; left: 0; right: 0; top: 0; height: var(--capo-alto); overflow: hidden; }
+.p16 .capo .alone { position: absolute; inset: 0;
+  background: radial-gradient(60% 60% at 70% 40%, color-mix(in srgb, var(--squadra) 60%, transparent), transparent 75%); }
+.p16 .capo .vano { position: absolute; left: 380px; right: -60px; top: var(--capo-fig); bottom: 0; }
+.p16 .capo .velo { position: absolute; left: 0; right: 0; bottom: 0; height: 260px; z-index: 3;
+  background: linear-gradient(0deg, #0b0b0f 10%, transparent); }
+.p16 .capo .testo { position: absolute; z-index: 4; left: 48px; top: var(--capo-testo); width: 560px; }
+.p16 .capo .tag { padding: 8px 24px 6px 16px; font-size: 30px; }
+.p16 .capo .sotto26 { width: 984px; }
+.p16 .capo .ord1 { font-family: var(--dhn-font); font-weight: 900; font-size: 360px; line-height: .8; margin-top: 12px; }
+.p16 .capo .ord1 span { display: inline-block; filter: drop-shadow(0 18px 36px rgba(0,0,0,.6)); }
+.p16 .capo .n { white-space: nowrap; font-family: var(--dhn-font); font-weight: 900; text-transform: uppercase; line-height: .86; margin-top: 18px; }
+.p16 .capo .n span { display: inline-block; filter: drop-shadow(0 14px 28px rgba(0,0,0,.7)); }
+.p16 .capo .sq26 { margin-top: 12px; font-size: 16px; }
+.p16 .capo .sq26 img { height: 22px; }
+.p16 .capo .dato16 { position: absolute; z-index: 5; left: 48px; top: var(--capo-dato); display: inline-flex; align-items: baseline; gap: 12px;
+  padding: 10px 22px 8px 18px; }
+.p16 .capo .dato16 b { font-family: var(--dhn-num); font-weight: 700; font-size: 64px; line-height: 1; }
+.p16 .capo .dato16 i { font-style: normal; font-family: var(--dhn-testo); font-size: 15px; letter-spacing: .24em; color: var(--dhn-acc2); }
+.p16 .insegue { position: absolute; z-index: 3; left: 44px; right: 44px; top: calc(var(--capo-alto) + 12px); bottom: 112px;
+  display: grid; grid-auto-rows: 1fr; gap: 12px; }
+.p16 .banda { position: relative; overflow: hidden; border-radius: 4px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--squadra) 60%, #0e0e14) 0%, #17171f 46%, #111118 100%);
+  border: 1px solid rgba(255,255,255,.08); border-top-color: rgba(255,255,255,.26); }
+.p16 .banda::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--squadra); z-index: 3; }
+.p16 .banda .vano { position: absolute; left: 70px; width: 240px; top: 0; bottom: 0; overflow: hidden; }
+.p16 .banda .senza { font-size: 150px; }
+.p16 .capo .senza { font-size: 440px; place-items: start center; padding-top: 40px; }
+.p16 .banda .ord { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); z-index: 2;
+  font-family: var(--dhn-font); font-weight: 900; font-size: 110px; line-height: .8; }
+.p16 .banda .ord span { display: inline-block; }
+.p16 .banda .chi { position: absolute; left: 320px; top: 50%; transform: translateY(-50%); z-index: 2; width: 360px; }
+.p16 .banda .chi .n { white-space: nowrap; font-family: var(--dhn-font); font-weight: 900; text-transform: uppercase; line-height: .9; }
+.p16 .banda .chi .n span { display: inline-block; }
+.p16 .banda .chi .pt { margin-top: 8px; font-family: var(--dhn-num); font-weight: 700; font-size: 30px; white-space: nowrap; }
+.p16 .banda .chi .pt i { font-style: normal; font-family: var(--dhn-testo); font-size: 13px; letter-spacing: .24em; color: var(--dhn-dim); margin-left: 8px; }
+.p16 .banda .dist { position: absolute; right: 26px; top: 50%; transform: translateY(-50%); z-index: 2; text-align: right; }
+.p16 .banda .dist b { display: block; font-family: var(--dhn-font); font-weight: 900; font-size: 120px; line-height: .8; white-space: nowrap; }
+.p16 .banda .dist i { font-style: normal; font-family: var(--dhn-testo); font-size: 13px; letter-spacing: .26em; color: var(--dhn-dim); white-space: nowrap; }
+.tela.storia .p16 .banda .ord { font-size: 140px; }
+.tela.storia .p16 .banda .dist b { font-size: 150px; }
+
+/* ═══════════════════════════════════════════ 17 RIEPILOGO GP ═══ */
+.p17 { position: absolute; z-index: 3; left: 44px; right: 44px; top: 400px; bottom: 112px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tela.storia .p17 { top: 660px; }
+/* storia: titolo e colonne piu' giu', fuori dalla zona coperta dall'app */
+.tela.storia.cam26 .titolone.t17 { top: 380px; }
+.p17 .premio { position: relative; border-radius: 4px; min-width: 0;
+  background: radial-gradient(120% 60% at 50% 0%, color-mix(in srgb, var(--squadra) 66%, transparent), transparent 75%),
+              linear-gradient(180deg, #1b1b24, #0e0e14);
+  border: 1px solid rgba(255,255,255,.08); border-top: 3px solid color-mix(in srgb, var(--squadra) 70%, #fff); }
+.p17 .premio .vano { position: absolute; left: -20px; right: -20px; top: 40px; bottom: 170px; z-index: 1;
+  -webkit-mask-image: linear-gradient(0deg, transparent 0, #000 18%); mask-image: linear-gradient(0deg, transparent 0, #000 18%); }
+.p17 .premio .tag { position: absolute; z-index: 3; left: 0; top: -2px; padding: 7px 16px 5px 12px; font-size: 22px; letter-spacing: .12em; }
+.p17 .premio .info { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; height: 180px; padding: 0 14px; text-align: center;
+  background: linear-gradient(0deg, #0b0b0f 45%, transparent); }
+.p17 .premio .n { white-space: nowrap; font-family: var(--dhn-font); font-weight: 900; text-transform: uppercase; line-height: .9; margin-top: 16px; }
+.p17 .premio .n span { display: inline-block; }
+.p17 .premio .sq26 { justify-content: center; gap: 8px; margin-top: 6px; font-size: 13px; letter-spacing: .2em; }
+.p17 .premio .sq26 img { height: 18px; }
+.p17 .premio .val { display: inline-block; margin-top: 12px; padding: 8px 16px 6px 14px; }
+.p17 .premio .val b { font-family: var(--dhn-num); font-weight: 700; font-size: 36px; line-height: 1; white-space: nowrap; }
+.p17 .premio .val i { display: block; font-style: normal; font-family: var(--dhn-testo); font-size: 11px; letter-spacing: .24em; color: var(--dhn-acc2); }
+.p17 .premio.viola .val { border-left-color: var(--dhn-fl); }
+.p17 .premio.viola .val i { color: #cf9bff; }
+/* i loghi della scuderia dietro al pilota: file dritte, bianchi, forti in
+   alto nella luce e che sfumano verso il basso (come la 02, ma dentro la colonna) */
+.p17 .premio .loghi17 { position: absolute; inset: 0; z-index: 0; overflow: hidden; border-radius: 4px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.8) 45%, transparent 82%);
+          mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.8) 45%, transparent 82%); }
+.p17 .premio .loghi17 .rl { display: flex; gap: 22px; justify-content: center; margin-top: 30px; }
+.p17 .premio .loghi17 .rl:first-child { margin-top: 56px; }
+.p17 .premio .loghi17 .rl:nth-child(even) { transform: translateX(46px); }
+.p17 .premio .loghi17 img { width: 70px; height: 52px; object-fit: contain; flex: 0 0 auto;
+  filter: brightness(0) invert(1); opacity: .2; }
+.tela.storia .p17 .premio .loghi17 .rl { margin-top: 40px; }
+.tela.storia .p17 .premio .loghi17 img { width: 84px; height: 62px; }
+
+/* la pole senza qualifica in archivio: la colonna lo DICE, non resta un buco */
+.p17 .premio.vuoto { --squadra: #2a2a33; display: grid; place-items: center; }
+.p17 .premio.vuoto .manca { padding: 0 20px; text-align: center; font-family: var(--dhn-font); font-weight: 900;
+  font-size: 30px; line-height: 1.05; color: var(--dhn-dim); text-transform: uppercase; }

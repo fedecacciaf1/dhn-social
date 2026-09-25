@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — VINCITORE</title>
+<!-- 02 VINCITORE — il pilota solo, a tutta pagina, sull'alone della sua squadra.
+     ?storico_id=NNN  ?formato=post|storia  ?banco=174
+     A-01 (23/09/2026, scelte di Cava): busto grande, il NOME a tutta larghezza
+     e VINCITORE in etichetta arancio sopra (`nomeGrande`), loghi della
+     scuderia nell'alone, linea ECG liscia. Il vestito sta in PEZZI.solo.
+     ⚠ Il ritratto e' `busto`; se manca ripiega su figura e poi sul numero:
+       qui l'immagine NON e' decorazione, e' il soggetto. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela" id="tela">
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:5;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato" id="evento">—</div>
+  </header>
+</div>
+<script>
+(async function () {
+  var tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post");
+  if (formato === "storia") tela.classList.add("storia");
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var s = await DHN.sessione(id);
+    var v = s.righe.find(function (r) { return r.pos === 1; });
+    if (!v) throw new Error("sessione " + id + ": nessun primo classificato");
+    var parola = (s.info.tipo === "sprint") ? "SPRINT" : "VINCITORE";
+    document.getElementById("dentro").innerHTML = PEZZI.solo(
+      v, parola, DHN.occhiello(s.info),
+      { valore: DHN.punti(v.punti), etichetta: "PUNTI" },
+      { nomeGrande: true });
+    PEZZI.vesti(s.info);
+    document.getElementById("evento").textContent = "DHN CHAMPIONSHIP";
+    DHN.ripiegoImmagini(tela); PEZZI.adatta(tela);
+    await PEZZI.incastraTutte(tela);   /* le figure si misurano sul contorno */
+    DHN.bottoneScarico(tela, "DHN-vincitore-" + s.info.storico_id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

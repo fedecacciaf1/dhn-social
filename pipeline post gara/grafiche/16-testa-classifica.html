@@ -1,0 +1,120 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — CLASSIFICA / I PRIMI TRE</title>
+<!-- 16 CLASSIFICA, I PRIMI TRE —
+     ⚠ Si chiamava "LA TESTA": bocciato da Fede, titoli generici e in stile F1.
+     ?storico_id=NNN
+     ⚠ Il distacco che conta e' quello dal LEADER, non fra righe vicine: chi
+       guarda vuole sapere quanto deve recuperare.
+     A-06, 23/09/2026 — RIPENSATA, scelta di Cava (la «B»): prima finiva a
+       838 px su 1350. Adesso il LEADER e' grande in alto (un «1» gigante in
+       metallo, nome, scuderia, punti su lastra di vetro, busto grande a
+       destra nella luce della scuderia) e sotto il 2º e il 3º in due bande
+       carbone col filo della scuderia, busto, nome, punti e il DISTACCO dal
+       leader gigante in arancio. Vestito: `dhn-qualifica.css` +
+       `dhn-campionato.css` (sotto `.tela.cam26`).
+     ⚠ Il blocco ha anche la classe `trio`: la cerca `banco/controlla_fondo.mjs`. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-campionato.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<body class="dhn-palco">
+<div class="tela qual26 cam26" id="tela">
+  <div class="fondo26"></div>
+  <div id="dentro"></div>
+  <header class="testata" style="position:absolute;z-index:6;left:0;right:0;top:0">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+  function immagine(r) {
+    var img = DHN.ritratto(r, "busto");
+    return '<span class="senza" style="display:' + (img ? "none" : "grid") + '">' + P.segno(r) + '</span>' +
+      (img ? '<img class="fig" src="' + esc(img) + '" alt="" crossorigin="anonymous" data-ripiego=".senza">' : '');
+  }
+  /* il busto dentro una banda: la testa in alto, il petto tagliato dal bordo */
+  async function bustoInBanda(im) {
+    if (!im.naturalWidth) return;
+    var box = im.parentElement, b = await P.contorno(im.currentSrc || im.src);
+    if (!b) { console.warn("16: contorno non misurabile, resta il CSS: " + im.src); return; }
+    var W = box.clientWidth, H = box.clientHeight;
+    var hImg = H * 1.25 / b.altoF, wImg = hImg * b.W / b.H;
+    if (wImg * b.largoF > W * 1.25) { var k = W * 1.25 / (wImg * b.largoF); hImg *= k; wImg *= k; }
+    var cx = (b.sxF + 1 - b.dxF) / 2;
+    im.style.height = hImg + "px"; im.style.width = wImg + "px";
+    im.style.left = (W / 2 - cx * wImg) + "px"; im.style.top = (14 - b.sopraF * hImg) + "px";
+    im.style.bottom = "auto"; im.style.transform = "none";
+  }
+
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) { var u = await DHN.ultimaBuona("gara"); if (!u) throw new Error("nessuna gara valida"); id = u.storico_id; }
+    var cls = await DHN.classificaPiloti(id);
+    if (cls.length < 3) throw new Error("servono almeno tre piloti in classifica");
+    var p1 = cls[0], guida = Number(p1.punti_tot);
+    tela.style.setProperty("--capo", P.col(p1));
+    var sotto = "<b>DOPO " + p1.tappa + (p1.tappa === 1 ? " TAPPA" : " TAPPE") + "</b>" +
+      (p1.gp_nome ? "  ·  ULTIMA " + esc(String(p1.gp_nome).toUpperCase()) : "");
+    function distacco(r) { var d = guida - Number(r.punti_tot); return d === 0 ? "PARI" : "−" + DHN.punti(d); }
+
+    document.getElementById("dentro").innerHTML =
+      '<div class="p16 trio">' +
+        '<div class="capo" style="' + P.tinte(p1) + '"><div class="alone"></div>' +
+          '<div class="fascio" style="left:420px;width:620px;top:-40px;height:' + (storia ? 1300 : 900) + 'px"><i></i></div>' +
+          '<div class="vano">' + immagine(p1) + '</div><div class="velo"></div>' +
+          '<div class="testo"><div class="tag arancio">CLASSIFICA PILOTI</div>' +
+            '<div class="sotto26"><span>' + sotto + '</span></div>' +
+            '<div class="ord1"><span class="metallo">' + esc(p1.pos || 1) + '</span></div>' +
+            '<div class="n"><span class="metallo">' + P.nome(p1) + '</span></div>' +
+            '<div class="sq26">' + P.immagineLogo(p1) + '<span>' + esc(p1.scuderia_da_stampare || "—") + '</span></div></div>' +
+          '<div class="dato16 lastra"><b>' + DHN.punti(p1.punti_tot) + '</b><i>PUNTI</i></div>' +
+        '</div>' +
+        '<div class="insegue">' + cls.slice(1, 3).map(function (r) {
+          return '<div class="banda" style="' + P.tinte(r) + '">' +
+            '<div class="ord"><span class="metallo">' + esc(r.pos) + '</span></div>' +
+            '<div class="vano">' + immagine(r) + '</div>' +
+            '<div class="chi"><div class="n"><span class="metallo">' + P.nome(r) + '</span></div>' +
+              '<div class="pt">' + DHN.punti(r.punti_tot) + '<i>PUNTI</i></div></div>' +
+            '<div class="dist"><b class="gap">' + distacco(r) + '</b><i>DAL LEADER</i></div></div>';
+        }).join("") + '</div>' +
+      '</div>' +
+      '<div class="filo-piede"></div><img class="marchione" src="' + esc(DHN.BRAND) + '" alt="">';
+
+    PEZZI.vesti({ gp_nome: "", round: null });
+    document.getElementById("marchio").src = DHN.BRAND;
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.fontPronti(tela);
+    /* i nomi si rimpiccioliscono, non si tagliano (fino a 22 caratteri) */
+    entra(tela.querySelector(".capo .n"), 560, storia ? 170 : 150);
+    [].forEach.call(tela.querySelectorAll(".banda .chi .n"), function (el) { entra(el, 360, storia ? 90 : 76); });
+    entra(tela.querySelector(".capo .sotto26"), 984, 19, 12);
+    /* i punti su lastra: subito sotto la scuderia, qualunque altezza abbia preso il nome */
+    var tx = tela.querySelector(".capo .testo");
+    tela.querySelector(".capo .dato16").style.top = (tx.offsetTop + tx.offsetHeight + 34) + "px";
+
+    var imgs = [].slice.call(tela.querySelectorAll("img.fig"));
+    await Promise.all(imgs.map(function (im) {
+      return im.complete ? null : new Promise(function (ok) { im.addEventListener("load", ok); im.addEventListener("error", ok); });
+    }));
+    for (var i = 0; i < imgs.length; i++) {
+      if (imgs[i].closest(".banda")) await bustoInBanda(imgs[i]);
+      else if (imgs[i].naturalWidth) await P.incastra(imgs[i], { quota: 0.98, largoMax: 1.3 });
+    }
+    DHN.bottoneScarico(tela, "DHN-testa-classifica-" + id + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>

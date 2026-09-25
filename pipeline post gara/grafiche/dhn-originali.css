@@ -1,0 +1,148 @@
+/* ===========================================================================
+   DHN — IL VESTITO DEGLI ORIGINALI DI GARA:
+   11 TESTA A TESTA · 12 POSIZIONI GUADAGNATE · 13 GIRO VELOCE · 14 STRATEGIA
+   ---------------------------------------------------------------------------
+   A-07, 23/09/2026 — scelte di Cava (nessuna reference F1: sono idee DHN):
+     11 = la «A»: i due piloti AFFIANCATI, il meglio piazzato a DESTRA (sua
+          regola per i piloti affiancati), ognuno nella luce della sua
+          scuderia; il DISTACCO al traguardo gigante in metallo in mezzo; sotto
+          il confronto riga per riga, il valore migliore si accende.
+     12 = la «B»: la SCALA delle posizioni, da P<partenza> in basso a
+          P<arrivo> in alto, con la linea dritta e un punto per ogni posizione
+          guadagnata (Cava: «la linea sia piu' precisa e fai capire meglio il
+          cambio di posizione»); il «+N» gigante accanto; il NOME grande.
+     13 = la «A»: il TEMPO gigante in metallo-viola su tutta la larghezza,
+          davanti al busto; «GIRO VELOCE» in etichetta viola, il NOME grande.
+     14 = la «A»: una riga per pilota con le GOMME disegnate realistiche
+          (gomma nera, fascia colorata della mescola, cerchio). Cava ha chiesto
+          «quelle Pirelli ufficiali»: il marchio Pirelli NON si mette (e' di
+          terzi), la gomma si', coi colori delle mescole del design system.
+   Si usa INSIEME a `dhn-qualifica.css` (grana, fascio, metallo, lastra) e
+   `dhn-campionato.css` (tag, sotto26, filo-piede): tela `qual26 cam26 ori26`.
+   ⚠ Tutto sotto `.tela.ori26`: nessun'altra grafica cambia.
+   =========================================================================== */
+
+.tela.ori26 .fondo26 { z-index: 0; }
+.tela.ori26 .t07 { position: absolute; z-index: 5; left: 48px; right: 48px; top: 118px; }
+.tela.storia.ori26 .t07 { top: 250px; }
+.tela.ori26 .t07 .tag { padding: 8px 24px 6px 16px; font-size: 30px; }
+.tela.ori26 .t07 .sotto26 { margin-top: 12px; }
+.tela.ori26 .vano { position: absolute; overflow: hidden; }
+.tela.ori26 .n07 { white-space: nowrap; font-family: var(--dhn-font); font-weight: 900; text-transform: uppercase; line-height: .86; }
+.tela.ori26 .n07 span { display: inline-block; filter: drop-shadow(0 12px 26px rgba(0,0,0,.75)); }
+/* ⚠ Il METALLO e' un fondo ritagliato sul testo: il trattino basso («gionn_8723»)
+   scende sotto la riga e restava fuori dal fondo, cioe' INVISIBILE. Un filo di
+   fondo in piu' sotto le lettere, senza spostare niente. */
+.tela.ori26 .metallo, .tela.ori26 .nomone span { padding-bottom: .16em; margin-bottom: -.16em; }
+/* ...e il nome grande sale di un filo, se no il trattino tocca la riga sotto */
+.tela.ori26 .solo .nomone { bottom: 170px; }
+
+/* ═══════════════════════════════════════════ 11 TESTA A TESTA ═══ */
+.tela.ori26 { --h11-fig: 206px; --h11-alto: 600px; --h11-gap: 420px; --h11-chi: 640px; --h11-conf: 862px; --h11-riga: 54px; }
+.tela.storia.ori26 { --h11-fig: 360px; --h11-alto: 760px; --h11-gap: 640px; --h11-chi: 960px; --h11-conf: 1250px; --h11-riga: 62px; }
+.h11 .luce { position: absolute; top: 0; height: calc(var(--h11-conf) + 40px); width: 50%; z-index: 0; }
+.h11 .luce.sx { left: 0; background: radial-gradient(90% 70% at 35% 30%, color-mix(in srgb, var(--squadra) 62%, transparent), transparent 72%); }
+.h11 .luce.dx { right: 0; background: radial-gradient(90% 70% at 65% 30%, color-mix(in srgb, var(--squadra) 62%, transparent), transparent 72%); }
+.h11 .vano { top: var(--h11-fig); height: var(--h11-alto); width: 580px; z-index: 1;
+  -webkit-mask-image: linear-gradient(0deg, transparent 0, #000 30%); mask-image: linear-gradient(0deg, transparent 0, #000 30%); }
+.h11 .vano.sx { left: -50px; } .h11 .vano.dx { right: -50px; }
+.h11 .vano .senza { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--dhn-font); font-weight: 900;
+  font-size: 300px; line-height: 1; color: rgba(242,240,233,.2); }
+.h11 .fascio { top: -40px; height: calc(var(--h11-conf) - 20px); width: 440px; }
+.h11 .fascio.sx { left: 40px; } .h11 .fascio.dx { right: 40px; }
+.h11 .velo11 { position: absolute; left: 0; right: 0; top: calc(var(--h11-chi) - 80px); height: 360px; z-index: 2;
+  background: linear-gradient(0deg, #0b0b0f 40%, transparent); }
+.h11 .chi { position: absolute; z-index: 5; top: var(--h11-chi); width: 440px; }
+.h11 .chi.sx { left: 48px; } .h11 .chi.dx { right: 48px; text-align: right; }
+.h11 .chi .pos { display: inline-block; font-family: var(--dhn-num); font-weight: 700; font-size: 22px; padding: 5px 12px 3px; margin-bottom: 10px;
+  background: #2a2a33; color: var(--dhn-txt); letter-spacing: .1em; }
+.h11 .chi .pos.primo { background: linear-gradient(180deg, #ffa24d 0%, var(--dhn-acc) 38%, #e45f00 100%); color: #0b0b0f; }
+.h11 .chi .sq26 { margin-top: 10px; font-size: 14px; }
+.h11 .chi.dx .sq26 { justify-content: flex-end; }
+.h11 .chi .sq26 img { height: 20px; }
+/* il distacco: in mezzo, fra i due */
+.h11 .gap11 { position: absolute; z-index: 6; left: 0; right: 0; top: var(--h11-gap); text-align: center; }
+.h11 .gap11 .num { font-family: var(--dhn-font); font-weight: 900; font-size: 170px; line-height: .8; white-space: nowrap; }
+.h11 .gap11 .num span { display: inline-block; filter: drop-shadow(0 16px 30px rgba(0,0,0,.8)); }
+.h11 .gap11 .num small { font-size: .38em; margin-left: 6px; color: var(--dhn-acc); -webkit-text-fill-color: var(--dhn-acc); }
+.h11 .gap11 .cosa { display: inline-block; margin-top: 14px; padding: 6px 16px 4px; font-family: var(--dhn-testo); font-weight: 700;
+  font-size: 15px; letter-spacing: .3em; background: rgba(11,11,15,.7); color: var(--dhn-acc2); }
+/* le righe del confronto: il valore migliore si ACCENDE nel colore della sua scuderia */
+.h11 .conf { position: absolute; z-index: 5; left: 44px; right: 44px; top: var(--h11-conf); display: grid; gap: 8px; }
+.h11 .rc { position: relative; display: grid; grid-template-columns: 1fr 220px 1fr; align-items: center; height: var(--h11-riga);
+  background: linear-gradient(180deg, #1a1a22, #121219); border: 1px solid rgba(255,255,255,.06); border-top-color: rgba(255,255,255,.16);
+  border-radius: 3px; overflow: hidden; }
+.h11 .rc .che { text-align: center; font-family: var(--dhn-testo); font-weight: 700; font-size: 14px; letter-spacing: .28em; color: var(--dhn-dim); text-transform: uppercase; }
+.h11 .rc .v { position: relative; height: 100%; display: flex; align-items: center; padding: 0 22px;
+  font-family: var(--dhn-num); font-weight: 700; font-size: 30px; color: rgba(242,240,233,.55); white-space: nowrap; }
+.h11 .rc .v.sx { justify-content: flex-start; } .h11 .rc .v.dx { justify-content: flex-end; }
+.h11 .rc .v.vince { color: #fff; }
+.h11 .rc .v.vince.sx { background: linear-gradient(90deg, color-mix(in srgb, var(--c-sx) 70%, transparent), transparent 85%); }
+.h11 .rc .v.vince.dx { background: linear-gradient(270deg, color-mix(in srgb, var(--c-dx) 70%, transparent), transparent 85%); }
+.h11 .rc .v.vince::before { content: ""; position: absolute; top: 0; bottom: 0; width: 5px; background: var(--dhn-acc); }
+.h11 .rc .v.vince.sx::before { left: 0; } .h11 .rc .v.vince.dx::before { right: 0; }
+.h11 .rc .v.vince b { text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+
+/* ═══════════════════════════════════ 12 POSIZIONI GUADAGNATE ═══ */
+/* la scala: la disegna la pagina (posizioni in px); qui solo l'aspetto */
+.s12 { position: absolute; z-index: 4; left: 48px; top: 0; width: 280px; }
+.s12 svg { position: absolute; left: 0; top: 0; overflow: visible; }
+.s12 .gr { position: absolute; left: 46px; display: flex; align-items: center; gap: 12px; white-space: nowrap;
+  font-family: var(--dhn-num); font-weight: 700; line-height: 1; color: rgba(242,240,233,.42); transform: translateY(-50%); }
+.s12 .gr b { font-weight: 700; }
+.s12 .gr.par b, .s12 .gr.arr b { padding: 6px 14px 4px; border-radius: 2px; }
+.s12 .gr.par { color: var(--dhn-txt); }
+.s12 .gr.par b { background: #2a2a33; box-shadow: inset 0 2px 0 rgba(255,255,255,.18); }
+.s12 .gr.arr { color: #0b0b0f; }
+.s12 .gr.arr b { background: linear-gradient(180deg, #ffa24d 0%, var(--dhn-acc) 38%, #e45f00 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.45), 0 12px 28px rgba(255,112,0,.45); }
+.s12 .gr em { font-style: normal; font-family: var(--dhn-testo); font-weight: 700; font-size: 13px; letter-spacing: .26em; }
+.s12 .gr.par em { color: var(--dhn-dim); } .s12 .gr.arr em { color: var(--dhn-acc2); }
+.p12 .piu { position: absolute; z-index: 4; font-family: var(--dhn-font); font-weight: 900; line-height: .8; white-space: nowrap;
+  filter: drop-shadow(0 20px 36px rgba(0,0,0,.75)); }
+.p12 .piu em { display: block; font-style: normal; font-size: 40px; letter-spacing: .3em; color: var(--dhn-acc); margin: 6px 0 0 10px; line-height: 1; }
+
+/* ═══════════════════════════════════════════════ 13 GIRO VELOCE ═══ */
+/* il viola del giro veloce vince sul colore della scuderia: e' l'informazione */
+.tela.ori26.g13 { --viola: #b15cff; }
+.tela.ori26.g13 .solo .alone {
+  background: radial-gradient(70% 55% at 50% 30%, color-mix(in srgb, var(--viola) 70%, transparent), transparent 72%) !important; }
+.tela.ori26.g13 .fascio i {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--viola) 45%, #fff) 0%, color-mix(in srgb, var(--viola) 40%, transparent) 45%, transparent 92%); }
+.tela.ori26.g13 .solo .busto {
+  filter: drop-shadow(0 0 1.5px rgba(255,255,255,.55)) drop-shadow(0 0 26px color-mix(in srgb, var(--viola) 75%, transparent)) drop-shadow(0 34px 60px rgba(0,0,0,.6)); }
+.tela.ori26.g13 .solo .etichetta { background: linear-gradient(180deg, #d4a4ff 0%, var(--dhn-fl) 45%, #8a38d6 100%); color: #fff;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.45), 0 12px 26px rgba(177,92,255,.35); }
+.tela.ori26.g13 .solo .ecg-riga i { background: linear-gradient(90deg, var(--dhn-fl), #d9b3ff 50%, var(--dhn-fl)); }
+.tela.ori26.g13 .solo .ecg-riga { filter: drop-shadow(0 0 10px rgba(177,92,255,.7)); }
+.tela.ori26.g13 .tempo13 { position: absolute; z-index: 4; left: 0; right: 0; text-align: center; white-space: nowrap;
+  font-family: var(--dhn-num); font-weight: 700; line-height: .8; letter-spacing: -.02em;
+  filter: drop-shadow(0 0 34px rgba(177,92,255,.7)); }
+.tela.ori26.g13 .tempo13 span { display: inline-block;
+  background: linear-gradient(180deg, #ffffff 0%, #f1e6ff 38%, #c48cff 52%, #e9d8ff 62%, #ffffff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .1em; }
+.tela.ori26.g13 .tempo13 em { display: block; font-style: normal; font-family: var(--dhn-testo); font-weight: 700; font-size: 18px;
+  letter-spacing: .34em; color: #cf9bff; margin-top: 4px; }
+
+/* ═══════════════════════════════════════════════ 14 STRATEGIA ═══ */
+/* la gomma e' un SVG disegnato dalla pagina (`gomma()`): qui solo la misura */
+.gomma { display: inline-block; flex: 0 0 auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.6)); }
+.gomma svg { display: block; width: 100%; height: 100%; }
+.catena { display: flex; align-items: center; }
+.catena .fr { flex: 0 0 auto; height: 2px; background: rgba(255,255,255,.28); position: relative; }
+.catena .fr::after { content: ""; position: absolute; right: -2px; top: -4px; border: 5px solid transparent; border-left: 7px solid rgba(255,255,255,.4); border-right: 0; }
+.st14 { position: absolute; z-index: 4; left: 44px; right: 44px; top: 236px; display: grid; gap: 8px; }
+.tela.storia .st14 { top: 400px; }
+.st14 .cr { position: relative; display: grid; grid-template-columns: 64px 360px 1fr 118px; align-items: center; height: 86px; border-radius: 3px; overflow: hidden;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--squadra) 34%, #121219) 0%, #15151c 36%, #111117 100%);
+  border: 1px solid rgba(255,255,255,.06); border-top-color: rgba(255,255,255,.16); }
+.st14 .cr::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--squadra); }
+.st14 .cr .p { text-align: center; font-family: var(--dhn-num); font-weight: 700; font-size: 26px; color: var(--dhn-dim); }
+.st14 .cr .n07 { font-size: 44px; }
+.st14 .cr .soste { text-align: right; padding-right: 22px; font-family: var(--dhn-num); font-weight: 700; font-size: 34px; line-height: 1; }
+.st14 .cr .soste small { display: block; font-family: var(--dhn-testo); font-size: 11px; letter-spacing: .26em; color: var(--dhn-dim); margin-top: 4px; }
+.st14 .cr .gomma { width: 80px; height: 80px; }
+.leg14 { position: absolute; z-index: 5; left: 48px; right: 48px; bottom: 108px; display: flex; gap: 28px; justify-content: center; align-items: center;
+  font-family: var(--dhn-testo); font-weight: 700; font-size: 14px; letter-spacing: .24em; color: var(--dhn-dim); text-transform: uppercase; }
+.leg14 span { display: inline-flex; gap: 10px; align-items: center; }
+.leg14 .gomma { width: 34px; height: 34px; }
