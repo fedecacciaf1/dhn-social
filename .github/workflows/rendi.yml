@@ -62,8 +62,13 @@ jobs:
     steps:
       - name: Controlla la richiesta
         run: |
+          # ⚠ 26/09: «200, 204, 208» (con gli spazi, come lo scrive chiunque)
+          # veniva RIFIUTATO. Spazi e punti e virgola si puliscono qui, e il
+          # valore pulito vale per tutti i passi dopo.
+          GARE=$(printf '%s' "$GARE" | tr ';' ',' | tr -d '[:space:]')
+          echo "GARE=$GARE" >> "$GITHUB_ENV"
           echo "gare: $GARE · attesa: $ATTESA_MIN min · tetto: $TETTO_MB MB · $BASE_URL"
-          echo "$GARE" | grep -Eq '^[0-9]+(,[0-9]+)*$' || { echo "::error::gare non valide: «$GARE»"; exit 1; }
+          echo "$GARE" | grep -Eq '^[0-9]+(,[0-9]+)*$' || { echo "::error::gare non valide: «$GARE» (scrivi numeri separati da virgola, es. 200,204,208)"; exit 1; }
           echo "$ATTESA_MIN" | grep -Eq '^[0-9]+$' || { echo "::error::attesa non valida"; exit 1; }
 
       - name: Attesa — le pubblicazioni ripetute si fondono in una resa
