@@ -20,6 +20,12 @@
      5. scrive `manifesto.json`: file, misure, didascalia gia' scritta dai
         dati, verdetto delle regole Meta, bollo PROVVISORIO/UFFICIALE, byte
         scaricati da Supabase e l'impronta dei dati (per la FASE 4).
+     6. (FASE 5, 27/09/2026) per ogni grafica anche la STORIA 1080x1920 a
+        cornice (variante B1 scelta da Fede): il post intero dentro la zona
+        che l'app non copre, sul fondo `storia/fondo.png`. File in
+        `storie/<nome>.jpg` + miniatura `storie/min/`, voce `storia` nel
+        manifesto. Senza fondo la resa NON si ferma: il manifesto lo dice
+        (`storie_errore`) e il pannello non offre la storia.
 
    ⚠ NON pubblica niente e non tocca git: scrive in `--staging`. A mettere i
    file sul ramo `uscite` ci pensa `consegna.mjs` (Actions o il .bat).
@@ -40,6 +46,7 @@ import { componiDidascalie } from "./didascalie.mjs";
 import { bandiera } from "./frasi.mjs";
 import { misuraImmagine } from "./misure.mjs";
 import { REGOLE, controllaImmagine, controllaDidascalia } from "./regole_meta.mjs";
+import { FONDO, faiStoria } from "./storia/componi.mjs";
 
 const QUI = dirname(fileURLToPath(import.meta.url));             // .../social
 const PIPE = resolve(QUI, "..");                                   // "pipeline post gara"
@@ -175,6 +182,10 @@ async function main() {
   rmSync(dest, { recursive: true, force: true });
   mkdirSync(join(dest, "min"), { recursive: true });
   const voci = [], saltate = [];
+  /* storia a cornice (storia/componi.mjs): senza fondo niente storie, ma la resa va avanti */
+  const fondoOk = existsSync(FONDO);
+  const erroriStorie = fondoOk ? [] : [`manca storia/fondo.png: niente storie in questa resa`];
+  if (!fondoOk) console.log(`  ⚠ ${erroriStorie[0]}`);
   for (const e of E.esiti) {
     const codice = e.file.slice(0, 2);
     if (!e.ok) { saltate.push({ codice, file: e.file, sessione: e.storico, motivo: e.errore || e.avviso || "non riuscita" }); continue; }
@@ -191,6 +202,14 @@ async function main() {
       .jpeg({ quality: 78, mozjpeg: true }).toFile(join(dest, "min", nome));
     const m = misuraImmagine(join(dest, nome));
     const mm = misuraImmagine(join(dest, "min", nome));
+    let storia = null;
+    if (fondoOk) {
+      try {
+        storia = await faiStoria(sorg, dest, nome);
+        storia.url = BASE ? `${BASE}/gare/${GARA}/storie/${encodeURIComponent(nome)}` : null;
+      }
+      catch (err) { console.log(`  ⚠ storia di ${nome} NON fatta: ${err.message}`); storia = null; erroriStorie.push(`${nome}: ${err.message}`); }
+    }
     let did = "", origine = "nessuna";
     const k = CHIAVE_DIDASCALIA[codice];
     if (k && GEN[k]) { did = GEN[k]; origine = "generata dai dati"; }
@@ -211,6 +230,7 @@ async function main() {
       font: e.font, didascalia: did, didascalia_origine: origine,
       instagram: { ok: ig.ok && dIg.ok, problemi: [...ig.problemi, ...dIg.problemi] },
       facebook: { ok: fb.ok && !!did.trim(), problemi: [...fb.problemi, ...(did.trim() ? [] : ["didascalia vuota"])] },
+      storia,
     });
   }
   voci.sort((a, b) => a.codice.localeCompare(b.codice));   // nell'ordine delle grafiche, non di resa
@@ -231,13 +251,14 @@ async function main() {
     base_url: BASE ? `${BASE}/gare/${GARA}/` : null,
     regole_meta_verificate_il: REGOLE.verificate_il,
     supabase, voci, saltate,
+    storie: voci.filter(v => v.storia).length, storie_errore: erroriStorie.length ? erroriStorie.join(" · ") : null,
   };
   writeFileSync(join(dest, "manifesto.json"), JSON.stringify(manifesto, null, 1));
   rmSync(join(STAGING, "_lavoro"), { recursive: true, force: true });
 
   console.log(`\nGARA ${GARA} (${categoria}, ${stato.toUpperCase()}): ${voci.length} JPEG · ${saltate.length} scartate · `
     + `Supabase ${(supabase.byte / 1048576).toFixed(2)} MB in ${supabase.richieste} richieste `
-    + `(${supabase.dalla_cache} riusate dalla cache) · ${manifesto.secondi} s`);
+    + `(${supabase.dalla_cache} riusate dalla cache) · ${manifesto.storie} storie · ${manifesto.secondi} s`);
   for (const s of saltate) console.log(`  ✗ ${s.codice} (sessione ${s.sessione}): ${s.motivo}`);
   const noIg = voci.filter(v => !v.instagram.ok);
   if (noIg.length) console.log(`  ⚠ non pronte per Instagram: ${noIg.map(v => v.codice + " " + v.instagram.problemi.join("; ")).join(" | ")}`);

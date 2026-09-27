@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- FONDO della storia a cornice (B1). NON contiene il post: il post lo
+     incolla resa_gara.mjs con sharp nel riquadro di storia/misure.mjs.
+     Si rifà il PNG con: node "pipeline post gara/social/storia/fai_fondo.mjs" -->
+<style>
+@font-face{font-family:Tit;src:url(../../_fonts/titillium-web-latin-700-normal.woff2);font-weight:700}
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:#0b0b0f;position:relative;font-family:Tit;
+ background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);background-size:14px 14px}
+.glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#ff700022,transparent 60%)}
+.ombra{position:absolute;left:16px;top:270px;width:1048px;height:1310px;border-radius:14px;background:#000;
+ box-shadow:0 20px 80px #000c,0 0 0 2px #ffffff14}
+.logo{position:absolute;top:150px;left:0;right:0;display:flex;justify-content:center}
+.logo img{height:64px}
+.piede{position:absolute;top:1612px;left:0;right:0;text-align:center;font-weight:700;font-size:30px;
+ letter-spacing:3px;text-transform:uppercase;color:#9c9ca0}
+.piede b{color:#fff}
+</style></head><body>
+<div class="glow"></div><div class="ombra"></div>
+<div class="logo"><img src="logo_bianco.png" alt=""></div>
+<div class="piede">Risultati e classifiche · <b>dhn-multiverse.com</b></div>
+</body></html>

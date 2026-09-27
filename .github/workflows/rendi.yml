@@ -20,7 +20,10 @@
 #   contano. La quota da 2000 min del repo del sito (privato) non si tocca.
 #
 # Segreti (Settings → Secrets and variables → Actions), tutti FACOLTATIVI:
-#   DISCORD_WEBHOOK_SOCIAL   se c'e', un errore arriva su Discord col motivo
+#   DISCORD_WEBHOOK_SOCIAL   il webhook del CANALE STAFF su Discord: ci arriva
+#                            «Grafiche pronte» a ogni resa consegnata (FASE 5,
+#                            27/09) e l'avviso col motivo se una resa fallisce.
+#                            Senza, il log lo dice e basta (nessun errore).
 # Non serve nessuna chiave Supabase: si legge con la pubblicabile, come il sito.
 # =============================================================================
 
@@ -148,7 +151,21 @@ jobs:
             [ "$tentativo" = 5 ] && { echo "::error::consegna fallita 5 volte"; exit 1; }
           done
           echo "Pagina: $BASE_URL/"
+          echo "CONSEGNATE=1" >> "$GITHUB_ENV"
           [ -z "$FALLITE" ] || { echo "::error::gare NON rese:$FALLITE (le altre sono online)"; exit 1; }
+
+      # FASE 5 (27/09/2026): le gare CONSEGNATE (anche se un'altra e' fallita)
+      # si annunciano nel canale staff. Il testo lo scrive avviso_pronte.mjs dai
+      # manifesti: categoria, GP, bollo, quante grafiche e storie, cosa manca.
+      - name: Avviso «grafiche pronte» su Discord
+        if: always() && env.CONSEGNATE == '1'
+        env:
+          HOOK: ${{ secrets.DISCORD_WEBHOOK_SOCIAL }}
+        run: |
+          [ -n "$HOOK" ] || { echo "nessun DISCORD_WEBHOOK_SOCIAL: «grafiche pronte» NON mandato (solo questo log)"; exit 0; }
+          node "pipeline post gara/social/avviso_pronte.mjs" --da "$RUNNER_TEMP/resa" > /tmp/pronte.json || { echo "::warning::avviso_pronte non ha scritto il messaggio (uscita $?)"; exit 0; }
+          curl -sS -f -H "Content-Type: application/json" -d @/tmp/pronte.json "$HOOK" \
+            || echo "::warning::Discord ha rifiutato l'avviso «grafiche pronte» (webhook cancellato o sbagliato?)"
 
       - name: Avviso su Discord
         if: failure()

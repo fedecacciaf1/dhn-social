@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face{font-family:'Saira Condensed';font-weight:700;src:url(fonts/saira-condensed-latin-700-normal.woff2)}
+@font-face{font-family:'Saira Condensed';font-weight:800;src:url(fonts/saira-condensed-latin-800-normal.woff2)}
+@font-face{font-family:'Saira Condensed';font-weight:900;src:url(fonts/saira-condensed-latin-900-normal.woff2)}
+@font-face{font-family:'Chakra Petch';font-weight:600;src:url(fonts/chakra-petch-latin-600-normal.woff2)}
+@font-face{font-family:'Chakra Petch';font-weight:700;src:url(fonts/chakra-petch-latin-700-normal.woff2)}
+@font-face{font-family:'Barlow';font-weight:400;src:url(fonts/titillium-web-latin-400-normal.woff2)}
+@font-face{font-family:'Barlow';font-weight:600;src:url(fonts/titillium-web-latin-600-normal.woff2)}
+@font-face{font-family:'Barlow';font-weight:800;src:url(fonts/titillium-web-latin-700-normal.woff2)}
+:root{--bg:#05070c;--bg2:#070a11;--bg3:#0b1018;--card:#0d141f;--card2:#111a29;--line:#151e2e;--line2:#233149;--txt:#e8eef8;--mut:#5b6e84;--mut2:#94a7b8;--acc:#ff7000;--acc2:#ff8f33;--acc-soft:#ff700011;--acc-mid:#ff700044;--ok:#17d97a;--warn:#f4c430;--err:#ff5a4d;--fd:'Saira Condensed',sans-serif;--ft:'Chakra Petch',monospace;--fb:'Barlow',sans-serif;--r:14px}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse 90% 55% at 50% -10%,#0c1120 0%,transparent 60%),var(--bg);color:var(--txt);font-family:var(--fb);-webkit-font-smoothing:antialiased}
+button{background:linear-gradient(180deg,var(--acc2),var(--acc));color:#fff;border:0;border-radius:9px;padding:10px 16px;font-weight:800;font-size:13px;font-family:var(--fb);letter-spacing:.3px;white-space:nowrap}
+button.sec{background:var(--card2);border:1px solid var(--line2);color:var(--txt)}
+button.ghost{background:transparent;border:1px solid var(--line);color:var(--mut)}
+button.sm{padding:7px 11px;font-size:12px}
+header{background:rgba(5,7,12,.86);border-bottom:1px solid var(--line);position:relative}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--acc-mid) 30%,var(--acc-mid) 70%,transparent)}
+.bar{max-width:1120px;margin:0 auto;padding:12px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;gap:11px}.logo img{height:26px}
+.badge{font-family:var(--ft);font-size:9px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--acc2);border:1px solid var(--acc-mid);background:var(--acc-soft);padding:3px 8px;border-radius:6px}
+nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.who{font-family:var(--ft);font-size:11px;color:var(--mut)}
+.tag{font-family:var(--ft);font-size:9px;text-transform:uppercase;letter-spacing:1px;background:var(--acc-soft);border:1px solid var(--acc-mid);color:var(--acc2);padding:3px 8px;border-radius:6px;font-weight:700}
+main{max-width:1120px;margin:0 auto;padding:22px 18px 40px}
+.modrow{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px}
+.small{font-size:12px;color:var(--mut)}
+.h2{font-family:var(--fd);font-weight:800;font-style:italic;font-size:26px;letter-spacing:.3px;margin:0}
+.chip{font-family:var(--ft);font-size:10px;padding:4px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--mut2);letter-spacing:.6px;font-weight:600;text-transform:uppercase}
+.chip.on{color:#fff;border-color:var(--acc);background:var(--acc-soft)}
+.bollo{font-family:var(--ft);font-size:10px;font-weight:700;letter-spacing:1.4px;padding:4px 9px;border-radius:6px;text-transform:uppercase}
+.bollo.p{color:var(--warn);border:1px solid #5a4a14;background:#f4c43014}
+.bollo.u{color:var(--ok);border:1px solid #0f5a37;background:#17d97a12}
+.cat{font-family:var(--ft);font-size:10px;font-weight:700;letter-spacing:1.6px;padding:4px 9px;border-radius:6px;background:#ffffff0a;border:1px solid var(--line2)}
+.cat.E{color:#ff8f33}.cat.R{color:#6cc6ff}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--r)}
+.thumb{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--bg3)}
+.thumb img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.thumb .lb{font-family:var(--ft);font-size:9.5px;font-weight:700;letter-spacing:.8px;color:var(--mut2);padding:6px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-top:1px solid var(--line)}
+.thumb .lb b{color:var(--acc2);margin-right:4px}
+.thumb .warn{position:absolute;top:6px;right:6px;font-family:var(--ft);font-size:9px;font-weight:700;background:#000c;color:var(--warn);padding:2px 6px;border-radius:5px;border:1px solid #5a4a14}
+.meta{font-family:var(--ft);font-size:11px;color:var(--mut);letter-spacing:.3px}
+.hint{font-size:12px;color:var(--mut2);background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+/* A */
+.gara{padding:16px;margin-bottom:14px}
+.gh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.gt{font-family:var(--fd);font-weight:800;font-style:italic;font-size:22px}
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:128px;gap:10px;overflow:hidden}
+/* B */
+.split{display:grid;grid-template-columns:270px 1fr;gap:16px}
+.gl{padding:8px}
+.gi{padding:11px 12px;border-radius:10px;border:1px solid transparent;margin-bottom:4px}
+.gi.on{background:var(--acc-soft);border-color:var(--acc-mid)}
+.gi .t{font-family:var(--fd);font-weight:800;font-style:italic;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+/* C */
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cc{overflow:hidden}
+.cc .cov{display:grid;grid-template-columns:2fr 1fr;gap:3px;background:var(--bg3)}
+.cc .cov img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.cc .cov .side{display:grid;grid-template-rows:1fr 1fr;gap:3px}
+.cc .cov .side img{aspect-ratio:auto;height:100%}
+.cc .b{padding:12px 13px}
+/* dettaglio */
+.ov{position:fixed;inset:0;background:#000d;display:flex;align-items:center;justify-content:center;padding:28px}
+.det{display:grid;grid-template-columns:auto 380px;gap:0;max-width:1000px;width:100%;overflow:hidden}
+.det .img{background:#000;display:flex;align-items:center;justify-content:center;padding:18px;position:relative}
+.det .img img{height:620px;border-radius:6px}
+.det .side{padding:20px;display:flex;flex-direction:column;gap:12px}
+.cap{white-space:pre-wrap;font-size:13.5px;line-height:1.45;background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--txt);flex:1}
+.ok{color:var(--ok);font-family:var(--ft);font-size:11px;font-weight:600}
+.arr{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:#0009;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff}
+.lab{margin:0 0 14px;border-radius:8px;background:var(--acc);color:#000;font-family:var(--ft);font-weight:700;font-size:13px;letter-spacing:1px;padding:7px 14px;text-transform:uppercase}
+/* telefono */
+body.tel .bar{padding:10px 14px}
+body.tel .who,body.tel .navx{display:none}
+body.tel main{padding:14px 12px 60px}
+body.tel .modrow{flex-wrap:nowrap;overflow:hidden}
+body.tel .strip{grid-auto-columns:112px}
+body.tel .split{grid-template-columns:1fr}
+body.tel .grid{grid-template-columns:repeat(3,1fr);gap:8px}
+body.tel .cgrid{grid-template-columns:1fr 1fr;gap:10px}
+body.tel .gt{font-size:20px}
+body.tel .det{grid-template-columns:1fr}
+body.tel .ov{padding:0;align-items:stretch}
+body.tel .det{border-radius:0;max-width:none;display:flex;flex-direction:column}
+body.tel .det .img img{height:auto;width:100%}
+body.tel .det .img{padding:10px}
+body.tel .cap{font-size:13px;flex:none}
+body.tel .btns{position:sticky;bottom:0;background:var(--card);padding:10px 0}
+body.tel .ov .det{overflow:auto}
+</style></head><body>
+<div id="app"></div>
+<script src="dati.js"></script>
+<script>
+const Q=new URLSearchParams(location.search), V=Q.get("v"), TEL=Q.get("tel")==="1";
+if(TEL)document.body.classList.add("tel");
+const esc=s=>(s??"").toString().replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const IMG=(g,f)=>`${g}/min/${f}`;
+const dt=s=>new Date(s).toLocaleDateString("it-IT",{weekday:"short",day:"2-digit",month:"2-digit"});
+const catK=c=>c.startsWith("É")||c.startsWith("E")?"E":"R";
+const bollo=s=>s==="ufficiale"?`<span class="bollo u">✔ Ufficiale</span>`:`<span class="bollo p">● Provvisorio</span>`;
+const mods=["Piloti","🏁 Griglie","Calendario & Risultati","Direzione Gara","🪪 Patente","Segreteria","📣 Social","🎬 Regia"];
+const head=`<header><div class="bar"><div class="logo"><img src="dhn_mark.png"><span class="badge">Admin</span></div>
+<nav><span class="who">admin@dhn</span><span class="tag">admin</span><button class="ghost navx">Cambia password</button><button class="sec">Esci</button></nav></div></header>`;
+const modrow=`<div class="modrow">${(TEL?mods.slice(3):mods).map(m=>`<button class="${m.includes("Social")?"":"sec"}">${m}</button>`).join("")}</div>`;
+const thumb=(g,v)=>`<div class="thumb"><img src="${IMG(g.id,v.f)}">${v.o!=="generata dai dati"?`<span class="warn">✎ testo</span>`:""}<div class="lb"><b>${v.c}</b>${esc(v.t)}</div></div>`;
+const filtri=`<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0 16px">
+  <span class="chip on">Tutte</span><span class="chip">Élite</span><span class="chip">Rookie</span>
+  <span style="margin-left:auto" class="small">Le immagini arrivano da GitHub, non dal database.</span></div>`;
+const titolo=`<div style="display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap"><div><div class="h2">Social</div>
+<div class="small">Grafiche pronte per ogni gara pubblicata. Tocca un'immagine per aprirla, scaricarla o copiare la didascalia.</div></div></div>`;
+let html="";
+const lab=t=>`<div class="lab">${t}</div>`;
+if(V==="A"){
+  html=titolo+filtri+GARE.map(g=>`<div class="card gara"><div class="gh">
+   <span class="cat ${catK(g.cat)}">${g.cat}</span><span class="gt">${g.gp} · Round ${g.round}</span>${bollo(g.stato)}
+   <span class="meta">${dt(g.data)} · ${g.voci.length} grafiche</span>
+   <span style="margin-left:auto;display:flex;gap:8px"><button class="sec sm">⬇ Scarica tutte</button><button class="ghost sm">↻ Rifai grafiche</button></span></div>
+   <div class="strip">${g.voci.map(v=>thumb(g,v)).join("")}</div></div>`).join("");
+  html=lab("Alternativa A · una riga per gara, grafiche che scorrono di lato")+html;
+}
+if(V==="B"){
+  const g=GARE[0];
+  const lista=`<div class="card gl">${GARE.map((x,i)=>`<div class="gi ${i==0?"on":""}"><div style="display:flex;gap:8px;align-items:center;margin-bottom:6px"><span class="cat ${catK(x.cat)}">${x.cat}</span>${bollo(x.stato)}</div>
+     <div class="t">${x.gp} · R${x.round}</div><div class="meta">${dt(x.data)} · ${x.voci.length} grafiche</div></div>`).join("")}</div>`;
+  const listaTel=`<div style="display:flex;gap:8px;overflow:hidden;margin-bottom:12px">${GARE.map((x,i)=>`<span class="chip ${i==0?"on":""}" style="white-space:nowrap">${x.cat} · ${x.gp} R${x.round}</span>`).join("")}</div>`;
+  const destra=`<div><div class="gh"><span class="cat ${catK(g.cat)}">${g.cat}</span><span class="gt">${g.gp} · Round ${g.round}</span>${bollo(g.stato)}
+     <span style="margin-left:auto;display:flex;gap:8px"><button class="sec sm">⬇ Scarica tutte</button><button class="ghost sm">↻ Rifai grafiche</button></span></div>
+     <div class="grid">${g.voci.map(v=>thumb(g,v)).join("")}</div></div>`;
+  html=titolo+`<div style="height:16px"></div>`+(TEL?listaTel+destra:`<div class="split">${lista}${destra}</div>`);
+  html=lab("Alternativa B · elenco gare a sinistra, griglia completa della gara scelta")+html;
+}
+if(V==="C"){
+  html=titolo+filtri+`<div class="cgrid">${GARE.map(g=>`<div class="card cc"><div class="cov"><img src="${IMG(g.id,g.voci[0].f)}"><div class="side"><img src="${IMG(g.id,g.voci[1].f)}"><img src="${IMG(g.id,g.voci[2].f)}"></div></div>
+   <div class="b"><div style="display:flex;gap:6px;align-items:center;margin-bottom:6px;flex-wrap:wrap"><span class="cat ${catK(g.cat)}">${g.cat}</span>${bollo(g.stato)}</div>
+   <div class="gt" style="font-size:20px">${g.gp} · R${g.round}</div><div class="meta">${dt(g.data)} · ${g.voci.length} grafiche</div></div></div>`).join("")}</div>
+   <div class="hint" style="margin-top:16px">Tocco su una gara → si apre la sua griglia (come la B, a tutta pagina) con «Scarica tutte» e «Rifai grafiche».</div>`;
+  html=lab("Alternativa C · una copertina per gara, dentro la griglia")+html;
+}
+if(V==="D"){
+  const g=GARE[0], v=g.voci[0];
+  html=titolo+filtri+`<div class="ov"><div class="card det"><div class="img"><img src="210/01-full.jpg"><span class="arr" style="left:26px">‹</span><span class="arr" style="right:26px">›</span></div>
+  <div class="side"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="cat R">${g.cat}</span><span class="gt" style="font-size:18px">${g.gp} · R${g.round}</span>${bollo(g.stato)}<span style="margin-left:auto;font-size:22px;color:var(--mut)">✕</span></div>
+  <div style="font-family:var(--fd);font-weight:800;font-style:italic;font-size:22px"><span style="color:var(--acc2)">01</span> ${v.t}</div>
+  <div class="meta">1080×1350 · JPEG · <span class="ok">✔ pronta per Instagram e Facebook</span></div>
+  <div class="small" style="margin-top:4px">Didascalia (scritta dai dati)</div>
+  <div class="cap">${esc(v.d)}</div>
+  <div class="btns" style="display:flex;gap:8px"><button style="flex:1">⬇ Scarica</button><button class="sec" style="flex:1">⧉ Copia didascalia</button></div>
+  <div class="small">Pubblica / Programma arrivano con la fase 3.</div></div></div></div>`;
+  html=lab("Dettaglio · uguale per A, B e C")+html;
+}
+document.getElementById("app").innerHTML=head+`<main>${modrow}${html}</main>`;
+</script></body></html>
