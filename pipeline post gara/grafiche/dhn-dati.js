@@ -139,6 +139,18 @@
       "storico_id=eq." + encodeURIComponent(storicoId) + "&select=*&order=degrado_ms.asc");
   }
 
+  /* ★ 27/09/2026 — L'USURA VERA delle gomme, dall'archivio completo del motore
+     (`live_dati`, privata) attraverso `v_grafica_usura`, che espone solo i
+     numeri per pilota: % persa a ogni giro sui giri verdi dello stint piu'
+     lungo, usura a fine stint, gomma peggiore. `privata` = telemetria del
+     pilota chiusa: i numeri arrivano NULL e si scrive cosi', mai 0.
+     ⚠ La mescola e' `mescola_vis` (16 S · 17 M · 18 H): la VISIVA, non i
+     codici C veri che a Spa sono spostati di uno. */
+  async function usura(storicoId) {
+    return leggi("v_grafica_usura",
+      "storico_id=eq." + encodeURIComponent(storicoId) + "&select=*&order=usura_giro_pct.asc.nullslast");
+  }
+
   async function sessioniValide(quante) {
     return leggi("v_grafica_sessioni_valide",
       "select=*&order=storico_id.desc&limit=" + (quante || 40));
@@ -412,6 +424,10 @@
       try { return await fileBanco("tenuta_" + (id != null ? id : BANCO)); }
       catch (e) { return fileBanco("tenuta_" + BANCO); }
     };
+    usura = async function (id) {
+      try { return await fileBanco("usura_" + (id != null ? id : BANCO)); }
+      catch (e) { return fileBanco("usura_" + BANCO); }
+    };
     sessioniValide = function () { return fileBanco("sessioni_valide"); };
     ultimaBuona = async function (tipo) {
       var l = await fileBanco("sessioni_valide");
@@ -430,6 +446,7 @@
     sessioniValide: function (n) { return sessioniValide(n); },
     passo: function (id) { return passo(id); },
     tenuta: function (id) { return tenuta(id); },
+    usura: function (id) { return usura(id); },
     ultimaBuona: function (t) { return ultimaBuona(t); },
     logo: logo, ritratto: ritratto, bandiera: bandiera, sigla: sigla, punti: punti,
     mescole: mescole, occhiello: occhiello, titoloTipo: titoloTipo,

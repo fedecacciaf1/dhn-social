@@ -1,0 +1,224 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DHN — USURA (anteprima)</title>
+<!-- ANTEPRIMA 27/09/2026 — USURA VERA DELLE GOMME (scelta di Fede, proposta A)
+     Stesso vestito della 19 TENUTA (Cava, A-08): classifica come la 03, righe
+     nel colore della scuderia, colonne a destra. Cambia la MISURA: non piu' il
+     passo (dentro c'e' la benzina) ma la gomma, da `v_grafica_usura`.
+     ?variante=A  solo usura: gomma · per giro · a fine stint (gomma peggiore)
+     ?variante=B  passo E usura affiancati: si vede chi va forte consumando
+     ?variante=C  barra dell'usura a fine stint, con la gomma peggiore
+     La classifica e' sulla mescola che hanno usato i PIU' piloti nello stint
+     piu' lungo: confrontare una media con una dura sarebbe un numero finto. -->
+<link rel="stylesheet" href="dhn-grafiche.css">
+<link rel="stylesheet" href="dhn-fondo.css">
+<link rel="stylesheet" href="dhn-classifica-pelle.css">
+<link rel="stylesheet" href="dhn-qualifica.css">
+<link rel="stylesheet" href="dhn-numeri.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="dhn-dati.js"></script><script src="dhn-pezzi.js"></script>
+<style>
+  /* colonne dell'anteprima: stessa griglia della 19 (360 px in mezzo) */
+  .tela.num26 .riga .c90, .tela.num26 .intesta .c90 { display: grid; grid-template-columns: 76px 1fr 1fr; column-gap: 6px; align-items: center; padding: 0 14px 0 8px; }
+  .tela.num26 .intesta .c90 { grid-column: 3; }
+  .tela.num26 .riga .c90 .gm { display: grid; justify-items: center; gap: 2px; }
+  .tela.num26 .riga .c90 .gm small { font-family: var(--dhn-num); font-weight: 700; font-size: 11px; letter-spacing: .06em; color: var(--dhn-dim); white-space: nowrap; }
+  .tela.num26 .riga .c90 .gomma { width: 38px; height: 38px; }
+  .tela.num26.pagina-prima .riga:nth-child(-n+3) .c90 .gomma { width: 62px; height: 62px; }
+  .tela.num26 .c90 .t { display: grid; justify-items: center; gap: 3px; white-space: nowrap;
+    font-family: var(--dhn-num); font-weight: 700; font-size: 23px; line-height: 1; color: rgba(242,240,233,.8); }
+  .tela.num26.pagina-prima .riga:nth-child(-n+3) .c90 .t { font-size: 28px; }
+  .tela.num26 .c90 .t small { font-family: var(--dhn-testo); font-weight: 700; font-size: 11px; letter-spacing: .14em; color: var(--dhn-dim); }
+  .tela.num26 .c90 .t.su { color: #3be26f; } .tela.num26 .c90 .t.giu { color: #ff6a5f; }
+  /* C: la barra dell'usura a fine stint */
+  .tela.num26 .riga .c90.barre { grid-template-columns: 76px minmax(0, 1fr); overflow: hidden; }
+  .tela.num26 .intesta .c90.barre { grid-template-columns: 76px minmax(0, 1fr); }
+  .c90 .bb { display: grid; gap: 5px; min-width: 0; padding-right: 6px; justify-self: stretch; justify-items: stretch; width: 100%; box-sizing: border-box; }
+  .c90 .ubar { position: relative; width: 100%; height: 16px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .c90 .ubar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: linear-gradient(90deg, rgba(255,255,255,.25), var(--col, #fff)); }
+  .c90 .ubar b { position: absolute; top: 0; bottom: 0; width: 3px; background: #ff6a5f; box-shadow: 0 0 6px #ff6a5f; }
+  .c90 .bb small { font: 700 12px/1 var(--dhn-num); letter-spacing: .04em; color: rgba(242,240,233,.8); white-space: nowrap; }
+  .c90 .bb small .rosso { color: #ff6a5f; }
+  .tela.num26.pagina-prima .riga:nth-child(-n+3) .c90 .ubar { height: 22px; }
+  .tela.num26.pagina-prima .riga:nth-child(-n+3) .c90 .bb small { font-size: 14px; }
+  .tela.num26 .riga .valore.usura { font-size: 34px; color: #f2f0e9; }
+  .tela.num26.pagina-prima .riga:nth-child(-n+3) .valore.usura { font-size: 42px; color: #0b0b0f; }
+  .tela.num26 .riga .valore.usura small { margin-top: 2px; }
+  .tela.num26.pagina-prima .riga:nth-child(-n+3) .valore.usura small { color: rgba(11,11,15,.7); opacity: 1; }
+</style>
+<body class="dhn-palco">
+<div class="tela cls26 qual26 num26 pagina-prima" id="tela">
+  <header class="testata">
+    <img class="marchio" id="marchio" alt=""><div class="filo"></div>
+    <div class="campionato">DHN CHAMPIONSHIP</div>
+  </header>
+  <div class="titolone">
+    <div class="etichetta">USURA GOMME</div>
+    <div class="parola-titolo" id="parola"><span>GOMMA DURA</span></div>
+    <div class="sotto" id="sotto">—</div>
+    <div class="avv" id="avvertenza">—</div>
+  </div>
+  <div class="intesta" id="intesta"></div>
+  <section class="righe" id="righe"></section>
+  <footer class="piede">
+    <div class="nota" id="nota">—</div><div class="filo"></div><img id="marchio2" alt="">
+  </footer>
+  <div class="grana"></div>
+</div>
+<script>
+(async function () {
+  var P = PEZZI, esc = P.esc, tela = document.getElementById("tela");
+  var formato = DHN.param("formato", "post"), storia = formato === "storia";
+  if (storia) tela.classList.add("storia");
+
+  function ms(v) {
+    var s = Math.floor(v / 1000), m = Math.floor(s / 60);
+    return (m ? m + ":" : "") + String(s % 60).padStart(m ? 2 : 1, "0") + "." + String(v % 1000).padStart(3, "0");
+  }
+  /* le classi del vestito della riga, come la 03: `su-chiaro` = livrea chiara
+     (lo dice `testo_chiaro` delle squadre), `buio` = livrea quasi nera */
+  function luce(c) {
+    c = String(c || "#5b6e84").replace("#", "");
+    return 0.2126 * parseInt(c.slice(0, 2), 16) + 0.7152 * parseInt(c.slice(2, 4), 16) + 0.0722 * parseInt(c.slice(4, 6), 16);
+  }
+  function vestito(r) { return (r.testo_chiaro === false ? " su-chiaro" : "") + (luce(r.colore_da_stampare) < 40 ? " buio" : ""); }
+  /* i loghi della scuderia dentro la fascia, in file dritte */
+  function tappeto(r, file, perFila) {
+    var l = DHN.logo(r.logo_da_stampare); if (!l) return "";
+    var f = ""; for (var c = 0; c < perFila; c++) f += '<img src="' + esc(l) + '" alt="" onload="PEZZI.logoTappeto(this)" onerror="this.style.visibility=\'hidden\'">';
+    var t = ""; for (var k = 0; k < file; k++) t += '<div class="rl">' + f + '</div>';
+    return '<div class="tappeto">' + t + '</div>';
+  }
+  function entra(el, larga, max, min) {
+    var sp = el.firstElementChild; el.style.fontSize = "100px";
+    var w = sp.offsetWidth;
+    if (!w) throw new Error("misura a zero su «" + el.textContent + "» (carattere non caricato?)");
+    var f = Math.max(min || 0, Math.min(max, 100 * larga / w)); el.style.fontSize = f + "px"; return f;
+  }
+
+  /* La gomma, disegnata come nella 14 (stessa funzione): battistrada nero,
+     fascia colorata della mescola, cerchio con la lettera. Niente marchi.
+     Mescola sconosciuta = fascia grigia a tratti e «?». I colori sono i
+     token del design system (--tyre-*), letti dal CSS. */
+  var cs = getComputedStyle(document.documentElement);
+  function tinta(v) { var m = /var\((--[\w-]+)\)/.exec(v || ""); return m ? cs.getPropertyValue(m[1]).trim() : v; }
+  var nGomma = 0;
+  function gomma(x) {
+    var k = "g" + (++nGomma), ign = x.sigla === "?";
+    var c = ign ? "#77777f" : (tinta(x.colore) || "#9c9ca0");
+    return '<span class="gomma' + (ign ? " ignota" : "") + '"><svg viewBox="0 0 100 100" aria-label="' + esc(x.sigla) + '">' +
+      '<defs><radialGradient id="' + k + 'r" cx="50%" cy="46%" r="54%"><stop offset=".58" stop-color="#2a2a30"/><stop offset=".8" stop-color="#18181c"/><stop offset=".96" stop-color="#0b0b0d"/><stop offset="1" stop-color="#030304"/></radialGradient>' +
+      '<linearGradient id="' + k + 'c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9c9d1"/><stop offset=".45" stop-color="#6e6e78"/><stop offset="1" stop-color="#2c2c33"/></linearGradient>' +
+      '<radialGradient id="' + k + 'd" cx="42%" cy="34%" r="72%"><stop offset="0" stop-color="#34343c"/><stop offset=".7" stop-color="#16161a"/><stop offset="1" stop-color="#0c0c0f"/></radialGradient></defs>' +
+      '<circle cx="50" cy="50" r="49.5" fill="url(#' + k + 'r)"/><circle cx="50" cy="50" r="48" fill="none" stroke="#050506" stroke-width="3"/>' +
+      '<circle cx="50" cy="50" r="44.5" fill="none" stroke="#34343b" stroke-width=".7"/><circle cx="50" cy="50" r="33.8" fill="none" stroke="#34343b" stroke-width=".7"/>' +
+      '<circle cx="50" cy="50" r="39" fill="none" stroke="' + c + '" stroke-width="3.6"' + (ign ? ' stroke-dasharray="6 4"' : ' stroke-dasharray="104 18.5" transform="rotate(-62 50 50)"') + '/>' +
+      '<circle cx="50" cy="50" r="31.5" fill="url(#' + k + 'c)"/><circle cx="50" cy="50" r="28.6" fill="url(#' + k + 'd)"/>' +
+      '<circle cx="50" cy="50" r="20" fill="none" stroke="#2b2b32" stroke-width=".8"/>' +
+      '<text x="50" y="51.5" text-anchor="middle" dominant-baseline="central" font-family="Saira Condensed, sans-serif" font-weight="900" font-size="27" fill="' + c + '">' + esc(x.sigla) + '</text>' +
+      '<path d="M 12 38 A 39 39 0 0 1 52 11.5" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="4" stroke-linecap="round"/></svg></span>';
+  }
+  /* la mescola dello stint arriva come sigla del gioco (C1..C6) o lettera:
+     il colore lo decide solo se e' una delle nostre, se no resta «?» grigia —
+     meglio grigio che un colore inventato */
+  var SIG = { C1: "H", C2: "H", C3: "M", C4: "S", C5: "S", C6: "S", S: "S", M: "M", H: "H", I: "I", W: "W" };
+  var SCOL = { S: "var(--tyre-s)", M: "var(--tyre-m)", H: "var(--tyre-h)", I: "var(--tyre-i)", W: "var(--tyre-w)" };
+  function mescola(m) { var s = SIG[String(m || "").toUpperCase()] || "?"; return { sigla: s, colore: SCOL[s] || "#77777f" }; }
+  function segnoS(d) { return (d > 0 ? "+" : "−") + (Math.abs(d) / 1000).toFixed(2); }
+
+  var V = String(DHN.param("variante", "A")).toUpperCase();
+  var POSTO = { FL: "ANT. SX", FR: "ANT. DX", RL: "POST. SX", RR: "POST. DX" };
+  var NOME_M = { 16: "MORBIDA", 17: "MEDIA", 18: "DURA", 7: "INTERMEDIA", 8: "DA BAGNATO" };
+  function pct(v, d) { return (v == null ? "—" : Number(v).toFixed(d == null ? 1 : d).replace(".", ",")); }
+  try {
+    var id = DHN.param("storico_id", null);
+    if (!id && !DHN.BANCO) {
+      var u = await DHN.ultimaBuona("gara");
+      if (!u) throw new Error("nessuna gara con piloti riconosciuti");
+      id = u.storico_id;
+    }
+    var s = await DHN.sessione(id);
+    var us = await DHN.usura(id);
+    var ten = V === "B" ? await DHN.tenuta(id) : [];
+    if (!us.length) throw new Error("v_grafica_usura: zero righe (manca l'archivio completo di questa gara in live_dati?)");
+    var perIdx = {}, tenIdx = {};
+    s.righe.forEach(function (r) { if (r.car_idx != null) perIdx[r.car_idx] = r; });
+    ten.forEach(function (t) { tenIdx[t.car_idx] = t; });
+    var tutte = us.map(function (t) { var r = perIdx[t.car_idx]; return r ? Object.assign({}, r, t, { passo_ms: (tenIdx[t.car_idx] || {}).degrado_ms }) : null; }).filter(Boolean);
+    var misurate = tutte.filter(function (r) { return !r.privata && r.usura_giro_pct != null; });
+    var private_ = tutte.filter(function (r) { return r.privata; });
+    if (!misurate.length) throw new Error("nessuno stint misurabile (servono 5 giri verdi)");
+    /* ⚠ la mescola di riferimento: quella dello stint piu' lungo del maggior
+       numero di piloti. Solo loro in classifica: una media e una dura non si
+       confrontano. */
+    var conta = {}; misurate.forEach(function (r) { conta[r.mescola_vis] = (conta[r.mescola_vis] || 0) + 1; });
+    var mRif = Object.keys(conta).sort(function (a, b) { return conta[b] - conta[a]; })[0];
+    var righe = misurate.filter(function (r) { return String(r.mescola_vis) === mRif; });
+    var fuori = misurate.length - righe.length;
+    /* ⚠ L'ordine sta QUI, non nella fonte (sul banco la vista e' un JSON) */
+    righe.sort(function (a, b) { return a.usura_giro_pct - b.usura_giro_pct; });
+
+    var gTesta = V === "C"
+      ? '<div class="c90 barre"><span>STINT</span><span>USURA A FINE STINT</span></div>'
+      : V === "B"
+        ? '<div class="c90"><span>STINT</span><span>PASSO A FINE STINT</span><span>GOMMA PEGGIORE</span></div>'
+        : '<div class="c90"><span>STINT</span><span>A FINE STINT</span><span>GOMMA PEGGIORE</span></div>';
+    document.getElementById("intesta").innerHTML = gTesta + '<span class="dif">PER GIRO</span>';
+
+    var quante = storia ? 14 : 11;
+    document.getElementById("righe").innerHTML = righe.slice(0, quante).map(function (r, i) {
+      var g = DHN.mescole([r.mescola_vis])[0];
+      var gm = '<span class="gm">' + gomma(g) + '<small>GIRI ' + esc(r.dal_giro) + '–' + esc(r.al_giro) + '</small></span>';
+      var mezzo;
+      if (V === "C") {
+        mezzo = '<div class="misura c90 barre">' + gm + '<div class="bb">' +
+          '<div class="ubar" style="--col:' + esc(tinta(g.colore) || "#fff") + '"><i style="width:' + Math.min(100, r.usura_fine_pct) + '%"></i>' +
+          '<b style="left:calc(' + Math.min(100, r.usura_peggiore_pct) + '% - 2px)"></b></div>' +
+          '<small>MEDIA ' + pct(r.usura_fine_pct) + '%  ·  <span class="rosso">' + esc(POSTO[r.gomma_peggiore] || "") + ' ' + pct(r.usura_peggiore_pct, 0) + '%</span></small></div></div>';
+      } else if (V === "B") {
+        var d = r.passo_ms;
+        mezzo = '<div class="misura c90">' + gm +
+          '<span class="t ' + (d == null ? "" : d <= 0 ? "su" : "giu") + '">' + (d == null ? "—" : segnoS(d) + " s") + '<small>ULTIMO TERZO − PRIMO</small></span>' +
+          '<span class="t">' + pct(r.usura_peggiore_pct, 0) + '%<small>' + esc(POSTO[r.gomma_peggiore] || "") + '</small></span></div>';
+      } else {
+        mezzo = '<div class="misura c90">' + gm +
+          '<span class="t">' + pct(r.usura_fine_pct) + '%<small>MEDIA 4 GOMME</small></span>' +
+          '<span class="t">' + pct(r.usura_peggiore_pct, 0) + '%<small>' + esc(POSTO[r.gomma_peggiore] || "") + '</small></span></div>';
+      }
+      return '<div class="riga cls cx19' + vestito(r) + '" style="' + P.tinte(r) + '">' +
+        '<div class="pos">' + (i + 1) + '</div>' +
+        '<div class="piastra">' + tappeto(r, i < 3 ? 3 : 2, 12) +
+          '<span class="stemma">' + P.immagineLogo(r) + '</span>' +
+          '<span class="volto">' + P.faccina(r, "ritrattino") + '</span>' +
+          '<div class="chi"><span class="nome">' + P.nome(r) + '</span></div></div>' +
+        mezzo +
+        '<div class="valore usura">' + pct(r.usura_giro_pct, 2) + '%<small>A GIRO</small></div><div class="mov"></div></div>';
+    }).join("");
+
+    var nomeM = NOME_M[mRif] || "GOMMA";
+    document.getElementById("parola").firstElementChild.textContent = "GOMMA " + nomeM;
+    document.getElementById("sotto").textContent =
+      DHN.occhiello(s.info) + "  ·  QUANTO SI CONSUMA A OGNI GIRO · STINT PIU' LUNGO, SOLO GIRI VERDI";
+    var avv = [];
+    if (fuori) avv.push(fuori + (fuori === 1 ? " PILOTA" : " PILOTI") + " CON LO STINT PIU' LUNGO SU UN'ALTRA MESCOLA: NON IN QUESTA CLASSIFICA");
+    if (private_.length) avv.push("TELEMETRIA PRIVATA: " + private_.map(function (r) { return String(r.nome_da_stampare || "").toUpperCase(); }).join(", "));
+    document.getElementById("avvertenza").textContent = avv.length ? avv.join("  ·  ") : "MENO E' MEGLIO: GOMME CHE DURANO DI PIU'";
+    P.vesti(s.info, "");
+    document.getElementById("marchio").src = DHN.BRAND;
+    if (s.info.riconosciuti === 0)
+      DHN.avviso("ZERO piloti riconosciuti dal roster DHN: non pubblicare.");
+
+    P.fondoDhn(tela, { capo: righe[0], secondo: righe[1], contenuto: ".righe" });
+    DHN.ripiegoImmagini(tela); P.adatta(tela);
+    await P.rifinisci(tela);
+    await P.fontPronti(tela);
+    entra(document.getElementById("parola"), 984, 150, 60);
+    [].forEach.call(tela.querySelectorAll(".titolone .sotto, .titolone .avv"), function (el) {
+      var f = parseFloat(getComputedStyle(el).fontSize), W = tela.clientWidth - 96;
+      while (el.scrollWidth > W && f > 10) { f -= 0.5; el.style.fontSize = f + "px"; }
+      if (el.scrollWidth > W) DHN.avviso("SOTTOTITOLO troppo lungo anche a 10 px: " + el.textContent);
+    });
+    DHN.bottoneScarico(tela, "DHN-usura-" + id + "-" + V + "-" + formato + ".png");
+  } catch (e) { DHN.avviso("ERRORE: " + e.message); console.error(e); }
+})();
+</script>
