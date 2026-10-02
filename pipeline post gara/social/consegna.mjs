@@ -47,6 +47,9 @@ for (const id of gare) {
   if (!existsSync(f)) continue;
   const m = JSON.parse(readFileSync(f, "utf8"));
   indice.push({
+    /* Q1 (02/10/2026): `modo` dice se la cartella e' una GARA (tutte) o una
+       QUALIFICA resa da sola (05-08, prima della gara). Manifesti vecchi = gara. */
+    modo: m.modo || "gara",
     gara_id: m.gara_id, qualifica_id: m.qualifica_id, sprint_id: m.sprint_id,
     stagione_id: m.stagione_id, categoria: m.categoria, gp_nome: m.gp_nome, gp_cc: m.gp_cc,
     round: m.round, data_gara: m.data_gara, stato: m.stato, generato: m.generato,

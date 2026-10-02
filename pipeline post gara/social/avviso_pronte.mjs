@@ -22,11 +22,15 @@ export function testoAvviso(manifesti, pannello = PANNELLO) {
     const n = (m.voci || []).length, st = m.storie ?? (m.voci || []).filter((v) => v.storia).length;
     const salt = (m.saltate || []).length;
     const daFare = (m.voci || []).filter((v) => v.didascalia_origine && v.didascalia_origine !== "generata dai dati").length;
-    return `**${m.categoria} · GP ${m.gp_nome}${m.round != null ? ` · R${m.round}` : ""}** — ${bollo}\n`
+    /* Q1 (02/10/2026): la resa «solo qualifica» si annuncia come POLE pronta */
+    const quali = m.modo === "qualifica";
+    return `${quali ? "🅿️ " : ""}**${m.categoria} · GP ${m.gp_nome}${m.round != null ? ` · R${m.round}` : ""}${quali ? " · QUALIFICA" : ""}** — ${bollo}\n`
+      + (quali ? "POLE pronta, prima della gara. " : "")
       + `${n} grafiche${st ? ` + ${st} storie` : ""}${salt ? ` · ${salt} non fatte (dati mancanti)` : ""}${daFare ? ` · ${daFare} didascalie da completare` : ""}`
       + (m.storie_errore ? `\n⚠ storie: ${String(m.storie_errore).slice(0, 200)}` : "");
   });
-  const testo = `🖼️ **Grafiche social pronte**\n\n${righe.join("\n\n")}\n\nPannello → Social: ${pannello}\n*Niente è uscito: si pubblica o si programma dal pannello.*`;
+  const soloQuali = manifesti.length > 0 && manifesti.every((m) => m.modo === "qualifica");
+  const testo = `${soloQuali ? "🅿️ **POLE pronta** — grafiche della qualifica" : "🖼️ **Grafiche social pronte**"}\n\n${righe.join("\n\n")}\n\nPannello → Social: ${pannello}\n*Niente è uscito: si pubblica o si programma dal pannello.*`;
   return { content: testo.slice(0, 1990), allowed_mentions: { parse: [] } };
 }
 

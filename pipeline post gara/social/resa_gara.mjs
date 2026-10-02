@@ -27,6 +27,15 @@
         manifesto. Senza fondo la resa NON si ferma: il manifesto lo dice
         (`storie_errore`) e il pannello non offre la storia.
 
+   7. (Q1, 02/10/2026) MODO QUALIFICA: se `--gara` e' una QUALIFICA (la DG
+      l'ha pubblicata e la gara non c'e' ancora), si rendono SOLO 05 POLE,
+      06 PRIMA FILA, 07 GRIGLIA, 08 SCHIERAMENTO (+ storie) nella cartella
+      della qualifica, `gare/<id qualifica>/`, con `modo: "qualifica"` nel
+      manifesto. Didascalie da `componiDidascalieQualifica` (la gara non
+      c'e': niente frasi sul vincitore). Il modo GARA non cambia di un byte
+      nel risultato (controprova sulla 210). Il modo lo decide la sessione,
+      non un parametro: la sveglia del database manda solo l'id.
+
    ⚠ NON pubblica niente e non tocca git: scrive in `--staging`. A mettere i
    file sul ramo `uscite` ci pensa `consegna.mjs` (Actions o il .bat).
 
@@ -42,7 +51,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
-import { componiDidascalie } from "./didascalie.mjs";
+import { componiDidascalie, componiDidascalieQualifica } from "./didascalie.mjs";
 import { bandiera } from "./frasi.mjs";
 import { misuraImmagine } from "./misure.mjs";
 import { REGOLE, controllaImmagine, controllaDidascalia } from "./regole_meta.mjs";
@@ -120,25 +129,30 @@ async function main() {
   /* ------------------------------------------------ 1. le sessioni del GP */
   const [g] = await sb(`/rest/v1/v_grafica_sessioni_valide?storico_id=eq.${GARA}&select=*`);
   if (!g) throw new Error(`sessione ${GARA}: non c'e' in v_grafica_sessioni_valide`);
-  if (g.tipo !== "gara") throw new Error(`sessione ${GARA} e' una «${g.tipo}», non una gara: si rende partendo dalla GARA`);
+  /* Q1: una QUALIFICA si rende da sola (05-08). Sprint e qualifica sprint no:
+     `v_grafica_sessione` tratta ancora `sprint_qualifica` come una gara (Q1-bis). */
+  const MODO = g.tipo === "qualifica" ? "qualifica" : "gara";
+  if (g.tipo !== "gara" && MODO !== "qualifica")
+    throw new Error(`sessione ${GARA} e' una «${g.tipo}»: si rende partendo dalla GARA (o da una QUALIFICA, solo 05-08)`);
   if (!g.vale_per_classifica && !FORZA)
     throw new Error(`sessione ${GARA} NON vale (${g.riconosciuti}/${g.piloti} piloti riconosciuti): `
       + "e' una lobby di prova. Con --forza si rende lo stesso, ma non va pubblicata.");
   const filtroGP = g.round != null ? `round=eq.${g.round}` : `gp_nome=eq.${encodeURIComponent(g.gp_nome)}`;
-  const vicine = await sb(`/rest/v1/v_grafica_sessioni_valide?select=storico_id,tipo`
+  const vicine = MODO === "qualifica" ? [] : await sb(`/rest/v1/v_grafica_sessioni_valide?select=storico_id,tipo`
     + `&stagione_id=eq.${g.stagione_id}&categoria_id=eq.${g.categoria_id}&${filtroGP}`
     + `&storico_id=lt.${GARA}&vale_per_classifica=is.true&order=storico_id.desc`);
-  const qid = arg("qualifica") || (vicine.find(s => s.tipo === "qualifica") || {}).storico_id || null;
-  const sid = arg("sprint") || (vicine.find(s => s.tipo === "sprint") || {}).storico_id || null;
+  const qid = MODO === "qualifica" ? GARA : arg("qualifica") || (vicine.find(s => s.tipo === "qualifica") || {}).storico_id || null;
+  const sid = MODO === "qualifica" ? null : arg("sprint") || (vicine.find(s => s.tipo === "sprint") || {}).storico_id || null;
   let categoria = String(g.categoria_id);
   try { const [c] = await sb(`/rest/v1/categoria?id=eq.${g.categoria_id}&select=nome`); if (c) categoria = c.nome; }
   catch (e) { console.log(`  (nome categoria non letto: ${e.message} — resta l'id)`); }
-  console.log(`GARA ${GARA} · ${categoria} · GP ${g.gp_nome} R${g.round ?? "?"} · qualifica ${qid ?? "—"} · sprint ${sid ?? "—"}`);
+  if (MODO === "qualifica") console.log(`QUALIFICA ${GARA} · ${categoria} · GP ${g.gp_nome} R${g.round ?? "?"} · solo ${DI_QUALIFICA.join(", ")}`);
+  else console.log(`GARA ${GARA} · ${categoria} · GP ${g.gp_nome} R${g.round ?? "?"} · qualifica ${qid ?? "—"} · sprint ${sid ?? "—"}`);
 
   /* ------------------------------------------- 2. un Chromium, tutte insieme */
   const codici = readdirSync(join(PIPE, "grafiche")).filter(f => /^\d\d-.*\.html$/.test(f)).map(f => f.slice(0, 2)).sort();
   const diGara = codici.filter(c => !DI_QUALIFICA.includes(c) && !DI_SPRINT.includes(c));
-  const lavori = [`${GARA}:${diGara.join(",")}`];
+  const lavori = MODO === "qualifica" ? [] : [`${GARA}:${diGara.join(",")}`];
   if (qid) lavori.unshift(`${qid}:${DI_QUALIFICA.filter(c => codici.includes(c)).join(",")}`);
   if (sid) lavori.push(`${sid}:${DI_SPRINT.filter(c => codici.includes(c)).join(",")}`);
 
@@ -166,9 +180,11 @@ async function main() {
   const righe = vista("v_grafica_sessione", GARA) || [];
   const classifica = vista("v_grafica_classifica_piloti", GARA) || [];
   const r0 = righe[0] || {};
-  const GEN = righe.length ? componiDidascalie({
+  const GEN = !righe.length ? {} : MODO === "qualifica" ? componiDidascalieQualifica({
     sessione: { storico_id: Number(GARA), gp_nome: r0.gp_nome ?? g.gp_nome, gp_cc: r0.gp_cc, round: r0.round ?? g.round },
-    righe, classifica }) : {};
+    righe }) : componiDidascalie({
+    sessione: { storico_id: Number(GARA), gp_nome: r0.gp_nome ?? g.gp_nome, gp_cc: r0.gp_cc, round: r0.round ?? g.round },
+    righe, classifica });
   const testaGP = () => {
     const b = bandiera(r0.gp_cc);
     return `GP ${g.gp_nome || ""}${b ? " " + b : ""}${g.round ? ` · Round ${g.round}` : ""}`;
@@ -244,6 +260,9 @@ async function main() {
   };
   const manifesto = {
     schema: 1, generato: new Date().toISOString(), secondi: Math.round((Date.now() - t0) / 1000),
+    /* Q1: `gara_id` resta il NOME DELLA CARTELLA (gare/<id>/): pannello e
+       funzione `social` lo usano cosi'. In modo qualifica e' l'id della qualifica. */
+    modo: MODO, sessione_tipo: g.tipo,
     gara_id: Number(GARA), qualifica_id: qid ? Number(qid) : null, sprint_id: sid ? Number(sid) : null,
     stagione_id: g.stagione_id, categoria_id: g.categoria_id, categoria, gp_nome: g.gp_nome,
     gp_cc: r0.gp_cc || null, round: g.round, data_gara: g.created_at, stato,
@@ -256,7 +275,7 @@ async function main() {
   writeFileSync(join(dest, "manifesto.json"), JSON.stringify(manifesto, null, 1));
   rmSync(join(STAGING, "_lavoro"), { recursive: true, force: true });
 
-  console.log(`\nGARA ${GARA} (${categoria}, ${stato.toUpperCase()}): ${voci.length} JPEG · ${saltate.length} scartate · `
+  console.log(`\n${MODO === "qualifica" ? "QUALIFICA" : "GARA"} ${GARA} (${categoria}, ${stato.toUpperCase()}): ${voci.length} JPEG · ${saltate.length} scartate · `
     + `Supabase ${(supabase.byte / 1048576).toFixed(2)} MB in ${supabase.richieste} richieste `
     + `(${supabase.dalla_cache} riusate dalla cache) · ${manifesto.storie} storie · ${manifesto.secondi} s`);
   for (const s of saltate) console.log(`  ✗ ${s.codice} (sessione ${s.sessione}): ${s.motivo}`);

@@ -196,3 +196,52 @@ export function componiDidascalie(dati) {
   }
   return out;
 }
+
+/* ===========================================================================
+   Q1 (02/10/2026) — LA RESA «SOLO QUALIFICA»: 05 POLE · 06 PRIMA FILA ·
+   07 LA GRIGLIA · 08 SCHIERAMENTO escono quando la DG pubblica la qualifica,
+   PRIMA della gara (PIANO_PANNELLO_ADMIN_2026-10-02.md, chat Q1).
+
+   ⚠ Funzione SEPARATA apposta: `componiDidascalie` (quella della gara) resta
+     identica byte per byte — la controprova sulla gara 210 lo richiede.
+   ⚠ Qui la gara NON c'e' ancora: niente «la pole vale la vittoria» (la
+     frase della gara la deciderebbe guardando il primo della QUALIFICA come
+     se fosse il vincitore). Si dice solo quello che la qualifica sa: chi, il
+     tempo, il distacco dal secondo, l'ordine.
+   ⚠ Nella vista della qualifica `griglia` vale 0 per tutti (misurato sulla
+     223): l'ordine e' `pos`.
+   =========================================================================== */
+const msGiro = t => {
+  const m = /^(?:(\d+):)?(\d+)\.(\d{1,3})$/.exec(String(t || "").trim());
+  return m ? ((Number(m[1]) || 0) * 60 + Number(m[2])) * 1000 + Number(m[3].padEnd(3, "0")) : null;
+};
+export function componiDidascalieQualifica(dati) {
+  const s = dati.sessione || {};
+  const righe = [...(dati.righe || [])].filter(r => (r.pos || 0) > 0)
+    .sort((a, b) => a.pos - b.pos);
+  const out = {};
+  const met = (k, corpo) => { if (corpo) out[k] = `${corpo}\n\n${CODA}`; };
+  const [p1, p2] = righe;
+
+  /* 05 · pole ------------------------------------------------------------- */
+  if (p1 && !eSegnaposto(nome(p1))) {
+    const a = msGiro(p1.best_str), b = p2 ? msGiro(p2.best_str) : null;
+    const gap = a != null && b != null && b >= a && !eSegnaposto(nome(p2))
+      ? `, ${((b - a) / 1000).toFixed(3)} s davanti a ${nome(p2)}` : "";
+    met("05-pole", `${EMOJI.pole} POLE — ${testa(s)}\n`
+      + `${conTeam(p1)}${p1.best_str ? ` in ${p1.best_str}` : ""}${gap}.`);
+  }
+  /* 06 · prima fila -------------------------------------------------------- */
+  if (p1 && p2 && !eSegnaposto(nome(p1)) && !eSegnaposto(nome(p2))) {
+    met("06-prima-fila", `${EMOJI.griglia} PRIMA FILA — ${testa(s)}\n`
+      + `${nome(p1)} e ${nome(p2)} davanti a tutti.`);
+  }
+  /* 07 · la griglia (e 08 schieramento) ------------------------------------ */
+  if (righe.length >= 2) {
+    const t = [`${EMOJI.griglia} LA GRIGLIA — ${testa(s)}`, "",
+      ...righe.map(r => `${r.pos}. ${nomeLista(r)}`)].join("\n");
+    met("07-la-griglia", t);
+    met("08-schieramento", t);
+  }
+  return out;
+}
