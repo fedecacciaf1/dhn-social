@@ -1,0 +1,877 @@
+{
+ "schema": 1,
+ "generato": "2026-10-01T14:58:17.615Z",
+ "secondi": 80,
+ "gara_id": 219,
+ "qualifica_id": 218,
+ "sprint_id": 217,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Austria",
+ "gp_cc": "at",
+ "round": 3,
+ "data_gara": "2026-09-28T21:37:38.233188+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "17ae5bfa4698ec53",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/219/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1337671,
+  "richieste": 43,
+  "dalla_cache": 204,
+  "url_diversi": 39,
+  "per_tipo": {
+   "rest": 193913,
+   "storage": 1143758,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/01-race-result.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 296346,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 61.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Austria 🇦🇹 · Round 3\n\nJustAfroKK parte davanti e non si volta mai. 1 ritiri lungo il percorso.\n\n1. JustAfroKK · 2. Contex (+3.829) · 3. gionn_8723 (+3.871)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/01-race-result.jpg",
+    "miniatura": "storie/min/01-race-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 351333,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/01-race-result.jpg"
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/02-winner.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 194685,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Austria 🇦🇹 · Round 3\nPole, testa della gara, vittoria: giornata piena per JustAfroKK. E si prende pure il giro veloce.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/02-winner.jpg",
+    "miniatura": "storie/min/02-winner.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 243202,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/02-winner.jpg"
+   }
+  },
+  {
+   "codice": "03",
+   "titolo": "CLASSIFICA PILOTI",
+   "file": "03-driver-standings.jpg",
+   "miniatura": "min/03-driver-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/03-driver-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/03-driver-standings.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 343606,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 332,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📊 CLASSIFICA PILOTI — dopo il GP Austria 🇦🇹 · Round 3\nIn testa JustAfroKK con 79 punti.\n1. JustAfroKK — 79\n2. Xawior — 66\n3. Xeno — 59\n4. Contex — 56\n5. vese — 40\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/03-driver-standings.jpg",
+    "miniatura": "storie/min/03-driver-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 390642,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/03-driver-standings.jpg"
+   }
+  },
+  {
+   "codice": "04",
+   "titolo": "CLASSIFICA SCUDERIE",
+   "file": "04-team-standings.jpg",
+   "miniatura": "min/04-team-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/04-team-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/04-team-standings.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 323334,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 82.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 321,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "CLASSIFICA SCUDERIE — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/04-team-standings.jpg",
+    "miniatura": "storie/min/04-team-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 370814,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/04-team-standings.jpg"
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/05-pole.jpg",
+   "sessione": 218,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 217927,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Austria 🇦🇹 · Round 3\nJustAfroKK (Racing Bulls). Chi partiva davanti ci è rimasto.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 265999,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/06-front-row.jpg",
+   "sessione": 218,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 242342,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 82.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Austria 🇦🇹 · Round 3\nJustAfroKK e vese davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 287531,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/07-the-grid.jpg",
+   "sessione": 218,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 272733,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austria 🇦🇹 · Round 3\n\n1. JustAfroKK\n2. vese\n3. Xawior\n4. Contex\n5. Y2Pier_\n6. gionn_8723\n7. Xeno\n8. Im brake late\n9. RW_serrubber\n10. Tixwins76\n11. Miguels117\n12. monoxide996\n13. Turiddu-pal\n14. Qrt mariotir\n15. Alby\n16. ben10_dv\n17. mennazz77\n18. Biagiogamer06\n19. Capitano53\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 326704,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/08-starting-line-up.jpg",
+   "sessione": 218,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 282490,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austria 🇦🇹 · Round 3\n\n1. JustAfroKK\n2. vese\n3. Xawior\n4. Contex\n5. Y2Pier_\n6. gionn_8723\n7. Xeno\n8. Im brake late\n9. RW_serrubber\n10. Tixwins76\n11. Miguels117\n12. monoxide996\n13. Turiddu-pal\n14. Qrt mariotir\n15. Alby\n16. ben10_dv\n17. mennazz77\n18. Biagiogamer06\n19. Capitano53\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 335009,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/08-starting-line-up.jpg"
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/09-points.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 158206,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 64.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Austria 🇦🇹 · Round 3\n\n1. JustAfroKK — 26\n2. Contex — 22\n3. gionn_8723 — 19\n4. Xeno — 17\n5. Xawior — 15\n6. vese — 13\n7. RW_serrubber — 11\n8. Y2Pier_ — 9\n9. monoxide996 — 7\n10. Miguels117 — 5\n11. Qrt mariotir — 4\n12. Tixwins76 — 3\n13. Alby — 2\n14. ben10_dv — 1\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/09-points.jpg",
+    "miniatura": "storie/min/09-points.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 208923,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/09-points.jpg"
+   }
+  },
+  {
+   "codice": "10",
+   "titolo": "SPRINT",
+   "file": "10-sprint-result.jpg",
+   "miniatura": "min/10-sprint-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/10-sprint-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/10-sprint-result.jpg",
+   "sessione": 217,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 287580,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 94.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "SPRINT — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/10-sprint-result.jpg",
+    "miniatura": "storie/min/10-sprint-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 344857,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/10-sprint-result.jpg"
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/11-testa-a-testa.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 232523,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 68.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/11-testa-a-testa.jpg",
+    "miniatura": "storie/min/11-testa-a-testa.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 276844,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/11-testa-a-testa.jpg"
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/12-miglior-recupero.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 172153,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Austria 🇦🇹 · Round 3\ngionn_8723 ne passa 3 e chiude 3º.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/12-miglior-recupero.jpg",
+    "miniatura": "storie/min/12-miglior-recupero.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 223849,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/12-miglior-recupero.jpg"
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/13-giro-veloce.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 216068,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Austria 🇦🇹 · Round 3\nJustAfroKK (Racing Bulls) in 1:06.771.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/13-giro-veloce.jpg",
+    "miniatura": "storie/min/13-giro-veloce.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 265786,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/13-giro-veloce.jpg"
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/14-strategia.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 224201,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 48,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Austria 🇦🇹 · Round 3\n\nJustAfroKK: 1 sosta\nContex: 2 soste\ngionn_8723: 2 soste\nXeno: 1 sosta\nXawior: 1 sosta\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/14-strategia.jpg",
+    "miniatura": "storie/min/14-strategia.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 269498,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/14-strategia.jpg"
+   }
+  },
+  {
+   "codice": "15",
+   "titolo": "LEADER DEL CAMPIONATO",
+   "file": "15-leader-campionato.jpg",
+   "miniatura": "min/15-leader-campionato.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/15-leader-campionato.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/15-leader-campionato.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 217623,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 90.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "LEADER DEL CAMPIONATO — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/15-leader-campionato.jpg",
+    "miniatura": "storie/min/15-leader-campionato.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 263251,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/15-leader-campionato.jpg"
+   }
+  },
+  {
+   "codice": "16",
+   "titolo": "I PRIMI TRE",
+   "file": "16-testa-classifica.jpg",
+   "miniatura": "min/16-testa-classifica.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/16-testa-classifica.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/16-testa-classifica.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 213649,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 67.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "I PRIMI TRE — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/16-testa-classifica.jpg",
+    "miniatura": "storie/min/16-testa-classifica.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 259883,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/16-testa-classifica.jpg"
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/17-albo-gp.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 262654,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 68.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Austria 🇦🇹 · Round 3\n\nPole, testa della gara, vittoria: giornata piena per JustAfroKK. La pole vale la vittoria. Qualcuno resta per strada: 1 ritiri.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/17-albo-gp.jpg",
+    "miniatura": "storie/min/17-albo-gp.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 304643,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/17-albo-gp.jpg"
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/18-passo-gara.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 340322,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/18-passo-gara.jpg",
+    "miniatura": "storie/min/18-passo-gara.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 386765,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/18-passo-gara.jpg"
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/19-tenuta.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 324496,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/19-tenuta.jpg",
+    "miniatura": "storie/min/19-tenuta.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 376342,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/19-tenuta.jpg"
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/20-costanza.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 208428,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 85,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/20-costanza.jpg",
+    "miniatura": "storie/min/20-costanza.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 256012,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/20-costanza.jpg"
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/219/min/21-duello-interno.jpg",
+   "sessione": 219,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 336472,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78,
+   "immagini_mancanti": 0,
+   "immagini_totali": 506,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Austria 🇦🇹 · Round 3\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/21-duello-interno.jpg",
+    "miniatura": "storie/min/21-duello-interno.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 389445,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/219/storie/21-duello-interno.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 21,
+ "storie_errore": null
+}
