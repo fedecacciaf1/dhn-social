@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "generato": "2026-10-05T00:00:00.000Z",
+ "modo": "caricate",
+ "sessione_tipo": null,
+ "gara_id": 990000,
+ "qualifica_id": null,
+ "sprint_id": null,
+ "stagione_id": null,
+ "categoria_id": null,
+ "categoria": "Foto",
+ "gp_nome": "Le tue foto",
+ "gp_cc": null,
+ "round": null,
+ "data_gara": null,
+ "stato": "caricate",
+ "impronta_dati": "caricate",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/990000/",
+ "supabase": {
+  "byte": 0,
+  "richieste": 0
+ },
+ "voci": [
+  {
+   "codice": "FT01",
+   "titolo": "DHN CHAMPIONSHIP LOGO",
+   "file": "f20261005111634ea0f11.jpg",
+   "miniatura": "min/f20261005111634ea0f11.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/990000/f20261005111634ea0f11.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/990000/min/f20261005111634ea0f11.jpg",
+   "sessione": null,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 104216,
+   "miniatura_misure": "360x450",
+   "didascalia": "",
+   "didascalia_origine": "nessuna",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": null,
+   "sorgente": "caricata",
+   "chiave": "6d85e9ce-6b8b-442c-aa48-9633a6cb3189",
+   "caricata_da": "fedecacciaf1@gmail.com",
+   "caricata_il": "2026-10-05T11:16:34.783Z"
+  }
+ ],
+ "saltate": [],
+ "storie": 0,
+ "storie_errore": null,
+ "aggiornato": "2026-10-05T11:16:34.783Z"
+}

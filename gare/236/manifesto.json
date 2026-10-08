@@ -1,0 +1,839 @@
+{
+ "schema": 1,
+ "generato": "2026-10-08T21:14:46.762Z",
+ "secondi": 71,
+ "modo": "gara",
+ "sessione_tipo": "gara",
+ "gara_id": 236,
+ "qualifica_id": 235,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Silverstone",
+ "gp_cc": "gb",
+ "round": 4,
+ "data_gara": "2026-10-08T20:56:08.33916+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "75a92c5f3d96d644",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/236/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1123381,
+  "richieste": 40,
+  "dalla_cache": 175,
+  "url_diversi": 36,
+  "per_tipo": {
+   "rest": 82399,
+   "storage": 1040982,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/01-race-result.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 286378,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 60,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Silverstone 🇬🇧 · Round 4\n\nLuchetto1212 parte davanti e non si volta mai. Qualcuno resta per strada: 2 ritiri.\n\n1. Luchetto1212 · 2. pie_gv_pad (+1.226) · 3. monoxide996 (+5.292)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/01-race-result.jpg",
+    "miniatura": "storie/min/01-race-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 341488,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/01-race-result.jpg"
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/02-winner.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 166817,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 64.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Silverstone 🇬🇧 · Round 4\nLuchetto1212 parte davanti e non si volta mai.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/02-winner.jpg",
+    "miniatura": "storie/min/02-winner.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 216372,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/02-winner.jpg"
+   }
+  },
+  {
+   "codice": "03",
+   "titolo": "CLASSIFICA PILOTI",
+   "file": "03-driver-standings.jpg",
+   "miniatura": "min/03-driver-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/03-driver-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/03-driver-standings.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 336353,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 332,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📊 CLASSIFICA PILOTI — dopo il GP Silverstone 🇬🇧 · Round 4\nIn testa LAZZA995 con 81 punti.\n1. LAZZA995 — 81\n2. Luchetto1212 — 73\n3. Vincent SV — 61\n4. monoxide996 — 50\n5. Dani_deg_85 — 48\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/03-driver-standings.jpg",
+    "miniatura": "storie/min/03-driver-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 381461,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/03-driver-standings.jpg"
+   }
+  },
+  {
+   "codice": "04",
+   "titolo": "CLASSIFICA SCUDERIE",
+   "file": "04-team-standings.jpg",
+   "miniatura": "min/04-team-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/04-team-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/04-team-standings.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 307274,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 81.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 292,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "CLASSIFICA SCUDERIE — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/04-team-standings.jpg",
+    "miniatura": "storie/min/04-team-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 357248,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/04-team-standings.jpg"
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/05-pole.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 193406,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 66.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Silverstone 🇬🇧 · Round 4\nLuchetto1212 (Red Bull). La pole vale la vittoria.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 245417,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/06-front-row.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 211473,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Silverstone 🇬🇧 · Round 4\nLuchetto1212 e pie_gv_pad davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 259385,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/07-the-grid.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 263681,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Silverstone 🇬🇧 · Round 4\n\n1. Luchetto1212\n2. pie_gv_pad\n3. FedeCaccia\n4. monoxide996\n5. LAZZA995\n6. mennazz77\n7. Turiddu-pal\n8. italo95italia\n9. ben10_dv\n10. Cavastark\n11. Birrone_89\n12. Pingu1728\n13. Trodo\n14. Krosso_32Forever\n15. MARTELINHO\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 318052,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/08-starting-line-up.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 280924,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 63.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Silverstone 🇬🇧 · Round 4\n\n1. Luchetto1212\n2. pie_gv_pad\n3. FedeCaccia\n4. monoxide996\n5. LAZZA995\n6. mennazz77\n7. Turiddu-pal\n8. italo95italia\n9. ben10_dv\n10. Cavastark\n11. Birrone_89\n12. Pingu1728\n13. Trodo\n14. Krosso_32Forever\n15. MARTELINHO\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 331912,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/08-starting-line-up.jpg"
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/09-points.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 162715,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 69,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Silverstone 🇬🇧 · Round 4\n\n1. Luchetto1212 — 25\n2. pie_gv_pad — 22\n3. monoxide996 — 19\n4. Trodo — 17\n5. LAZZA995 — 15\n6. Cavastark — 13\n7. Turiddu-pal — 11\n8. FedeCaccia — 10\n9. mennazz77 — 7\n10. ben10_dv — 5\n11. Pingu1728 — 4\n12. MARTELINHO — 3\n13. Birrone_89 — 2\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/09-points.jpg",
+    "miniatura": "storie/min/09-points.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 213252,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/09-points.jpg"
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/11-testa-a-testa.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 201377,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 55.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/11-testa-a-testa.jpg",
+    "miniatura": "storie/min/11-testa-a-testa.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248493,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/11-testa-a-testa.jpg"
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/12-miglior-recupero.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 203577,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Silverstone 🇬🇧 · Round 4\nTrodo guadagna 9 posizioni, dalla 13ª alla 4ª.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/12-miglior-recupero.jpg",
+    "miniatura": "storie/min/12-miglior-recupero.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 253940,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/12-miglior-recupero.jpg"
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/13-giro-veloce.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 187123,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Silverstone 🇬🇧 · Round 4\nFedeCaccia (Ferrari) in 1:30.442.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/13-giro-veloce.jpg",
+    "miniatura": "storie/min/13-giro-veloce.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 236520,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/13-giro-veloce.jpg"
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/14-strategia.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 197007,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 46.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": "ATTENZIONE: 18 gomme con un codice mescola non riconosciuto (escono grigie col «?»). Va chiesto a Fede.",
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Silverstone 🇬🇧 · Round 4\n\nLuchetto1212: 1 sosta\npie_gv_pad: 1 sosta\nmonoxide996: 1 sosta\nTrodo: 1 sosta\nLAZZA995: 1 sosta\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/14-strategia.jpg",
+    "miniatura": "storie/min/14-strategia.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 245351,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/14-strategia.jpg"
+   }
+  },
+  {
+   "codice": "15",
+   "titolo": "LEADER DEL CAMPIONATO",
+   "file": "15-leader-campionato.jpg",
+   "miniatura": "min/15-leader-campionato.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/15-leader-campionato.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/15-leader-campionato.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 181984,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 88.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "LEADER DEL CAMPIONATO — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/15-leader-campionato.jpg",
+    "miniatura": "storie/min/15-leader-campionato.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 228793,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/15-leader-campionato.jpg"
+   }
+  },
+  {
+   "codice": "16",
+   "titolo": "I PRIMI TRE",
+   "file": "16-testa-classifica.jpg",
+   "miniatura": "min/16-testa-classifica.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/16-testa-classifica.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/16-testa-classifica.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 188843,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 61.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "I PRIMI TRE — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/16-testa-classifica.jpg",
+    "miniatura": "storie/min/16-testa-classifica.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 235721,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/16-testa-classifica.jpg"
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/17-albo-gp.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 236356,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 57.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Silverstone 🇬🇧 · Round 4\n\nPole, testa della gara, vittoria: giornata piena per Luchetto1212. Chi partiva davanti ci è rimasto. 2 ritiri lungo il percorso. Giro veloce a FedeCaccia in 1:30.442.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/17-albo-gp.jpg",
+    "miniatura": "storie/min/17-albo-gp.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 279513,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/17-albo-gp.jpg"
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/18-passo-gara.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 326616,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/18-passo-gara.jpg",
+    "miniatura": "storie/min/18-passo-gara.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 372797,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/18-passo-gara.jpg"
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/19-tenuta.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 342671,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/19-tenuta.jpg",
+    "miniatura": "storie/min/19-tenuta.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 395348,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/19-tenuta.jpg"
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/20-costanza.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 197305,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/20-costanza.jpg",
+    "miniatura": "storie/min/20-costanza.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 249907,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/20-costanza.jpg"
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/236/min/21-duello-interno.jpg",
+   "sessione": 236,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 281110,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 317,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Silverstone 🇬🇧 · Round 4\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/21-duello-interno.jpg",
+    "miniatura": "storie/min/21-duello-interno.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 332787,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/236/storie/21-duello-interno.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 20,
+ "storie_errore": null
+}

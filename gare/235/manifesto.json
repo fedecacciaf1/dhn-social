@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-10-08T21:10:51.090Z",
+ "secondi": 18,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 235,
+ "qualifica_id": 235,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Silverstone",
+ "gp_cc": "gb",
+ "round": 4,
+ "data_gara": "2026-10-08T20:06:56.044886+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "ebfb8a0b65fcd599",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/235/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 652614,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 36232,
+   "storage": 616382,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/235/min/05-pole.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 193406,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 66.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Silverstone 🇬🇧 · Round 4\nLuchetto1212 (Red Bull) in 1:28.316, 0.151 s davanti a pie_gv_pad.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 245417,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/235/min/06-front-row.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 211473,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Silverstone 🇬🇧 · Round 4\nLuchetto1212 e pie_gv_pad davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 259385,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/235/min/07-the-grid.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 263681,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Silverstone 🇬🇧 · Round 4\n\n1. Luchetto1212\n2. pie_gv_pad\n3. FedeCaccia\n4. monoxide996\n5. LAZZA995\n6. mennazz77\n7. Pingu1728\n8. Turiddu-pal\n9. italo95italia\n10. ben10_dv\n11. Cavastark\n12. Birrone_89\n13. Krosso_32Forever\n14. Trodo\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 318052,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/235/min/08-starting-line-up.jpg",
+   "sessione": 235,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 280924,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 63.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Silverstone 🇬🇧 · Round 4\n\n1. Luchetto1212\n2. pie_gv_pad\n3. FedeCaccia\n4. monoxide996\n5. LAZZA995\n6. mennazz77\n7. Pingu1728\n8. Turiddu-pal\n9. italo95italia\n10. ben10_dv\n11. Cavastark\n12. Birrone_89\n13. Krosso_32Forever\n14. Trodo\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 331912,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/235/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}
