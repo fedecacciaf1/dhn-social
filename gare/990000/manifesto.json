@@ -22,6 +22,34 @@
  },
  "voci": [
   {
+   "codice": "FT02",
+   "titolo": "Gemini Generated Image drs5r4drs5r4drs5",
+   "file": "f20261010120019ec35e9.jpg",
+   "miniatura": "min/f20261010120019ec35e9.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/990000/f20261010120019ec35e9.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/990000/min/f20261010120019ec35e9.jpg",
+   "sessione": null,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 291281,
+   "miniatura_misure": "360x450",
+   "didascalia": "",
+   "didascalia_origine": "nessuna",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": null,
+   "sorgente": "caricata",
+   "chiave": "b3522c24-3405-4e35-9a1f-1506e43e1ec5",
+   "caricata_da": "marcellotoro96@gmail.com",
+   "caricata_il": "2026-10-10T12:00:19.527Z"
+  },
+  {
    "codice": "FT01",
    "titolo": "DHN CHAMPIONSHIP LOGO",
    "file": "f20261005111634ea0f11.jpg",
@@ -53,5 +81,5 @@
  "saltate": [],
  "storie": 0,
  "storie_errore": null,
- "aggiornato": "2026-10-05T11:16:34.783Z"
+ "aggiornato": "2026-10-10T12:00:19.527Z"
 }
