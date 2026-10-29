@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-10-19T22:05:30.709Z",
+ "secondi": 22,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 263,
+ "qualifica_id": 263,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Brasile",
+ "gp_cc": "br",
+ "round": 6,
+ "data_gara": "2026-10-19T20:45:00.471741+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "5f54f72a8102f6a0",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/263/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 730436,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 51132,
+   "storage": 679304,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/263/min/05-pole.jpg",
+   "sessione": 263,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 196890,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 90.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Brasile 🇧🇷 · Round 6\nAMS_Raffa (McLaren) in 1:08.031, 0.356 s davanti a vese.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248201,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/263/min/06-front-row.jpg",
+   "sessione": 263,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 235557,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Brasile 🇧🇷 · Round 6\nAMS_Raffa e vese davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 280679,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/263/min/07-the-grid.jpg",
+   "sessione": 263,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 270714,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Brasile 🇧🇷 · Round 6\n\n1. AMS_Raffa\n2. vese\n3. Nikitamazespin24\n4. Xawior\n5. JustAfroKK\n6. gionny_8723\n7. Contex\n8. TMR Beppelau\n9. RW_serrubber\n10. Miguels117\n11. Luchetto1212\n12. Samugamer35\n13. siccmanu\n14. napple00\n15. Y2Pier_\n16. Tixwins76\n17. Qrt mariotir\n18. Capitano53\n19. Alby\n20. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 326870,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/263/min/08-starting-line-up.jpg",
+   "sessione": 263,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 280297,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Brasile 🇧🇷 · Round 6\n\n1. AMS_Raffa\n2. vese\n3. Nikitamazespin24\n4. Xawior\n5. JustAfroKK\n6. gionny_8723\n7. Contex\n8. TMR Beppelau\n9. RW_serrubber\n10. Miguels117\n11. Luchetto1212\n12. Samugamer35\n13. siccmanu\n14. napple00\n15. Y2Pier_\n16. Tixwins76\n17. Qrt mariotir\n18. Capitano53\n19. Alby\n20. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 333114,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/263/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}
