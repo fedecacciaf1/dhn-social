@@ -22,6 +22,34 @@
  },
  "voci": [
   {
+   "codice": "FT08",
+   "titolo": "1000178735",
+   "file": "f20261107105017bd7164.jpg",
+   "miniatura": "min/f20261107105017bd7164.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/990000/f20261107105017bd7164.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/990000/min/f20261107105017bd7164.jpg",
+   "sessione": null,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 326198,
+   "miniatura_misure": "360x450",
+   "didascalia": "",
+   "didascalia_origine": "nessuna",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": null,
+   "sorgente": "caricata",
+   "chiave": "d7478f9b-6ccf-4aa0-a83b-3fca0000e217",
+   "caricata_da": "marcellotoro96@gmail.com",
+   "caricata_il": "2026-11-07T10:50:17.160Z"
+  },
+  {
    "codice": "FT07",
    "titolo": "1000177751",
    "file": "f202611011326182b2e5b.jpg",
@@ -221,5 +249,5 @@
  "saltate": [],
  "storie": 0,
  "storie_errore": null,
- "aggiornato": "2026-11-01T13:26:18.876Z"
+ "aggiornato": "2026-11-07T10:50:17.160Z"
 }
