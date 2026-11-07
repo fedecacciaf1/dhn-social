@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-11-05T22:31:28.745Z",
+ "secondi": 18,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 292,
+ "qualifica_id": 292,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Austin",
+ "gp_cc": "us",
+ "round": 8,
+ "data_gara": "2026-11-05T21:08:51.551328+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "a08ccd1729b22019",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/292/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 687691,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 41215,
+   "storage": 646476,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/292/min/05-pole.jpg",
+   "sessione": 292,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 207873,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 87.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Austin 🇺🇸 · Round 8\nCavastark (Ferrari) in 1:36.010, 0.674 s davanti a Pingu1728.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 260622,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/292/min/06-front-row.jpg",
+   "sessione": 292,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 228459,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 83.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Austin 🇺🇸 · Round 8\nCavastark e Pingu1728 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 273710,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/292/min/07-the-grid.jpg",
+   "sessione": 292,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 271328,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austin 🇺🇸 · Round 8\n\n1. Cavastark\n2. Pingu1728\n3. Luchetto1212\n4. SilverDenny46\n5. ben10_dv\n6. LAZZA995\n7. FedeCaccia\n8. Wkr_Ruchetta70\n9. Turiddu-pal\n10. italo95italia\n11. Lele\n12. Vincent SV\n13. Capitano53\n14. monoxide996\n15. pie_gv_pad\n16. mennazz77\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 325055,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/292/min/08-starting-line-up.jpg",
+   "sessione": 292,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 272293,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austin 🇺🇸 · Round 8\n\n1. Cavastark\n2. Pingu1728\n3. Luchetto1212\n4. SilverDenny46\n5. ben10_dv\n6. LAZZA995\n7. FedeCaccia\n8. Wkr_Ruchetta70\n9. Turiddu-pal\n10. italo95italia\n11. Lele\n12. Vincent SV\n13. Capitano53\n14. monoxide996\n15. pie_gv_pad\n16. mennazz77\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 324541,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/292/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

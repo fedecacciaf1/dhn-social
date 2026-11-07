@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-10-29T22:16:03.052Z",
+ "secondi": 20,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 281,
+ "qualifica_id": 281,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Miami",
+ "gp_cc": "us",
+ "round": 7,
+ "data_gara": "2026-10-29T21:07:38.330602+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "f1a8a5a0be29feac",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/281/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 653828,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 38866,
+   "storage": 614962,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/281/min/05-pole.jpg",
+   "sessione": 281,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 197988,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Miami 🇺🇸 · Round 7\nmennazz77 (Williams) in 1:26.451, 0.060 s davanti a pie_gv_pad.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248827,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/281/min/06-front-row.jpg",
+   "sessione": 281,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 219577,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Miami 🇺🇸 · Round 7\nmennazz77 e pie_gv_pad davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 267839,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/281/min/07-the-grid.jpg",
+   "sessione": 281,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 268617,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Miami 🇺🇸 · Round 7\n\n1. mennazz77\n2. pie_gv_pad\n3. Luchetto1212\n4. LAZZA995\n5. monoxide996\n6. Vincent SV\n7. ben10_dv\n8. FedeCaccia\n9. italo95italia\n10. Trodo\n11. Dani_deg_85\n12. Wkr_Ruchetta70\n13. Crokangelooi\n14. Birrone_89\n15. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 323527,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/281/min/08-starting-line-up.jpg",
+   "sessione": 281,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 308288,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 60.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Miami 🇺🇸 · Round 7\n\n1. mennazz77\n2. pie_gv_pad\n3. Luchetto1212\n4. LAZZA995\n5. monoxide996\n6. Vincent SV\n7. ben10_dv\n8. FedeCaccia\n9. italo95italia\n10. Trodo\n11. Dani_deg_85\n12. Wkr_Ruchetta70\n13. Crokangelooi\n14. Birrone_89\n15. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 358158,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/281/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

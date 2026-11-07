@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-10-23T10:31:34.503Z",
+ "secondi": 22,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 270,
+ "qualifica_id": 270,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Brasile",
+ "gp_cc": "br",
+ "round": 6,
+ "data_gara": "2026-10-22T20:29:39.30698+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "29317b2a41bb96d0",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/270/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 698113,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 46451,
+   "storage": 651662,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/270/min/05-pole.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 198171,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Brasile 🇧🇷 · Round 6\nmennazz77 (Williams) in 1:08.693, 0.145 s davanti a pippokennedy666.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 249823,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/270/min/06-front-row.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 216161,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Brasile 🇧🇷 · Round 6\nmennazz77 e pippokennedy666 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 265440,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/270/min/07-the-grid.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 270544,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Brasile 🇧🇷 · Round 6\n\n1. mennazz77\n2. pippokennedy666\n3. Cavastark\n4. pie_gv_pad\n5. LAZZA995\n6. FedeCaccia\n7. monoxide996\n8. Lele\n9. italo95italia\n10. Luchetto1212\n11. Vincent SV\n12. Dani_deg_85\n13. Trodo\n14. ben10_dv\n15. Pingu1728\n16. Wkr_Ruchetta70\n17. Turiddu-pal\n18. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 325451,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/270/min/08-starting-line-up.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 315017,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Brasile 🇧🇷 · Round 6\n\n1. mennazz77\n2. pippokennedy666\n3. Cavastark\n4. pie_gv_pad\n5. LAZZA995\n6. FedeCaccia\n7. monoxide996\n8. Lele\n9. italo95italia\n10. Luchetto1212\n11. Vincent SV\n12. Dani_deg_85\n13. Trodo\n14. ben10_dv\n15. Pingu1728\n16. Wkr_Ruchetta70\n17. Turiddu-pal\n18. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 363550,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/270/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

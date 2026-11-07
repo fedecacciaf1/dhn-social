@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-10-12T21:31:15.489Z",
+ "secondi": 17,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 242,
+ "qualifica_id": 242,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Canada",
+ "gp_cc": "ca",
+ "round": 5,
+ "data_gara": "2026-10-12T20:09:11.011876+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "9421724aca05a7e4",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/242/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 654371,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 36559,
+   "storage": 617812,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/242/min/05-pole.jpg",
+   "sessione": 242,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 218385,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Canada 🇨🇦 · Round 5\nJustAfroKK (Racing Bulls) in 1:09.495, 0.062 s davanti a gionny_8723.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 266380,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/242/min/06-front-row.jpg",
+   "sessione": 242,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 215421,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Canada 🇨🇦 · Round 5\nJustAfroKK e gionny_8723 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 261751,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/242/min/07-the-grid.jpg",
+   "sessione": 242,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 270746,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Canada 🇨🇦 · Round 5\n\n1. JustAfroKK\n2. gionny_8723\n3. Samugamer35\n4. Contex\n5. RW_serrubber\n6. Xawior\n7. Luchetto1212\n8. Miguels117\n9. Tixwins76\n10. Y2Pier_\n11. Capitano53\n12. Qrt mariotir\n13. Alby\n14. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 324447,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/242/min/08-starting-line-up.jpg",
+   "sessione": 242,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 283893,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Canada 🇨🇦 · Round 5\n\n1. JustAfroKK\n2. gionny_8723\n3. Samugamer35\n4. Contex\n5. RW_serrubber\n6. Xawior\n7. Luchetto1212\n8. Miguels117\n9. Tixwins76\n10. Y2Pier_\n11. Capitano53\n12. Qrt mariotir\n13. Alby\n14. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 335067,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/242/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

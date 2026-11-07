@@ -1,0 +1,675 @@
+{
+ "schema": 1,
+ "generato": "2026-09-26T13:45:22.011Z",
+ "secondi": 50,
+ "gara_id": 204,
+ "qualifica_id": 203,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Monza",
+ "gp_cc": "it",
+ "round": 1,
+ "data_gara": "2026-09-17T20:58:41.500411+00:00",
+ "stato": "ufficiale",
+ "impronta_dati": "eb5a27305ea8acf9",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/204/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1369987,
+  "richieste": 44,
+  "dalla_cache": 185,
+  "url_diversi": 40,
+  "per_tipo": {
+   "rest": 126045,
+   "storage": 1243942,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/01-race-result.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 283192,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 55.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Monza 🇮🇹 · Round 1\n\nDalla 7ª casella al gradino più alto: LAZZA995. 4 ritiri lungo il percorso.\n\n1. LAZZA995 · 2. Pingu1728 (+0.160) · 3. FedeCaccia (+0.479)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/02-winner.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 148856,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 67,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Monza 🇮🇹 · Round 1\nLAZZA995 risale dalla 7ª posizione e vince.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "03",
+   "titolo": "CLASSIFICA PILOTI",
+   "file": "03-driver-standings.jpg",
+   "miniatura": "min/03-driver-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/03-driver-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/03-driver-standings.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 331161,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 332,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📊 CLASSIFICA PILOTI — dopo il GP Monza 🇮🇹 · Round 1\nIn testa LAZZA995 con 25 punti.\n1. LAZZA995 — 25\n2. Pingu1728 — 22\n3. FedeCaccia — 20\n4. Dani_deg_85 — 17\n5. Vincent SV — 15\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "04",
+   "titolo": "CLASSIFICA SCUDERIE",
+   "file": "04-team-standings.jpg",
+   "miniatura": "min/04-team-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/04-team-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/04-team-standings.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 301152,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 292,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "CLASSIFICA SCUDERIE — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/05-pole.jpg",
+   "sessione": 203,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 191661,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Monza 🇮🇹 · Round 1\nJust_mamba_73 (Mercedes). Partire davanti non è servito a Just_mamba_73.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/06-front-row.jpg",
+   "sessione": 203,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 220059,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Monza 🇮🇹 · Round 1\nJust_mamba_73 e ben10_dv davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/07-the-grid.jpg",
+   "sessione": 203,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 269093,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 70.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Monza 🇮🇹 · Round 1\n\n1. Just_mamba_73\n2. ben10_dv\n3. Luchetto1212\n4. Trodo\n5. Pingu1728\n6. Crokangelooi\n7. LAZZA995\n8. monoxide996\n9. mennazz77\n10. FedeCaccia\n11. Dani_deg_85\n12. Turiddu-pal\n13. ZioWinter_Tv\n14. italo95italia\n15. Liv\n16. LILLUPAZZU\n17. Birrone_89\n18. Vincent SV\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/08-starting-line-up.jpg",
+   "sessione": 203,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 324681,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 69.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Monza 🇮🇹 · Round 1\n\n1. Just_mamba_73\n2. ben10_dv\n3. Luchetto1212\n4. Trodo\n5. Pingu1728\n6. Crokangelooi\n7. LAZZA995\n8. monoxide996\n9. mennazz77\n10. FedeCaccia\n11. Dani_deg_85\n12. Turiddu-pal\n13. ZioWinter_Tv\n14. italo95italia\n15. Liv\n16. LILLUPAZZU\n17. Birrone_89\n18. Vincent SV\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/09-points.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 181846,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Monza 🇮🇹 · Round 1\n\n1. LAZZA995 — 25\n2. Pingu1728 — 22\n3. FedeCaccia — 20\n4. Dani_deg_85 — 17\n5. Vincent SV — 15\n6. Luchetto1212 — 13\n7. Just_mamba_73 — 11\n8. Trodo — 9\n9. Crokangelooi — 7\n10. ben10_dv — 5\n11. Turiddu-pal — 4\n12. monoxide996 — 3\n13. mennazz77 — 2\n14. Birrone_89 — 1\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/11-testa-a-testa.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 195889,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 53.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/12-miglior-recupero.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 198338,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 82.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Monza 🇮🇹 · Round 1\nVincent SV ne passa 13 e chiude 5º.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/13-giro-veloce.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 181259,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Monza 🇮🇹 · Round 1\nFedeCaccia (Racing Bulls) firma 1:21.581.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/14-strategia.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 217190,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 48.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Monza 🇮🇹 · Round 1\n\nLAZZA995: 1 sosta\nPingu1728: 2 soste\nFedeCaccia: 1 sosta\nDani_deg_85: 1 sosta\nVincent SV: 1 sosta\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "15",
+   "titolo": "LEADER DEL CAMPIONATO",
+   "file": "15-leader-campionato.jpg",
+   "miniatura": "min/15-leader-campionato.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/15-leader-campionato.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/15-leader-campionato.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 179973,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 89.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "LEADER DEL CAMPIONATO — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "16",
+   "titolo": "I PRIMI TRE",
+   "file": "16-testa-classifica.jpg",
+   "miniatura": "min/16-testa-classifica.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/16-testa-classifica.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/16-testa-classifica.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 188477,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 60.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "I PRIMI TRE — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/17-albo-gp.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 247957,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 51.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Monza 🇮🇹 · Round 1\n\nLAZZA995 parte 7º e se la prende comunque. La pole non basta: Just_mamba_73 chiude 7º. Qualcuno resta per strada: 4 ritiri. Giro veloce a FedeCaccia in 1:21.581.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/18-passo-gara.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 326250,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 69.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/19-tenuta.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 359715,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/20-costanza.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 191391,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/204/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/204/min/21-duello-interno.jpg",
+   "sessione": 204,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 344656,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 506,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Monza 🇮🇹 · Round 1\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  }
+ ],
+ "saltate": []
+}
