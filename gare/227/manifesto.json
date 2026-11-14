@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-10-05T21:40:40.441Z",
+ "secondi": 16,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 227,
+ "qualifica_id": 227,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Silverstone",
+ "gp_cc": "gb",
+ "round": 4,
+ "data_gara": "2026-10-05T20:15:23.261776+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "028ff631e6cc908e",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/227/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 694636,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 44172,
+   "storage": 650464,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/227/min/05-pole.jpg",
+   "sessione": 227,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 214516,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 88.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Silverstone 🇬🇧 · Round 4\nContex (Ferrari) in 1:27.382, 0.140 s davanti a Xawior.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 261751,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/227/min/06-front-row.jpg",
+   "sessione": 227,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 231839,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 82.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Silverstone 🇬🇧 · Round 4\nContex e Xawior davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 277322,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/227/min/07-the-grid.jpg",
+   "sessione": 227,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 263743,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 70.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Silverstone 🇬🇧 · Round 4\n\n1. Contex\n2. Xawior\n3. gionny_8723\n4. JustAfroKK\n5. Xeno\n6. Dusty\n7. Y2Pier_\n8. vese\n9. aka kimi\n10. Luchetto1212\n11. Miguels117\n12. Qrt mariotir\n13. monoxide996\n14. Turiddu-pal\n15. mennazz77\n16. Alby\n19. Tixwins76\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 318356,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/227/min/08-starting-line-up.jpg",
+   "sessione": 227,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 262856,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Silverstone 🇬🇧 · Round 4\n\n1. Contex\n2. Xawior\n3. gionny_8723\n4. JustAfroKK\n5. Xeno\n6. Dusty\n7. Y2Pier_\n8. vese\n9. aka kimi\n10. Luchetto1212\n11. Miguels117\n12. Qrt mariotir\n13. monoxide996\n14. Turiddu-pal\n15. mennazz77\n16. Alby\n19. Tixwins76\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 316986,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/227/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

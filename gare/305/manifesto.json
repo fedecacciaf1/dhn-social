@@ -1,0 +1,744 @@
+{
+ "schema": 1,
+ "generato": "2026-11-12T22:55:11.610Z",
+ "secondi": 58,
+ "modo": "gara",
+ "sessione_tipo": "gara",
+ "gara_id": 305,
+ "qualifica_id": 304,
+ "sprint_id": 303,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Australia",
+ "gp_cc": "au",
+ "round": 9,
+ "data_gara": "2026-11-12T22:20:34.24707+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "8f861e9c32d3c554",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/305/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1212802,
+  "richieste": 43,
+  "dalla_cache": 170,
+  "url_diversi": 35,
+  "per_tipo": {
+   "rest": 133606,
+   "storage": 1079196,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/01-race-result.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 302368,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 60.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Australia 🇦🇺 · Round 9\n\nmennazz77 passa davanti e chiude i conti. 4 ritiri lungo il percorso.\n\n1. mennazz77 · 2. LAZZA995 (+6.656) · 3. FedeCaccia (+8.080)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/01-race-result.jpg",
+    "miniatura": "storie/min/01-race-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 356792,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/01-race-result.jpg"
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/02-winner.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 168309,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 67.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Australia 🇦🇺 · Round 9\nmennazz77 porta a casa il GP.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/02-winner.jpg",
+    "miniatura": "storie/min/02-winner.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 218162,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/02-winner.jpg"
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/05-pole.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 207749,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 87.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Australia 🇦🇺 · Round 9\nCavastark (Ferrari). Partire davanti non è servito a Cavastark.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 260399,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/06-front-row.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 232379,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 82.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Australia 🇦🇺 · Round 9\nCavastark e mennazz77 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 278470,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/07-the-grid.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 272345,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Australia 🇦🇺 · Round 9\n\n1. Cavastark\n2. mennazz77\n3. FedeCaccia\n4. LAZZA995\n5. monoxide996\n6. Luchetto1212\n7. Apara90\n8. Dani_deg_85\n9. Trodo\n10. ben10_dv\n11. Vincent SV\n12. Pingu1728\n13. Lele\n14. italo95italia\n15. Wkr_Ruchetta70\n16. Turiddu-pal\n17. Ale_Scr\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 326622,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/08-starting-line-up.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 312304,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Australia 🇦🇺 · Round 9\n\n1. Cavastark\n2. mennazz77\n3. FedeCaccia\n4. LAZZA995\n5. monoxide996\n6. Luchetto1212\n7. Apara90\n8. Dani_deg_85\n9. Trodo\n10. ben10_dv\n11. Vincent SV\n12. Pingu1728\n13. Lele\n14. italo95italia\n15. Wkr_Ruchetta70\n16. Turiddu-pal\n17. Ale_Scr\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 363342,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/08-starting-line-up.jpg"
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/09-points.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 182358,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 67.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Australia 🇦🇺 · Round 9\n\n1. mennazz77 — 25\n2. LAZZA995 — 22\n3. FedeCaccia — 19\n4. Apara90 — 17\n5. Luchetto1212 — 16\n6. Dani_deg_85 — 13\n7. Pingu1728 — 11\n8. monoxide996 — 9\n9. Wkr_Ruchetta70 — 7\n10. italo95italia — 5\n11. Cavastark — 4\n12. Lele — 3\n13. Turiddu-pal — 2\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/09-points.jpg",
+    "miniatura": "storie/min/09-points.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 232138,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/09-points.jpg"
+   }
+  },
+  {
+   "codice": "10",
+   "titolo": "SPRINT",
+   "file": "10-sprint-result.jpg",
+   "miniatura": "min/10-sprint-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/10-sprint-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/10-sprint-result.jpg",
+   "sessione": 303,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 280272,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 90.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "SPRINT — GP Australia 🇦🇺 · Round 9\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/10-sprint-result.jpg",
+    "miniatura": "storie/min/10-sprint-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 336258,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/10-sprint-result.jpg"
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/11-testa-a-testa.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 197578,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 52.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Australia 🇦🇺 · Round 9\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/11-testa-a-testa.jpg",
+    "miniatura": "storie/min/11-testa-a-testa.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 243554,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/11-testa-a-testa.jpg"
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/12-miglior-recupero.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 217239,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Australia 🇦🇺 · Round 9\nLa rimonta è di Wkr_Ruchetta70: 6 posizioni recuperate.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/12-miglior-recupero.jpg",
+    "miniatura": "storie/min/12-miglior-recupero.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 265024,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/12-miglior-recupero.jpg"
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/13-giro-veloce.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 193661,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Australia 🇦🇺 · Round 9\nIl passo migliore: Luchetto1212 (Red Bull), 1:19.467.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/13-giro-veloce.jpg",
+    "miniatura": "storie/min/13-giro-veloce.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 241775,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/13-giro-veloce.jpg"
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/14-strategia.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 221425,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 49.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Australia 🇦🇺 · Round 9\n\nmennazz77: 1 sosta\nLAZZA995: 1 sosta\nFedeCaccia: 1 sosta\nApara90: 1 sosta\nLuchetto1212: 2 soste\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/14-strategia.jpg",
+    "miniatura": "storie/min/14-strategia.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 267867,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/14-strategia.jpg"
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/17-albo-gp.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 257766,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 64.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Australia 🇦🇺 · Round 9\n\nmennazz77 porta a casa il GP. La pole non basta: Cavastark chiude 11º. Qualcuno resta per strada: 4 ritiri. Luchetto1212 firma il giro più veloce, 1:19.467.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/17-albo-gp.jpg",
+    "miniatura": "storie/min/17-albo-gp.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 300155,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/17-albo-gp.jpg"
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/18-passo-gara.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 342250,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Australia 🇦🇺 · Round 9\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/18-passo-gara.jpg",
+    "miniatura": "storie/min/18-passo-gara.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 388840,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/18-passo-gara.jpg"
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/19-tenuta.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 364362,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Australia 🇦🇺 · Round 9\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/19-tenuta.jpg",
+    "miniatura": "storie/min/19-tenuta.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 418098,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/19-tenuta.jpg"
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/20-costanza.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 210978,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Australia 🇦🇺 · Round 9\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/20-costanza.jpg",
+    "miniatura": "storie/min/20-costanza.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 261002,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/20-costanza.jpg"
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/305/min/21-duello-interno.jpg",
+   "sessione": 305,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 335772,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 443,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Australia 🇦🇺 · Round 9\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/21-duello-interno.jpg",
+    "miniatura": "storie/min/21-duello-interno.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 389511,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/305/storie/21-duello-interno.jpg"
+   }
+  }
+ ],
+ "saltate": [
+  {
+   "codice": "03",
+   "file": "03-driver-standings.html",
+   "sessione": "305",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "04",
+   "file": "04-team-standings.html",
+   "sessione": "305",
+   "motivo": "niente da disegnare — v_grafica_classifica_scuderie -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "15",
+   "file": "15-leader-campionato.html",
+   "sessione": "305",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "16",
+   "file": "16-testa-classifica.html",
+   "sessione": "305",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  }
+ ],
+ "storie": 17,
+ "storie_errore": null
+}

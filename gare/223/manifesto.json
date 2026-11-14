@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-10-02T13:53:33.045Z",
+ "secondi": 21,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 223,
+ "qualifica_id": 223,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Austria",
+ "gp_cc": "at",
+ "round": 3,
+ "data_gara": "2026-10-01T20:30:26.127334+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "535687e8b51fed2a",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/223/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 726687,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 43775,
+   "storage": 682912,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/223/min/05-pole.jpg",
+   "sessione": 223,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 188509,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Austria 🇦🇹 · Round 3\npie_gv_pad (Audi) in 1:12.665, 0.049 s davanti a Vincent SV.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 239203,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/223/min/06-front-row.jpg",
+   "sessione": 223,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 221508,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Austria 🇦🇹 · Round 3\npie_gv_pad e Vincent SV davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 267809,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/223/min/07-the-grid.jpg",
+   "sessione": 223,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 257749,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austria 🇦🇹 · Round 3\n\n1. pie_gv_pad\n2. Vincent SV\n3. ben10_dv\n4. Liv\n5. Crokangelooi\n6. Luchetto1212\n7. monoxide996\n8. Trodo\n9. mennazz77\n10. ZioWinter_Tv\n11. LAZZA995\n12. italo95italia\n13. Pingu1728\n14. LILLUPAZZU\n15. Turiddu-pal\n16. Dani_deg_85\n17. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 313813,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/223/min/08-starting-line-up.jpg",
+   "sessione": 223,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 287758,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austria 🇦🇹 · Round 3\n\n1. pie_gv_pad\n2. Vincent SV\n3. ben10_dv\n4. Liv\n5. Crokangelooi\n6. Luchetto1212\n7. monoxide996\n8. Trodo\n9. mennazz77\n10. ZioWinter_Tv\n11. LAZZA995\n12. italo95italia\n13. Pingu1728\n14. LILLUPAZZU\n15. Turiddu-pal\n16. Dani_deg_85\n17. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 338874,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/223/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

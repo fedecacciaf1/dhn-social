@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-11-12T22:51:27.546Z",
+ "secondi": 16,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 304,
+ "qualifica_id": 304,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Australia",
+ "gp_cc": "au",
+ "round": 9,
+ "data_gara": "2026-11-12T21:28:56.234881+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "20441c0909625f7e",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/304/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 681562,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 44264,
+   "storage": 637298,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/304/min/05-pole.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 207749,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 87.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Australia 🇦🇺 · Round 9\nCavastark (Ferrari) in 1:17.509, 0.020 s davanti a mennazz77.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 260399,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/304/min/06-front-row.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 232379,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 82.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Australia 🇦🇺 · Round 9\nCavastark e mennazz77 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 278470,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/304/min/07-the-grid.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 272345,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Australia 🇦🇺 · Round 9\n\n1. Cavastark\n2. mennazz77\n3. FedeCaccia\n4. LAZZA995\n5. monoxide996\n6. Luchetto1212\n7. Apara90\n8. Dani_deg_85\n9. Trodo\n10. ben10_dv\n11. Vincent SV\n12. Pingu1728\n13. Lele\n14. italo95italia\n15. Wkr_Ruchetta70\n16. Turiddu-pal\n17. Ale_Scr\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 326622,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/304/min/08-starting-line-up.jpg",
+   "sessione": 304,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 312304,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Australia 🇦🇺 · Round 9\n\n1. Cavastark\n2. mennazz77\n3. FedeCaccia\n4. LAZZA995\n5. monoxide996\n6. Luchetto1212\n7. Apara90\n8. Dani_deg_85\n9. Trodo\n10. ben10_dv\n11. Vincent SV\n12. Pingu1728\n13. Lele\n14. italo95italia\n15. Wkr_Ruchetta70\n16. Turiddu-pal\n17. Ale_Scr\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 363342,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/304/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-11-10T11:45:19.970Z",
+ "secondi": 19,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 296,
+ "qualifica_id": 296,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Australia",
+ "gp_cc": "au",
+ "round": 9,
+ "data_gara": "2026-11-09T21:34:49.59566+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "231b05b5ab3b6784",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/296/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 759695,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 53993,
+   "storage": 705702,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/296/min/05-pole.jpg",
+   "sessione": 296,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 211100,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 91.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Australia 🇦🇺 · Round 9\nAMS_Raffa (McLaren) in 1:16.786, 0.020 s davanti a JustAfroKK.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 261371,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/296/min/06-front-row.jpg",
+   "sessione": 296,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 246555,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 88.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Australia 🇦🇺 · Round 9\nAMS_Raffa e JustAfroKK davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 291121,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/296/min/07-the-grid.jpg",
+   "sessione": 296,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 264132,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Australia 🇦🇺 · Round 9\n\n1. AMS_Raffa\n2. JustAfroKK\n3. Contex\n4. RW_serrubber\n5. gionny_8723\n6. vese\n7. Xawior\n8. Santino27\n9. Miguels117\n10. POWA\n11. Samugamer35\n12. TMR Beppelau\n13. PRESTIGE\n14. Y2Pier_\n15. siccmanu\n16. Nikitamazespin24\n17. monoxide996\n18. Qrt mariotir\n19. Luchetto1212\n20. Turiddu-pal\n21. LAZZA995\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 320365,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/296/min/08-starting-line-up.jpg",
+   "sessione": 296,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 287653,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Australia 🇦🇺 · Round 9\n\n1. AMS_Raffa\n2. JustAfroKK\n3. Contex\n4. RW_serrubber\n5. gionny_8723\n6. vese\n7. Xawior\n8. Santino27\n9. Miguels117\n10. POWA\n11. Samugamer35\n12. TMR Beppelau\n13. PRESTIGE\n14. Y2Pier_\n15. siccmanu\n16. Nikitamazespin24\n17. monoxide996\n18. Qrt mariotir\n19. Luchetto1212\n20. Turiddu-pal\n21. LAZZA995\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 339009,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/296/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

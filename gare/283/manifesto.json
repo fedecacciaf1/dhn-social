@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-11-02T23:00:16.016Z",
+ "secondi": 19,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 283,
+ "qualifica_id": 283,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Austin",
+ "gp_cc": "us",
+ "round": 8,
+ "data_gara": "2026-11-02T21:08:37.963014+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "097d6f5209c77082",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/283/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 630159,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 50995,
+   "storage": 579164,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/283/min/05-pole.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 198263,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Austin 🇺🇸 · Round 8\nXawior (Mercedes) in 1:32.198, 0.002 s davanti a gionny_8723.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248713,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/283/min/06-front-row.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 210734,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Austin 🇺🇸 · Round 8\nXawior e gionny_8723 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 256687,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/283/min/07-the-grid.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 273955,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austin 🇺🇸 · Round 8\n\n1. Xawior\n2. gionny_8723\n3. ELR_Ciro\n4. Nikitamazespin24\n5. vese\n6. Miguels117\n7. siccmanu\n8. Tixwins76\n9. Y2Pier_\n10. Samugamer35\n11. LAZZA995\n12. Luchetto1212\n13. monoxide996\n14. Dani_deg_85\n15. Qrt mariotir\n16. Capitano53\n17. Turiddu-pal\n18. pie_gv_pad\n19. MTS_DomenicoF1\n20. RW_serrubber\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 327606,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/283/min/08-starting-line-up.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 261451,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 67.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austin 🇺🇸 · Round 8\n\n1. Xawior\n2. gionny_8723\n3. ELR_Ciro\n4. Nikitamazespin24\n5. vese\n6. Miguels117\n7. siccmanu\n8. Tixwins76\n9. Y2Pier_\n10. Samugamer35\n11. LAZZA995\n12. Luchetto1212\n13. monoxide996\n14. Dani_deg_85\n15. Qrt mariotir\n16. Capitano53\n17. Turiddu-pal\n18. pie_gv_pad\n19. MTS_DomenicoF1\n20. RW_serrubber\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 316407,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/283/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

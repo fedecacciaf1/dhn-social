@@ -1,0 +1,675 @@
+{
+ "schema": 1,
+ "generato": "2026-09-27T10:49:56.426Z",
+ "secondi": 48,
+ "gara_id": 208,
+ "qualifica_id": 207,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Spa",
+ "gp_cc": "be",
+ "round": 2,
+ "data_gara": "2026-09-21T21:10:28.865013+00:00",
+ "stato": "ufficiale",
+ "impronta_dati": "3a30ef0a13177b0e",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/208/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1211392,
+  "richieste": 40,
+  "dalla_cache": 177,
+  "url_diversi": 36,
+  "per_tipo": {
+   "rest": 136246,
+   "storage": 1075146,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/01-race-result.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 294546,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 54.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Spa 🇧🇪 · Round 2\n\nDalla 4ª casella al gradino più alto: Xawior. 4 ritiri lungo il percorso.\n\n1. Xawior · 2. JustAfroKK (+1.839) · 3. vese (+5.216)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/02-winner.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 171991,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 64.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Spa 🇧🇪 · Round 2\nXawior parte 4º e se la prende comunque.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "03",
+   "titolo": "CLASSIFICA PILOTI",
+   "file": "03-driver-standings.jpg",
+   "miniatura": "min/03-driver-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/03-driver-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/03-driver-standings.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 338751,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76,
+   "immagini_mancanti": 0,
+   "immagini_totali": 332,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📊 CLASSIFICA PILOTI — dopo il GP Spa 🇧🇪 · Round 2\nIn testa JustAfroKK con 48 punti.\n1. JustAfroKK — 48\n2. Xawior — 42\n3. Xeno — 34\n4. Contex — 24\n5. Ale_Guastella95_ — 22\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "04",
+   "titolo": "CLASSIFICA SCUDERIE",
+   "file": "04-team-standings.jpg",
+   "miniatura": "min/04-team-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/04-team-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/04-team-standings.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 322554,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 82,
+   "immagini_mancanti": 0,
+   "immagini_totali": 321,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "CLASSIFICA SCUDERIE — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/05-pole.jpg",
+   "sessione": 207,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 188457,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Spa 🇧🇪 · Round 2\nXeno (Audi). Partire davanti non è servito a Xeno.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/06-front-row.jpg",
+   "sessione": 207,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 218548,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Spa 🇧🇪 · Round 2\nXeno e Ale_Guastella95_ davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/07-the-grid.jpg",
+   "sessione": 207,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 261533,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 70.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Spa 🇧🇪 · Round 2\n\n1. Xeno\n2. Ale_Guastella95_\n3. JustAfroKK\n4. Xawior\n5. Dusty\n6. Contex\n7. vese\n8. gionn_8723\n9. Y2Pier_\n10. Tixwins76\n11. emasanna12\n12. NOT_LICENSE-M4\n13. RW_serrubber\n14. Dani_deg_85\n15. Luchetto1212\n16. Alby\n17. Turiddu-pal\n18. Qrt mariotir\n19. Capitano53\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/08-starting-line-up.jpg",
+   "sessione": 207,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 260696,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 66.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Spa 🇧🇪 · Round 2\n\n1. Xeno\n2. Ale_Guastella95_\n3. JustAfroKK\n4. Xawior\n5. Dusty\n6. Contex\n7. vese\n8. gionn_8723\n9. Y2Pier_\n10. Tixwins76\n11. emasanna12\n12. NOT_LICENSE-M4\n13. RW_serrubber\n14. Dani_deg_85\n15. Luchetto1212\n16. Alby\n17. Turiddu-pal\n18. Qrt mariotir\n19. Capitano53\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/09-points.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 146528,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 66.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Spa 🇧🇪 · Round 2\n\n1. Xawior — 25\n2. JustAfroKK — 22\n3. vese — 20\n4. gionn_8723 — 17\n5. Xeno — 15\n6. RW_serrubber — 13\n7. Contex — 11\n8. Y2Pier_ — 9\n9. Tixwins76 — 7\n10. Dani_deg_85 — 5\n11. Alby — 4\n12. NOT_LICENSE-M4 — 3\n13. Turiddu-pal — 2\n14. Luchetto1212 — 1\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/11-testa-a-testa.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 212391,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 57.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/12-miglior-recupero.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 159816,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 69,
+   "immagini_mancanti": 0,
+   "immagini_totali": 102,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Spa 🇧🇪 · Round 2\nRW_serrubber ne passa 7 e chiude 6º.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/13-giro-veloce.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 176355,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Spa 🇧🇪 · Round 2\nvese (Alpine) firma 1:47.638.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/14-strategia.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 187269,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 44.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": "ATTENZIONE: 10 gomme con un codice mescola non riconosciuto (escono grigie col «?»). Va chiesto a Fede.",
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Spa 🇧🇪 · Round 2\n\nXawior: 1 sosta\nJustAfroKK: 1 sosta\nvese: 1 sosta\ngionn_8723: 1 sosta\nXeno: 1 sosta\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "15",
+   "titolo": "LEADER DEL CAMPIONATO",
+   "file": "15-leader-campionato.jpg",
+   "miniatura": "min/15-leader-campionato.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/15-leader-campionato.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/15-leader-campionato.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 217069,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 91.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "LEADER DEL CAMPIONATO — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "16",
+   "titolo": "I PRIMI TRE",
+   "file": "16-testa-classifica.jpg",
+   "miniatura": "min/16-testa-classifica.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/16-testa-classifica.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/16-testa-classifica.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 211173,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 66.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "I PRIMI TRE — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/17-albo-gp.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 241235,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 47.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Spa 🇧🇪 · Round 2\n\nXawior risale dalla 4ª posizione e vince. La pole non basta: Xeno chiude 5º. Qualcuno resta per strada: 4 ritiri. vese firma il giro più veloce, 1:47.638.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/18-passo-gara.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 343790,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 70.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/19-tenuta.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 333996,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/20-costanza.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 195640,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/208/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/208/min/21-duello-interno.jpg",
+   "sessione": 208,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 330751,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 506,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Spa 🇧🇪 · Round 2\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   }
+  }
+ ],
+ "saltate": []
+}
