@@ -1,0 +1,166 @@
+{
+ "schema": 1,
+ "generato": "2026-10-15T21:33:34.752Z",
+ "secondi": 17,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 252,
+ "qualifica_id": 252,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Canada",
+ "gp_cc": "ca",
+ "round": 5,
+ "data_gara": "2026-10-15T20:14:07.321891+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "e6c8e56408bd4bda",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/252/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 472735,
+  "richieste": 17,
+  "dalla_cache": 19,
+  "url_diversi": 15,
+  "per_tipo": {
+   "rest": 36133,
+   "storage": 436602,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/252/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/252/min/05-pole.jpg",
+   "sessione": 252,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 188830,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Canada 🇨🇦 · Round 5\npie_gv_pad (Audi) in 1:09.993, 0.210 s davanti a pippokennedy666.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 239302,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/252/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/252/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/252/min/07-the-grid.jpg",
+   "sessione": 252,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 231193,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 18,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Canada 🇨🇦 · Round 5\n\n1. pie_gv_pad\n3. pippokennedy666\n4. Luchetto1212\n5. Cavastark\n6. monoxide996\n8. Pingu1728\n9. LAZZA995\n10. FedeCaccia\n11. ben10_dv\n12. Dani_deg_85\n13. italo95italia\n14. Wkr_Ruchetta70\n15. Turiddu-pal\n16. Crokangelooi\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 282412,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/252/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/252/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/252/min/08-starting-line-up.jpg",
+   "sessione": 252,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 267356,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 10,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Canada 🇨🇦 · Round 5\n\n1. pie_gv_pad\n3. pippokennedy666\n4. Luchetto1212\n5. Cavastark\n6. monoxide996\n8. Pingu1728\n9. LAZZA995\n10. FedeCaccia\n11. ben10_dv\n12. Dani_deg_85\n13. italo95italia\n14. Wkr_Ruchetta70\n15. Turiddu-pal\n16. Crokangelooi\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 312898,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/252/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [
+  {
+   "codice": "06",
+   "file": "06-front-row.html",
+   "sessione": "252",
+   "motivo": "niente da disegnare — qualifica 252: servono almeno due piloti"
+  }
+ ],
+ "storie": 3,
+ "storie_errore": null
+}

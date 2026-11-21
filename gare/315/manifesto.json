@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-11-16T22:56:08.952Z",
+ "secondi": 15,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 315,
+ "qualifica_id": 315,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Olanda",
+ "gp_cc": "nl",
+ "round": 10,
+ "data_gara": "2026-11-16T21:19:07.357269+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "5564e815aabc7ab4",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/315/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 677047,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 51881,
+   "storage": 625166,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/315/min/05-pole.jpg",
+   "sessione": 315,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 210729,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 91.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Olanda 🇳🇱 · Round 10\nAMS_Raffa (McLaren) in 1:09.552, 0.115 s davanti a Xawior.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 261209,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/315/min/06-front-row.jpg",
+   "sessione": 315,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 245725,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 88.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Olanda 🇳🇱 · Round 10\nAMS_Raffa e Xawior davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 289933,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/315/min/07-the-grid.jpg",
+   "sessione": 315,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 266711,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Olanda 🇳🇱 · Round 10\n\n1. AMS_Raffa\n2. Xawior\n3. gionny_8723\n4. TMR Beppelau\n5. Contex\n6. Santino27\n7. vese\n8. Nikitamazespin24\n9. Samugamer35\n10. mennazz77\n11. siccmanu\n12. POWA\n13. Miguels117\n14. Luchetto1212\n15. Tixwins76\n16. Y2Pier_\n17. Lele\n18. Qrt mariotir\n19. Dani_deg_85\n20. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 321793,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/315/min/08-starting-line-up.jpg",
+   "sessione": 315,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 270747,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Olanda 🇳🇱 · Round 10\n\n1. AMS_Raffa\n2. Xawior\n3. gionny_8723\n4. TMR Beppelau\n5. Contex\n6. Santino27\n7. vese\n8. Nikitamazespin24\n9. Samugamer35\n10. mennazz77\n11. siccmanu\n12. POWA\n13. Miguels117\n14. Luchetto1212\n15. Tixwins76\n16. Y2Pier_\n17. Lele\n18. Qrt mariotir\n19. Dani_deg_85\n20. Turiddu-pal\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 325291,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/315/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}

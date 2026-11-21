@@ -1,0 +1,778 @@
+{
+ "schema": 1,
+ "generato": "2026-10-25T09:55:33.829Z",
+ "secondi": 80,
+ "modo": "gara",
+ "sessione_tipo": "gara",
+ "gara_id": 271,
+ "qualifica_id": 270,
+ "sprint_id": 269,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Brasile",
+ "gp_cc": "br",
+ "round": 6,
+ "data_gara": "2026-10-22T21:25:32.839174+00:00",
+ "stato": "ufficiale",
+ "impronta_dati": "400cdefee97aa864",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/271/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1343784,
+  "richieste": 45,
+  "dalla_cache": 169,
+  "url_diversi": 38,
+  "per_tipo": {
+   "rest": 139062,
+   "storage": 1204722,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/01-race-result.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 304124,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 63.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Brasile 🇧🇷 · Round 6\n\nVittoria di Cavastark, che si prende la testa e la tiene. 3 ritiri lungo il percorso.\n\n1. Cavastark · 2. pippokennedy666 (+4.783) · 3. FedeCaccia (+11.384)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/01-race-result.jpg",
+    "miniatura": "storie/min/01-race-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 357988,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/01-race-result.jpg"
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/02-winner.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 186915,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Brasile 🇧🇷 · Round 6\nVittoria di Cavastark, che si prende la testa e la tiene.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/02-winner.jpg",
+    "miniatura": "storie/min/02-winner.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 237917,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/02-winner.jpg"
+   }
+  },
+  {
+   "codice": "04",
+   "titolo": "CLASSIFICA SCUDERIE",
+   "file": "04-team-standings.jpg",
+   "miniatura": "min/04-team-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/04-team-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/04-team-standings.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 314123,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 321,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "CLASSIFICA SCUDERIE — GP Brasile 🇧🇷 · Round 6\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/04-team-standings.jpg",
+    "miniatura": "storie/min/04-team-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 361406,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/04-team-standings.jpg"
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/05-pole.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 198171,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Brasile 🇧🇷 · Round 6\nmennazz77 (Williams). Partire davanti non è servito a mennazz77.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 249823,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/06-front-row.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 216161,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Brasile 🇧🇷 · Round 6\nmennazz77 e pippokennedy666 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 265440,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/07-the-grid.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 270544,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Brasile 🇧🇷 · Round 6\n\n1. mennazz77\n2. pippokennedy666\n3. Cavastark\n4. pie_gv_pad\n5. LAZZA995\n6. FedeCaccia\n7. monoxide996\n8. Lele\n9. italo95italia\n10. Luchetto1212\n11. Vincent SV\n12. Dani_deg_85\n13. Trodo\n14. ben10_dv\n15. Pingu1728\n16. Wkr_Ruchetta70\n17. Turiddu-pal\n18. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 325451,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/08-starting-line-up.jpg",
+   "sessione": 270,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 315017,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Brasile 🇧🇷 · Round 6\n\n1. mennazz77\n2. pippokennedy666\n3. Cavastark\n4. pie_gv_pad\n5. LAZZA995\n6. FedeCaccia\n7. monoxide996\n8. Lele\n9. italo95italia\n10. Luchetto1212\n11. Vincent SV\n12. Dani_deg_85\n13. Trodo\n14. ben10_dv\n15. Pingu1728\n16. Wkr_Ruchetta70\n17. Turiddu-pal\n18. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 363550,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/08-starting-line-up.jpg"
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/09-points.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 145722,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 66.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Brasile 🇧🇷 · Round 6\n\n1. Cavastark — 25\n2. pippokennedy666 — 22\n3. FedeCaccia — 19\n4. LAZZA995 — 17\n5. mennazz77 — 15\n6. monoxide996 — 13\n7. Lele — 11\n8. ben10_dv — 9\n9. Vincent SV — 7\n10. Wkr_Ruchetta70 — 5\n11. pie_gv_pad — 4\n12. Luchetto1212 — 3\n13. Turiddu-pal — 3\n14. Pingu1728 — 1\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/09-points.jpg",
+    "miniatura": "storie/min/09-points.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 196868,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/09-points.jpg"
+   }
+  },
+  {
+   "codice": "10",
+   "titolo": "SPRINT",
+   "file": "10-sprint-result.jpg",
+   "miniatura": "min/10-sprint-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/10-sprint-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/10-sprint-result.jpg",
+   "sessione": 269,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 273316,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 90.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "SPRINT — GP Brasile 🇧🇷 · Round 6\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/10-sprint-result.jpg",
+    "miniatura": "storie/min/10-sprint-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 331121,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/10-sprint-result.jpg"
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/11-testa-a-testa.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 214442,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Brasile 🇧🇷 · Round 6\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/11-testa-a-testa.jpg",
+    "miniatura": "storie/min/11-testa-a-testa.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 259706,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/11-testa-a-testa.jpg"
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/12-miglior-recupero.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 189922,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Brasile 🇧🇷 · Round 6\nben10_dv ne passa 6 e chiude 8º.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/12-miglior-recupero.jpg",
+    "miniatura": "storie/min/12-miglior-recupero.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 239416,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/12-miglior-recupero.jpg"
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/13-giro-veloce.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 223587,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 88,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Brasile 🇧🇷 · Round 6\nTuriddu-pal (Haas) in 1:11.131.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/13-giro-veloce.jpg",
+    "miniatura": "storie/min/13-giro-veloce.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 273627,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/13-giro-veloce.jpg"
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/14-strategia.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 195421,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 47.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": "ATTENZIONE: 11 gomme con un codice mescola non riconosciuto (escono grigie col «?»). Va chiesto a Fede.",
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Brasile 🇧🇷 · Round 6\n\nCavastark: 1 sosta\npippokennedy666: 1 sosta\nFedeCaccia: 1 sosta\nLAZZA995: 2 soste\nmennazz77: 2 soste\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/14-strategia.jpg",
+    "miniatura": "storie/min/14-strategia.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 241896,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/14-strategia.jpg"
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/17-albo-gp.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 254720,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 64.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Brasile 🇧🇷 · Round 6\n\nCavastark passa davanti e chiude i conti. La pole non basta: mennazz77 chiude 5º. Qualcuno resta per strada: 3 ritiri. Giro veloce a Turiddu-pal in 1:11.131.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/17-albo-gp.jpg",
+    "miniatura": "storie/min/17-albo-gp.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 297091,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/17-albo-gp.jpg"
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/18-passo-gara.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 332244,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Brasile 🇧🇷 · Round 6\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/18-passo-gara.jpg",
+    "miniatura": "storie/min/18-passo-gara.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 379913,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/18-passo-gara.jpg"
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/19-tenuta.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 349353,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Brasile 🇧🇷 · Round 6\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/19-tenuta.jpg",
+    "miniatura": "storie/min/19-tenuta.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 403079,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/19-tenuta.jpg"
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/20-costanza.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 188559,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 85.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Brasile 🇧🇷 · Round 6\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/20-costanza.jpg",
+    "miniatura": "storie/min/20-costanza.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 240283,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/20-costanza.jpg"
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/271/min/21-duello-interno.jpg",
+   "sessione": 271,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 332671,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 443,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Brasile 🇧🇷 · Round 6\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/21-duello-interno.jpg",
+    "miniatura": "storie/min/21-duello-interno.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 384715,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/271/storie/21-duello-interno.jpg"
+   }
+  }
+ ],
+ "saltate": [
+  {
+   "codice": "03",
+   "file": "03-driver-standings.html",
+   "sessione": "271",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "15",
+   "file": "15-leader-campionato.html",
+   "sessione": "271",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "16",
+   "file": "16-testa-classifica.html",
+   "sessione": "271",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  }
+ ],
+ "storie": 18,
+ "storie_errore": null
+}

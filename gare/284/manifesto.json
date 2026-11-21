@@ -1,0 +1,670 @@
+{
+ "schema": 1,
+ "generato": "2026-11-03T23:27:17.289Z",
+ "secondi": 68,
+ "modo": "gara",
+ "sessione_tipo": "gara",
+ "gara_id": 284,
+ "qualifica_id": 283,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 1,
+ "categoria": "ÉLITE",
+ "gp_nome": "Austin",
+ "gp_cc": "us",
+ "round": 8,
+ "data_gara": "2026-11-02T22:05:57.511488+00:00",
+ "stato": "ufficiale",
+ "impronta_dati": "096e211d2604e03f",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/284/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1155796,
+  "richieste": 45,
+  "dalla_cache": 152,
+  "url_diversi": 37,
+  "per_tipo": {
+   "rest": 105842,
+   "storage": 1049954,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/01-race-result.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 289460,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 57,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Austin 🇺🇸 · Round 8\n\nXawior comanda dalla prima curva all'ultima. 3 ritiri lungo il percorso.\n\n1. Xawior · 2. gionny_8723 (+0.728) · 3. siccmanu (+2.049)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/01-race-result.jpg",
+    "miniatura": "storie/min/01-race-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 343024,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/01-race-result.jpg"
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/02-winner.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 172400,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 64.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Austin 🇺🇸 · Round 8\nXawior comanda dalla prima curva all'ultima.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/02-winner.jpg",
+    "miniatura": "storie/min/02-winner.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 221646,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/02-winner.jpg"
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/05-pole.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 198263,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Austin 🇺🇸 · Round 8\nXawior (Mercedes). Chi partiva davanti ci è rimasto.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248713,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/06-front-row.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 210734,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Austin 🇺🇸 · Round 8\nXawior e gionny_8723 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 256687,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/07-the-grid.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 273955,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 75.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austin 🇺🇸 · Round 8\n\n1. Xawior\n2. gionny_8723\n3. ELR_Ciro\n4. Nikitamazespin24\n5. vese\n6. Miguels117\n7. siccmanu\n8. Tixwins76\n9. Y2Pier_\n10. Samugamer35\n11. LAZZA995\n12. Luchetto1212\n13. monoxide996\n14. Dani_deg_85\n15. Qrt mariotir\n16. Capitano53\n17. Turiddu-pal\n18. pie_gv_pad\n19. MTS_DomenicoF1\n20. RW_serrubber\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 327606,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/08-starting-line-up.jpg",
+   "sessione": 283,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 261451,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 67.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Austin 🇺🇸 · Round 8\n\n1. Xawior\n2. gionny_8723\n3. ELR_Ciro\n4. Nikitamazespin24\n5. vese\n6. Miguels117\n7. siccmanu\n8. Tixwins76\n9. Y2Pier_\n10. Samugamer35\n11. LAZZA995\n12. Luchetto1212\n13. monoxide996\n14. Dani_deg_85\n15. Qrt mariotir\n16. Capitano53\n17. Turiddu-pal\n18. pie_gv_pad\n19. MTS_DomenicoF1\n20. RW_serrubber\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 316407,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/08-starting-line-up.jpg"
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/09-points.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 175354,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 61.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Austin 🇺🇸 · Round 8\n\n1. Xawior — 25\n2. gionny_8723 — 22\n3. siccmanu — 19\n4. Nikitamazespin24 — 17\n5. vese — 15\n6. Miguels117 — 13\n7. RW_serrubber — 11\n8. LAZZA995 — 9\n9. Tixwins76 — 7\n10. Dani_deg_85 — 5\n11. ELR_Ciro — 5\n12. Samugamer35 — 3\n13. Luchetto1212 — 2\n14. Capitano53 — 1\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/09-points.jpg",
+    "miniatura": "storie/min/09-points.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 225231,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/09-points.jpg"
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/11-testa-a-testa.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 187808,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 54.3,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Austin 🇺🇸 · Round 8\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/11-testa-a-testa.jpg",
+    "miniatura": "storie/min/11-testa-a-testa.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 234633,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/11-testa-a-testa.jpg"
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/12-miglior-recupero.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 204151,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Austin 🇺🇸 · Round 8\nLa rimonta è di RW_serrubber: 13 posizioni recuperate.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/12-miglior-recupero.jpg",
+    "miniatura": "storie/min/12-miglior-recupero.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 250985,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/12-miglior-recupero.jpg"
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/13-giro-veloce.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 172568,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Austin 🇺🇸 · Round 8\nIl passo migliore: ELR_Ciro (Ferrari), 1:34.506.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/13-giro-veloce.jpg",
+    "miniatura": "storie/min/13-giro-veloce.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 225308,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/13-giro-veloce.jpg"
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/17-albo-gp.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 251455,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 52.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Austin 🇺🇸 · Round 8\n\nXawior comanda dalla prima curva all'ultima. La pole vale la vittoria. Qualcuno resta per strada: 3 ritiri. Giro veloce a ELR_Ciro in 1:34.506.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/17-albo-gp.jpg",
+    "miniatura": "storie/min/17-albo-gp.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 294827,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/17-albo-gp.jpg"
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/18-passo-gara.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 328946,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Austin 🇺🇸 · Round 8\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/18-passo-gara.jpg",
+    "miniatura": "storie/min/18-passo-gara.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 374716,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/18-passo-gara.jpg"
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/19-tenuta.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 325767,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Austin 🇺🇸 · Round 8\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/19-tenuta.jpg",
+    "miniatura": "storie/min/19-tenuta.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 374836,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/19-tenuta.jpg"
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/20-costanza.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 205050,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Austin 🇺🇸 · Round 8\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/20-costanza.jpg",
+    "miniatura": "storie/min/20-costanza.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 253878,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/20-costanza.jpg"
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/284/min/21-duello-interno.jpg",
+   "sessione": 284,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 352102,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 569,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Austin 🇺🇸 · Round 8\nÉLITE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/21-duello-interno.jpg",
+    "miniatura": "storie/min/21-duello-interno.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 402276,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/284/storie/21-duello-interno.jpg"
+   }
+  }
+ ],
+ "saltate": [
+  {
+   "codice": "03",
+   "file": "03-driver-standings.html",
+   "sessione": "284",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "04",
+   "file": "04-team-standings.html",
+   "sessione": "284",
+   "motivo": "niente da disegnare — v_grafica_classifica_scuderie -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "14",
+   "file": "14-strategia.html",
+   "sessione": "284",
+   "motivo": "ATTENZIONE: 10 gomme con un codice mescola non riconosciuto (escono grigie col «?»). Va chiesto a Fede."
+  },
+  {
+   "codice": "15",
+   "file": "15-leader-campionato.html",
+   "sessione": "284",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  },
+  {
+   "codice": "16",
+   "file": "16-testa-classifica.html",
+   "sessione": "284",
+   "motivo": "niente da disegnare — v_grafica_classifica_piloti -> HTTP 500 {\"code\":\"57014\",\"details\":null,\"hint\":null,\"message\":\"canceling statement due to statement timeout\"}"
+  }
+ ],
+ "storie": 15,
+ "storie_errore": null
+}

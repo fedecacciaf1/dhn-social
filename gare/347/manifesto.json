@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "generato": "2026-11-19T22:08:43.253Z",
+ "secondi": 18,
+ "modo": "qualifica",
+ "sessione_tipo": "qualifica",
+ "gara_id": 347,
+ "qualifica_id": 347,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Olanda",
+ "gp_cc": "nl",
+ "round": 10,
+ "data_gara": "2026-11-19T21:07:52.022189+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "30c171aeec83cff1",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/347/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 691940,
+  "richieste": 22,
+  "dalla_cache": 24,
+  "url_diversi": 19,
+  "per_tipo": {
+   "rest": 39168,
+   "storage": 652772,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/347/min/05-pole.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 197655,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Olanda 🇳🇱 · Round 10\nmennazz77 (Williams) in 1:10.113, 0.267 s davanti a FedeCaccia.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248931,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/347/min/06-front-row.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 232638,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Olanda 🇳🇱 · Round 10\nmennazz77 e FedeCaccia davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 278305,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/347/min/07-the-grid.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 276043,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Olanda 🇳🇱 · Round 10\n\n1. mennazz77\n2. FedeCaccia\n3. LAZZA995\n4. Apara90\n5. Luchetto1212\n6. monoxide996\n7. Lele\n8. italo95italia\n9. Pingu1728\n10. Dani_deg_85\n11. ben10_dv\n12. Turiddu-pal\n13. Krosso_32Forever\n14. Vincent SV\n15. Cavastark\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 329433,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/347/min/08-starting-line-up.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 298629,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Olanda 🇳🇱 · Round 10\n\n1. mennazz77\n2. FedeCaccia\n3. LAZZA995\n4. Apara90\n5. Luchetto1212\n6. monoxide996\n7. Lele\n8. italo95italia\n9. Pingu1728\n10. Dani_deg_85\n11. ben10_dv\n12. Turiddu-pal\n13. Krosso_32Forever\n14. Vincent SV\n15. Cavastark\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 349689,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/347/storie/08-starting-line-up.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 4,
+ "storie_errore": null
+}
