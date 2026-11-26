@@ -1,0 +1,839 @@
+{
+ "schema": 1,
+ "generato": "2026-11-21T07:45:50.763Z",
+ "secondi": 52,
+ "modo": "gara",
+ "sessione_tipo": "gara",
+ "gara_id": 348,
+ "qualifica_id": 347,
+ "sprint_id": null,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Olanda",
+ "gp_cc": "nl",
+ "round": 10,
+ "data_gara": "2026-11-19T22:04:44.590598+00:00",
+ "stato": "ufficiale",
+ "impronta_dati": "6d4153f067749a51",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/348/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1031166,
+  "richieste": 36,
+  "dalla_cache": 179,
+  "url_diversi": 32,
+  "per_tipo": {
+   "rest": 127004,
+   "storage": 904162,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/01-race-result.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 295479,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 59.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Olanda 🇳🇱 · Round 10\n\nmennazz77 comanda dalla prima curva all'ultima. Qualcuno resta per strada: 4 ritiri.\n\n1. mennazz77 · 2. LAZZA995 (+2.319) · 3. Cavastark (+5.970)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/01-race-result.jpg",
+    "miniatura": "storie/min/01-race-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 349391,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/01-race-result.jpg"
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/02-winner.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 167885,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 67.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Olanda 🇳🇱 · Round 10\nPole, testa della gara, vittoria: giornata piena per mennazz77.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/02-winner.jpg",
+    "miniatura": "storie/min/02-winner.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 217524,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/02-winner.jpg"
+   }
+  },
+  {
+   "codice": "03",
+   "titolo": "CLASSIFICA PILOTI",
+   "file": "03-driver-standings.jpg",
+   "miniatura": "min/03-driver-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/03-driver-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/03-driver-standings.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 343558,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 332,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📊 CLASSIFICA PILOTI — dopo il GP Olanda 🇳🇱 · Round 10\nIn testa LAZZA995 con 203 punti.\n1. LAZZA995 — 203\n2. Luchetto1212 — 166\n3. mennazz77 — 162\n4. FedeCaccia — 135\n5. monoxide996 — 111\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/03-driver-standings.jpg",
+    "miniatura": "storie/min/03-driver-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 390262,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/03-driver-standings.jpg"
+   }
+  },
+  {
+   "codice": "04",
+   "titolo": "CLASSIFICA SCUDERIE",
+   "file": "04-team-standings.jpg",
+   "miniatura": "min/04-team-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/04-team-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/04-team-standings.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 319579,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 81.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 321,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "CLASSIFICA SCUDERIE — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/04-team-standings.jpg",
+    "miniatura": "storie/min/04-team-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 368158,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/04-team-standings.jpg"
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/05-pole.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 197655,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Olanda 🇳🇱 · Round 10\nmennazz77 (Williams). La pole vale la vittoria.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248931,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/06-front-row.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 232638,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Olanda 🇳🇱 · Round 10\nmennazz77 e FedeCaccia davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 278305,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/07-the-grid.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 276043,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Olanda 🇳🇱 · Round 10\n\n1. mennazz77\n2. FedeCaccia\n3. LAZZA995\n4. Apara90\n5. Luchetto1212\n6. monoxide996\n7. Lele\n8. italo95italia\n9. Pingu1728\n10. Dani_deg_85\n11. ben10_dv\n12. Turiddu-pal\n13. Vincent SV\n14. Cavastark\n15. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 329433,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/08-starting-line-up.jpg",
+   "sessione": 347,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 298629,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Olanda 🇳🇱 · Round 10\n\n1. mennazz77\n2. FedeCaccia\n3. LAZZA995\n4. Apara90\n5. Luchetto1212\n6. monoxide996\n7. Lele\n8. italo95italia\n9. Pingu1728\n10. Dani_deg_85\n11. ben10_dv\n12. Turiddu-pal\n13. Vincent SV\n14. Cavastark\n15. Krosso_32Forever\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 349689,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/08-starting-line-up.jpg"
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/09-points.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 173206,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Olanda 🇳🇱 · Round 10\n\n1. mennazz77 — 25\n2. LAZZA995 — 22\n3. Cavastark — 19\n4. FedeCaccia — 17\n5. italo95italia — 15\n6. Apara90 — 13\n7. Lele — 11\n8. Luchetto1212 — 10\n9. Dani_deg_85 — 7\n10. Turiddu-pal — 5\n11. Pingu1728 — 4\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/09-points.jpg",
+    "miniatura": "storie/min/09-points.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 222915,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/09-points.jpg"
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/11-testa-a-testa.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 196275,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 51.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/11-testa-a-testa.jpg",
+    "miniatura": "storie/min/11-testa-a-testa.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 242126,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/11-testa-a-testa.jpg"
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/12-miglior-recupero.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 217646,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 85.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Olanda 🇳🇱 · Round 10\nLa rimonta è di Cavastark: 11 posizioni recuperate.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/12-miglior-recupero.jpg",
+    "miniatura": "storie/min/12-miglior-recupero.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 268965,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/12-miglior-recupero.jpg"
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/13-giro-veloce.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 193912,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Olanda 🇳🇱 · Round 10\nLuchetto1212 (Red Bull) in 1:12.263.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/13-giro-veloce.jpg",
+    "miniatura": "storie/min/13-giro-veloce.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 242872,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/13-giro-veloce.jpg"
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/14-strategia.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 210348,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 47.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": "ATTENZIONE: 16 gomme con un codice mescola non riconosciuto (escono grigie col «?»). Va chiesto a Fede.",
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Olanda 🇳🇱 · Round 10\n\nmennazz77: 1 sosta\nLAZZA995: 2 soste\nCavastark: 2 soste\nFedeCaccia: 2 soste\nitalo95italia: 2 soste\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/14-strategia.jpg",
+    "miniatura": "storie/min/14-strategia.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 257308,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/14-strategia.jpg"
+   }
+  },
+  {
+   "codice": "15",
+   "titolo": "LEADER DEL CAMPIONATO",
+   "file": "15-leader-campionato.jpg",
+   "miniatura": "min/15-leader-campionato.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/15-leader-campionato.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/15-leader-campionato.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 179991,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 91.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "LEADER DEL CAMPIONATO — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/15-leader-campionato.jpg",
+    "miniatura": "storie/min/15-leader-campionato.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 228233,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/15-leader-campionato.jpg"
+   }
+  },
+  {
+   "codice": "16",
+   "titolo": "I PRIMI TRE",
+   "file": "16-testa-classifica.jpg",
+   "miniatura": "min/16-testa-classifica.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/16-testa-classifica.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/16-testa-classifica.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 189070,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 61.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "I PRIMI TRE — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/16-testa-classifica.jpg",
+    "miniatura": "storie/min/16-testa-classifica.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 235957,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/16-testa-classifica.jpg"
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/17-albo-gp.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 248941,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 52.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Olanda 🇳🇱 · Round 10\n\nmennazz77 parte davanti e non si volta mai. Chi partiva davanti ci è rimasto. 4 ritiri lungo il percorso. Luchetto1212 firma il giro più veloce, 1:12.263.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/17-albo-gp.jpg",
+    "miniatura": "storie/min/17-albo-gp.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 292222,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/17-albo-gp.jpg"
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/18-passo-gara.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 334341,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72.1,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/18-passo-gara.jpg",
+    "miniatura": "storie/min/18-passo-gara.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 378201,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/18-passo-gara.jpg"
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/19-tenuta.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 362398,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/19-tenuta.jpg",
+    "miniatura": "storie/min/19-tenuta.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 416947,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/19-tenuta.jpg"
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/20-costanza.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 174939,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 74.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/20-costanza.jpg",
+    "miniatura": "storie/min/20-costanza.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 225471,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/20-costanza.jpg"
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/348/min/21-duello-interno.jpg",
+   "sessione": 348,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 279797,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 64.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 317,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Olanda 🇳🇱 · Round 10\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/21-duello-interno.jpg",
+    "miniatura": "storie/min/21-duello-interno.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 328582,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/348/storie/21-duello-interno.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 20,
+ "storie_errore": null
+}

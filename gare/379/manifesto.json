@@ -1,0 +1,879 @@
+{
+ "schema": 1,
+ "generato": "2026-11-26T22:47:12.044Z",
+ "secondi": 70,
+ "modo": "gara",
+ "sessione_tipo": "gara",
+ "gara_id": 379,
+ "qualifica_id": 378,
+ "sprint_id": 377,
+ "stagione_id": 10,
+ "categoria_id": 2,
+ "categoria": "ROOKIE",
+ "gp_nome": "Messico",
+ "gp_cc": "mx",
+ "round": 11,
+ "data_gara": "2026-11-26T22:29:20.408729+00:00",
+ "stato": "provvisorio",
+ "impronta_dati": "67a41d986a1d36fa",
+ "font": "locale",
+ "base_url": "https://fedecacciaf1.github.io/dhn-social/gare/379/",
+ "regole_meta_verificate_il": "2026-09-12",
+ "supabase": {
+  "byte": 1308392,
+  "richieste": 41,
+  "dalla_cache": 198,
+  "url_diversi": 37,
+  "per_tipo": {
+   "rest": 153954,
+   "storage": 1154438,
+   "altro": 0
+  },
+  "tetto_byte": 20971520,
+  "metodo": "content-length della risposta; se manca, corpo decompresso (per eccesso)"
+ },
+ "voci": [
+  {
+   "codice": "01",
+   "titolo": "RISULTATO",
+   "file": "01-race-result.jpg",
+   "miniatura": "min/01-race-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/01-race-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/01-race-result.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 307488,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 63,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 GP Messico 🇲🇽 · Round 11\n\nCavastark porta a casa il GP. Qualcuno resta per strada: 4 ritiri.\n\n1. Cavastark · 2. FedeCaccia (+0.089) · 3. mennazz77 (+12.281)\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/01-race-result.jpg",
+    "miniatura": "storie/min/01-race-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 361343,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/01-race-result.jpg"
+   }
+  },
+  {
+   "codice": "02",
+   "titolo": "VINCITORE",
+   "file": "02-winner.jpg",
+   "miniatura": "min/02-winner.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/02-winner.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/02-winner.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 187014,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏆 GP Messico 🇲🇽 · Round 11\nCavastark porta a casa il GP.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/02-winner.jpg",
+    "miniatura": "storie/min/02-winner.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 237885,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/02-winner.jpg"
+   }
+  },
+  {
+   "codice": "03",
+   "titolo": "CLASSIFICA PILOTI",
+   "file": "03-driver-standings.jpg",
+   "miniatura": "min/03-driver-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/03-driver-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/03-driver-standings.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 349898,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 332,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📊 CLASSIFICA PILOTI — dopo il GP Messico 🇲🇽 · Round 11\nIn testa LAZZA995 con 221 punti.\n1. LAZZA995 — 221\n2. mennazz77 — 191\n3. Luchetto1212 — 172\n4. FedeCaccia — 157\n5. Cavastark — 134\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/03-driver-standings.jpg",
+    "miniatura": "storie/min/03-driver-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 395024,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/03-driver-standings.jpg"
+   }
+  },
+  {
+   "codice": "04",
+   "titolo": "CLASSIFICA SCUDERIE",
+   "file": "04-team-standings.jpg",
+   "miniatura": "min/04-team-standings.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/04-team-standings.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/04-team-standings.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 319465,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 81.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 321,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "CLASSIFICA SCUDERIE — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/04-team-standings.jpg",
+    "miniatura": "storie/min/04-team-standings.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 367769,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/04-team-standings.jpg"
+   }
+  },
+  {
+   "codice": "05",
+   "titolo": "POLE",
+   "file": "05-pole.jpg",
+   "miniatura": "min/05-pole.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/05-pole.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/05-pole.jpg",
+   "sessione": 378,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 198288,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🅿️ POLE — GP Messico 🇲🇽 · Round 11\nmennazz77 (Williams). La pole non basta: mennazz77 chiude 3º.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/05-pole.jpg",
+    "miniatura": "storie/min/05-pole.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 249299,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/05-pole.jpg"
+   }
+  },
+  {
+   "codice": "06",
+   "titolo": "PRIMA FILA",
+   "file": "06-front-row.jpg",
+   "miniatura": "min/06-front-row.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/06-front-row.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/06-front-row.jpg",
+   "sessione": 378,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 221228,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 PRIMA FILA — GP Messico 🇲🇽 · Round 11\nmennazz77 e Luchetto1212 davanti a tutti.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/06-front-row.jpg",
+    "miniatura": "storie/min/06-front-row.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 269070,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/06-front-row.jpg"
+   }
+  },
+  {
+   "codice": "07",
+   "titolo": "LA GRIGLIA",
+   "file": "07-the-grid.jpg",
+   "miniatura": "min/07-the-grid.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/07-the-grid.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/07-the-grid.jpg",
+   "sessione": 378,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 280911,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 76.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 22,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Messico 🇲🇽 · Round 11\n\n1. mennazz77\n2. Luchetto1212\n3. Cavastark\n4. LAZZA995\n5. FedeCaccia\n6. Apara90\n7. monoxide996\n8. Dani_deg_85\n9. italo95italia\n10. Trodo\n11. Lele\n12. Turiddu-pal\n13. Krosso_32Forever\n14. Vincent SV\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/07-the-grid.jpg",
+    "miniatura": "storie/min/07-the-grid.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 334835,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/07-the-grid.jpg"
+   }
+  },
+  {
+   "codice": "08",
+   "titolo": "SCHIERAMENTO",
+   "file": "08-starting-line-up.jpg",
+   "miniatura": "min/08-starting-line-up.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/08-starting-line-up.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/08-starting-line-up.jpg",
+   "sessione": 378,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 305798,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 78,
+   "immagini_mancanti": 0,
+   "immagini_totali": 12,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true
+   },
+   "didascalia": "🚦 LA GRIGLIA — GP Messico 🇲🇽 · Round 11\n\n1. mennazz77\n2. Luchetto1212\n3. Cavastark\n4. LAZZA995\n5. FedeCaccia\n6. Apara90\n7. monoxide996\n8. Dani_deg_85\n9. italo95italia\n10. Trodo\n11. Lele\n12. Turiddu-pal\n13. Krosso_32Forever\n14. Vincent SV\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/08-starting-line-up.jpg",
+    "miniatura": "storie/min/08-starting-line-up.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 358273,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/08-starting-line-up.jpg"
+   }
+  },
+  {
+   "codice": "09",
+   "titolo": "A PUNTI",
+   "file": "09-points.jpg",
+   "miniatura": "min/09-points.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/09-points.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/09-points.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 182748,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 80.4,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🎯 A PUNTI — GP Messico 🇲🇽 · Round 11\n\n1. Cavastark — 25\n2. FedeCaccia — 22\n3. mennazz77 — 19\n4. Dani_deg_85 — 18\n5. monoxide996 — 15\n6. Apara90 — 13\n7. Trodo — 11\n8. LAZZA995 — 9\n9. italo95italia — 7\n10. Turiddu-pal — 5\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/09-points.jpg",
+    "miniatura": "storie/min/09-points.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 234871,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/09-points.jpg"
+   }
+  },
+  {
+   "codice": "10",
+   "titolo": "SPRINT",
+   "file": "10-sprint-result.jpg",
+   "miniatura": "min/10-sprint-result.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/10-sprint-result.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/10-sprint-result.jpg",
+   "sessione": 377,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 273163,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 91.8,
+   "immagini_mancanti": 0,
+   "immagini_totali": 184,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "SPRINT — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/10-sprint-result.jpg",
+    "miniatura": "storie/min/10-sprint-result.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 329054,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/10-sprint-result.jpg"
+   }
+  },
+  {
+   "codice": "11",
+   "titolo": "TESTA A TESTA",
+   "file": "11-testa-a-testa.jpg",
+   "miniatura": "min/11-testa-a-testa.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/11-testa-a-testa.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/11-testa-a-testa.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 226144,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 72,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TESTA A TESTA — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/11-testa-a-testa.jpg",
+    "miniatura": "storie/min/11-testa-a-testa.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 271800,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/11-testa-a-testa.jpg"
+   }
+  },
+  {
+   "codice": "12",
+   "titolo": "POSIZIONI GUADAGNATE",
+   "file": "12-miglior-recupero.jpg",
+   "miniatura": "min/12-miglior-recupero.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/12-miglior-recupero.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/12-miglior-recupero.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 220949,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 86.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "📈 POSIZIONI GUADAGNATE — GP Messico 🇲🇽 · Round 11\nDani_deg_85 guadagna 4 posizioni, dalla 8ª alla 4ª.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/12-miglior-recupero.jpg",
+    "miniatura": "storie/min/12-miglior-recupero.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 270185,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/12-miglior-recupero.jpg"
+   }
+  },
+  {
+   "codice": "13",
+   "titolo": "GIRO VELOCE",
+   "file": "13-giro-veloce.jpg",
+   "miniatura": "min/13-giro-veloce.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/13-giro-veloce.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/13-giro-veloce.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 198706,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 81.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "⏱️ GIRO VELOCE — GP Messico 🇲🇽 · Round 11\nIl passo migliore: Dani_deg_85 (Alpine), 1:18.198.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/13-giro-veloce.jpg",
+    "miniatura": "storie/min/13-giro-veloce.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 248507,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/13-giro-veloce.jpg"
+   }
+  },
+  {
+   "codice": "14",
+   "titolo": "STRATEGIA",
+   "file": "14-strategia.jpg",
+   "miniatura": "min/14-strategia.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/14-strategia.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/14-strategia.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 216313,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 47.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 2,
+   "avviso_pagina": "ATTENZIONE: 13 gomme con un codice mescola non riconosciuto (escono grigie col «?»). Va chiesto a Fede.",
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🔧 STRATEGIA — GP Messico 🇲🇽 · Round 11\n\nCavastark: 1 sosta\nFedeCaccia: 1 sosta\nmennazz77: 1 sosta\nDani_deg_85: 2 soste\nmonoxide996: 1 sosta\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/14-strategia.jpg",
+    "miniatura": "storie/min/14-strategia.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 263778,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/14-strategia.jpg"
+   }
+  },
+  {
+   "codice": "15",
+   "titolo": "LEADER DEL CAMPIONATO",
+   "file": "15-leader-campionato.jpg",
+   "miniatura": "min/15-leader-campionato.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/15-leader-campionato.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/15-leader-campionato.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 176925,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 91.9,
+   "immagini_mancanti": 0,
+   "immagini_totali": 103,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "LEADER DEL CAMPIONATO — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/15-leader-campionato.jpg",
+    "miniatura": "storie/min/15-leader-campionato.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 224351,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/15-leader-campionato.jpg"
+   }
+  },
+  {
+   "codice": "16",
+   "titolo": "I PRIMI TRE",
+   "file": "16-testa-classifica.jpg",
+   "miniatura": "min/16-testa-classifica.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/16-testa-classifica.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/16-testa-classifica.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 190344,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 62,
+   "immagini_mancanti": 0,
+   "immagini_totali": 6,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "I PRIMI TRE — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/16-testa-classifica.jpg",
+    "miniatura": "storie/min/16-testa-classifica.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 237262,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/16-testa-classifica.jpg"
+   }
+  },
+  {
+   "codice": "17",
+   "titolo": "RIEPILOGO GP",
+   "file": "17-albo-gp.jpg",
+   "miniatura": "min/17-albo-gp.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/17-albo-gp.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/17-albo-gp.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 266092,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 65.7,
+   "immagini_mancanti": 0,
+   "immagini_totali": 116,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "🏁 RIEPILOGO — GP Messico 🇲🇽 · Round 11\n\nCavastark passa davanti e chiude i conti. Partire davanti non è servito a mennazz77. 4 ritiri lungo il percorso. Giro veloce a Dani_deg_85 in 1:18.198.\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "generata dai dati",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/17-albo-gp.jpg",
+    "miniatura": "storie/min/17-albo-gp.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 307494,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/17-albo-gp.jpg"
+   }
+  },
+  {
+   "codice": "18",
+   "titolo": "PASSO GARA",
+   "file": "18-passo-gara.jpg",
+   "miniatura": "min/18-passo-gara.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/18-passo-gara.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/18-passo-gara.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 339771,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 73.6,
+   "immagini_mancanti": 0,
+   "immagini_totali": 326,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "PASSO GARA — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/18-passo-gara.jpg",
+    "miniatura": "storie/min/18-passo-gara.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 382401,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/18-passo-gara.jpg"
+   }
+  },
+  {
+   "codice": "19",
+   "titolo": "TENUTA",
+   "file": "19-tenuta.jpg",
+   "miniatura": "min/19-tenuta.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/19-tenuta.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/19-tenuta.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 356461,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 79,
+   "immagini_mancanti": 0,
+   "immagini_totali": 324,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "TENUTA — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/19-tenuta.jpg",
+    "miniatura": "storie/min/19-tenuta.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 411250,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/19-tenuta.jpg"
+   }
+  },
+  {
+   "codice": "20",
+   "titolo": "COSTANZA",
+   "file": "20-costanza.jpg",
+   "miniatura": "min/20-costanza.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/20-costanza.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/20-costanza.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 194214,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 77.5,
+   "immagini_mancanti": 0,
+   "immagini_totali": 151,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "COSTANZA — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/20-costanza.jpg",
+    "miniatura": "storie/min/20-costanza.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 243612,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/20-costanza.jpg"
+   }
+  },
+  {
+   "codice": "21",
+   "titolo": "DUELLO INTERNO",
+   "file": "21-duello-interno.jpg",
+   "miniatura": "min/21-duello-interno.jpg",
+   "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/21-duello-interno.jpg",
+   "url_miniatura": "https://fedecacciaf1.github.io/dhn-social/gare/379/min/21-duello-interno.jpg",
+   "sessione": 379,
+   "larghezza": 1080,
+   "altezza": 1350,
+   "byte": 287254,
+   "miniatura_misure": "360x450",
+   "deviazione_pixel": 71.2,
+   "immagini_mancanti": 0,
+   "immagini_totali": 317,
+   "avviso_pagina": null,
+   "font": {
+    "Saira Condensed": true,
+    "Titillium Web": true,
+    "Chakra Petch": true
+   },
+   "didascalia": "DUELLO INTERNO — GP Messico 🇲🇽 · Round 11\nROOKIE\n\n#DHNChampionship #F125 #simracing",
+   "didascalia_origine": "solo titolo (da completare)",
+   "instagram": {
+    "ok": true,
+    "problemi": []
+   },
+   "facebook": {
+    "ok": true,
+    "problemi": []
+   },
+   "storia": {
+    "file": "storie/21-duello-interno.jpg",
+    "miniatura": "storie/min/21-duello-interno.jpg",
+    "larghezza": 1080,
+    "altezza": 1920,
+    "byte": 336492,
+    "url": "https://fedecacciaf1.github.io/dhn-social/gare/379/storie/21-duello-interno.jpg"
+   }
+  }
+ ],
+ "saltate": [],
+ "storie": 21,
+ "storie_errore": null
+}
